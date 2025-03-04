@@ -72,7 +72,6 @@ async function getUserPaces(
   }
 }
 
-// No handler do método POST:
 async function updateUserPaces(
   req: NextApiRequest, 
   res: NextApiResponse,
@@ -97,6 +96,20 @@ async function updateUserPaces(
     // Validar a data inicial, se fornecida
     if (paceSettings.startDate && !/^\d{4}-\d{2}-\d{2}$/.test(paceSettings.startDate)) {
       return res.status(400).json({ error: 'Formato de data inválido. Use YYYY-MM-DD.' });
+    }
+
+    // Validar formato de tempo base
+    if (paceSettings.baseTime && !/^\d{2}:\d{2}:\d{2}$/.test(paceSettings.baseTime)) {
+      return res.status(400).json({ error: 'Formato de tempo inválido. Use HH:MM:SS.' });
+    }
+
+    // Validar formatos dos ritmos personalizados
+    for (const [key, value] of Object.entries(paceSettings)) {
+      if (key.startsWith('custom_') && typeof value === 'string' && !/^\d{1,2}:\d{2}$/.test(value)) {
+        return res.status(400).json({ 
+          error: `Formato de ritmo inválido para ${key.replace('custom_', '')}. Use MM:SS.` 
+        });
+      }
     }
 
     const client = await clientPromise;
@@ -136,6 +149,7 @@ async function updateUserPaces(
       { 
         $set: { 
           customPaces: customPaces,
+          lastActive: new Date(),
           updatedAt: new Date() 
         } 
       }

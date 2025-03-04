@@ -36,7 +36,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import VO2maxIndicator from '@/components/default/VO2maxIndicator';
+import VO2maxIndicator from '@/components/plan/VO2maxIndicator';
 
 interface Plan {
   name: string;

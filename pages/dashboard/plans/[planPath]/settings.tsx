@@ -4,12 +4,12 @@ import { getSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { format } from "date-fns";
 import { Layout } from "@/components/layout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge"
 import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input"; // Adicionado para o campo de data
+import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -17,16 +17,19 @@ import TimeInput from "@/components/TimeInput";
 import { PlanModel } from "@/models";
 import { Slider } from "@/components/ui/slider";
 import { defaultTimes, findClosestRaceParams, findPaceValues } from "@/lib/plan-utils";
-import { Check, Info, Save, AlertTriangle, ArrowLeft, Clock, Calendar } from "lucide-react";
+import { Check, Info, Save, AlertTriangle, ArrowLeft, Clock, Calendar, BarChart2 } from "lucide-react";
 import { getPlanByPath } from "@/lib/db-utils";
 import { getUserCustomPaces } from "@/lib/user-utils";
-import { storageHelper } from "@/lib/plan-utils"; // Importando storageHelper para lidar com a data
+import { storageHelper } from "@/lib/plan-utils";
+import VO2maxIndicator from "@/components/default/VO2maxConfig";
+import { toast } from "sonner";
 
 interface PaceSetting {
   name: string;
   value: string;
   default: string;
   isCustom: boolean;
+  description?: string;
 }
 
 interface PlanSettingsProps {
@@ -34,6 +37,18 @@ interface PlanSettingsProps {
   customPaces: Record<string, string>;
   baseParams: number | null;
 }
+
+// Descrições dos ritmos para melhorar a compreensão
+const paceDescriptions: Record<string, string> = {
+  "Recovery Km": "Ritmo de recuperação - use após treinos intensos ou para recuperação ativa",
+  "Easy Km": "Ritmo fácil - sua zona de conversação, para a maioria dos treinos",
+  "M Km": "Ritmo de maratona - sustentável para provas longas",
+  "T Km": "Ritmo de limiar - na fronteira entre aeróbico e anaeróbico",
+  "I Km": "Ritmo de intervalo - para melhorar VO₂max em intervalos de 3-5 min",
+  "R 1000m": "Ritmo de repetição - para treinar velocidade e economia de corrida",
+  "I 800m": "Intervalo de 800m - ritmo ligeiramente mais rápido que o ritmo I",
+  "R 400m": "Repetição de 400m - para desenvolvimento de velocidade"
+};
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context);
@@ -96,12 +111,15 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
   const [adjustmentFactor, setAdjustmentFactor] = useState(
     parseFloat(customPaces["adjustmentFactor"] || "100")
   );
-  // Nova state para data inicial
   const [startDate, setStartDate] = useState(
     customPaces["startDate"] || storageHelper.getStartDate(plan.path)
   );
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
+  const [activeTab, setActiveTab] = useState("running");
+  
+  // Calcular percentual para VO2max indicator
+  const percentage = params ? (params / 85) * 100 : 0;
 
   // Função para extrair o valor do tempo de um ritmo
   const extractPaceTimeValue = (pace: PaceSetting): string => {
@@ -143,7 +161,8 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
               name: key,
               value: safeCustomValue || safeValue,
               default: safeValue,
-              isCustom: !!customValue
+              isCustom: !!customValue,
+              description: paceDescriptions[key] || ""
             };
           });
         
@@ -192,6 +211,7 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
     });
     
     setPaceSettings(adjustedSettings);
+    toast.success("Ajuste global aplicado a todos os ritmos");
   };
 
   // Função para atualizar um ritmo específico
@@ -219,6 +239,20 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
     };
     
     setPaceSettings(newSettings);
+    toast.info(`Ritmo resetado para o valor padrão`);
+  };
+
+  // Resetar todos os ritmos para valores padrão
+  const resetAllPaces = () => {
+    const defaultSettings = paceSettings.map(setting => ({
+      ...setting,
+      value: setting.default,
+      isCustom: false
+    }));
+    
+    setPaceSettings(defaultSettings);
+    setAdjustmentFactor(100);
+    toast.info("Todos os ritmos foram resetados para valores padrão");
   };
 
   // Salvar todas as configurações
@@ -232,7 +266,7 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
         baseTime,
         baseDistance,
         adjustmentFactor: adjustmentFactor.toString(),
-        startDate // Incluindo a data inicial nas configurações salvas
+        startDate
       };
       
       // Adicionar ritmos personalizados
@@ -259,13 +293,31 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
       }
       
       setSaveSuccess(true);
+      toast.success("Configurações salvas com sucesso!");
       setTimeout(() => setSaveSuccess(false), 3000);
     } catch (error) {
       console.error("Erro ao salvar configurações:", error);
-      alert("Não foi possível salvar as configurações. Tente novamente.");
+      toast.error("Não foi possível salvar as configurações. Tente novamente.");
     } finally {
       setIsSaving(false);
     }
+  };
+
+  // Função para formatar o nome do ritmo para exibição
+  const formatPaceName = (name: string): string => {
+    const replacements: Record<string, string> = {
+      "Recovery Km": "Recuperação",
+      "Easy Km": "Fácil",
+      "M Km": "Maratona",
+      "T Km": "Limiar",
+      "Race Pace": "Prova",
+      "I Km": "Intervalo",
+      "R 1000m": "Repetição 1000m",
+      "I 800m": "Intervalo 800m",
+      "R 400m": "Repetição 400m"
+    };
+
+    return replacements[name] || name;
   };
 
   return (
@@ -305,7 +357,7 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              {/* Nova seção para data inicial */}
+              {/* Data inicial */}
               <div className="space-y-2">
                 <Label htmlFor="startDate">Data Inicial do Plano</Label>
                 <div className="relative">
@@ -355,6 +407,13 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
                   </div>
                 </div>
 
+                {/* VO2max indicator */}
+                {params !== null && (
+                  <div className="pt-2">
+                    <VO2maxIndicator params={params} percentage={percentage} />
+                  </div>
+                )}
+
                 <Alert className="bg-muted">
                   <Info className="h-4 w-4" />
                   <AlertDescription>
@@ -381,16 +440,26 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
                 />
                 <p className="text-sm text-muted-foreground">
                   Use este controle para ajustar todos os ritmos de uma vez.
-                  Valores menores = ritmos mais rápidos, valores maiores = ritmos mais lentos.
+                  <span className="font-medium"> Valores menores = ritmos mais rápidos</span> (para atletas mais avançados), 
+                  <span className="font-medium"> valores maiores = ritmos mais lentos</span> (para iniciantes).
                 </p>
                 
-                <Button 
-                  variant="outline" 
-                  onClick={applyAdjustmentFactor}
-                  className="w-full mt-2"
-                >
-                  Aplicar Ajuste Global
-                </Button>
+                <div className="flex gap-2 mt-4">
+                  <Button 
+                    variant="outline" 
+                    onClick={applyAdjustmentFactor}
+                    className="flex-1"
+                  >
+                    Aplicar Ajuste Global
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    onClick={resetAllPaces}
+                    className="flex-1 border-muted-foreground/30"
+                  >
+                    Resetar Todos
+                  </Button>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -398,30 +467,35 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
           {/* Ritmos Calculados */}
           <Card>
             <CardHeader>
-              <CardTitle>Ritmos Calculados</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <BarChart2 className="h-5 w-5 text-primary" />
+                Ritmos Calculados
+              </CardTitle>
               <CardDescription>
-                VO₂Max estimado: {params || "N/A"}
+                VO₂Max estimado: {params || "N/A"} ml/kg/min - Personalize seus ritmos de treino
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Tabs defaultValue="running">
+              <Tabs defaultValue={activeTab} onValueChange={setActiveTab}>
                 <TabsList className="grid w-full grid-cols-2">
                   <TabsTrigger value="running">Ritmos de Corrida</TabsTrigger>
                   <TabsTrigger value="intervals">Intervalados</TabsTrigger>
                 </TabsList>
                 
-                <TabsContent value="running" className="space-y-4">
+                <TabsContent value="running" className="space-y-6 pt-4">
                   {paceSettings
                     .filter(pace => 
                       ["Recovery Km", "Easy Km", "M Km", "T Km", "Race Pace"].includes(pace.name)
                     )
                     .map((pace, index) => (
-                      <div key={index} className="space-y-2">
+                      <div key={index} className="space-y-2 bg-muted/20 p-3 rounded-lg">
                         <div className="flex justify-between">
-                          <Label className="text-sm">
-                            {pace.name.replace(" Km", "").replace("Race Pace", "Race")}
+                          <Label className="text-sm font-medium flex items-center gap-2">
+                            {formatPaceName(pace.name)}
                             {pace.isCustom && (
-                              <span className="ml-2 text-xs text-blue-500">(Personalizado)</span>
+                              <Badge variant="outline" className="bg-primary/10 text-primary hover:bg-primary/20 text-xs">
+                                Personalizado
+                              </Badge>
                             )}
                           </Label>
                           <button
@@ -443,22 +517,29 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
                           suffix="/km"
                           className="flex-1"
                         />
+                        {pace.description && (
+                          <p className="text-xs text-muted-foreground italic">
+                            {pace.description}
+                          </p>
+                        )}
                       </div>
                     ))}
                 </TabsContent>
                 
-                <TabsContent value="intervals" className="space-y-4">
+                <TabsContent value="intervals" className="space-y-6 pt-4">
                   {paceSettings
                     .filter(pace => 
                       ["I Km", "R 1000m", "I 800m", "R 400m"].includes(pace.name)
                     )
                     .map((pace, index) => (
-                      <div key={index} className="space-y-2">
+                      <div key={index} className="space-y-2 bg-muted/20 p-3 rounded-lg">
                         <div className="flex justify-between">
-                          <Label className="text-sm">
-                            {pace.name}
+                          <Label className="text-sm font-medium flex items-center gap-2">
+                            {formatPaceName(pace.name)}
                             {pace.isCustom && (
-                              <span className="ml-2 text-xs text-blue-500">(Personalizado)</span>
+                              <Badge variant="outline" className="bg-primary/10 text-primary hover:bg-primary/20 text-xs">
+                                Personalizado
+                              </Badge>
                             )}
                           </Label>
                           <button
@@ -480,6 +561,11 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
                           suffix="/km"
                           className="flex-1"
                         />
+                        {pace.description && (
+                          <p className="text-xs text-muted-foreground italic">
+                            {pace.description}
+                          </p>
+                        )}
                       </div>
                     ))}
                 </TabsContent>
@@ -488,19 +574,19 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
           </Card>
         </div>
 
-        <Alert variant={saveSuccess ? "success" : "default"} className={saveSuccess ? "bg-green-500/10 border-green-500/20 text-green-700 dark:text-green-300" : "bg-muted"}>
+        <Alert variant={saveSuccess ? "default" : "default"} className={saveSuccess ? "bg-green-500/10 border-green-500/20 text-green-700 dark:text-green-300" : "bg-muted"}>
           {saveSuccess ? (
             <>
               <Check className="h-4 w-4" />
               <AlertDescription>
-                Configurações salvas com sucesso!
+                Configurações salvas com sucesso! Seus ritmos personalizados serão aplicados ao plano.
               </AlertDescription>
             </>
           ) : (
             <>
               <AlertTriangle className="h-4 w-4" />
               <AlertDescription>
-                Lembre-se de salvar suas alterações antes de sair.
+                Lembre-se de salvar suas alterações antes de sair. Suas configurações serão aplicadas ao visualizar o plano.
               </AlertDescription>
             </>
           )}

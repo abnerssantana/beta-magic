@@ -1,131 +1,78 @@
-// lib/activity-pace.utils.ts
-import { Activity, PredictedRaceTime } from '@/types/training';
-
-// Mantém o mapeamento existente
-const PACE_MAPPING: Record<string, string> = {
-  recovery: "Recovery Km",
-  easy: "Easy Km",
-  marathon: "M Km",
-  threshold: "T Km",
-  interval: "I Km",
-  repetition: "R 1000m",
-  walk: "Recovery Km",
-  race: "Race Pace",
-  long: "Easy Km",
-};
-
-// Funções auxiliares existentes
-const getPaceInSeconds = (paceString: string): number => {
-  const [minutes, seconds] = paceString.split(':').map(Number);
-  return minutes * 60 + seconds;
-};
-
-const formatPace = (seconds: number): string => {
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = Math.round(seconds % 60);
-  return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
-};
-
-const getRecoveryPaceRange = (selectedPaces: Record<string, string> | null): [string | null, string | null] => {
-  if (!selectedPaces?.["Recovery Km"]) return [null, null];
-  
-  const recoveryRange = selectedPaces["Recovery Km"].split(" ")[0];
-  const [lowerPace, upperPace] = recoveryRange.split('-');
-  return [lowerPace, upperPace || lowerPace];
-};
-
-const calculateWalkPaceRange = (selectedPaces: Record<string, string> | null): string => {
-  const [lowerRecoveryPace, upperRecoveryPace] = getRecoveryPaceRange(selectedPaces);
-  if (!lowerRecoveryPace || !upperRecoveryPace) return "N/A";
-
-  const lowerSeconds = getPaceInSeconds(lowerRecoveryPace) + 120;
-  const upperSeconds = getPaceInSeconds(upperRecoveryPace) + 120;
-  return `${formatPace(lowerSeconds)}-${formatPace(upperSeconds)}`;
-};
+import { Activity, PredictedRaceTime } from '@/types';
 
 /**
- * Verifica se existe um ritmo personalizado para o tipo de atividade
- * @param activityType Tipo de atividade
- * @param customPaces Ritmos personalizados
- * @returns Ritmo personalizado ou null se não existir
+ * Calcula o ritmo para uma atividade específica com base nos ritmos personalizados
+ * @param activity Atividade para calcular o ritmo
+ * @param selectedPaces Ritmos personalizados selecionados pelo usuário
+ * @param getPredictedRaceTime Função para obter o tempo de prova previsto
+ * @returns Ritmo calculado no formato "MM:SS"
  */
-const getCustomPace = (
-  activityType: string,
-  customPaces: Record<string, string> | null
-): string | null => {
-  if (!customPaces) return null;
-  
-  // Verificar primeiro customização direta por tipo de atividade
-  const directCustomKey = `custom_${activityType}`;
-  if (customPaces[directCustomKey]) {
-    return customPaces[directCustomKey].split(" ")[0];
-  }
-  
-  // Verificar customização pelo mapeamento
-  const paceKey = PACE_MAPPING[activityType];
-  if (!paceKey) return null;
-  
-  const mappedCustomKey = `custom_${paceKey}`;
-  if (customPaces[mappedCustomKey]) {
-    return customPaces[mappedCustomKey].split(" ")[0];
-  }
-  
-  return null;
-};
-
 export const calculateActivityPace = (
   activity: Activity,
   selectedPaces: Record<string, string> | null,
   getPredictedRaceTime: (distance: number) => PredictedRaceTime | null
 ): string => {
-  if (!activity) return "N/A";
-  
-  // Verificações para unidades em minutos (tempo fixo)
-  if (activity.units === "min") return "N/A";
+  // Se não temos paces selecionados, retorne N/A
+  if (!selectedPaces) return "N/A";
 
-  // Checar se há ritmos personalizados para o tipo de atividade
-  if (activity.type) {
-    const customPace = getCustomPace(activity.type, selectedPaces);
-    if (customPace) return customPace;
+  // Se a unidade não for km, retorne N/A (não calculamos ritmos para minutos)
+  if (activity.units !== "km") return "N/A";
+
+  // Para dias de descanso ou recuperação por tempo
+  if (activity.type === "offday" || activity.type === "recovery" && activity.units === "min") {
+    return "N/A";
   }
 
-  // Handle race type activities
-  if (activity.type === "race" && typeof activity.distance === "number") {
-    const raceInfo = getPredictedRaceTime(activity.distance);
-    return raceInfo ? raceInfo.pace : "N/A";
+  // Mapeamento de tipos de atividade para tipos de ritmos
+  const paceMapping: { [key: string]: string } = {
+    recovery: "Recovery Km",
+    easy: "Easy Km",
+    threshold: "T Km",
+    interval: "I Km",
+    repetition: "R 1000m",
+    race: "", // Tratado separadamente
+    marathon: "M Km",
+    walk: "Recovery Km", // Usando recup como fallback para caminhada
+    offday: "N/A", // Dias de descanso não têm pace
+  };
+
+  // Se é um tipo desconhecido, use easy como fallback
+  const paceKey = paceMapping[activity.type] || "Easy Km";
+
+  // Caso especial para treinos de corrida
+  if (activity.type === "race" && typeof activity.distance === 'number') {
+    // Para corridas, usamos o ritmo previsto para a distância específica
+    const prediction = getPredictedRaceTime(activity.distance);
+    if (prediction) {
+      return prediction.pace;
+    }
+    
+    // Fallback para Race Pace se disponível
+    if (selectedPaces["Race Pace"]) {
+      return selectedPaces["Race Pace"];
+    }
+    
+    // Segundo fallback para T Km
+    return selectedPaces["T Km"] || "N/A";
   }
 
-  // Handle walk type activities
-  if (activity.type === "walk" || 
-      (typeof activity.distance === "string" && activity.distance.toLowerCase() === "walk")) {
-    return calculateWalkPaceRange(selectedPaces);
+  // Se o tipo está no mapeamento e encontramos esse pace, use-o
+  if (paceKey !== "N/A" && selectedPaces[paceKey]) {
+    return selectedPaces[paceKey];
   }
 
-  // Handle activities with direct distance property
-  if (activity.distance && typeof activity.distance === "string") {
-    const distanceType = activity.distance.toLowerCase();
-    const paceKey = PACE_MAPPING[distanceType];
-    return selectedPaces && paceKey
-      ? selectedPaces[paceKey]?.split(" ")[0] || "N/A"
-      : "N/A";
+  // Caso especial para treinos com workout que têm seus próprios ritmos
+  if (activity.workouts && activity.workouts.length > 0) {
+    // Se há séries com distâncias específicas, deixe para exibir no componente de série
+    const hasWorkoutWithSeries = activity.workouts.some(
+      (w) => w.series && w.series.length > 0 && w.series.some((s) => s.distance)
+    );
+    
+    if (hasWorkoutWithSeries) {
+      return "Variado";
+    }
   }
 
-  // Handle activities with workouts
-  if (activity.workouts?.[0]?.series?.[0]?.distance) {
-    const distanceType = activity.workouts[0].series[0].distance.toLowerCase();
-    const paceKey = PACE_MAPPING[distanceType];
-    return selectedPaces && paceKey
-      ? selectedPaces[paceKey]?.split(" ")[0] || "N/A"
-      : "N/A";
-  }
-
-  // Handle activities based on type
-  if (activity.type && PACE_MAPPING[activity.type]) {
-    const paceKey = PACE_MAPPING[activity.type];
-    return selectedPaces && selectedPaces[paceKey]
-      ? selectedPaces[paceKey].split(" ")[0]
-      : "N/A";
-  }
-
-  return "N/A";
+  // Fallback para easy
+  return selectedPaces["Easy Km"] || "N/A";
 };
