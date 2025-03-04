@@ -1,0 +1,1966 @@
+[
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Comece sua jornada com determinação. Cada passo conta!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e controlado"
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se, a consistência é a chave para o progresso."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua técnica de corrida"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha uma respiração controlada"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é tão importante quanto o treino. Aproveite para recuperar."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "\"A jornada de mil milhas começa com um único passo.\" - Lao Tzu"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Considere fazer alguma atividade de baixo impacto para manter o condicionamento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Prepare-se mentalmente para a próxima semana de treinos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua postura durante a corrida"
+          }
+        ]
+      }
+    ],
+    "note": "Uma boa postura ajuda a prevenir lesões e melhora a eficiência."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha-se hidratado durante o treino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e se preparar mentalmente para os próximos treinos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aumente gradualmente o ritmo ao longo da corrida"
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso não é final, o fracasso não é fatal: é a coragem de continuar que conta.\" - Winston Churchill"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O cross-training pode ajudar a prevenir lesões e melhorar seu desempenho geral."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para recarregar suas energias e se preparar para a semana de treinos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em manter uma cadência constante"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aumente ligeiramente a distância, mantendo o ritmo fácil"
+          }
+        ]
+      }
+    ],
+    "note": "\"A disciplina é a ponte entre metas e realizações.\" - Jim Rohn"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua respiração durante a corrida"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite o descanso. Seu corpo precisa de tempo para se adaptar e ficar mais forte."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante durante toda a corrida"
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se de se hidratar bem antes, durante e após a corrida longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O cross-training pode ajudar a fortalecer diferentes grupos musculares e prevenir o tédio."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Reflita sobre seu progresso até agora e prepare-se mentalmente para a próxima semana."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha uma postura relaxada enquanto corre"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Tente manter um ritmo constante ao longo da corrida"
+          }
+        ]
+      }
+    ],
+    "note": "\"O único lugar onde o sucesso vem antes do trabalho é no dicionário.\" - Vidal Sassoon"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em ter uma passada eficiente"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso adequado é crucial para o progresso. Aproveite este dia para recuperar."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aumente gradualmente o ritmo na segunda metade da corrida"
+          }
+        ]
+      }
+    ],
+    "note": "Parabéns pelo aumento na distância da sua corrida longa! Lembre-se de manter um ritmo confortável."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Considere fazer yoga ou pilates para melhorar sua flexibilidade e força do core."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e visualizar seus objetivos para as próximas semanas."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque em manter uma respiração ritmada"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável"
+          }
+        ]
+      }
+    ],
+    "note": "\"A persistência é o caminho do êxito.\" - Charles Chaplin"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se na sua postura durante a corrida"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é fundamental para a adaptação e o progresso. Aproveite este dia."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante, focando na resistência"
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se de se hidratar adequadamente antes, durante e após esta corrida mais longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Considere uma atividade de baixo impacto como natação ou ciclismo para variar seu treinamento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite este dia para descansar e se preparar mentalmente para a próxima semana."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque em manter uma cadência constante"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável durante toda a corrida"
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso é a soma de pequenos esforços repetidos dia após dia.\" - Robert Collier"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Preste atenção na sua técnica de corrida"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e recuperar. Seu corpo agradece!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante, focando na resistência"
+          }
+        ]
+      }
+    ],
+    "note": "Parabéns por manter a distância da corrida longa! Lembre-se de manter um ritmo confortável."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O cross-training pode ajudar a prevenir lesões e melhorar seu desempenho geral na corrida."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite este dia para recarregar suas energias mentais e físicas."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e consistente"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua resistência durante esta corrida mais longa"
+          }
+        ]
+      }
+    ],
+    "note": "\"A dor que você sente hoje será a força que você sentirá amanhã.\" - Arnold Schwarzenegger"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em manter uma boa forma de corrida"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e refletir sobre seu progresso até agora."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 19,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante, focando na resistência"
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se de se hidratar bem e considerar levar algum suplemento energético para esta corrida mais longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O cross-training pode ajudar a fortalecer músculos que a corrida não trabalha diretamente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Prepare-se mentalmente para a próxima semana de treinamento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque em manter uma respiração controlada"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante durante toda a corrida"
+          }
+        ]
+      }
+    ],
+    "note": "\"O que você faz hoje pode melhorar todos os seus amanhãs.\" - Ralph Marston"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em manter uma boa postura durante a corrida"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso adequado é crucial para o progresso. Aproveite este dia para recuperar."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Dois dias seguidos de descanso para uma recuperação extra antes da meia maratona de amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "race",
+        "units": "km",
+        "distance": 21,
+        "type": "race",
+        "note": "Meia Maratona",
+        "workouts": [
+          {
+            "distance": "race",
+            "note": "Dê o seu melhor! Mantenha um ritmo constante e aproveite a experiência."
+          }
+        ]
+      }
+    ],
+    "note": "Parabéns por chegar à sua primeira meia maratona! Lembre-se de começar devagar e manter um ritmo constante."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Você está entrando na fase intermediária do treinamento. Mantenha o foco e a consistência."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua resistência durante esta corrida mais longa"
+          }
+        ]
+      }
+    ],
+    "note": "\"A disciplina é a ponte entre metas e realizações.\" - Jim Rohn"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em manter uma boa forma de corrida"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e se preparar mentalmente para a corrida longa de amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante durante toda a corrida"
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se de se hidratar adequadamente antes, durante e após esta corrida longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O cross-training pode ajudar a prevenir lesões e melhorar seu desempenho geral."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite este dia para descansar e se preparar para a próxima semana de treinamento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua resistência durante esta corrida mais longa"
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso é a soma de pequenos esforços repetidos dia após dia.\" - Robert Collier"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em manter uma boa forma de corrida"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso adequado é crucial para o progresso. Aproveite este dia para recuperar."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 19,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante, focando na resistência"
+          }
+        ]
+      }
+    ],
+    "note": "Esta é sua corrida mais longa até agora! Lembre-se de se hidratar bem e considerar levar algum suplemento energético."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Após a longa corrida de ontem, um dia de descanso ou atividade leve é crucial para a recuperação."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Parabéns pela meia maratona! Use este dia para descansar e recuperar completamente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Corrida leve para promover a recuperação após a meia maratona"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aumente gradualmente o ritmo ao longo da corrida"
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso não é final, o fracasso não é fatal: é a coragem de continuar que conta.\" - Winston Churchill"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na técnica"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e se preparar mentalmente para a corrida longa de amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante durante toda a corrida"
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se de se hidratar adequadamente antes, durante e após esta corrida longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O cross-training pode ajudar a prevenir lesões e melhorar seu desempenho geral."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite este dia para descansar e se preparar para a próxima semana de treinamento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em manter uma boa postura durante a corrida"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante, focando na resistência"
+          }
+        ]
+      }
+    ],
+    "note": "\"A disciplina é a ponte entre metas e realizações.\" - Jim Rohn"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque em manter uma respiração ritmada"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso adequado é crucial para o progresso. Aproveite este dia para recuperar."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 24,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante, focando na resistência"
+          }
+        ]
+      }
+    ],
+    "note": "Esta é sua corrida mais longa até agora! Lembre-se de se hidratar bem e considerar levar algum suplemento energético."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Após a longa corrida de ontem, um dia de descanso ou atividade leve é crucial para a recuperação."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e refletir sobre seu progresso até agora."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e consistente"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua resistência durante esta corrida mais longa"
+          }
+        ]
+      }
+    ],
+    "note": "\"A persistência é o caminho do êxito.\" - Charles Chaplin"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em manter uma boa forma de corrida"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é tão importante quanto o treino. Aproveite para recuperar."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 26,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante, focando na resistência"
+          }
+        ]
+      }
+    ],
+    "note": "Esta é sua corrida mais longa! Lembre-se de se hidratar bem e levar suplementos energéticos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Após a longa corrida de ontem, um dia de descanso ou atividade leve é crucial para a recuperação."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Prepare-se mentalmente para a próxima semana de treinamento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque em manter uma respiração controlada"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante durante toda a corrida"
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso é a soma de pequenos esforços repetidos dia após dia.\" - Robert Collier"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em manter uma boa postura durante a corrida"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e se preparar mentalmente para a corrida longa de amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 19,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante durante toda a corrida"
+          }
+        ]
+      }
+    ],
+    "note": "Observe como seu corpo se sente durante esta corrida longa. Você está ficando mais forte a cada semana!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O cross-training pode ajudar a prevenir lesões e melhorar seu desempenho geral na corrida."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Comece a semana com um bom descanso. Seu corpo precisa se recuperar para os próximos treinos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e consistente"
+          }
+        ]
+      }
+    ],
+    "note": "Foque na sua forma e respiração durante esta corrida."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante durante toda a corrida"
+          }
+        ]
+      }
+    ],
+    "note": "\"A persistência é o caminho do êxito.\" - Charles Chaplin"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em manter uma boa forma de corrida"
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida mais curta para afinar sua técnica."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite o descanso. Seu corpo está se preparando para o grande dia."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 19,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante, focando na resistência"
+          }
+        ]
+      }
+    ],
+    "note": "Esta é sua última corrida longa antes do taper. Aproveite e ganhe confiança para a maratona!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O cross-training leve pode ajudar a manter o condicionamento sem adicionar estresse extra ao corpo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Você está entrando na fase final do seu treinamento. Mantenha o foco e a confiança!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e consistente"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua resistência durante esta corrida"
+          }
+        ]
+      }
+    ],
+    "note": "\"O único lugar onde o sucesso vem antes do trabalho é no dicionário.\" - Vidal Sassoon"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em manter uma boa forma de corrida"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e visualizar sua maratona bem-sucedida."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 19,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Última corrida longa antes da maratona. Mantenha um ritmo constante."
+          }
+        ]
+      }
+    ],
+    "note": "Esta é sua última corrida longa antes da maratona. Aproveite e ganhe confiança para o grande dia!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O cross-training leve pode ajudar a manter o condicionamento sem adicionar estresse extra ao corpo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Você está entrando nas duas últimas semanas antes da maratona. Foco na recuperação e preparação mental."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo fácil e relaxado"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua técnica de corrida"
+          }
+        ]
+      }
+    ],
+    "note": "\"A confiança vem da disciplina e do treinamento.\" - Robert Kiyosaki"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida curta e leve para manter o condicionamento"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite o descanso. Seu corpo está se preparando para o grande dia."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Última corrida longa antes da maratona. Mantenha um ritmo confortável."
+          }
+        ]
+      }
+    ],
+    "note": "Esta é sua última corrida longa. Aproveite para ganhar confiança para a maratona!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Mantenha-se ativo com exercícios leves, mas evite qualquer atividade intensa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Última semana antes da maratona. Foque em descansar, comer bem e se hidratar adequadamente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida curta para manter as pernas ativas"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo fácil e relaxado"
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso não é final, o fracasso não é fatal: é a coragem de continuar que conta.\" - Winston Churchill"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 3,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida curta para manter as pernas ativas"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Descanse bem. Amanhã é o grande dia!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Véspera da maratona. Relaxe, revise sua estratégia e prepare seu equipamento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "race",
+        "units": "km",
+        "distance": 42,
+        "type": "race",
+        "note": "Maratona",
+        "workouts": [
+          {
+            "distance": "race",
+            "note": "É o grande dia! Confie no seu treinamento e aproveite cada momento."
+          }
+        ]
+      }
+    ],
+    "note": "Parabéns! Você completou seu treinamento e está pronto para sua maratona. Boa sorte!"
+  }
+]

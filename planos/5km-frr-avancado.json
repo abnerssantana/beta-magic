@@ -1,0 +1,1922 @@
+[
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O sucesso é a soma de pequenos esforços repetidos dia após dia. - Robert Collier"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "interval",
+        "note": "Ritmo Fácil + Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Corrida fácil com tiros em subida e sprints",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "8 km",
+                "rest": "ritmo fácil"
+              },
+              {
+                "distance": "repetition",
+                "sets": "6x",
+                "work": "15s",
+                "rest": "com subida"
+              },
+              {
+                "distance": "repetition",
+                "sets": "6x",
+                "work": "100 m",
+                "rest": "sprint"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se, a consistência é a chave para o progresso. Mantenha-se focado em cada repetição."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida fácil para se concentrar na sua forma e respiração. Cada passo é uma oportunidade para melhorar."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é tão importante quanto o treino. Aproveite para recuperar e recarregar."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "threshold",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos no ritmo de limiar",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "4x",
+                "work": "6 min",
+                "rest": "Limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 min",
+                "rest": "entre cada intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Os treinos de limiar são cruciais para melhorar sua velocidade. Mantenha o foco e a intensidade constantes."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para trabalhar na flexibilidade e mobilidade. Um corpo bem cuidado corre melhor."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas constroem resistência mental e física. Aprecie a jornada."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Reflita sobre sua primeira semana. Celebre os sucessos e aprenda com os desafios."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "interval",
+        "note": "Ritmo Fácil + Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Corrida fácil com tiros em subida e sprints",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "6 km",
+                "rest": "ritmo fácil"
+              },
+              {
+                "distance": "repetition",
+                "sets": "6x",
+                "work": "15s",
+                "rest": "com subida"
+              },
+              {
+                "distance": "repetition",
+                "sets": "6x",
+                "work": "100 m",
+                "rest": "sprint"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "A dor que você sente hoje será a força que você sentirá amanhã. - Arnold Schwarzenegger"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha um ritmo conversacional. Estas corridas fáceis são a base do seu treinamento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso não é uma fraqueza, é uma parte essencial do progresso."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos em subida",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "5x",
+                "work": "6 min",
+                "rest": "subida moderada"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "",
+                "rest": "recuperação voltando ao ponto inicial"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "As colinas são oportunidades disfarçadas. Embrace o desafio e sinta sua força crescer."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Corridas curtas e fáceis como esta ajudam na recuperação ativa. Aproveite o ritmo relaxado."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Sua resistência está crescendo. Sinta o progresso em cada quilômetro percorrido."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é o segredo do atleta forte. - Ovídio"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "interval",
+        "note": "Ritmo de Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos curtos de alta intensidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "2x",
+                "work": "3x 300 m",
+                "rest": "com 300 m trote entre cada"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "4 min",
+                "rest": "entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "A excelência não é um ato, mas um hábito. - Aristóteles"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida para se conectar com seu corpo e mente. Pratique a gratidão por cada passo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Seu corpo se fortalece durante o descanso, não durante o exercício."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "threshold",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos no ritmo de limiar",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "3x",
+                "work": "8 min",
+                "rest": "Limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "3 min",
+                "rest": "entre cada intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "O ritmo de limiar é a chave para melhorar seu desempenho. Abrace o desconforto."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Corridas curtas como esta são vitais para a recuperação. Aprecie o ritmo suave."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Nas longas distâncias, a mente governa o corpo. Mantenha-se forte mentalmente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para visualizar seus objetivos e reafirmar seu comprometimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "interval",
+        "note": "Ritmo de Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos curtos de alta intensidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "2x",
+                "work": "4x 200 m",
+                "rest": "com 200 m trote entre cada"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "4 min",
+                "rest": "entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "A dor é temporária. O orgulho é para sempre. - Lance Armstrong"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Concentre-se na sua forma durante esta corrida. Cada passo é uma oportunidade para melhorar."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso não é preguiça, é parte do processo de se tornar mais forte."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Corra com o coração hoje. Lembre-se de por que você começou esta jornada."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Às vezes, menos é mais. Aproveite esta corrida curta para se reconectar com seu ritmo natural."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Você está mais forte do que pensa. Acredite em si mesmo e no seu treinamento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é o tempero que dá sabor ao trabalho. - Plutarco"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "interval",
+        "note": "Ritmo Fácil + Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Corrida fácil com tiros em subida e sprints",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "10 km",
+                "rest": "ritmo fácil"
+              },
+              {
+                "distance": "repetition",
+                "sets": "6x",
+                "work": "15s",
+                "rest": "com subida"
+              },
+              {
+                "distance": "repetition",
+                "sets": "6x",
+                "work": "100 m",
+                "rest": "sprint"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "A força não vem da capacidade física. Vem de uma vontade indomável. - Mahatma Gandhi"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida para praticar a gratidão. Agradeça por cada passo que você é capaz de dar."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Recupere-se hoje para correr melhor amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos de 1000m",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "5x",
+                "work": "1000 m",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "3 min",
+                "rest": "entre cada intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Não conte os dias, faça os dias contarem. - Muhammad Ali"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Às vezes, o treino mais importante é o mais fácil. Aproveite o ritmo suave."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "A persistência é o caminho do êxito. - Charles Chaplin"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Seu corpo agradece por este dia de descanso. Aproveite-o ao máximo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "threshold",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Corrida contínua no ritmo de limiar",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "20 min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "O sucesso não é final, o fracasso não é fatal: é a coragem de continuar que conta. - Winston Churchill"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Cada quilômetro é uma vitória. Celebre cada passo desta jornada."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para visualizar seu sucesso e reafirmar seus objetivos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos de 600m",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "8x",
+                "work": "600 m",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 min",
+                "rest": "entre cada intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "O que você faz hoje pode melhorar todos os seus amanhãs. - Ralph Marston"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Corridas curtas como esta são vitais para a recuperação. Aproveite o ritmo suave."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "A jornada de mil milhas começa com um único passo. - Lao Tzu"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é a preparação para os desafios que virão. Aproveite-o."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "interval",
+        "note": "Ritmo de Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos curtos de alta intensidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "2x",
+                "work": "6x 100 m",
+                "rest": "com 100 m trote entre cada"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "3 min",
+                "rest": "entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "A excelência é uma habilidade conquistada através do treinamento e do hábito. - Aristóteles"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida para se conectar com seu corpo. Preste atenção em como você se sente a cada passo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso não é preguiça, é parte do processo de se tornar mais forte."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos variados",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "3x",
+                "work": "1000 m",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 min",
+                "rest": "entre cada 1000 m"
+              },
+              {
+                "distance": "interval",
+                "sets": "3x",
+                "work": "800 m",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "1 min",
+                "rest": "entre cada 800 m"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Os campeões não são feitos em academias. São feitos de algo que eles têm profundamente dentro de si - um desejo, um sonho, uma visão. - Muhammad Ali"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Corridas curtas como esta são vitais para a recuperação. Aproveite o ritmo suave."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "A persistência realiza o impossível. - Provérbio Chinês"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para refletir sobre seu progresso e visualizar seus objetivos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "interval",
+        "note": "Ritmo de Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos curtos de alta intensidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "2x",
+                "work": "4x 150 m",
+                "rest": "com 250 m trote entre cada"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "4 min",
+                "rest": "entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Não é sobre ter tempo. É sobre fazer tempo. - Desconhecido"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Cada passo é um passo mais perto do seu objetivo. Mantenha o foco."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é tão importante quanto o treino. Dê ao seu corpo o tempo que ele precisa para se recuperar."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida curta para se preparar mentalmente para o teste de amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "race",
+        "units": "km",
+        "distance": 5,
+        "type": "race",
+        "note": "Prova / Teste",
+        "workouts": [
+          {
+            "distance": "race",
+            "note": "Teste de 5 km com aquecimento e desaquecimento"
+          }
+        ]
+      }
+    ],
+    "note": "Dê o seu melhor hoje. Lembre-se de todo o trabalho duro que você fez para chegar até aqui."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida para refletir sobre seu desempenho no teste e para começar a se recuperar."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é a preparação para os desafios que virão. Aproveite-o."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "interval",
+        "note": "Ritmo de Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos curtos de alta intensidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "2x",
+                "work": "6x 100 m",
+                "rest": "com 100 m trote entre cada"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "3 min",
+                "rest": "entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "A excelência é uma habilidade conquistada através do treinamento e do hábito. - Aristóteles"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida para se conectar com seu corpo. Preste atenção em como você se sente a cada passo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso não é preguiça, é parte do processo de se tornar mais forte."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos variados",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "3x",
+                "work": "1000 m",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 min",
+                "rest": "entre cada 1000 m"
+              },
+              {
+                "distance": "interval",
+                "sets": "3x",
+                "work": "800 m",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "1 min",
+                "rest": "entre cada 800 m"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Os campeões não são feitos em academias. São feitos de algo que eles têm profundamente dentro de si - um desejo, um sonho, uma visão. - Muhammad Ali"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Corridas curtas como esta são vitais para a recuperação. Aproveite o ritmo suave."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "A persistência realiza o impossível. - Provérbio Chinês"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para refletir sobre seu progresso e visualizar seus objetivos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "interval",
+        "note": "Ritmo de Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos curtos de alta intensidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "2x",
+                "work": "4x 150 m",
+                "rest": "com 250 m trote entre cada"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "4 min",
+                "rest": "entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Não é sobre ter tempo. É sobre fazer tempo. - Desconhecido"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Cada passo é um passo mais perto do seu objetivo. Mantenha o foco."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é tão importante quanto o treino. Dê ao seu corpo o tempo que ele precisa para se recuperar."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida curta para se preparar mentalmente para o teste de amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "race",
+        "units": "km",
+        "distance": 5,
+        "type": "race",
+        "note": "Prova / Teste",
+        "workouts": [
+          {
+            "distance": "race",
+            "note": "Teste de 5 km com aquecimento e desaquecimento"
+          }
+        ]
+      }
+    ],
+    "note": "Dê o seu melhor hoje. Lembre-se de todo o trabalho duro que você fez para chegar até aqui."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida para refletir sobre seu desempenho no teste e para começar a se recuperar."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para visualizar seu sucesso na corrida final. A mente é uma ferramenta poderosa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "interval",
+        "note": "Ritmo Fácil + Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Corrida fácil com sprints",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "8 km",
+                "rest": "ritmo fácil"
+              },
+              {
+                "distance": "repetition",
+                "sets": "8x",
+                "work": "100 m",
+                "rest": "sprint"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "A qualidade nunca é um acidente; é sempre o resultado de um esforço inteligente. - John Ruskin"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha estas corridas leves para se preparar para os desafios à frente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos variados",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "4x",
+                "work": "800 m",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "1 min",
+                "rest": "entre cada 800 m"
+              },
+              {
+                "distance": "interval",
+                "sets": "2x",
+                "work": "600 m",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "1 min",
+                "rest": "entre cada 600 m"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "O sucesso não é final, o fracasso não é fatal: é a coragem de continuar que conta. - Winston Churchill"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite este dia para recarregar suas energias física e mental."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha um ritmo fácil e aproveite cada passo. A corrida é uma celebração do que seu corpo pode fazer."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida para refletir sobre sua jornada até aqui. Você chegou longe!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "interval",
+        "note": "Ritmo de Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos curtos e médios",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "4x",
+                "work": "100 m",
+                "rest": "sprint"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "1 min",
+                "rest": "entre cada sprint"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "800 m",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "O último esforço é o que conta. Dê tudo de si em cada repetição."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha-se leve e solto. Esta corrida é para manter seu corpo ativo e sua mente tranquila."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Última corrida antes do grande dia. Mantenha-se confiante e relaxado."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Descanse, hidrate-se bem e prepare-se mentalmente para o desafio de amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "interval",
+        "note": "Ritmo de Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Aquecimento para a prova",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "4x",
+                "work": "100 m",
+                "rest": "sprint"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Aquecimento suave para preparar o corpo para o desafio. Confie no seu treinamento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "race",
+        "units": "km",
+        "distance": 5,
+        "type": "race",
+        "note": "Prova",
+        "workouts": [
+          {
+            "distance": "race",
+            "note": "Prova de 5 km"
+          }
+        ]
+      }
+    ],
+    "note": "É o grande dia! Confie no seu treinamento, mantenha o foco e dê o seu melhor. Boa sorte!"
+  }
+]

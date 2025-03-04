@@ -1,0 +1,3347 @@
+[
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          { "distance": "easy", "note": "" },
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Explicação do Plano",
+            "link": "https://www.youtube.com/watch?v=4inaSg0yO58"
+          },
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Base – Semanas 1 a 6 | importante para iniciar a próxima Fase",
+            "link": null
+          }
+        ]
+      }
+    ],
+    "note": "Fase I Base - Semana 1 | Atualize a data de início do seu plano e o seu melhor tempo. Isso vai determinar os ritmos dos seus treinos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Galina Chistyakova:\"A força mental é tudo. Trabalhe tanto no aspecto psicológico quanto no físico.\""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase I Base - Semana 2"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase I Base - Semana 3"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase I Base - Semana 4"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 90,
+        "type": "long",
+        "note": "Longo - Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa; 20% da milhagem total semanal ou 1h30, o que for menos"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase I Base - Semana 5"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Desfrute do processo e da jornada."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 90,
+        "type": "long",
+        "note": "Longo - Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa; 20% da milhagem total semanal ou 1h30, o que for menos"
+          }
+        ]
+      }
+    ],
+    "note": "Brigid Kosgei:\"Aumente a intensidade dos seus treinos de forma gradual para evitar o excesso de treino.\""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase I Base - Semana 6"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 90,
+        "type": "long",
+        "note": "Longo - Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa; 25% da milhagem total semanal ou 1h30, o que for menos"
+          }
+        ]
+      }
+    ],
+    "note": "Tirunesh Dibaba:\"Treine com parceiros ou em equipe. Isso pode aumentar a motivação e o desempenho.\""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase II Preparação - Semana 7- Escolha um dia fácil, para ser seu dia off ou fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "baseTable": "",
+                "distance": "",
+                "sets": "",
+                "work": "séries",
+                "rest": "até 10 km"
+              },
+              {
+                "distance": "interval",
+                "sets": "intervalo",
+                "work": "4min",
+                "rest": ""
+              },
+              {
+                "distance": "recovery",
+                "sets": "com",
+                "work": "3min",
+                "rest": "trote"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Mo Farah:\"Incorpore treinos intervalados em sua rotina. Eles aumentam a velocidade e a resistência.\""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": "Não negligencie o descanso."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 15,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 90,
+        "type": "long",
+        "note": "Longo - Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa; 20% da milhagem total semanal ou 1h30, o que for menos"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase II Preparação - Semana 8 - Escolha um dia fácil, para ser seu dia off ou fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": ""
+              },
+              {
+                "baseTable": "",
+                "distance": "",
+                "sets": "",
+                "work": "séries",
+                "rest": "até 10 km"
+              },
+              {
+                "distance": "interval",
+                "sets": "intervalo",
+                "work": "4min",
+                "rest": ""
+              },
+              {
+                "distance": "recovery",
+                "sets": "com",
+                "work": "3min",
+                "rest": "trote"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Paula Radcliffe:\"Uma dieta equilibrada é crucial. Alimente-se com alimentos que ajudam na recuperação e fornecem energia.\""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": "Não negligencie o descanso."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 15,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 80,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "20min",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "40min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "20min",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase II Preparação - Semana 9 - Escolha um dia fácil, para ser seu dia off ou fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              },
+              {
+                "baseTable": null,
+                "distance": null,
+                "sets": "",
+                "work": "séries",
+                "rest": "até 8 km"
+              },
+              {
+                "distance": "interval",
+                "sets": "intervalado",
+                "work": "1500 m",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "3min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": "Usain Bolt:\"Descanse adequadamente. O descanso é fundamental para a recuperação e prevenção de lesões.\""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 45,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Florence Griffith-Joyner:\"A técnica de corrida é vital. Trabalhe para aperfeiçoar sua forma e eficiência.\""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 90,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "5x",
+                "work": "5min",
+                "rest": "1min de trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "+",
+                "work": "50 min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase II Preparação - Semana 10 - Escolha um dia fácil, para ser seu dia off ou fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              },
+              {
+                "baseTable": null,
+                "distance": null,
+                "sets": "",
+                "work": "séries",
+                "rest": "até 8 km"
+              },
+              {
+                "distance": "interval",
+                "sets": "intervalado",
+                "work": "1500 m",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "3min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Caster Semenya:\"Escute seu corpo. Se sentir dor ou desconforto, ajuste seu treinamento para evitar lesões.\""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": "Não negligencie o descanso."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": "120",
+        "type": "long",
+        "note": "Longo - Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa; 20% da milhagem total semanal ou 2h, o que for menos"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": "Não negligencie o descanso."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase II Preparação - Semana 11 - Escolha um dia fácil, para ser seu dia off ou fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "baseTable": null,
+                "distance": null,
+                "sets": "",
+                "work": "séries",
+                "rest": "até 10 km"
+              },
+              {
+                "distance": "interval",
+                "sets": "intervalado",
+                "work": "5min",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "3min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": "Joan Benoit Samuelson:\"A recuperação ativa é importante. Inclua dias de corrida leve ou cross-training para manter o corpo em movimento.\""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 90,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "2x",
+                "work": "12min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "3min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "+",
+                "work": "50 min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Meb Keflezighi:\"Encontre motivação em pequenas vitórias. Cada progresso conta e te aproxima do seu objetivo.\""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase III Preparação - Semana 12 | Atenção! Atualize seu tempo para calcular os ritmos atuais."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "baseTable": null,
+                "distance": null,
+                "sets": "",
+                "work": "séries",
+                "rest": "até 10 km"
+              },
+              {
+                "distance": "interval",
+                "sets": "intervalado",
+                "work": "1500 m",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "3min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Shalane Flanagan:\"Não tenha medo de desafios. Encare-os como oportunidades de crescimento.\""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": "Não negligencie o descanso."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 72,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "Aquecimento",
+                "work": "15min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "6x",
+                "work": "6min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "com",
+                "work": "1min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "Desaquecimento",
+                "work": "15min",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Treinar no limiar anaeróbico é uma maneira eficaz de melhorar sua capacidade aeróbica e desempenho em corridas de longa distância."
+          }
+        ]
+      }
+    ],
+    "note": "Escute seu corpo e evite lesões."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase III Preparação - Semana 13 - Escolha um dia fácil, para ser seu dia off ou fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 76,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "Aquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "4x",
+                "work": "12min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "2min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "Desaquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Objetivo:Aumentar a velocidade em que você pode correr por longos períodos sem acumular ácido lático excessivo."
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha-se positivo e paciente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 120,
+        "type": "long",
+        "note": "Longo - Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa; 20% da milhagem total semanal ou 2h, o que for menos"
+          }
+        ]
+      }
+    ],
+    "note": "Desiree Linden:\"Corra em diferentes condições climáticas para estar preparado para qualquer situação em uma competição.\""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase III Preparação - Semana 14 - Escolha um dia fácil, para ser seu dia off ou fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": "100",
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "4x",
+                "work": "5min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "1min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "40min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "16min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "10min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 100,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "5min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "4x",
+                "work": "1200 m",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "5min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "recovery",
+                "sets": "recuperação",
+                "work": "5min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "3x",
+                "work": "1200 m",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "5min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "5min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase III Pico - Semana 15 | Atenção! Atualize seu tempo para calcular os ritmos atuais."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 66,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "2x",
+                "work": "15min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "3min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "+",
+                "work": "10min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": "120",
+        "type": "workout",
+        "note": "Ritmo de Maratona",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "marathon",
+                "sets": "",
+                "work": "1h40",
+                "rest": "maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase III Pico - Semana 16 - Escolha um dia fácil, para ser seu dia off ou fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 70,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "10min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "20min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "10min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "20min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "10min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": "120",
+        "type": "long",
+        "note": "Longo - Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa; 20% da milhagem total semanal ou 2h, o que for menos"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase III Pico - Semana 17 - Escolha um dia fácil, para ser seu dia off ou fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 65,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "10min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "8x",
+                "work": "5-6min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "30s",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "10min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 130,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "Aquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "2x",
+                "work": "10min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "2min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "70min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "16min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "Desaquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha o ritmo constante, evitando acelerar demais no início. Uma boa referência é a sensação de estar correndo \"um pouco abaixo\"do esforço máximo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": "Desfrute do processo e da jornada."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase III Pico - Semana 18 - Escolha um dia fácil, para ser seu dia off ou fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 76,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "10min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "4x",
+                "work": "12min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "2min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "10min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 120,
+        "type": "workout",
+        "note": "Ritmo de Maratona",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "15min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "marathon",
+                "sets": "",
+                "work": "1h30",
+                "rest": "maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "15min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Fase IV - Semana 19 - Qualitativa Final - Escolha um dia fácil, para ser seu dia off ou fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 60,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "20min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "limiar",
+                "work": "20 min",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "20min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": "120",
+        "type": "workout",
+        "note": "Ritmo de Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Treino longo e estável - desenvolvimento aeróbico"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Semana 20 - Escolha um dia fácil, para ser seu dia off ou fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 88,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "10min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "4x",
+                "work": "5min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "1min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "30min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "4x",
+                "work": "5min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "1min",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Corra em diferentes terrenos."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": "120",
+        "type": "workout",
+        "note": "Ritmo de Fácil",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "1h",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "6x",
+                "work": "5min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "2min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "15min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Aquecimento é essencial."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Semana 21 - Escolha um dia fácil, para ser seu dia off ou fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": "80",
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "2x",
+                "work": "20min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "com",
+                "work": "15min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "10min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": "Não negligencie o descanso."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": "120",
+        "type": "workout",
+        "note": "Ritmo de Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Treino longo e estável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": "Kenenisa Bekele:\"A chave é a consistência. Treine regularmente e mantenha uma rotina equilibrada.\""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Semana 22 - Escolha um dia fácil, para ser seu dia off ou fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": "90",
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "2x",
+                "work": "20min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "com",
+                "work": "20min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "10min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": "120",
+        "type": "workout",
+        "note": "Ritmo de Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Treino longo e estável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Semana 23 - Escolha um dia fácil, para ser seu dia off ou fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": "100",
+        "type": "long",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "2x",
+                "work": "30min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "com",
+                "work": "15min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Eliud Kipchoge:A força mental é tão importante quanto a força física. Acredite em si mesmo e nos seus objetivos.\""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": "80",
+        "type": "long",
+        "note": "Ritmo de Fácil",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "2x",
+                "work": "12min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "3min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "+",
+                "work": "40min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Haile Gebrselassie:\"Nunca subestime o poder de um bom aquecimento. Prepare seu corpo para o esforço.\""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 90,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": "Semana 24 - Semana da prova."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 60,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "4x",
+                "work": "1200 m",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "com",
+                "work": "2min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10min",
+                "rest": "fácil"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": "Único treino mais forte da semana, seja disciplinado nos ritmos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m com 100 m trotes após corrida"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [{ "distance": "easy", "note": "" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 21,
+        "type": "race",
+        "note": "Prova ou Teste",
+        "workouts": [
+          {
+            "distance": "",
+            "note": "Hoje é o dia tão esperado! É o momento de colocar em prática todo o treinamento dedicado. Estude bem o percurso, e defina o ritmo da prova. Mantenha o ritmo que você estabeleceu. Confie no seu preparo e aproveite cada passo dessa jornada. Boa prova e divirta-se!"
+          }
+        ]
+      }
+    ],
+    "note": "Hidrate-se antes, durante e depois."
+  }
+]

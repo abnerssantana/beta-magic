@@ -1,0 +1,2787 @@
+[
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Explicação do Plano Vermelho",
+            "link": "https://www.youtube.com/watch?v=p-ABTWahohg"
+          },
+          {
+            "note": "Nível vermelho I – Semanas 1 a 4 | Volume semanal: 35 - 60 km"
+          },
+          {
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Atualize a data de início do seu plano e o seu melhor tempo no 5 km. Isso vai determinar os ritmos dos seus treinos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "3x",
+                "work": "1500 m",
+                "rest": "com 1 min trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "6x",
+                "work": "1000 m",
+                "rest": "com 1 min trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "3x",
+                "work": "1500 m",
+                "rest": "com 1 min trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "6x",
+                "work": "1000 m",
+                "rest": "com 1 min trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "3x",
+                "work": "1500 m",
+                "rest": "com 1 min trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "6x",
+                "work": "1000 m",
+                "rest": "com 1 min trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "3x",
+                "work": "1500 m",
+                "rest": "com 1 min trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "6x",
+                "work": "1000 m",
+                "rest": "com 1 min trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Nível vermelho II – Semanas 5 a 8"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 45,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "3 km",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "2 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "1500 m",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 45,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "sets": "2x",
+                "work": "",
+                "rest": "séries"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "1500 m",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "1 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "1000 m",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "1 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 45,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "3 km",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "2 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "1500 m",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 45,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "sets": "2x",
+                "work": "",
+                "rest": "séries"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "1500 m",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "1 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "1000 m",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "1 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 45,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "3 km",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "2 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "1500 m",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 45,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "sets": "2x",
+                "work": "",
+                "rest": "séries"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "1500 m",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "1 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "1000 m",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "1 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 45,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "3 km",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "2 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "1500 m",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 45,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "sets": "2x",
+                "work": "",
+                "rest": "séries"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "1500 m",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "1 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "1000 m",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "1 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Nível vermelho III – Semanas 9 a 12"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "interval",
+                "sets": "5x",
+                "work": "3 min",
+                "rest": "2 min de trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "20 min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "interval",
+                "sets": "5x",
+                "work": "3 min",
+                "rest": "2 min de trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "20 min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          },
+          {
+            "note": "Volume semanal: 35 - 60 km",
+            "link": null
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "interval",
+                "sets": "5x",
+                "work": "3 min",
+                "rest": "2 min de trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "20 min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "interval",
+                "sets": "5x",
+                "work": "3 min",
+                "rest": "2 min de trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "20 min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Nível vermelho IV – Semanas 13 a 16"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "sets": "2x",
+                "work": "",
+                "rest": "séries"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "5 min",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "3 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "3 min",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "3 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "2x",
+                "work": "3 km",
+                "rest": "2 min trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "sets": "2x",
+                "work": "",
+                "rest": "séries"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "5 min",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "3 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "3 min",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "3 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "2x",
+                "work": "3 km",
+                "rest": "2 min trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "sets": "2x",
+                "work": "",
+                "rest": "séries"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "5 min",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "3 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "3 min",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "3 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "2x",
+                "work": "3 km",
+                "rest": "2 min trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "sets": "2x",
+                "work": "",
+                "rest": "séries"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "5 min",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "3 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "3 min",
+                "rest": "intervalo"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "3 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "2x",
+                "work": "3 km",
+                "rest": "2 min trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "10 min",
+                "rest": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "8x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Hoje é um dia facultativo, você pode ou não correr :)"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 50,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  }
+]

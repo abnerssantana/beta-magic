@@ -1,0 +1,161 @@
+{
+  "trainers": [
+    {
+      "id": "jack-daniels",
+      "name": "Jack Daniels",
+      "fullName": "Jack Tupper Daniels",
+      "title": "Fisiologia do Exercício e Treinador de Elite",
+      "profileImage": "/img/coach/jack-daniels.jpg",
+      "biography": [
+        {
+          "title": "Sobre",
+          "content": "**Jack Tupper Daniels** (nascido em 26 de abril de 1933) é um fisiologista americano de exercícios, treinador de corrida e treinador de atletas olímpicos. Em 21 de março de 2013, ele foi nomeado treinador principal dos programas de cross country masculino e feminino do Wells College. Ele recebeu seu doutorado em fisiologia do exercício na Universidade de Wisconsin-Madison."
+        },
+        {
+          "title": "Reconhecimentos",
+          "content": "Nomeado \"O Melhor Treinador do Mundo\" pela revista Runner's World, ele levou os corredores da SUNY Cortland a oito Campeonatos Nacionais da Divisão III da NCAA, 31 títulos nacionais individuais e mais de 130 prêmios All-America. Daniels delineou suas filosofias de treinamento no livro de 1998, *Daniels' Running Formula*. Ele orienta e treina alguns dos melhores corredores de longa distância da América no país."
+        },
+        {
+          "title": "Conquistas Olímpicas",
+          "content": "Daniels ganhou uma medalha de prata por equipe nos Jogos Olímpicos de Verão de 1956 e uma medalha de bronze por equipe nos Jogos Olímpicos de Verão de 1960 por sua participação no pentatlo moderno."
+        },
+        {
+          "title": "VDOT",
+          "content": "Na década de 1970, Daniels e seu colega, Jimmy Gilbert, examinaram o desempenho e os valores conhecidos de VO2max dos corredores de elite de média e longa distância. Embora o laboratório tenha determinado que os valores de VO2max desses corredores possam ter sido diferentes, os corredores com desempenho igual receberam perfis aeróbicos iguais. Daniels rotulou esses valores de \"pseudoVO2max\" ou \"VO2max efetivo\" como valores VDOT. De acordo com Daniels, o VDOT é uma forma abreviada de V̇O2max, apropriadamente declarada como \"V-dot-O2max\"."
+        }
+      ],
+      "socialMedia": {
+        "youtube": "https://www.youtube.com/@VDOTO2",
+        "twitter": "https://twitter.com/jackdanielsrun",
+        "website": "https://vdoto2.com"
+      }
+    },
+    {
+      "id": "pete-pfitzinger",
+      "name": "Pete Pfitzinger",
+      "fullName": "Pete Pfitzinger",
+      "title": "Fisiologista do Exercício e Treinador de Elite",
+      "profileImage": "/img/coach/pete-pfitzinger.jpg",
+      "biography": [
+        {
+          "title": "Sobre",
+          "content": "**Pete Pfitzinger** é um renomado fisiologista do exercício, treinador de corrida e ex-maratonista olímpico americano. Ele é conhecido por seus planos de treinamento detalhados e abordagem científica ao treinamento de corrida de longa distância."
+        },
+        {
+          "title": "Carreira Atlética",
+          "content": "Pfitzinger competiu nos Jogos Olímpicos de 1984 e 1988 na maratona. Seu melhor tempo na maratona é de 2:11:43. Ele também venceu a Maratona de San Francisco em 1983 e foi bicampeão da Maratona dos Jogos Pan-Americanos em 1983 e 1987."
+        },
+        {
+          "title": "Contribuições para o Treinamento",
+          "content": "Pete é coautor de vários livros influentes sobre corrida, incluindo 'Advanced Marathoning' e 'Faster Road Racing'. Seus planos de treinamento são conhecidos por sua alta quilometragem e ênfase em corridas longas em ritmo de maratona, sendo amplamente adotados por corredores de elite e amadores sérios."
+        },
+        {
+          "title": "Abordagem ao Treinamento",
+          "content": "A filosofia de treinamento de Pfitzinger enfatiza a importância do volume de treinamento, a especificidade do treinamento e a periodização. Ele é conhecido por integrar princípios científicos da fisiologia do exercício em seus programas de treinamento, focando na otimização da economia de corrida e da resistência aeróbica."
+        },
+        {
+          "title": "Educação e Carreira Profissional",
+          "content": "Pfitzinger possui mestrado em Fisiologia do Exercício pela University of Massachusetts Amherst. Além de seu trabalho como autor e treinador, ele atuou como Diretor Executivo de Desenvolvimento da Atletas de Longa Distância na Athletics New Zealand de 2009 a 2012."
+        }
+      ],
+      "socialMedia": {
+        "twitter": "https://twitter.com/pfitzinger",
+        "website": "https://www.amazon.com.br/Livros-Pete-Pfitzinger/s?rh=n%3A6740748011%2Cp_27%3APete+Pfitzinger"
+      }
+    },
+    {
+      "id": "hal-higdon",
+      "name": "Hal Higdon",
+      "fullName": "Hal Higdon",
+      "title": "Autor e Treinador de Corrida",
+      "profileImage": "/img/coach/hal-higdon.jpg",
+      "biography": [
+        {
+          "title": "Sobre",
+          "content": "**Hal Higdon** é um renomado corredor, autor e treinador que desenvolveu uma série de programas de treinamento para corredores de todos os níveis. Ele começou a correr ainda jovem, no colégio, e continuou a competir no atletismo universitário."
+        },
+        {
+          "title": "Carreira Competitiva",
+          "content": "Higdon se destacou nos 3000 metros com obstáculos, terminando em 5º lugar nas seletivas olímpicas de 1960. Sua carreira inclui uma impressionante 5ª colocação na Maratona de Boston em 1964, sendo o melhor americano na prova."
+        },
+        {
+          "title": "Carreira como Escritor",
+          "content": "Além de sua experiência competitiva, Higdon escreveu dezenas de livros sobre corrida, incluindo o clássico Marathon: The Ultimate Training Guide. Ele começou a oferecer programas de treinamento online em 1996, e suas metodologias são utilizadas por milhões de corredores, desde iniciantes até atletas experientes. Seus planos incluem distâncias que vão de 5K até maratonas, além de programas para recuperação pós-prova e treinos de base."
+        },
+        {
+          "title": "Treinador e Influenciador",
+          "content": "Seu foco é ajudar corredores a alcançar seus objetivos de forma segura e eficaz, e suas recomendações são amplamente seguidas no mundo do atletismo. Ele também trabalha com plataformas interativas como o TrainingPeaks para oferecer planos personalizados que se adaptam ao nível de habilidade e aos objetivos individuais dos atletas."
+        }
+      ],
+      "socialMedia": {
+        "twitter": "https://twitter.com/higdonmarathon",
+        "instagram": "https://www.instagram.com/higdonmarathon",
+        "website": "https://www.halhigdon.com"
+      }
+    },
+    {
+      "id": "sarah-mccormack",
+      "name": "Sarah McCormack",
+      "fullName": "Dr. Sarah McCormack",
+      "title": "Corredora de Montanha e Treinadora",
+      "profileImage": "/img/coach/sarah-mccormack.jpg",
+      "biography": [
+        {
+          "title": "Sobre",
+          "content": "**Dr. Sarah McCormack** é uma corredora de montanha de elite, treinadora certificada pela UK Athletics em corrida de trilha e corrida em queda (fell running), e cientista com doutorado em Biogeoquímica. Ela é conhecida por sua versatilidade como atleta, com sucesso em corridas de montanha, cross country e pista."
+        },
+        {
+          "title": "Carreira Atlética",
+          "content": "Sarah conquistou o título de **Mountain Running World Cup Winner em 2019**. Suas conquistas incluem o **Italian Mountain Running & Vertical Kilometre Champion em 2020**, vitórias na **Snowdon International Mountain Race (2014, 2015, 2019)**, e top 10 em **World/European Mountain Running Championships**. Ela também foi **Irish Cross-Country Champion em 2014** e tem recordes pessoais impressionantes de 15:46 nos 5km e 33:33 nos 10km."
+        },
+        {
+          "title": "Filosofia de Treinamento",
+          "content": "Sarah acredita em desenvolver uma abordagem de treinamento personalizada para cada atleta. Sua experiência diversificada em pista, cross country, trilha e corrida de montanha lhe dá uma ampla base para criar planos de treinamento que atendam às necessidades únicas de cada corredor e às demandas específicas de seus eventos-alvo. Ela valoriza o processo de conhecer individualmente os atletas e encontrar a melhor abordagem para cada um."
+        },
+        {
+          "title": "Educação e Carreira Profissional",
+          "content": "Além de sua carreira atlética, Sarah possui PhD em Biogeoquímica, MPhil em Química e BSc (Hons) em Bioquímica. Ela é uma ecologista qualificada e embaixadora da marca Inov-8."
+        },
+        {
+          "title": "Filosofia Pessoal",
+          "content": "Sarah acredita que nem todas as corridas serão boas, mas que sempre há algo a ganhar de cada experiência. Ela encoraja os atletas a encontrar pontos positivos mesmo em desempenhos ruins e a usar essas experiências para melhorar no futuro."
+        }
+      ],
+      "socialMedia": {
+        "instagram": "https://www.instagram.com/missinglinkcoach/",
+        "twitter": "https://twitter.com/fell_runner",
+        "website": "https://www.missinglinkcoaching.co.uk"
+      }
+    },
+    {
+      "id": "abner-santana",
+      "name": "Abner Santana",
+      "title": "Corredor",
+      "profileImage": "/img/abnersantana-corrida5.jpg",
+      "biography": [
+        {
+          "title": "Sobre",
+          "content": "**Abner Santana** nascido em 23 de maio de 1993, apaixonado por corrida, especialmente maratonas. Além de corredor, também trabalha com infraestrutura e segurança de TI. No seu tempo livre, ele compartilha dicas e conhecimentos sobre corrida em um canal no YouTube. Fã da série X-Files e do filme Alien, além de gostar de design e escrita."
+        },
+        {
+          "title": "Experiência",
+          "content": "Paralelamente, a corrida entrou em minha vida como um catalisador de transformações. Engajado em buscar performance, participei de grandes competições e me tornei um atleta federado. Essa jornada esportiva não é apenas física; é também uma fonte constante de aprendizado sobre treinamento e fisiologia."
+        },
+        {
+          "title": "Magic Training",
+          "content": "Esse amor pela corrida culminou no desenvolvimento do projeto Magic Training. Oferece planos de treinamento personalizados para corrida e fortalecimento, além de um rank de maratonistas, estatísticas das maratonas e um calendário de eventos. Criado em Next.js e estilizado com Tailwind CSS, o projeto utiliza arquivos JSON como banco de dados, garantindo uma experiência rápida e dinâmica. Magic Training também suporta temas claro e escuro, adaptando-se à preferência do usuário."
+        },
+        {
+          "content": "Meus planos de treinamento são baseados na minha experiência com a corrida e no meu constante processo de autoaprendizado. Sou um nerd, sempre buscando aprender mais, com uma grande facilidade para absorver novos conhecimentos e uma memória impressionante."
+        }
+      ],
+      "socialMedia": {
+        "instagram": "https://www.instagram.com/abnersantana",
+        "youtube": "https://www.youtube.com/@abnerssantana",
+        "linkedin": "https://www.linkedin.com/in/abner-santana",
+        "twitter": "https://twitter.com/abnersantana",
+        "website": "https://magictraining.run"
+      }
+    }
+  ]
+}

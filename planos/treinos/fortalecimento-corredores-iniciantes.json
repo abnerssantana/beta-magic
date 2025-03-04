@@ -1,0 +1,98 @@
+[
+    {
+      "day": "Segunda-feira",
+      "note": "Foco em fortalecimento geral. Faça este treino após uma corrida leve ou como sua atividade principal do dia.",
+      "exercises": [
+        {
+          "name": "Agachamento",
+          "sets": 2,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/Uv_DKDl7EjA"
+        },
+        {
+          "name": "Ponte de glúteos",
+          "sets": 2,
+          "reps": 12,
+          "video": "https://www.youtube.com/embed/YRqoIM0u0PY"
+        },
+        {
+          "name": "Flexões na parede",
+          "sets": 2,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/UNuhfpuaG68"
+        },
+        {
+          "name": "Elevação de panturrilha",
+          "sets": 2,
+          "reps": 15,
+          "video": "https://www.youtube.com/embed/JbQJdpfz1_M"
+        },
+        {
+          "name": "Prancha",
+          "sets": 2,
+          "time": 20,
+          "video": "https://www.youtube.com/embed/9uKrq4BMPFk"
+        }
+      ]
+    },
+    {
+      "day": "Quarta-feira",
+      "note": "Dia de corrida. Foque no seu treino principal de corrida.",
+      "exercises": [
+        {
+          "name": "Dia de corrida",
+          "sets": 0,
+          "reps": 0,
+          "video": null
+        }
+      ]
+    },
+    {
+      "day": "Sexta-feira",
+      "note": "Foco em fortalecimento e estabilidade. Realize este treino após uma corrida leve ou como sua atividade principal do dia.",
+      "exercises": [
+        {
+          "name": "Afundo",
+          "sets": 2,
+          "reps": 8,
+          "video": "https://www.youtube.com/embed/3fraM8qDyXw"
+        },
+        {
+          "name": "Superman",
+          "sets": 2,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/7DElZ-3U_jE"
+        },
+        {
+          "name": "Elevação lateral",
+          "sets": 2,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/O4nv1_O2XZQ"
+        },
+        {
+          "name": "Step-up",
+          "sets": 2,
+          "reps": 8,
+          "video": "https://www.youtube.com/embed/cO57sQVbmXw"
+        },
+        {
+          "name": "Prancha lateral",
+          "sets": 2,
+          "time": 15,
+          "video": "https://www.youtube.com/embed/iWnL_9jqPnE"
+        }
+      ]
+    },
+    {
+      "day": "Domingo",
+      "note": "Dia de descanso ativo. Realize alongamentos suaves e uma caminhada leve se desejar.",
+      "exercises": [
+        {
+          "name": "Dia de descanso",
+          "sets": 0,
+          "reps": 0,
+          "video": null
+        }
+      ]
+    }
+  ]

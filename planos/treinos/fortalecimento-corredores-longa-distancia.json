@@ -1,0 +1,206 @@
+[
+    {
+      "day": "Dia 1",
+      "note": "Foco em fortalecimento de membros inferiores e core. Faça este treino após uma corrida leve ou em um dia de descanso.",
+      "exercises": [
+        {
+          "name": "Agachamento",
+          "sets": 3,
+          "reps": 12,
+          "video": "https://www.youtube.com/embed/Uv_DKDl7EjA"
+        },
+        {
+          "name": "Afundo",
+          "sets": 3,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/3fraM8qDyXw"
+        },
+        {
+          "name": "Ponte de glúteos",
+          "sets": 3,
+          "reps": 15,
+          "video": "https://www.youtube.com/embed/YRqoIM0u0PY"
+        },
+        {
+          "name": "Elevação de panturrilha",
+          "sets": 3,
+          "reps": 20,
+          "video": "https://www.youtube.com/embed/JbQJdpfz1_M"
+        },
+        {
+          "name": "Prancha",
+          "sets": 3,
+          "time": 45,
+          "video": "https://www.youtube.com/embed/9uKrq4BMPFk"
+        },
+        {
+          "name": "Mountain climbers",
+          "sets": 3,
+          "reps": 20,
+          "video": "https://www.youtube.com/embed/7r3mNNjS8H0"
+        }
+      ]
+    },
+    {
+      "day": "Dia 2",
+      "note": "Foco em fortalecimento de membros superiores e estabilidade. Realize este treino em um dia sem corrida ou após uma corrida curta e leve.",
+      "exercises": [
+        {
+          "name": "Flexões",
+          "sets": 3,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/eoWU15EtW_s"
+        },
+        {
+          "name": "Remada com halteres",
+          "sets": 3,
+          "reps": 12,
+          "video": "https://www.youtube.com/embed/nLUvkaNZaOU"
+        },
+        {
+          "name": "Elevação lateral",
+          "sets": 3,
+          "reps": 12,
+          "video": "https://www.youtube.com/embed/O4nv1_O2XZQ"
+        },
+        {
+          "name": "Superman",
+          "sets": 3,
+          "reps": 15,
+          "video": "https://www.youtube.com/embed/7DElZ-3U_jE"
+        },
+        {
+          "name": "Prancha lateral",
+          "sets": 3,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/iWnL_9jqPnE"
+        },
+        {
+          "name": "Russian twist",
+          "sets": 3,
+          "reps": 20,
+          "video": "https://www.youtube.com/embed/FrKCx0daMmI"
+        }
+      ]
+    },
+    {
+      "day": "Dia 3",
+      "note": "Dia de corrida. Foque no seu treino principal de corrida para meia maratona ou maratona.",
+      "exercises": [
+        {
+          "name": "Dia de corrida",
+          "sets": 0,
+          "reps": 0,
+          "video": null
+        }
+      ]
+    },
+    {
+      "day": "Dia 4",
+      "note": "Foco em exercícios funcionais e pliométricos. Realize este treino após uma corrida leve ou em um dia de descanso.",
+      "exercises": [
+        {
+          "name": "Agachamento com salto",
+          "sets": 3,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/Py4l5BiZ7g0"
+        },
+        {
+          "name": "Avanço alternado",
+          "sets": 3,
+          "reps": 12,
+          "video": "https://www.youtube.com/embed/ZWNjRSrQvdg"
+        },
+        {
+          "name": "Step-up",
+          "sets": 3,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/cO57sQVbmXw"
+        },
+        {
+          "name": "Burpees",
+          "sets": 3,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/zB8AoHfFEYc"
+        },
+        {
+          "name": "Prancha com elevação de perna alternada",
+          "sets": 3,
+          "reps": 20,
+          "video": "https://www.youtube.com/embed/2KCDlbqaqGs"
+        },
+        {
+          "name": "Wall sit",
+          "sets": 3,
+          "time": 45,
+          "video": "https://www.youtube.com/embed/ZE5bLrOJPcU"
+        }
+      ]
+    },
+    {
+      "day": "Dia 5",
+      "note": "Foco em fortalecimento de membros inferiores e core. Faça este treino após uma corrida leve ou em um dia de descanso.",
+      "exercises": [
+        {
+          "name": "Agachamento búlgaro",
+          "sets": 3,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/2vg-9AoC1Jk"
+        },
+        {
+          "name": "Deadlift",
+          "sets": 3,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/ytGaGIn3SjE"
+        },
+        {
+          "name": "Leg press unilateral",
+          "sets": 3,
+          "reps": 12,
+          "video": "https://www.youtube.com/embed/pPrx1AE1L9o"
+        },
+        {
+          "name": "Elevação de calcanhar unilateral",
+          "sets": 3,
+          "reps": 15,
+          "video": "https://www.youtube.com/embed/YRtntG92c6k"
+        },
+        {
+          "name": "Prancha com rotação",
+          "sets": 3,
+          "reps": 20,
+          "video": "https://www.youtube.com/embed/uW-V0Ja4fXw"
+        },
+        {
+          "name": "Abdominal bicicleta",
+          "sets": 3,
+          "reps": 20,
+          "video": "https://www.youtube.com/embed/eBZ4rdDjLFM"
+        }
+      ]
+    },
+    {
+      "day": "Dia 6",
+      "note": "Dia de corrida longa. Foque no seu treino principal de corrida para meia maratona ou maratona.",
+      "exercises": [
+        {
+          "name": "Dia de corrida longa",
+          "sets": 0,
+          "reps": 0,
+          "video": null
+        }
+      ]
+    },
+    {
+      "day": "Dia 7",
+      "note": "Dia de descanso ativo. Realize alongamentos suaves e uma caminhada leve se desejar.",
+      "exercises": [
+        {
+          "name": "Dia de descanso",
+          "sets": 0,
+          "reps": 0,
+          "video": null
+        }
+      ]
+    }
+  ]

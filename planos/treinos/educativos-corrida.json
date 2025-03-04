@@ -1,0 +1,56 @@
+[
+  {
+    "day": "Pré Treino",
+    "note": "",
+    "exercises": [
+      {
+        "name": "“A” skips",
+        "sets": 2,
+        "reps": 10,
+        "video": "https://www.youtube.com/embed/1caLyDtU-rE"
+      },
+      {
+        "name": "High knees",
+        "sets": 2,
+        "reps": 10,
+        "video": "https://www.youtube.com/embed/__C3EFI969U"
+      },
+      {
+        "name": "“B” skips",
+        "sets": 2,
+        "reps": 10,
+        "video": "https://www.youtube.com/embed/3ubSwyWf03I"
+      },
+      {
+        "name": "Butt kicks",
+        "sets": 2,
+        "reps": 10,
+        "video": "https://www.youtube.com/embed/V5Dyr31Xr0w"
+      },
+      {
+        "name": "Power skips",
+        "sets": 2,
+        "reps": 10,
+        "video": "https://www.youtube.com/embed/WIEVI7HciC8"
+      },
+      {
+        "name": "Carioca drill",
+        "sets": 2,
+        "reps": 10,
+        "video": "https://www.youtube.com/embed/5CHHiYknKzk"
+      },
+      {
+        "name": "Bounding",
+        "sets": 2,
+        "reps": 10,
+        "video": "https://www.youtube.com/embed/nWMdWR6xvHs"
+      },
+      {
+        "name": "Strides",
+        "sets": 2,
+        "reps": 10,
+        "video": "https://www.youtube.com/embed/kNzlIdKr_TQ"
+      }
+    ]
+  }
+]

@@ -1,0 +1,2015 @@
+[
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Comece sua jornada com determinação. Cada passo conta!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha um ritmo constante e foque na sua respiração."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "threshold",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos no ritmo de limiar",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "10 min",
+                "rest": "3 min trote"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "8 min",
+                "rest": "3 min trote"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "8 min",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Encare os intervalos de limiar como um desafio. Você é mais forte do que pensa!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Foco na recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se, a recuperação é tão importante quanto o treino intenso."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Subidas e tiros",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "12 seg",
+                "rest": "subida"
+              },
+              {
+                "distance": "interval",
+                "sets": "8x",
+                "work": "100 m",
+                "rest": "tiros"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "As subidas constroem força, os tiros desenvolvem velocidade. Você está se tornando um corredor completo!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "\"A persistência é o caminho do êxito.\" - Charles Chaplin"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para recarregar suas energias físicas e mentais."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "threshold",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos no ritmo de limiar",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "12 min",
+                "rest": "4 min trote"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "10 min",
+                "rest": "4 min trote"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "8 min",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Cada intervalo de limiar te deixa mais forte e mais rápido. Confie no processo!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Foco na recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": "Aproveite este dia para se concentrar na sua técnica de corrida."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "interval",
+        "note": "Ritmo de Repetição",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Tiros de velocidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "2x",
+                "work": "5x200 m",
+                "rest": "ritmo de 800m a 1 milha"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "200 m",
+                "rest": "entre repetições"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "4 min",
+                "rest": "entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "\"A velocidade é um dom, mas é preciso trabalho para mantê-la.\" - Usain Bolt"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 18,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Você está construindo uma base sólida para o sucesso. Continue assim!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para trabalhar na sua flexibilidade e força geral."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha um ritmo constante e aproveite a corrida."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Treino de VO2max em subidas",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "7x",
+                "work": "3 min",
+                "rest": "subida no esforço de corrida de 3K-5K"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "",
+                "rest": "trote de recuperação na descida"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "As subidas são desafiadoras, mas te tornam um corredor mais forte. Encare cada uma como uma oportunidade de melhorar!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Foco na recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se, a recuperação é onde a melhoria acontece. Respeite este processo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Treino de velocidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "12 seg",
+                "rest": "subida"
+              },
+              {
+                "distance": "interval",
+                "sets": "8x",
+                "work": "100 m",
+                "rest": "tiros"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "\"A excelência não é um ato, mas um hábito.\" - Aristóteles"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 18,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Cada quilômetro te torna mais forte. Mantenha o foco e a determinação."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite o descanso. Seu corpo merece e precisa para se adaptar aos treinos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha a consistência. Cada corrida fácil constrói sua base aeróbica."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "interval",
+        "note": "Ritmo de Repetição",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Treino de velocidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "2x",
+                "work": "5x200 m",
+                "rest": "ritmo de 800m a 1 milha"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "200 m",
+                "rest": "entre repetições"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "4 min",
+                "rest": "entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Concentre-se na sua técnica durante os tiros. Velocidade é eficiência em movimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Foco na recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso é a soma de pequenos esforços repetidos dia após dia.\" - Robert Collier"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Desfrute da distância. Você está construindo resistência a cada passo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para trabalhar na sua mobilidade e fortalecimento do core."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha um ritmo constante e foque na sua forma de corrida."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Treino de VO2max",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "1000 m",
+                "rest": "no ritmo de corrida de 3K-5K"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "",
+                "rest": "trote de recuperação de 50-90% do tempo do intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Estes intervalos são desafiadores, mas estão te deixando mais forte a cada repetição. Mantenha o foco!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Foco na recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": "A recuperação é tão importante quanto o treino intenso. Aproveite este momento para ouvir seu corpo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Treino de velocidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "12 seg",
+                "rest": "subida"
+              },
+              {
+                "distance": "interval",
+                "sets": "8x",
+                "work": "100 m",
+                "rest": "tiros"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "\"O único lugar onde o sucesso vem antes do trabalho é no dicionário.\" - Vidal Sassoon"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 19,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Cada quilômetro desta corrida longa está te preparando para o sucesso. Mantenha a persistência!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é parte integral do progresso. Aproveite para recarregar as energias."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "threshold",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Intervalos no ritmo de limiar",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "14 min",
+                "rest": "4 min trote"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "10 min",
+                "rest": "4 min trote"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "10 min",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Estes intervalos de limiar estão elevando seu nível. Confie no processo e mantenha o foco!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Foco na recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida de recuperação para se concentrar na sua técnica e postura."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "interval",
+        "note": "Ritmo de Repetição",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Treino de velocidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "3x",
+                "work": "4x200 m",
+                "rest": "ritmo de 800m a 1 milha"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "200 m",
+                "rest": "entre repetições"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "4 min",
+                "rest": "entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "\"A dor que você sente hoje será a força que você sentirá amanhã.\" - Arnold Schwarzenegger"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 19,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Esta corrida longa está construindo sua resistência mental e física. Aproveite a jornada!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite este dia para trabalhar na sua flexibilidade e equilíbrio."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha um ritmo constante e foque na sua respiração."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Treino de ritmo de prova",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "2x",
+                "work": "(1600 m, 1200 m, 1000 m)",
+                "rest": "no ritmo de 8K-10K"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "",
+                "rest": "trote de recuperação de 50% do tempo do intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Este treino simula o ritmo de prova. Sinta o ritmo e ganhe confiança para o dia da corrida!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 18,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Foco na recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se, a recuperação é onde o progresso acontece. Respeite este processo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Treino de velocidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "2x",
+                "work": "6x100 m",
+                "rest": "tiros"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "3 min",
+                "rest": "entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "\"A excelência é uma habilidade conquistada através do treinamento e do hábito.\" - Aristóteles"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 19,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Cada quilômetro desta corrida longa está te preparando para o sucesso. Mantenha a persistência!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para recarregar suas energias físicas e mentais."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Treino de velocidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "2x",
+                "work": "5x150 m",
+                "rest": "tiros"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "250 m",
+                "rest": "entre repetições"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "4 min",
+                "rest": "entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Concentre-se na sua forma durante os tiros. A velocidade vem da eficiência."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Foco na recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida de recuperação para se sintonizar com seu corpo e ajustar qualquer tensão."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Corrida leve de recuperação"
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha-se leve e relaxado nesta corrida. É uma preparação para o teste de amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "race",
+        "units": "km",
+        "distance": 5,
+        "type": "race",
+        "note": "Teste de 5K",
+        "workouts": [
+          {
+            "distance": "race",
+            "note": "Corrida de teste de 5K (incluindo aquecimento e desaquecimento)"
+          }
+        ]
+      }
+    ],
+    "note": "Dê o seu melhor neste teste! É uma oportunidade de ver seu progresso e ajustar suas metas."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso não é final, o fracasso não é fatal: é a coragem de continuar que conta.\" - Winston Churchill"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite este dia para trabalhar na sua força e estabilidade do core."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha um ritmo constante e foque na sua forma de corrida."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Treino de VO2max",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "3x",
+                "work": "1200 m",
+                "rest": "no ritmo de corrida de 3K-5K"
+              },
+              {
+                "distance": "interval",
+                "sets": "3x",
+                "work": "800 m",
+                "rest": "no ritmo de corrida de 3K-5K"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "",
+                "rest": "trote de recuperação de 50-90% do tempo do intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Este treino de VO2max é desafiador, mas está expandindo seus limites. Mantenha o foco e a determinação!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 18,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Foco na recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida de recuperação para se sintonizar com seu corpo e ajustar qualquer tensão."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Treino de velocidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "2x",
+                "work": "6x100 m",
+                "rest": "tiros"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "3 min",
+                "rest": "entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "\"A disciplina é a ponte entre metas e realizações.\" - Jim Rohn"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 21,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Esta corrida longa está construindo sua resistência mental e física. Aproveite a jornada!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Treino de velocidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "2x",
+                "work": "5x150 m",
+                "rest": "tiros"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "250 m",
+                "rest": "entre repetições"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "4 min",
+                "rest": "entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Concentre-se na sua técnica durante os tiros. Velocidade é eficiência em movimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Foco na recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se, a recuperação é onde o progresso acontece. Respeite este processo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Corrida leve de recuperação"
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha-se leve e relaxado nesta corrida. É uma preparação para o teste de amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "race",
+        "units": "km",
+        "distance": 5,
+        "type": "race",
+        "note": "Teste de 5K",
+        "workouts": [
+          {
+            "distance": "race",
+            "note": "Corrida de teste de 5K (incluindo aquecimento e desaquecimento)"
+          }
+        ]
+      }
+    ],
+    "note": "Dê o seu melhor neste teste! Use-o como um ensaio para a corrida principal e para ajustar suas estratégias."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso não é acidental. É trabalho duro, perseverança, aprendizado, estudo, sacrifício e, acima de tudo, amor pelo que você está fazendo.\" - Pelé"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para relaxar e visualizar seu sucesso na corrida que se aproxima."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha-se relaxado durante esta corrida. O trabalho duro já foi feito!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Corrida leve de recuperação"
+          }
+        ]
+      }
+    ],
+    "note": "Foque na recuperação e em se sentir bem. A prova está se aproximando!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Treino de VO2max",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "4x",
+                "work": "800 m",
+                "rest": "no ritmo de corrida de 3K-5K"
+              },
+              {
+                "distance": "interval",
+                "sets": "3x",
+                "work": "600 m",
+                "rest": "no ritmo de corrida de 3K-5K"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "",
+                "rest": "trote de recuperação de 50-90% do tempo do intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Este é seu último treino intenso. Dê o seu melhor, mas não se esgote completamente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Corrida leve de recuperação"
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha-se leve e relaxado. Seu corpo está se preparando para o grande dia."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Treino de velocidade",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "8x",
+                "work": "100 m",
+                "rest": "tiros"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Estes tiros curtos manterão suas pernas ágeis sem causar fadiga excessiva."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Última corrida longa antes da prova. Aproveite cada passo e visualize seu sucesso!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Treino de ritmo de prova",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "4x",
+                "work": "100 m",
+                "rest": "tiros"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "1200 m",
+                "rest": "no ritmo de prova de 8K-10K"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Este treino serve para relembrar seu corpo do ritmo de prova. Mantenha-se confiante!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida em ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha-se relaxado e confiante. Você está pronto para a prova!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Corrida leve de recuperação"
+          }
+        ]
+      }
+    ],
+    "note": "Corrida leve para manter as pernas ativas. Visualize seu sucesso na prova."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Descanse bem. Amanhã é o grande dia!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Corrida leve com 4x100m tiros no final"
+          }
+        ]
+      }
+    ],
+    "note": "Corrida leve para manter as pernas ativas. Os tiros ajudarão a preparar seu corpo para amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "race",
+        "units": "km",
+        "distance": 10,
+        "type": "race",
+        "note": "Prova de 5 ou 10 km",
+        "workouts": [
+          {
+            "distance": "race",
+            "note": "Dia da prova! Dê o seu melhor e aproveite cada momento."
+          }
+        ]
+      }
+    ],
+    "note": "É o grande dia! Confie no seu treinamento, mantenha-se focado e aproveite cada quilômetro. Você está pronto para isso!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Corrida leve de recuperação pós-prova"
+          }
+        ]
+      }
+    ],
+    "note": "Parabéns pela sua conquista! Use esta corrida para refletir sobre sua jornada e começar a recuperação."
+  }
+]

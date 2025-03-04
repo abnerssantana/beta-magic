@@ -1,0 +1,2810 @@
+[
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Comece seu treinamento com determinação. Cada passo conta!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para fortalecer seu corpo com exercícios complementares."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite para descansar e preparar-se mentalmente para os treinos que virão."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável para construir sua base aeróbica."
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso é a soma de pequenos esforços repetidos dia após dia.\" - Robert Collier"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua forma e respiração durante esta corrida fácil."
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha-se hidratado e atento à sua postura durante o treino."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aproveite esta corrida para aumentar sua resistência base."
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se: cada corrida te deixa mais forte e mais próximo do seu objetivo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "\"A jornada de mil milhas começa com um único passo.\" - Lao Tzu"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Comece a semana com uma corrida leve para preparar o corpo para os treinos mais intensos."
+          }
+        ]
+      }
+    ],
+    "note": "Cada corrida fácil é uma oportunidade para melhorar sua eficiência."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Intervalos para melhorar sua velocidade e resistência",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "12x",
+                "work": "400 m",
+                "rest": "com 400 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "\"O que nos parece uma provação amarga pode ser uma bênção disfarçada.\" - Oscar Wilde"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para recuperar-se e fazer exercícios de fortalecimento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Treinamento no ritmo alvo da meia maratona",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "5 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Concentre-se em manter o ritmo constante durante o trecho no ritmo de meia maratona."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Use esta corrida para se recuperar do treino de ritmo de ontem."
+          }
+        ]
+      }
+    ],
+    "note": "Preste atenção em como seu corpo se sente após o treino de ritmo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na sua técnica de corrida."
+          }
+        ]
+      }
+    ],
+    "note": "\"A persistência é o caminho do êxito.\" - Charles Chaplin"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aumente gradualmente o ritmo ao longo da corrida, se sentir-se confortável."
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se de se hidratar bem antes, durante e após esta corrida longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Comece a semana com uma corrida suave para preparar o corpo para os treinos mais intensos."
+          }
+        ]
+      }
+    ],
+    "note": "\"A disciplina é a ponte entre metas e realizações.\" - Jim Rohn"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Intervalos para melhorar sua velocidade e resistência",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "8x",
+                "work": "600 m",
+                "rest": "com 400 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Foque na sua forma e respiração durante os intervalos. Mantenha a intensidade constante."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite para descansar e fazer exercícios de fortalecimento complementares."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Treinamento no ritmo alvo da meia maratona",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "5 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha o foco no ritmo constante. Este treino é crucial para sua adaptação ao ritmo de prova."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na recuperação ativa."
+          }
+        ]
+      }
+    ],
+    "note": "Escute seu corpo durante esta corrida. É importante recuperar-se bem após os treinos intensos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Use esta corrida para melhorar sua eficiência e preparar-se para a corrida longa de amanhã."
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso não é final, o fracasso não é fatal: é a coragem de continuar que conta.\" - Winston Churchill"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável. Foque na resistência, não na velocidade."
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se de se hidratar bem e manter uma alimentação adequada antes e depois desta corrida longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Comece a semana com uma corrida leve para recuperar-se da corrida longa de ontem."
+          }
+        ]
+      }
+    ],
+    "note": "Preste atenção em como seu corpo se sente após a corrida longa. Ajuste o ritmo conforme necessário."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Intervalos para melhorar sua velocidade e resistência",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "800 m",
+                "rest": "com 400 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "\"Não é sobre ter tempo. É sobre fazer tempo.\" - Desconhecido"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e fazer exercícios de flexibilidade ou yoga."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Treinamento no ritmo alvo da meia maratona",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "5 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Concentre-se em manter o ritmo constante. Este treino é fundamental para sua preparação mental e física."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na recuperação ativa."
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida para se recuperar do treino de ritmo. Preste atenção em como seu corpo responde."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aumente gradualmente o ritmo se sentir-se confortável, mas mantenha-se no ritmo fácil."
+          }
+        ]
+      }
+    ],
+    "note": "\"A excelência não é um ato, mas um hábito.\" - Aristóteles"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável. Foque na resistência e na forma."
+          }
+        ]
+      }
+    ],
+    "note": "Parabéns por completar mais uma semana de treino! Lembre-se de se hidratar bem após esta corrida longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Inicie a semana com uma corrida leve para se recuperar da longa do fim de semana."
+          }
+        ]
+      }
+    ],
+    "note": "\"O segredo para seguir em frente é começar.\" - Mark Twain"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Intervalos para melhorar sua velocidade e resistência",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "5x",
+                "work": "1 km",
+                "rest": "com 600 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Foque na sua forma e respiração durante os intervalos. Mantenha a intensidade constante em cada repetição."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite para descansar e fazer exercícios de fortalecimento complementares."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Treinamento no ritmo alvo da meia maratona",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "6 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha o foco no ritmo constante. Este treino é crucial para sua adaptação ao ritmo de prova."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na recuperação ativa."
+          }
+        ]
+      }
+    ],
+    "note": "Escute seu corpo durante esta corrida. É importante recuperar-se bem após os treinos intensos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Use esta corrida para melhorar sua eficiência e preparar-se para a corrida longa de amanhã."
+          }
+        ]
+      }
+    ],
+    "note": "\"A persistência pode transformar falha em extraordinário sucesso.\" - Matt Biondi"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável. Foque na resistência, não na velocidade."
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se de se hidratar bem e manter uma alimentação adequada antes e depois desta corrida longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Comece a semana com uma corrida leve para recuperar-se da corrida longa de ontem."
+          }
+        ]
+      }
+    ],
+    "note": "Preste atenção em como seu corpo se sente após a corrida longa. Ajuste o ritmo conforme necessário."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Intervalos para melhorar sua velocidade e resistência",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "4x",
+                "work": "1200 m",
+                "rest": "com 600 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "\"O que você faz hoje pode melhorar todos os seus amanhãs.\" - Ralph Marston"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e fazer exercícios de flexibilidade ou yoga."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Treinamento no ritmo alvo da meia maratona",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "6 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Concentre-se em manter o ritmo constante. Este treino é fundamental para sua preparação mental e física."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na recuperação ativa."
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida para se recuperar do treino de ritmo. Preste atenção em como seu corpo responde."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aumente gradualmente o ritmo se sentir-se confortável, mas mantenha-se no ritmo fácil."
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso não é dado. É conquistado no ginásio e fora dele.\" - Michael Jordan"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 19,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável. Foque na resistência e na forma."
+          }
+        ]
+      }
+    ],
+    "note": "Parabéns por completar mais uma semana de treino! Lembre-se de se hidratar bem após esta corrida longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Comece a semana com uma corrida leve para recuperar-se da longa do fim de semana."
+          }
+        ]
+      }
+    ],
+    "note": "\"O único lugar onde o sucesso vem antes do trabalho é no dicionário.\" - Vidal Sassoon"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Intervalos para melhorar sua velocidade e resistência",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "3x",
+                "work": "1600 m",
+                "rest": "com 800 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Foque na sua forma e respiração durante os intervalos. Mantenha a intensidade constante em cada repetição."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite para descansar e fazer exercícios de fortalecimento complementares."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Treinamento no ritmo alvo da meia maratona",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "6 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha o foco no ritmo constante. Este treino é crucial para sua adaptação ao ritmo de prova."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na recuperação ativa."
+          }
+        ]
+      }
+    ],
+    "note": "Escute seu corpo durante esta corrida. É importante recuperar-se bem após os treinos intensos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Use esta corrida para melhorar sua eficiência e preparar-se para a corrida longa de amanhã."
+          }
+        ]
+      }
+    ],
+    "note": "\"A disciplina é a ponte entre metas e realizações.\" - Jim Rohn"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável. Foque na resistência, não na velocidade."
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se de se hidratar bem e manter uma alimentação adequada antes e depois desta corrida longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Comece a semana com uma corrida leve para recuperar-se da corrida longa de ontem."
+          }
+        ]
+      }
+    ],
+    "note": "Preste atenção em como seu corpo se sente após a corrida longa. Ajuste o ritmo conforme necessário."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Intervalos para melhorar sua velocidade e resistência",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "5x",
+                "work": "1 km",
+                "rest": "com 600 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso não é final, o fracasso não é fatal: é a coragem de continuar que conta.\" - Winston Churchill"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e fazer exercícios de flexibilidade ou yoga."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Treinamento no ritmo alvo da meia maratona",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "8 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Concentre-se em manter o ritmo constante. Este treino é fundamental para sua preparação mental e física."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na recuperação ativa."
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida para se recuperar do treino de ritmo. Preste atenção em como seu corpo responde."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aumente gradualmente o ritmo se sentir-se confortável, mas mantenha-se no ritmo fácil."
+          }
+        ]
+      }
+    ],
+    "note": "\"Os obstáculos não devem te impedir. Se você encontrar uma parede, não desista. Descubra como escalá-la.\" - Michael Jordan"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 19,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável. Foque na resistência e na forma."
+          }
+        ]
+      }
+    ],
+    "note": "Parabéns por completar mais uma semana de treino! Lembre-se de se hidratar bem após esta corrida longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Inicie a semana com uma corrida leve para se recuperar da longa do fim de semana."
+          }
+        ]
+      }
+    ],
+    "note": "\"O segredo é não desistir. Não desista. Não desista.\" - Richelle Mead"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Intervalos para melhorar sua velocidade e resistência",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "800 m",
+                "rest": "com 400 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Foque na sua forma e respiração durante os intervalos. Mantenha a intensidade constante em cada repetição."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite para descansar e fazer exercícios de fortalecimento complementares."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Treinamento no ritmo alvo da meia maratona",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "8 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha o foco no ritmo constante. Este treino é crucial para sua adaptação ao ritmo de prova."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na recuperação ativa."
+          }
+        ]
+      }
+    ],
+    "note": "Escute seu corpo durante esta corrida. É importante recuperar-se bem após os treinos intensos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Use esta corrida para melhorar sua eficiência e preparar-se para a corrida longa de amanhã."
+          }
+        ]
+      }
+    ],
+    "note": "\"A dor que você sente hoje será a força que você sentirá amanhã.\" - Arnold Schwarzenegger"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável. Foque na resistência, não na velocidade."
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se de se hidratar bem e manter uma alimentação adequada antes e depois desta corrida longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Comece a semana com uma corrida leve para recuperar-se da corrida longa de ontem."
+          }
+        ]
+      }
+    ],
+    "note": "Preste atenção em como seu corpo se sente após a corrida longa. Ajuste o ritmo conforme necessário."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Intervalos para melhorar sua velocidade e resistência",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "12x",
+                "work": "400 m",
+                "rest": "com 400 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso não é acidental. É trabalho duro, perseverança, aprendizado, estudo, sacrifício e, acima de tudo, amor pelo que você está fazendo.\" - Pelé"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e fazer exercícios de flexibilidade ou yoga."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Treinamento no ritmo alvo da meia maratona",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "8 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Concentre-se em manter o ritmo constante. Este treino é fundamental para sua preparação mental e física."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na recuperação ativa."
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida para se recuperar do treino de ritmo. Preste atenção em como seu corpo responde."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aumente gradualmente o ritmo se sentir-se confortável, mas mantenha-se no ritmo fácil."
+          }
+        ]
+      }
+    ],
+    "note": "\"O único lugar onde o sucesso vem antes do trabalho é no dicionário.\" - Vidal Sassoon"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 19,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável. Foque na resistência e na forma."
+          }
+        ]
+      }
+    ],
+    "note": "Parabéns por completar mais uma semana de treino! Lembre-se de se hidratar bem após esta corrida longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Comece a semana com uma corrida leve para recuperar-se da longa do fim de semana."
+          }
+        ]
+      }
+    ],
+    "note": "\"A persistência é o caminho do êxito.\" - Charles Chaplin"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Intervalos para melhorar sua velocidade e resistência",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "1600 m",
+                "rest": "com 400 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Foque na sua forma e respiração durante os intervalos. Mantenha a intensidade constante em cada repetição."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite para descansar e fazer exercícios de fortalecimento complementares."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Treinamento no ritmo alvo da meia maratona",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "10 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha o foco no ritmo constante. Este treino é crucial para sua adaptação ao ritmo de prova."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na recuperação ativa."
+          }
+        ]
+      }
+    ],
+    "note": "Escute seu corpo durante esta corrida. É importante recuperar-se bem após os treinos intensos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Use esta corrida para melhorar sua eficiência e preparar-se para a corrida longa de amanhã."
+          }
+        ]
+      }
+    ],
+    "note": "\"Não é sobre ter tempo. É sobre fazer tempo.\" - Desconhecido"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável. Foque na resistência, não na velocidade."
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se de se hidratar bem e manter uma alimentação adequada antes e depois desta corrida longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Comece a semana com uma corrida leve para recuperar-se da corrida longa de ontem."
+          }
+        ]
+      }
+    ],
+    "note": "Preste atenção em como seu corpo se sente após a corrida longa. Ajuste o ritmo conforme necessário."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Intervalos para melhorar sua velocidade e resistência",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "4x",
+                "work": "2400 m",
+                "rest": "com 800 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "\"O que define nós é como bem nos erguemos depois de cair.\" - Conor McGregor"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e fazer exercícios de flexibilidade ou yoga."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Treinamento no ritmo alvo da meia maratona",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "10 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Concentre-se em manter o ritmo constante. Este treino é fundamental para sua preparação mental e física."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na recuperação ativa."
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida para se recuperar do treino de ritmo. Preste atenção em como seu corpo responde."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aumente gradualmente o ritmo se sentir-se confortável, mas mantenha-se no ritmo fácil."
+          }
+        ]
+      }
+    ],
+    "note": "\"A excelência não é um ato, mas um hábito.\" - Aristóteles"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 22,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável. Foque na resistência e na forma."
+          }
+        ]
+      }
+    ],
+    "note": "Parabéns por completar mais uma semana de treino! Esta é sua corrida mais longa do plano. Lembre-se de se hidratar bem e manter o ritmo controlado."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Comece a semana com uma corrida leve para recuperar-se da longa do fim de semana."
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso é a soma de pequenos esforços repetidos dia após dia.\" - Robert Collier"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Intervalos para melhorar sua velocidade e resistência",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "3x",
+                "work": "3200 m",
+                "rest": "com 800 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Foque na sua forma e respiração durante os intervalos. Mantenha a intensidade constante em cada repetição."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite para descansar e fazer exercícios de fortalecimento complementares."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Treinamento no ritmo alvo da meia maratona",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "10 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha o foco no ritmo constante. Este treino é crucial para sua adaptação ao ritmo de prova."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na recuperação ativa."
+          }
+        ]
+      }
+    ],
+    "note": "Escute seu corpo durante esta corrida. É importante recuperar-se bem após os treinos intensos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Use esta corrida para melhorar sua eficiência e preparar-se para a corrida longa de amanhã."
+          }
+        ]
+      }
+    ],
+    "note": "\"A dor que você sente hoje será a força que você sentirá amanhã.\" - Arnold Schwarzenegger"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável. Foque na resistência, não na velocidade."
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se de se hidratar bem e manter uma alimentação adequada antes e depois desta corrida longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Comece a semana com uma corrida leve para recuperar-se da corrida longa de ontem."
+          }
+        ]
+      }
+    ],
+    "note": "Preste atenção em como seu corpo se sente após a corrida longa. Ajuste o ritmo conforme necessário."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Intervalos para melhorar sua velocidade e resistência",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "2x",
+                "work": "4800 m",
+                "rest": "com 1600 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "\"O único lugar onde o sucesso vem antes do trabalho é no dicionário.\" - Vidal Sassoon"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e fazer exercícios de flexibilidade ou yoga."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Treinamento no ritmo alvo da meia maratona",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "11 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Concentre-se em manter o ritmo constante. Este treino é fundamental para sua preparação mental e física."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na recuperação ativa."
+          }
+        ]
+      }
+    ],
+    "note": "Use esta corrida para se recuperar do treino de ritmo. Preste atenção em como seu corpo responde."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aumente gradualmente o ritmo se sentir-se confortável, mas mantenha-se no ritmo fácil."
+          }
+        ]
+      }
+    ],
+    "note": "\"Os obstáculos não devem te impedir. Se você encontrar uma parede, não desista. Descubra como escalá-la.\" - Michael Jordan"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 22,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável. Foque na resistência e na forma."
+          }
+        ]
+      }
+    ],
+    "note": "Parabéns por completar mais uma semana de treino! Esta é sua última corrida longa antes do taper. Lembre-se de se hidratar bem e manter o ritmo controlado."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Comece a semana com uma corrida leve para recuperar-se da longa do fim de semana."
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso não é final, o fracasso não é fatal: é a coragem de continuar que conta.\" - Winston Churchill"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Intervalos para melhorar sua velocidade e resistência",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "3x",
+                "work": "3200 m",
+                "rest": "com 800 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Foque na sua forma e respiração durante os intervalos. Mantenha a intensidade constante em cada repetição."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite para descansar e fazer exercícios de fortalecimento complementares."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Treinamento no ritmo alvo da meia maratona",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "11 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha o foco no ritmo constante. Este é seu último treino longo de ritmo antes da prova."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na recuperação ativa."
+          }
+        ]
+      }
+    ],
+    "note": "Escute seu corpo durante esta corrida. É importante recuperar-se bem após os treinos intensos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Use esta corrida para melhorar sua eficiência e preparar-se para a corrida longa de amanhã."
+          }
+        ]
+      }
+    ],
+    "note": "\"A disciplina é a ponte entre metas e realizações.\" - Jim Rohn"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável. Esta é sua última corrida longa antes da prova."
+          }
+        ]
+      }
+    ],
+    "note": "Lembre-se de se hidratar bem e manter uma alimentação adequada antes e depois desta corrida longa."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Comece a semana com uma corrida leve para recuperar-se da corrida longa de ontem."
+          }
+        ]
+      }
+    ],
+    "note": "O taper começa esta semana. Foque em descansar e manter-se saudável."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Último treino de intervalos antes da prova",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "4x",
+                "work": "2400 m",
+                "rest": "com 800 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "\"O que você faz hoje pode melhorar todos os seus amanhãs.\" - Ralph Marston"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para descansar e fazer exercícios leves de flexibilidade."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Último treino de ritmo antes da prova",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "11 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Concentre-se em manter o ritmo constante. Este é seu último treino de ritmo antes da prova."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na recuperação ativa."
+          }
+        ]
+      }
+    ],
+    "note": "Continue focando na recuperação e mantenha-se bem hidratado."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo fácil e confortável. Foque em se sentir bem e confiante."
+          }
+        ]
+      }
+    ],
+    "note": "\"Acredite que você pode e você está na metade do caminho.\" - Theodore Roosevelt"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 22,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Última corrida longa antes da prova. Mantenha um ritmo fácil e confortável."
+          }
+        ]
+      }
+    ],
+    "note": "Esta é sua última corrida longa. Aproveite-a e confie no seu treinamento. A prova está chegando!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Comece a semana de taper com uma corrida leve e relaxada."
+          }
+        ]
+      }
+    ],
+    "note": "\"O sucesso não é acidental. É trabalho duro, perseverança, aprendizado, estudo, sacrifício e, acima de tudo, amor pelo que você está fazendo.\" - Pelé"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": "interval",
+            "note": "Último treino de intervalos antes da prova",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "1600 m",
+                "rest": "com 400 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha o foco na qualidade, não na quantidade. Este é seu último treino de velocidade antes da prova."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Aproveite para descansar e fazer exercícios leves de flexibilidade."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "threshold",
+        "note": "Ritmo de Meia Maratona",
+        "workouts": [
+          {
+            "distance": "threshold",
+            "note": "Último treino de ritmo antes da prova",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "8 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Concentre-se em sentir o ritmo da prova. Este é seu último treino de ritmo antes do grande dia."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na recuperação ativa."
+          }
+        ]
+      }
+    ],
+    "note": "Continue focando na recuperação e mantenha-se bem hidratado."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida leve para manter as pernas ativas."
+          }
+        ]
+      }
+    ],
+    "note": "\"A confiança vem da disciplina e do treinamento.\" - Robert Kiyosaki"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Última corrida longa antes da prova. Mantenha um ritmo fácil e confortável."
+          }
+        ]
+      }
+    ],
+    "note": "Esta é sua última corrida longa. Aproveite-a e confie no seu treinamento. A prova está chegando!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida leve para manter as pernas ativas."
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha-se relaxado e confiante. Seu trabalho duro está prestes a compensar."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida leve com algumas acelerações curtas para manter-se afiado."
+          }
+        ]
+      }
+    ],
+    "note": "\"O momento que você pensa em desistir é o momento em que você precisa continuar tentando.\" - Roy T. Bennett"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Descanse bem e prepare-se mentalmente para a prova."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida leve para manter as pernas ativas. Inclua algumas acelerações curtas."
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha-se confiante. Você está pronto para dar o seu melhor."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida leve e relaxada. Foque em se sentir bem e confiante."
+          }
+        ]
+      }
+    ],
+    "note": "Visualize seu sucesso na prova. Você treinou para este momento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida curta de ativação. Inclua algumas acelerações curtas para se sentir preparado."
+          }
+        ]
+      }
+    ],
+    "note": "Relaxe e confie no seu treinamento. Amanhã é o grande dia!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 21,
+        "type": "race",
+        "note": "Meia Maratona",
+        "workouts": [
+          {
+            "distance": "race",
+            "note": "É o grande dia! Dê o seu melhor e aproveite cada momento. Você está pronto para isso!"
+          }
+        ]
+      }
+    ],
+    "note": "Parabéns por completar seu treinamento! Confie na sua preparação e aproveite a corrida. Boa sorte!"
+  }
+]

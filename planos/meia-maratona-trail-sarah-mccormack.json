@@ -1,0 +1,1211 @@
+[
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Comece sua jornada com o pé direito. Descanse bem hoje para os desafios que virão."
+    },
+    {
+      "activities": [
+        {
+          "activity": "trail",
+          "units": "km",
+          "distance": 8,
+          "type": "interval",
+          "note": "Repetições em ladeira",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Repetições em ladeira",
+              "series": [
+                {
+                  "distance": "interval",
+                  "sets": "5x",
+                  "work": "1 min",
+                  "rest": "subida forte"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "",
+                  "rest": "trote de volta ao ponto de partida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "5x",
+                  "work": "30 seg",
+                  "rest": "subida forte"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "",
+                  "rest": "trote de volta ao ponto de partida"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "As colinas são seus amigos. Elas te fazem mais forte a cada repetição."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Use esta corrida fácil para se recuperar do treino de ontem e preparar-se para amanhã."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Concentre-se na sua forma e respiração durante esta corrida fácil."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "threshold",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Tempo constante",
+              "series": [
+                {
+                  "distance": "threshold",
+                  "sets": "",
+                  "work": "15 min",
+                  "rest": "no ritmo de prova de 2 horas"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "O ritmo constante constrói resistência mental e física. Mantenha o foco!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Corrida Fácil",
+          "workouts": []
+        }
+      ],
+      "note": "Opte por descansar ou fazer uma corrida fácil de 6 km. Escute seu corpo."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 13,
+          "type": "long",
+          "note": "Corrida Longa",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo constante e confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Sua primeira corrida longa. Lembre-se, é sobre distância, não velocidade."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanse e reflita sobre sua primeira semana. Você está no caminho certo!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "trail",
+          "units": "km",
+          "distance": 10,
+          "type": "interval",
+          "note": "Repetições em ladeira",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Repetições em ladeira",
+              "series": [
+                {
+                  "distance": "interval",
+                  "sets": "6x",
+                  "work": "2 min",
+                  "rest": "subida forte"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "",
+                  "rest": "trote de volta ao ponto de partida após cada repetição"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "As colinas são onde os sonhos se tornam realidade. - Frank Shorter"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Use esta corrida fácil para se recuperar e preparar-se para os próximos desafios."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Concentre-se na sua técnica de corrida hoje. Cada passo conta."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "interval",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Surtos em terreno plano",
+              "series": [
+                {
+                  "distance": "repetition",
+                  "sets": "6x",
+                  "work": "20 seg",
+                  "rest": "rápido"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "3 min",
+                  "rest": "trote fácil entre cada surto"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Velocidade e recuperação. Este treino te ensina a mudar de marcha."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Corrida Fácil",
+          "workouts": []
+        }
+      ],
+      "note": "Opte por descansar ou fazer uma corrida fácil de 6 km. A recuperação é crucial."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 14,
+          "type": "long",
+          "note": "Corrida Longa",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo constante e confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Aumente a distância gradualmente. Você está construindo resistência a cada passo."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Use este dia para recarregar suas energias. A consistência é a chave para o sucesso."
+    },
+    {
+      "activities": [
+        {
+          "activity": "trail",
+          "units": "km",
+          "distance": 11,
+          "type": "interval",
+          "note": "Repetições em ladeira",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Repetições em ladeira",
+              "series": [
+                {
+                  "distance": "interval",
+                  "sets": "6x",
+                  "work": "3 min",
+                  "rest": "subida forte"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "",
+                  "rest": "trote de volta ao ponto de partida após cada repetição"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "As colinas revelam quem você é. - Joan Benoit Samuelson"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Aproveite esta corrida fácil. Cada passo te deixa mais forte."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Foco na forma e na respiração. A qualidade importa mais que a quantidade."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "threshold",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Tempo constante",
+              "series": [
+                {
+                  "distance": "threshold",
+                  "sets": "",
+                  "work": "20 min",
+                  "rest": "no ritmo de prova de 2 horas"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Encontre seu ritmo e mantenha-o. Você está construindo resistência mental e física."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Corrida Fácil",
+          "workouts": []
+        }
+      ],
+      "note": "Opte por descansar ou fazer uma corrida fácil de 5 km. Escute seu corpo."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 16,
+          "type": "long",
+          "note": "Corrida Longa",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo constante e confortável"
+            }
+          ]
+        }
+      ],
+      "note": "As corridas longas constroem seu caráter. Aproveite a jornada."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Reflexão e recuperação. Você está progredindo bem!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "threshold",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Tempo constante",
+              "series": [
+                {
+                  "distance": "threshold",
+                  "sets": "",
+                  "work": "25 min",
+                  "rest": "no ritmo de prova de 2 horas"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Empurre seus limites hoje. A zona de conforto é um lugar bonito, mas nada cresce lá."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Recupere-se bem. As corridas fáceis são tão importantes quanto as difíceis."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Mantenha a consistência. Cada corrida te aproxima do seu objetivo."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "interval",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Fartlek",
+              "series": [
+                {
+                  "distance": "interval",
+                  "sets": "4x",
+                  "work": "5 min",
+                  "rest": "ritmo rápido"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "2 min",
+                  "rest": "trote fácil entre cada repetição"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Fartlek significa 'jogo de velocidade' em sueco. Divirta-se com as mudanças de ritmo!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Corrida Fácil",
+          "workouts": []
+        }
+      ],
+      "note": "Opte por descansar ou fazer uma corrida fácil de 5 km. A recuperação é parte do treinamento."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 19,
+          "type": "long",
+          "note": "Corrida Longa",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo constante e confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Sua maior distância até agora! Lembre-se: a mente desiste antes do corpo. Fique forte mentalmente."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Meio caminho andado! Reflita sobre seu progresso e prepare-se para a segunda metade do treinamento."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "interval",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Surtos em terreno plano",
+              "series": [
+                {
+                  "distance": "repetition",
+                  "sets": "6x",
+                  "work": "20 seg",
+                  "rest": "rápido"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "3 min",
+                  "rest": "trote fácil entre cada surto"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "A velocidade constrói força. Aproveite esses surtos rápidos!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Corridas fáceis constroem resistência. Aprecie o ritmo suave."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Cada passo te leva mais perto do seu objetivo. Mantenha o foco."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 10,
+          "type": "threshold",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Corrida progressiva",
+              "series": [
+                {
+                  "distance": "threshold",
+                  "sets": "",
+                  "work": "10 min",
+                  "rest": "no ritmo de prova de 2 horas (75-80% de esforço)"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "",
+                  "work": "10 min",
+                  "rest": "no ritmo de prova de 1 hora (90-95% de esforço)"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Corra a primeira milha com sua cabeça, a milha do meio com sua personalidade e a última milha com seu coração. - Mike Fanelli"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Corrida Fácil",
+          "workouts": []
+        }
+      ],
+      "note": "Opte por descansar ou fazer uma corrida fácil de 6 km. A recuperação é essencial para o progresso."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 18,
+          "type": "long",
+          "note": "Corrida Longa com Aceleração",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Corrida longa com aceleração no final",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "13 km",
+                  "rest": "ritmo fácil"
+                },
+                {
+                  "distance": "threshold",
+                  "sets": "",
+                  "work": "3 km",
+                  "rest": "no ritmo de prova de 1.5 horas (80% de esforço)"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "2 km",
+                  "rest": "ritmo fácil"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "As corridas longas são onde a mágica acontece. Aproveite a jornada."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanse e recarregue. Você merece!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "trail",
+          "units": "km",
+          "distance": 8,
+          "type": "interval",
+          "note": "Fartlek em Colinas",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Fartlek em terreno ondulado",
+              "series": [
+                {
+                  "distance": "interval",
+                  "sets": "",
+                  "work": "25 min",
+                  "rest": "corra todas as subidas em intensidade alta"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "",
+                  "rest": "recupere em ritmo fácil nas partes planas e descidas"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "As colinas são oportunidades disfarçadas. Embrace o desafio!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Corridas fáceis mantêm seu corpo em movimento e sua mente relaxada."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Pequenas corridas mantêm grandes sonhos vivos. Mantenha a consistência."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 10,
+          "type": "interval",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Fartlek",
+              "series": [
+                {
+                  "distance": "interval",
+                  "sets": "5x",
+                  "work": "5 min",
+                  "rest": "ritmo rápido"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "2 min",
+                  "rest": "trote fácil entre cada repetição"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "O fartlek te ensina a aceitar o desconforto. Embrace a intensidade!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Corrida Fácil",
+          "workouts": []
+        }
+      ],
+      "note": "Opte por descansar ou fazer uma corrida fácil de 6 km. Seu corpo agradece a recuperação."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 23,
+          "type": "long",
+          "note": "Corrida Longa",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo constante e confortável"
+            }
+          ]
+        }
+      ],
+      "note": "A dor é temporária. O orgulho é para sempre. Você está construindo sua resistência para a meia maratona!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Entrando na fase final do treinamento. Confie no processo e mantenha o foco."
+    },
+    {
+      "activities": [
+        {
+          "activity": "trail",
+          "units": "km",
+          "distance": 11,
+          "type": "interval",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Fartlek em colinas",
+              "series": [
+                {
+                  "distance": "interval",
+                  "sets": "2x",
+                  "work": "4 min",
+                  "rest": "subida forte com trote de volta fácil"
+                },
+                {
+                  "distance": "threshold",
+                  "sets": "",
+                  "work": "20 min",
+                  "rest": "tempo em percurso ondulado no ritmo de prova de 1.5 horas (80-90% de esforço)"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "As colinas são onde os campeões são feitos. - Frank Shorter"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Recupere-se bem hoje. Cada passo fácil te prepara para os desafios futuros."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Mantenha a consistência. Você está mais forte do que pensa."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 11,
+          "type": "interval",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Fartlek",
+              "series": [
+                {
+                  "distance": "interval",
+                  "sets": "",
+                  "work": "8 min",
+                  "rest": "ritmo rápido"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "2 min",
+                  "rest": "recuperação"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "",
+                  "work": "6 min",
+                  "rest": "ritmo rápido"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "2 min",
+                  "rest": "recuperação"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "2x",
+                  "work": "4 min",
+                  "rest": "ritmo rápido"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "2 min",
+                  "rest": "recuperação entre cada"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "O fartlek é como a vida: cheio de altos e baixos. Embrace a variedade!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Corrida Fácil",
+          "workouts": []
+        }
+      ],
+      "note": "Opte por descansar ou fazer uma corrida fácil de 6 km. A recuperação é crucial nesta fase."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 13,
+          "type": "long",
+          "note": "Corrida Longa",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo constante e confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Esta corrida mais curta faz parte do taper. Confie no processo, você está pronto."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Última semana! Mantenha-se calmo e confiante. Todo o trabalho duro já foi feito."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "interval",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Fartlek",
+              "series": [
+                {
+                  "distance": "interval",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "ritmo rápido"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "3 min",
+                  "rest": "recuperação"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "",
+                  "work": "3 min",
+                  "rest": "ritmo rápido"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "3 min",
+                  "rest": "recuperação"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "2x",
+                  "work": "1 min",
+                  "rest": "ritmo rápido"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "recuperação entre cada"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Último treino de qualidade. Mantenha-se forte, mas não exagere. Termine com energia sobrando."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Mantenha um ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Mantenha as pernas ativas, mas não se esforce. O objetivo é chegar descansado no dia da prova."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanse bem. Prepare seu kit para a corrida e revise sua estratégia."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil com Strides",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Corrida fácil com strides no final",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "3 km",
+                  "rest": "corrida fácil"
+                },
+                {
+                  "distance": "repetition",
+                  "sets": "4x",
+                  "work": "10 seg",
+                  "rest": "strides relaxados"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Mantenha as pernas soltas e a mente focada. Visualize seu sucesso amanhã!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Véspera da prova! Relaxe, hidrate-se bem e vá dormir cedo."
+    },
+    {
+      "activities": [
+        {
+          "activity": "race",
+          "units": "km",
+          "distance": 21,
+          "type": "race",
+          "note": "Dia da Prova",
+          "workouts": [
+            {
+              "distance": "race",
+              "note": "Meia Maratona em Trilha"
+            }
+          ]
+        }
+      ],
+      "note": "É o grande dia! Confie no seu treinamento, mantenha o ritmo e aproveite cada momento. Você está pronto para isso!"
+    }
+  ]

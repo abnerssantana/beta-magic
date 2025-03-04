@@ -1,0 +1,278 @@
+[
+  {
+    "day": "Dia 1",
+    "note": "Dia de mobilidade focado em melhorar a flexibilidade das pernas.",
+    "exercises": [
+      {
+        "name": "Alongamento de quadríceps",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/VSu2K_EwYBA"
+      },
+      {
+        "name": "Alongamento de isquiotibiais",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/8KvWLf0jFQs"
+      },
+      {
+        "name": "Mobilidade de tornozelo",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/qh7KaN8FRZk"
+      },
+      {
+        "name": "Alongamento de adutores",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/8xnhUqiILcE"
+      },
+      {
+        "name": "Alongamento de glúteos",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/CeeXQtmjNjw"
+      },
+      {
+        "name": "Alongamento de panturrilha",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/kc2glDjeNfQ"
+      },
+      {
+        "name": "Mobilidade de quadril",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/Mpsq-Fy7lJE"
+      },
+      {
+        "name": "Alongamento de IT band",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/bIw1R5-CpR4"
+      },
+      {
+        "name": "Alongamento de flexores do quadril",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/bg7FpuU4JSQ"
+      }
+    ]
+  },
+  {
+    "day": "Dia 2",
+    "note": "Exercícios de mobilidade para melhorar a amplitude de movimento das articulações.",
+    "exercises": [
+      {
+        "name": "Alongamento de glúteos",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/CeeXQtmjNjw"
+      },
+      {
+        "name": "Alongamento de panturrilha",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/kc2glDjeNfQ"
+      },
+      {
+        "name": "Mobilidade de quadril",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/Mpsq-Fy7lJE"
+      },
+      {
+        "name": "Alongamento de quadríceps",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/VSu2K_EwYBA"
+      },
+      {
+        "name": "Alongamento de isquiotibiais",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/8KvWLf0jFQs"
+      },
+      {
+        "name": "Mobilidade de tornozelo",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/qh7KaN8FRZk"
+      },
+      {
+        "name": "Alongamento de adutores",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/8xnhUqiILcE"
+      },
+      {
+        "name": "Alongamento de IT band",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/bIw1R5-CpR4"
+      },
+      {
+        "name": "Alongamento de flexores do quadril",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/bg7FpuU4JSQ"
+      }
+    ]
+  },
+  {
+    "day": "Dia 3",
+    "note": "Dia de corrida. Lembre-se de manter um ritmo confortável e focar na técnica.",
+    "exercises": [
+      {
+        "name": "Dia de corrida",
+        "sets": 0,
+        "reps": 0,
+        "video": null
+      }
+    ]
+  },
+  {
+    "day": "Dia 4",
+    "note": "Continue trabalhando na mobilidade com foco na parte superior do corpo.",
+    "exercises": [
+      {
+        "name": "Alongamento de ombros",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/LPx3yUhDHQY"
+      },
+      {
+        "name": "Alongamento de Dorsal",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/aKLkH51cGJY"
+      },
+      {
+        "name": "Alongamento Posterior de Ombro",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/JgqIoZ5EFC0"
+      },
+      {
+        "name": "Alongamento de trapézio",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/-pjRCmkoLzY"
+      },
+      {
+        "name": "Alongamento de peitoral",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/3vHVcOpvgac"
+      },
+      {
+        "name": "Mobilidade de punhos",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/VkjZ2tUTUww"
+      },
+      {
+        "name": "Alongamento de bíceps",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/3vHVcOpvgac"
+      },
+      {
+        "name": "Alongamento de tríceps",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/T4KOPrmWYV8"
+      },
+      {
+        "name": "Alongamento de antebraço",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/yoWn78-muA0"
+      }
+    ]
+  },
+  {
+    "day": "Dia 5",
+    "note": "Dia de mobilidade geral, abrangendo todo o corpo.",
+    "exercises": [
+      {
+        "name": "Alongamento total do corpo",
+        "sets": 2,
+        "time": 60,
+        "video": "https://www.youtube.com/embed/s0L2iB2_Jp0"
+      },
+      {
+        "name": "Rotação torácica",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/JHEzkSZfGFE"
+      },
+      {
+        "name": "Alongamento Rotadores de Quadril",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/XY8og45coYE"
+      },
+      {
+        "name": "Alongamento de glúteos",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/CeeXQtmjNjw"
+      },
+      {
+        "name": "Alongamento de panturrilha",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/kc2glDjeNfQ"
+      },
+      {
+        "name": "Mobilidade de quadril",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/Mpsq-Fy7lJE"
+      },
+      {
+        "name": "Alongamento de quadríceps",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/VSu2K_EwYBA"
+      },
+      {
+        "name": "Alongamento de isquiotibiais",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/8KvWLf0jFQs"
+      },
+      {
+        "name": "Mobilidade de tornozelo",
+        "sets": 2,
+        "time": 30,
+        "video": "https://www.youtube.com/embed/qh7KaN8FRZk"
+      }
+    ]
+  },
+  {
+    "day": "Dia 6",
+    "note": "Siga seu treinamento de corrida. Hoje é um bom dia para seu longão.",
+    "exercises": [
+      {
+        "name": "Dia de corrida",
+        "sets": 0,
+        "reps": 0,
+        "video": null
+      }
+    ]
+  },
+  {
+    "day": "Dia 7",
+    "note": "Siga seu treinamento de corrida. Hoje é um bom dia para seu longão.",
+    "exercises": [
+      {
+        "name": "Dia de corrida",
+        "sets": 0,
+        "reps": 0,
+        "video": null
+      }
+    ]
+  }
+]

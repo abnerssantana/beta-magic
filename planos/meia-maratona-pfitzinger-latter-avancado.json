@@ -1,0 +1,1670 @@
+[
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Lembre-se: o descanso é tão importante quanto o treino. Use este dia para recuperar e fortalecer seu corpo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "A consistência é a chave para o progresso. Cada corrida fácil te prepara para os desafios maiores."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "15 min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "4 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "12 min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Foco na manutenção do ritmo durante os intervalos de limiar."
+          }
+        ]
+      }
+    ],
+    "note": "Os treinos de limiar são fundamentais para melhorar sua resistência. Mantenha o foco e a respiração controlada."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na técnica e respiração."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas constroem a base da sua resistência. Aproveite o processo e escute seu corpo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para trabalhar na sua flexibilidade e força. Um corpo forte complementa um corredor eficiente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "strides",
+        "note": "Ritmo Fácil + Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "2x6x100m",
+                "work": "strides",
+                "rest": "com 3 min entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Foque na forma e na velocidade durante os strides."
+          }
+        ]
+      }
+    ],
+    "note": "Os strides ajudam a melhorar sua eficiência e velocidade. Concentre-se em uma boa forma durante cada repetição."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 19,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "A corrida longa é a base do seu treinamento. Aprecie a jornada e construa sua resistência mental e física."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é onde a mágica acontece. Permita que seu corpo se recupere e fique mais forte."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Cada corrida fácil é uma oportunidade para aprimorar sua técnica e construir resistência."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "18 min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "4 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "14 min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Mantenha o foco e o ritmo constante durante os intervalos de limiar."
+          }
+        ]
+      }
+    ],
+    "note": "Os treinos de limiar são essenciais para melhorar sua resistência e velocidade. Mantenha-se forte mentalmente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 18,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na técnica e respiração."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas são o alicerce do seu treinamento. Aproveite o tempo para refletir e fortalecer sua mente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para cuidar do seu corpo. Alongamento, yoga ou fortalecimento podem fazer maravilhas para sua corrida."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "strides",
+        "note": "Ritmo Fácil + Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "6x",
+                "work": "12 seg subida",
+                "rest": "recuperação completa"
+              },
+              {
+                "distance": "repetition",
+                "sets": "8x100m",
+                "work": "strides",
+                "rest": "com recuperação completa"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Foque na potência nas subidas e na forma nos strides."
+          }
+        ]
+      }
+    ],
+    "note": "As subidas e os strides são excelentes para desenvolver força e velocidade. Concentre-se em uma boa técnica."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 21,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "A corrida longa é o pilar do seu treinamento. Lembre-se das palavras de Emil Zatopek: 'Se você quer correr, corra uma milha. Se você quer experimentar uma vida diferente, corra uma maratona.'"
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é tão crucial quanto o treinamento. Use este dia para recarregar suas energias física e mental."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Cada passo te leva mais perto de seus objetivos. Mantenha a consistência e aprecie o processo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "20 min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "4 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "16 min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Foco na manutenção do ritmo durante os intervalos de limiar."
+          }
+        ]
+      }
+    ],
+    "note": "Os treinos de limiar são cruciais para melhorar sua resistência. Lembre-se das palavras de Prefontaine: 'Para dar qualquer coisa menos que seu melhor é sacrificar o dom.'"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 18,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na técnica e respiração."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas constroem a base da sua resistência. Aproveite a jornada e escute seu corpo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para trabalhar na sua flexibilidade e força. Um corpo forte complementa um corredor eficiente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "strides",
+        "note": "Ritmo Fácil + Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "6x",
+                "work": "12 seg subida",
+                "rest": "recuperação completa"
+              },
+              {
+                "distance": "repetition",
+                "sets": "8x100m",
+                "work": "strides",
+                "rest": "com recuperação completa"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Foque na potência nas subidas e na forma nos strides."
+          }
+        ]
+      }
+    ],
+    "note": "Os strides e as subidas são excelentes para desenvolver força e velocidade. Concentre-se em uma boa técnica e postura."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 22,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aumente o ritmo gradualmente, com os últimos 3 km no ritmo de limiar."
+          }
+        ]
+      }
+    ],
+    "note": "Esta corrida progressiva desafia seu corpo e mente. Lembre-se: 'A dor é temporária. Desistir dura para sempre.' - Lance Armstrong"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é onde a adaptação acontece. Permita que seu corpo se recupere e fique mais forte."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas fáceis são a base do seu treinamento. Aproveite o ritmo suave e construa sua resistência."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Cada corrida te torna mais forte. Aprecie o processo e mantenha a consistência."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "strides",
+        "note": "Ritmo Fácil + Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "2x5x150m",
+                "work": "strides",
+                "rest": "com 250m jog entre repetições e 4 min entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Foque na forma e na velocidade durante os strides."
+          }
+        ]
+      }
+    ],
+    "note": "Os strides ajudam a melhorar sua eficiência e velocidade. Concentre-se em uma boa forma durante cada repetição."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para cuidar do seu corpo. Alongamento, yoga ou fortalecimento podem fazer maravilhas para sua corrida."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas fáceis são fundamentais para construir sua base aeróbica. Aproveite o ritmo suave e foque na sua técnica."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 18,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas são a espinha dorsal do seu treinamento. Lembre-se: 'O segredo não é competir com os outros. É competir com você mesmo.' - John Wooden"
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é uma parte essencial do treinamento. Use este dia para recarregar suas energias e preparar-se mentalmente para os próximos desafios."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Cada corrida é uma oportunidade de melhorar. Aproveite o ritmo fácil para aprimorar sua técnica e eficiência."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "22 min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "4 min",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "18 min",
+                "rest": "limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Mantenha o foco e o ritmo constante durante os intervalos de limiar."
+          }
+        ]
+      }
+    ],
+    "note": "Os treinos de limiar são fundamentais para melhorar sua resistência. Lembre-se: 'O sucesso não é dado. É conquistado.' - Michael Jordan"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 18,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na técnica e respiração."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas constroem a base da sua resistência. Aproveite a jornada e escute seu corpo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Mantenha o ritmo bem leve, focando na recuperação."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas de recuperação são essenciais para permitir que seu corpo se adapte ao treinamento. Mantenha o ritmo leve e aproveite o momento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "strides",
+        "note": "Ritmo Fácil + Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "2x6x100m",
+                "work": "strides",
+                "rest": "com 3 min entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Foque na forma e na velocidade durante os strides."
+          }
+        ]
+      }
+    ],
+    "note": "Os strides ajudam a melhorar sua eficiência e velocidade. Concentre-se em uma boa forma durante cada repetição."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 22,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aumente o ritmo gradualmente, com os últimos 5 km no ritmo de limiar."
+          }
+        ]
+      }
+    ],
+    "note": "Esta corrida progressiva desafia seu corpo e mente. Lembre-se: 'A distância parece impossível apenas até você completá-la.'"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é tão importante quanto o treinamento. Use este dia para recuperar e fortalecer seu corpo e mente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas fáceis são a base do seu treinamento. Aproveite o ritmo suave e construa sua resistência."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "3x",
+                "work": "1200m",
+                "rest": "com recuperação de 50-90% do tempo do intervalo"
+              },
+              {
+                "distance": "interval",
+                "sets": "3x",
+                "work": "1000m",
+                "rest": "com recuperação de 50-90% do tempo do intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Mantenha o ritmo de 3k-5k durante os intervalos."
+          }
+        ]
+      }
+    ],
+    "note": "Os treinos de intervalo são cruciais para melhorar sua velocidade e VO2 max. Dê o seu melhor em cada repetição."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 19,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na técnica e respiração."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas são o pilar do seu treinamento. Lembre-se: 'O único mau treino é aquele que não acontece.' - Autor desconhecido"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Mantenha o ritmo bem leve, focando na recuperação."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas de recuperação são essenciais. Aproveite o ritmo lento para se conectar com seu corpo e mente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "strides",
+        "note": "Ritmo Fácil + Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "10x100m",
+                "work": "strides",
+                "rest": "com recuperação completa"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Foque na forma e na velocidade durante os strides."
+          }
+        ]
+      }
+    ],
+    "note": "Os strides são excelentes para desenvolver velocidade e melhorar sua técnica de corrida. Concentre-se em uma boa postura e movimentos eficientes."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 26,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aumente o ritmo gradualmente, com os últimos 5 km no ritmo de limiar."
+          }
+        ]
+      }
+    ],
+    "note": "Esta corrida longa e progressiva é um grande teste de resistência física e mental. Lembre-se: 'O corpo atinge o que a mente acredita.' - Napoleon Hill"
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é tão vital quanto o treino. Use este dia para recarregar suas energias e refletir sobre seu progresso."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "strides",
+        "note": "Ritmo Fácil + Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "2x5x150m",
+                "work": "strides",
+                "rest": "com 250m jog entre repetições e 4 min entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Foque na forma e na velocidade durante os strides."
+          }
+        ]
+      }
+    ],
+    "note": "Os strides ajudam a melhorar sua eficiência e velocidade. Lembre-se: 'A excelência não é um ato, mas um hábito.' - Aristóteles"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas fáceis são a base do seu treinamento. Aproveite o ritmo suave e construa sua resistência."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Mantenha o ritmo bem leve, focando na recuperação."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas de recuperação são essenciais. Aproveite o ritmo lento para se conectar com seu corpo e mente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "strides",
+        "note": "Ritmo de Recuperação + Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "4 km",
+                "rest": ""
+              },
+              {
+                "distance": "repetition",
+                "sets": "4x100m",
+                "work": "strides",
+                "rest": "com recuperação completa"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "2 km",
+                "rest": ""
+              }
+            ],
+            "note": "Mantenha o ritmo leve e foque na técnica durante os strides."
+          }
+        ]
+      }
+    ],
+    "note": "Esta corrida leve com strides ajuda a manter sua velocidade enquanto permite a recuperação. Foque na forma e eficiência."
+  },
+  {
+    "activities": [
+      {
+        "activity": "race",
+        "units": "km",
+        "distance": 10,
+        "type": "race",
+        "note": "Prova",
+        "workouts": [
+          {
+            "distance": "race",
+            "note": "Prova de 10 km"
+          }
+        ]
+      }
+    ],
+    "note": "Dê o seu melhor na prova! Lembre-se: 'O sucesso não é final, o fracasso não é fatal: é a coragem de continuar que conta.' - Winston Churchill"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 19,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Esta corrida longa ajuda a recuperar da prova e manter sua base aeróbica. Escute seu corpo e aprecie a distância."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para refletir sobre seu desempenho na prova e planejar os próximos passos do seu treinamento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Cada corrida é uma oportunidade de melhorar. Aproveite o ritmo fácil para aprimorar sua técnica e eficiência."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 18,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável, focando na técnica e respiração."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas são o pilar do seu treinamento. Lembre-se: 'A persistência é o caminho do êxito.' - Charles Chaplin"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 18,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "1200m",
+                "rest": "com recuperação de 50-90% do tempo do intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Mantenha o ritmo de 3k-5k durante os intervalos."
+          }
+        ]
+      }
+    ],
+    "note": "Os treinos de intervalo são cruciais para melhorar sua velocidade e VO2 max. Dê o seu melhor em cada repetição."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Mantenha o ritmo bem leve, focando na recuperação."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas de recuperação são essenciais. Aproveite o ritmo lento para se conectar com seu corpo e mente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas fáceis são fundamentais para construir sua base aeróbica. Aproveite o ritmo suave e foque na sua técnica."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 26,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Esta é sua corrida mais longa. Lembre-se: 'A força não vem da capacidade física. Vem de uma vontade indomável.' - Mahatma Gandhi"
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é fundamental para a adaptação. Use este dia para recarregar suas energias e preparar-se mentalmente para a reta final."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "strides",
+        "note": "Ritmo Fácil + Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "2x5x150m",
+                "work": "strides",
+                "rest": "com 250m jog entre repetições e 4 min entre séries"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Foque na forma e na velocidade durante os strides."
+          }
+        ]
+      }
+    ],
+    "note": "Os strides ajudam a manter sua velocidade. Lembre-se: 'A qualidade nunca é um acidente; é sempre o resultado de um esforço inteligente.' - John Ruskin"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas fáceis são a base do seu treinamento. Aproveite o ritmo suave e construa sua resistência."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Mantenha o ritmo bem leve, focando na recuperação."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas de recuperação são essenciais. Aproveite o ritmo lento para se conectar com seu corpo e mente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "strides",
+        "note": "Ritmo de Recuperação + Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "4 km",
+                "rest": ""
+              },
+              {
+                "distance": "repetition",
+                "sets": "4x100m",
+                "work": "strides",
+                "rest": "com recuperação completa"
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "2 km",
+                "rest": ""
+              }
+            ],
+            "note": "Mantenha o ritmo leve e foque na técnica durante os strides."
+          }
+        ]
+      }
+    ],
+    "note": "Esta corrida leve com strides ajuda a manter sua velocidade enquanto permite a recuperação. Foque na forma e eficiência."
+  },
+  {
+    "activities": [
+      {
+        "activity": "race",
+        "units": "km",
+        "distance": 10,
+        "type": "race",
+        "note": "Prova",
+        "workouts": [
+          {
+            "distance": "race",
+            "note": "Prova de 10 km"
+          }
+        ]
+      }
+    ],
+    "note": "Dê o seu melhor na prova! Lembre-se: 'O sucesso é a soma de pequenos esforços repetidos dia após dia.' - Robert Collier"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 19,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Esta corrida longa ajuda a recuperar da prova e manter sua base aeróbica. Escute seu corpo e aprecie a distância."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para refletir sobre seu desempenho na prova e visualizar seu sucesso na meia maratona que se aproxima."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Nesta última semana, o foco é manter-se afiado e descansar. Confie no seu treinamento."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Mantenha o ritmo bem leve, focando na recuperação."
+          }
+        ]
+      }
+    ],
+    "note": "Corridas leves ajudam a manter seu corpo ativo sem causar fadiga. Aproveite estes momentos para visualizar sua estratégia de corrida."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "2x",
+                "work": "1200m",
+                "rest": "com recuperação de 50-90% do tempo do intervalo"
+              },
+              {
+                "distance": "interval",
+                "sets": "4x",
+                "work": "800m",
+                "rest": "com recuperação de 50-90% do tempo do intervalo"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Mantenha o ritmo de 3k-5k durante os intervalos."
+          }
+        ]
+      }
+    ],
+    "note": "Este último treino de qualidade ajuda a manter sua velocidade. Lembre-se: 'O que você faz hoje pode melhorar todos os seus amanhãs.' - Ralph Marston"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Mantenha o ritmo bem leve, focando na recuperação."
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha-se ativo, mas conserve energia para o grande dia. Visualize seu sucesso na corrida."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "strides",
+        "note": "Ritmo de Maratona + Repetições",
+        "workouts": [
+          {
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "repetition",
+                "sets": "6x100m",
+                "work": "strides",
+                "rest": "com recuperação completa"
+              },
+              {
+                "distance": "marathon",
+                "sets": "",
+                "work": "3 km",
+                "rest": "ritmo de meia maratona"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ],
+            "note": "Este treino ajuda a manter-se afiado sem causar fadiga."
+          }
+        ]
+      }
+    ],
+    "note": "Este último treino serve para manter seu corpo pronto sem causar fadiga. Confie no seu treinamento e visualize seu sucesso."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Corrida leve para manter as pernas ativas."
+          }
+        ]
+      }
+    ],
+    "note": "Mantenha-se relaxado e confiante. Seu corpo está pronto para o desafio de amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Corrida leve de ativação."
+          }
+        ]
+      }
+    ],
+    "note": "Uma corrida leve hoje ajuda a manter seu corpo ativo e pronto para amanhã. Relaxe e visualize seu sucesso."
+  },
+  {
+    "activities": [
+      {
+        "activity": "race",
+        "units": "km",
+        "distance": 21,
+        "type": "race",
+        "note": "Prova",
+        "workouts": [
+          {
+            "distance": "race",
+            "note": "Meia maratona - Dê o seu melhor!"
+          }
+        ]
+      }
+    ],
+    "note": "Chegou o grande dia! Confie no seu treinamento, mantenha o ritmo planejado e aproveite cada quilômetro. Você está pronto para isso!"
+  }
+]

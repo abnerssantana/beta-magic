@@ -1,0 +1,1808 @@
+[
+  {
+      "activities": [
+          {
+              "activity": "offday",
+              "units": "",
+              "distance": "",
+              "type": "off",
+              "note": "Dia de Descanso ou Cross-training",
+              "workouts": []
+          }
+      ],
+      "note": "Semana 1 do plano Pfitzinger/Douglas de 12 semanas para maratona"
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 13,
+              "type": "workout",
+              "note": "Ritmo Fácil + Repetições",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida em ritmo fácil",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "11 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "repetition",
+                              "sets": "10x",
+                              "work": "100 m",
+                              "rest": "com 100 m trote entre"
+                          },
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "2 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 18,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida média-longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 8,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 18,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida média-longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 8,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 24,
+              "type": "workout",
+              "note": "Ritmo de Maratona",
+              "workouts": [
+                  {
+                      "distance": "marathon",
+                      "note": "Corrida com parte no ritmo de maratona",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "11 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "marathon",
+                              "sets": "",
+                              "work": "13 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "offday",
+              "units": "",
+              "distance": "",
+              "type": "off",
+              "note": "Dia de Descanso ou Cross-training",
+              "workouts": []
+          }
+      ],
+      "note": "Semana 2 do plano Pfitzinger/Douglas de 12 semanas para maratona"
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 19,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida média-longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 18,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida média-longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 8,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 14,
+              "type": "workout",
+              "note": "Ritmo de Limiar",
+              "workouts": [
+                  {
+                      "distance": "threshold",
+                      "note": "Corrida com parte no ritmo de limiar",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "8 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "threshold",
+                              "sets": "",
+                              "work": "6 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 8,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 27,
+              "type": "long",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "offday",
+              "units": "",
+              "distance": "",
+              "type": "off",
+              "note": "Dia de Descanso ou Cross-training",
+              "workouts": []
+          }
+      ],
+      "note": "Semana 3 do plano Pfitzinger/Douglas de 12 semanas para maratona"
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 13,
+              "type": "workout",
+              "note": "Ritmo Fácil + Repetições",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida em ritmo fácil com tiros",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "11 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "repetition",
+                              "sets": "10x",
+                              "work": "100 m",
+                              "rest": "com 100 m trote entre"
+                          },
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "2 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 23,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida média-longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 8,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 19,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida média-longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 8,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 27,
+              "type": "workout",
+              "note": "Ritmo de Maratona",
+              "workouts": [
+                  {
+                      "distance": "marathon",
+                      "note": "Corrida com parte no ritmo de maratona",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "11 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "marathon",
+                              "sets": "",
+                              "work": "16 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "offday",
+              "units": "",
+              "distance": "",
+              "type": "off",
+              "note": "Dia de Descanso ou Cross-training",
+              "workouts": []
+          }
+      ],
+      "note": "Semana 4 do plano Pfitzinger/Douglas de 12 semanas para maratona"
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 21,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida média-longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 24,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida média-longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 8,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 16,
+              "type": "workout",
+              "note": "Ritmo de Limiar",
+              "workouts": [
+                  {
+                      "distance": "threshold",
+                      "note": "Corrida com parte no ritmo de limiar",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "8 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "threshold",
+                              "sets": "",
+                              "work": "8 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 8,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 29,
+              "type": "long",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "offday",
+              "units": "",
+              "distance": "",
+              "type": "off",
+              "note": "Dia de Descanso ou Cross-training",
+              "workouts": []
+          }
+      ],
+      "note": "Semana 5 do plano Pfitzinger/Douglas de 12 semanas para maratona"
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 13,
+              "type": "workout",
+              "note": "Ritmo Fácil + Repetições",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida em ritmo fácil com tiros",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "11 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "repetition",
+                              "sets": "10x",
+                              "work": "100 m",
+                              "rest": "com 100 m trote entre"
+                          },
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "2 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 24,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida média-longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 8,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 16,
+              "type": "workout",
+              "note": "Ritmo de Limiar",
+              "workouts": [
+                  {
+                      "distance": "threshold",
+                      "note": "Corrida com parte no ritmo de limiar",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "10 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "threshold",
+                              "sets": "",
+                              "work": "6 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 11,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 27,
+              "type": "long",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "offday",
+              "units": "",
+              "distance": "",
+              "type": "off",
+              "note": "Dia de Descanso ou Cross-training",
+              "workouts": []
+          }
+      ],
+      "note": "Semana 6 do plano Pfitzinger/Douglas de 12 semanas para maratona"
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 16,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação dividida em duas sessões",
+                      "series": [
+                          {
+                              "distance": "recovery",
+                              "sets": "",
+                              "work": "10 km",
+                              "rest": "manhã"
+                          },
+                          {
+                              "distance": "recovery",
+                              "sets": "",
+                              "work": "6 km",
+                              "rest": "tarde"
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 18,
+              "type": "workout",
+              "note": "Ritmo de Intervalo",
+              "workouts": [
+                  {
+                      "distance": "interval",
+                      "note": "Treino de VO2max",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "3 km",
+                              "rest": "aquecimento"
+                          },
+                          {
+                              "distance": "interval",
+                              "sets": "5x",
+                              "work": "1200 m",
+                              "rest": "com trote de 50-90% do tempo do intervalo entre"
+                          },
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "3 km",
+                              "rest": "desaquecimento"
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 24,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida média-longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 16,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 10,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 29,
+              "type": "workout",
+              "note": "Ritmo de Maratona",
+              "workouts": [
+                  {
+                      "distance": "marathon",
+                      "note": "Corrida com parte no ritmo de maratona",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "10 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "marathon",
+                              "sets": "",
+                              "work": "19 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "offday",
+              "units": "",
+              "distance": "",
+              "type": "off",
+              "note": "Dia de Descanso ou Cross-training",
+              "workouts": []
+          }
+      ],
+      "note": "Semana 7 do plano Pfitzinger/Douglas de 12 semanas para maratona"
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 14,
+              "type": "workout",
+              "note": "Ritmo Fácil + Repetições",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida em ritmo fácil com tiros",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "12 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "repetition",
+                              "sets": "10x",
+                              "work": "100 m",
+                              "rest": "com 100 m trote entre"
+                          },
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "2 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 24,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida média-longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 11,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 19,
+              "type": "workout",
+              "note": "Ritmo de Limiar",
+              "workouts": [
+                  {
+                      "distance": "threshold",
+                      "note": "Corrida com parte no ritmo de limiar",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "8 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "threshold",
+                              "sets": "",
+                              "work": "11 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 10,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 34,
+              "type": "long",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "offday",
+              "units": "",
+              "distance": "",
+              "type": "off",
+              "note": "Dia de Descanso ou Cross-training",
+              "workouts": []
+          }
+      ],
+      "note": "Semana 8 do plano Pfitzinger/Douglas de 12 semanas para maratona"
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 14,
+              "type": "workout",
+              "note": "Ritmo de Intervalo",
+              "workouts": [
+                  {
+                      "distance": "interval",
+                      "note": "Treino de VO2max",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "3 km",
+                              "rest": "aquecimento"
+                          },
+                          {
+                              "distance": "interval",
+                              "sets": "5x",
+                              "work": "600 m",
+                              "rest": "com trote de 50-90% do tempo do intervalo entre"
+                          },
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "3 km",
+                              "rest": "desaquecimento"
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 24,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida média-longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 11,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação + Repetições",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação com tiros no final",
+                      "series": [
+                          {
+                              "distance": "recovery",
+                              "sets": "",
+                              "work": "9 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "repetition",
+                              "sets": "6x",
+                              "work": "100 m",
+                              "rest": "com 100 m trote entre"
+                          },
+                          {
+                              "distance": "recovery",
+                              "sets": "",
+                              "work": "2 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 10,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "race",
+              "units": "km",
+              "distance": 15,
+              "type": "race",
+              "note": "Prova de Tune-up",
+              "workouts": [
+                  {
+                      "distance": "race",
+                      "note": "Prova de 10 ou 15 km"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 29,
+              "type": "long",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "offday",
+              "units": "",
+              "distance": "",
+              "type": "off",
+              "note": "Dia de Descanso ou Cross-training",
+              "workouts": []
+          }
+      ],
+      "note": "Semana 9 do plano Pfitzinger/Douglas de 12 semanas para maratona"
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 16,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação dividida em duas sessões",
+                      "series": [
+                          {
+                              "distance": "recovery",
+                              "sets": "",
+                              "work": "10 km",
+                              "rest": "manhã"
+                          },
+                          {
+                              "distance": "recovery",
+                              "sets": "",
+                              "work": "6 km",
+                              "rest": "tarde"
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 18,
+              "type": "workout",
+              "note": "Ritmo de Intervalo",
+              "workouts": [
+                  {
+                      "distance": "interval",
+                      "note": "Treino de VO2max",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "3 km",
+                              "rest": "aquecimento"
+                          },
+                          {
+                              "distance": "interval",
+                              "sets": "6x",
+                              "work": "1000 m",
+                              "rest": "com trote de 50-90% do tempo do intervalo entre"
+                          },
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "3 km",
+                              "rest": "desaquecimento"
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 24,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida média-longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 13,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 10,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 32,
+              "type": "long",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "offday",
+              "units": "",
+              "distance": "",
+              "type": "off",
+              "note": "Dia de Descanso ou Cross-training",
+              "workouts": []
+          }
+      ],
+      "note": "Semana 10 do plano Pfitzinger/Douglas de 12 semanas para maratona"
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 13,
+              "type": "workout",
+              "note": "Ritmo de Intervalo",
+              "workouts": [
+                  {
+                      "distance": "interval",
+                      "note": "Treino de VO2max",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "3 km",
+                              "rest": "aquecimento"
+                          },
+                          {
+                              "distance": "interval",
+                              "sets": "5x",
+                              "work": "600 m",
+                              "rest": "com trote de 50-90% do tempo do intervalo entre"
+                          },
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "3 km",
+                              "rest": "desaquecimento"
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 19,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida média-longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 10,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação + Repetições",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação com tiros no final",
+                      "series": [
+                          {
+                              "distance": "recovery",
+                              "sets": "",
+                              "work": "8 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "repetition",
+                              "sets": "6x",
+                              "work": "100 m",
+                              "rest": "com 100 m trote entre"
+                          },
+                          {
+                              "distance": "recovery",
+                              "sets": "",
+                              "work": "2 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 8,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "race",
+              "units": "km",
+              "distance": 15,
+              "type": "race",
+              "note": "Prova de Tune-up",
+              "workouts": [
+                  {
+                      "distance": "race",
+                      "note": "Prova de 10 ou 15 km"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 27,
+              "type": "long",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "offday",
+              "units": "",
+              "distance": "",
+              "type": "off",
+              "note": "Dia de Descanso ou Cross-training",
+              "workouts": []
+          }
+      ],
+      "note": "Semana 11 do plano Pfitzinger/Douglas de 12 semanas para maratona"
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 13,
+              "type": "workout",
+              "note": "Ritmo Fácil + Repetições",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida em ritmo fácil com tiros",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "11 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "repetition",
+                              "sets": "10x",
+                              "work": "100 m",
+                              "rest": "com 100 m trote entre"
+                          },
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "2 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 6,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 13,
+              "type": "workout",
+              "note": "Ritmo de Intervalo",
+              "workouts": [
+                  {
+                      "distance": "interval",
+                      "note": "Treino de VO2max",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "3 km",
+                              "rest": "aquecimento"
+                          },
+                          {
+                              "distance": "interval",
+                              "sets": "3x",
+                              "work": "1600 m",
+                              "rest": "com trote de 50-90% do tempo do intervalo entre"
+                          },
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "3 km",
+                              "rest": "desaquecimento"
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 8,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 10,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação + Repetições",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação com tiros no final",
+                      "series": [
+                          {
+                              "distance": "recovery",
+                              "sets": "",
+                              "work": "8 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "repetition",
+                              "sets": "10x",
+                              "work": "100 m",
+                              "rest": "com 100 m trote entre"
+                          },
+                          {
+                              "distance": "recovery",
+                              "sets": "",
+                              "work": "2 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 21,
+              "type": "easy",
+              "note": "Ritmo Fácil",
+              "workouts": [
+                  {
+                      "distance": "easy",
+                      "note": "Corrida média-longa em ritmo fácil"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "offday",
+              "units": "",
+              "distance": "",
+              "type": "off",
+              "note": "Dia de Descanso",
+              "workouts": []
+          }
+      ],
+      "note": "Semana 12 do plano Pfitzinger/Douglas de 12 semanas para maratona (semana da prova)"
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 11,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 11,
+              "type": "workout",
+              "note": "Ritmo de Maratona",
+              "workouts": [
+                  {
+                      "distance": "marathon",
+                      "note": "Ensaio para a prova",
+                      "series": [
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "3 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "marathon",
+                              "sets": "",
+                              "work": "3 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "easy",
+                              "sets": "",
+                              "work": "5 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 8,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação em ritmo bem leve"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 8,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação + Repetições",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida de recuperação com tiros no final",
+                      "series": [
+                          {
+                              "distance": "recovery",
+                              "sets": "",
+                              "work": "6 km",
+                              "rest": ""
+                          },
+                          {
+                              "distance": "repetition",
+                              "sets": "6x",
+                              "work": "100 m",
+                              "rest": "com 100 m trote entre"
+                          },
+                          {
+                              "distance": "recovery",
+                              "sets": "",
+                              "work": "2 km",
+                              "rest": ""
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "corrida",
+              "units": "km",
+              "distance": 6,
+              "type": "recovery",
+              "note": "Ritmo de Recuperação",
+              "workouts": [
+                  {
+                      "distance": "recovery",
+                      "note": "Corrida leve de preparação para a prova"
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      "activities": [
+          {
+              "activity": "race",
+              "units": "km",
+              "distance": 42,
+              "type": "race",
+              "note": "Maratona",
+              "workouts": [
+                  {
+                      "distance": "race",
+                      "note": "Dia da prova de Maratona. Boa sorte!"
+                  }
+              ]
+          }
+      ]
+  }
+]

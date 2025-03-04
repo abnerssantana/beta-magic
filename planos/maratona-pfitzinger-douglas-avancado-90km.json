@@ -1,0 +1,1374 @@
+[
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 13,
+          "type": "strides",
+          "note": "Ritmo Fácil + Repetições",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "10 x 100m strides"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 14,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "recovery",
+          "note": "Ritmo de Recuperação",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 21,
+          "type": "workout",
+          "note": "Ritmo de Maratona",
+          "workouts": [
+            {
+              "distance": "marathon",
+              "note": "13 km com 13 km no ritmo de maratona"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 18,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 13,
+          "type": "workout",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": "threshold",
+              "note": "6 km no ritmo de 15K a meia maratona"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "recovery",
+          "note": "Ritmo de Recuperação",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 24,
+          "type": "long",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 13,
+          "type": "strides",
+          "note": "Ritmo Fácil + Repetições",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "10 x 100m strides"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "recovery",
+          "note": "Ritmo de Recuperação",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 18,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "recovery",
+          "note": "Ritmo de Recuperação",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 26,
+          "type": "workout",
+          "note": "Ritmo de Maratona",
+          "workouts": [
+            {
+              "distance": "marathon",
+              "note": "16 km no ritmo de maratona"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "recovery",
+          "note": "Ritmo de Recuperação",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 16,
+          "type": "workout",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": "threshold",
+              "note": "8 km no ritmo de 15K a meia maratona"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 18,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "recovery",
+          "note": "Ritmo de Recuperação",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 27,
+          "type": "long",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 19,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 14,
+          "type": "workout",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": "threshold",
+              "note": "6 km no ritmo de 15K a meia maratona"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "recovery",
+          "note": "Ritmo de Recuperação",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 26,
+          "type": "long",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "recovery",
+          "note": "Ritmo de Recuperação",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 16,
+          "type": "workout",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": "interval",
+              "note": "5 x 1000m no ritmo de corrida de 5K; trote 50 a 90% do tempo do intervalo entre as repetições"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 19,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 10,
+          "type": "strides",
+          "note": "Ritmo de Recuperação + Repetições",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": "6 x 100m strides"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 24,
+          "type": "workout",
+          "note": "Ritmo de Maratona",
+          "workouts": [
+            {
+              "distance": "marathon",
+              "note": "19 km no ritmo de maratona"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 10,
+          "type": "strides",
+          "note": "Ritmo de Recuperação + Repetições",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": "6 x 100m strides"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 19,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 19,
+          "type": "workout",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": "threshold",
+              "note": "11 km no ritmo de 15K a meia maratona"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "recovery",
+          "note": "Ritmo de Recuperação",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 32,
+          "type": "long",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 13,
+          "type": "workout",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": "interval",
+              "note": "5 x 600m no ritmo de corrida de 5K; trote 50 a 90% do tempo do intervalo entre as repetições"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 18,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "strides",
+          "note": "Ritmo de Recuperação + Repetições",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": "6 x 100m strides"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "race",
+          "units": "km",
+          "distance": 15,
+          "type": "race",
+          "note": "Prova",
+          "workouts": [
+            {
+              "distance": "race",
+              "note": "Prova de 10 ou 15 km"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 27,
+          "type": "long",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 11,
+          "type": "strides",
+          "note": "Ritmo de Recuperação + Repetições",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": "6 x 100m strides"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 16,
+          "type": "workout",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": "interval",
+              "note": "4 x 1200m no ritmo de corrida de 5K; trote 50 a 90% do tempo do intervalo entre as repetições"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 18,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "recovery",
+          "note": "Ritmo de Recuperação",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 32,
+          "type": "long",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 13,
+          "type": "workout",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": "interval",
+              "note": "5 x 600m no ritmo de corrida de 5K; trote 50 a 90% do tempo do intervalo entre as repetições"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 10,
+          "type": "recovery",
+          "note": "Ritmo de Recuperação",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "strides",
+          "note": "Ritmo de Recuperação + Repetições",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": "6 x 100m strides"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "race",
+          "units": "km",
+          "distance": 15,
+          "type": "race",
+          "note": "Prova",
+          "workouts": [
+            {
+              "distance": "race",
+              "note": "Prova de 10 ou 15 km"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 26,
+          "type": "long",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 11,
+          "type": "strides",
+          "note": "Ritmo Fácil + Repetições",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "8 x 100m strides"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 13,
+          "type": "workout",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": "interval",
+              "note": "3 x 1600m no ritmo de corrida de 5K; trote 50 a 90% do tempo do intervalo entre as repetições"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "strides",
+          "note": "Ritmo de Recuperação + Repetições",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": "6 x 100m strides"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso ou Fortalecimento",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 19,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 10,
+          "type": "recovery",
+          "note": "Ritmo de Recuperação",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 11,
+          "type": "workout",
+          "note": "Ensaio Geral",
+          "workouts": [
+            {
+              "distance": "marathon",
+              "note": "3 km no ritmo de maratona"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "strides",
+          "note": "Ritmo de Recuperação + Repetições",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": "6 x 100m strides"
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "recovery",
+          "note": "Ritmo de Recuperação",
+          "workouts": [
+            {
+              "distance": "recovery",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "activities": [
+        {
+          "activity": "race",
+          "units": "km",
+          "distance": 42,
+          "type": "race",
+          "note": "Maratona",
+          "workouts": [
+            {
+              "distance": "race",
+              "note": "Dia da maratona! Boa sorte!"
+            }
+          ]
+        }
+      ],
+      "note": "Fim do plano"
+    }
+  ]

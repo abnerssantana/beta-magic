@@ -1,0 +1,1089 @@
+[
+    {
+      "activities": [
+        {
+          "activity": "trail",
+          "units": "min",
+          "distance": 20,
+          "type": "workout",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": "interval",
+              "note": "Treino em colinas",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "aquecimento"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "5-6x",
+                  "work": "1-2 min",
+                  "rest": "subida em ritmo forte"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "1-2 min",
+                  "rest": "descida ou caminhada de recuperação"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "desaquecimento"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Foque na forma correta ao subir as colinas. Mantenha o corpo ereto e use os braços para impulsionar."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso Ativo",
+          "workouts": []
+        }
+      ],
+      "note": "Aproveite para fazer alongamentos ou yoga leve para manter a flexibilidade."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 20,
+          "type": "workout",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": "threshold",
+              "note": "Corrida tempo",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "aquecimento"
+                },
+                {
+                  "distance": "threshold",
+                  "sets": "",
+                  "work": "10 min",
+                  "rest": "ritmo tempo"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "desaquecimento"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Mantenha um ritmo desafiador, mas sustentável durante o segmento de tempo."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso Ativo",
+          "workouts": []
+        }
+      ],
+      "note": "Considere fazer exercícios de mobilidade para melhorar a flexibilidade."
+    },
+    {
+      "activities": [
+        {
+          "activity": "força",
+          "units": "",
+          "distance": "",
+          "type": "força",
+          "note": "Fortalecimento",
+          "workouts": [
+            {
+              "note": "Agachamento unilateral",
+              "link": "https://www.youtube.com/watch?v=zLMPd8VxPMI"
+            },
+            {
+              "note": "10 repetições (cada perna) com 2 minutos de pausa - 2 séries"
+            },
+            {
+              "note": "Prancha lateral",
+              "link": "https://www.youtube.com/watch?v=4t7ZiKeHfnM"
+            },
+            {
+              "note": "30 segundos (cada lado) com 1 minuto de pausa - 2 séries"
+            },
+            {
+              "note": "Elevação de panturrilha",
+              "link": "https://www.youtube.com/watch?v=JbyjNymZOt0"
+            },
+            {
+              "note": "15 repetições com 1 minuto de pausa - 3 séries"
+            },
+            {
+              "note": "Ponte unilateral",
+              "link": "https://www.youtube.com/watch?v=7x1DGqN6T2g"
+            },
+            {
+              "note": "10 repetições (cada perna) com 1 minuto de pausa - 2 séries"
+            }
+          ]
+        }
+      ],
+      "note": "Estes exercícios ajudarão a fortalecer os músculos necessários para a corrida em trilha e melhorar sua estabilidade em terrenos irregulares."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 40,
+          "type": "long",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida longa em ritmo fácil, preferencialmente em trilhas"
+            }
+          ]
+        }
+      ],
+      "note": "Use este treino para se familiarizar com o terreno das trilhas. Foque na técnica e no equilíbrio."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanse e recupere-se. A consistência é mais importante que a intensidade nesta fase."
+    },
+    {
+      "activities": [
+        {
+          "activity": "trail",
+          "units": "min",
+          "distance": 20,
+          "type": "workout",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": "interval",
+              "note": "Treino em colinas",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "aquecimento"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "6-7x",
+                  "work": "1-2 min",
+                  "rest": "subida em ritmo forte"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "1-2 min",
+                  "rest": "descida ou caminhada de recuperação"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "desaquecimento"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Aumente ligeiramente o número de repetições em relação à semana anterior."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso Ativo",
+          "workouts": []
+        }
+      ],
+      "note": "Foque em exercícios de mobilidade para manter as articulações saudáveis."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 20,
+          "type": "workout",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": "threshold",
+              "note": "Corrida tempo",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "aquecimento"
+                },
+                {
+                  "distance": "threshold",
+                  "sets": "",
+                  "work": "10 min",
+                  "rest": "ritmo tempo"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "desaquecimento"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Tente manter o mesmo ritmo da semana anterior, mas sinta-se um pouco mais confortável."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso Ativo",
+          "workouts": []
+        }
+      ],
+      "note": "Pratique exercícios de equilíbrio para melhorar sua estabilidade nas trilhas."
+    },
+    {
+      "activities": [
+        {
+          "activity": "força",
+          "units": "",
+          "distance": "",
+          "type": "força",
+          "note": "Fortalecimento",
+          "workouts": [
+            {
+              "note": "Avanço com rotação",
+              "link": "https://www.youtube.com/watch?v=eLaG8ZjhI_Q"
+            },
+            {
+              "note": "10 repetições (cada perna) com 2 minutos de pausa - 2 séries"
+            },
+            {
+              "note": "Prancha com elevação alternada de pernas",
+              "link": "https://www.youtube.com/watch?v=LwJK6iIx7Oo"
+            },
+            {
+              "note": "30 segundos com 1 minuto de pausa - 3 séries"
+            },
+            {
+              "note": "Salto lateral",
+              "link": "https://www.youtube.com/watch?v=mLl9z6iRWAU"
+            },
+            {
+              "note": "10 repetições (cada lado) com 1 minuto de pausa - 2 séries"
+            },
+            {
+              "note": "Subida no step",
+              "link": "https://www.youtube.com/watch?v=WCFCdxzFBa4"
+            },
+            {
+              "note": "12 repetições (cada perna) com 1 minuto de pausa - 2 séries"
+            }
+          ]
+        }
+      ],
+      "note": "Estes exercícios focam na força e estabilidade necessárias para correr em trilhas. Preste atenção na forma correta para maximizar os benefícios."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 45,
+          "type": "long",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida longa em ritmo fácil, preferencialmente em trilhas"
+            }
+          ]
+        }
+      ],
+      "note": "Aumente ligeiramente a duração da sua corrida longa. Mantenha o foco na técnica e no controle da respiração."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Reflita sobre seu progresso até agora. Está se sentindo mais confortável nas trilhas?"
+    },
+    {
+      "activities": [
+        {
+          "activity": "trail",
+          "units": "min",
+          "distance": 30,
+          "type": "workout",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": "interval",
+              "note": "Treino em colinas",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "aquecimento"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "8x",
+                  "work": "1-2 min",
+                  "rest": "subida em ritmo forte"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "1-2 min",
+                  "rest": "descida ou caminhada de recuperação"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "desaquecimento"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Aumente o tempo total do treino e o número de repetições. Foque na técnica de corrida em subida."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso Ativo",
+          "workouts": []
+        }
+      ],
+      "note": "Realize alongamentos focados nos músculos das pernas e quadris para melhorar a flexibilidade."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 30,
+          "type": "workout",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": "threshold",
+              "note": "Corrida tempo",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "aquecimento"
+                },
+                {
+                  "distance": "threshold",
+                  "sets": "",
+                  "work": "20 min",
+                  "rest": "ritmo tempo"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "desaquecimento"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Aumente o tempo no ritmo de limiar. Tente encontrar um terreno variado para este treino."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 30,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida fácil em trilhas"
+            }
+          ]
+        }
+      ],
+      "note": "Use este treino para praticar a navegação em terrenos técnicos. Foque na colocação dos pés e na leitura do terreno."
+    },
+    {
+      "activities": [
+        {
+          "activity": "força",
+          "units": "",
+          "distance": "",
+          "type": "força",
+          "note": "Fortalecimento",
+          "workouts": [
+            {
+              "note": "Afundo com salto",
+              "link": "https://www.youtube.com/watch?v=Q8GZghXtiUQ"
+            },
+            {
+              "note": "10 repetições (cada perna) com 2 minutos de pausa - 2 séries"
+            },
+            {
+              "note": "Mountain climbers",
+              "link": "https://www.youtube.com/watch?v=nmwgirgXLYM"
+            },
+            {
+              "note": "30 segundos com 1 minuto de pausa - 3 séries"
+            },
+            {
+              "note": "Agachamento com salto",
+              "link": "https://www.youtube.com/watch?v=CVaEhXotL7M"
+            },
+            {
+              "note": "10 repetições com 2 minutos de pausa - 3 séries"
+            },
+            {
+              "note": "Prancha com toque no ombro",
+              "link": "https://www.youtube.com/watch?v=wYjWOpjgAkM"
+            },
+            {
+              "note": "30 segundos com 1 minuto de pausa - 3 séries"
+            }
+          ]
+        }
+      ],
+      "note": "Estes exercícios ajudarão a desenvolver potência e estabilidade, essenciais para correr em trilhas técnicas."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 60,
+          "type": "long",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida longa em ritmo fácil, preferencialmente em trilhas"
+            }
+          ]
+        }
+      ],
+      "note": "Aumente significativamente a duração da sua corrida longa. Mantenha um ritmo conversacional e hidrate-se bem."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Use este dia para descansar e recuperar. Considere usar técnicas de recuperação como rolagem de espuma ou banho de gelo."
+    },
+    {
+      "activities": [
+        {
+          "activity": "trail",
+          "units": "min",
+          "distance": 35,
+          "type": "workout",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": "interval",
+              "note": "Treino em colinas",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "10 min",
+                  "rest": "aquecimento"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "6x",
+                  "work": "2 min",
+                  "rest": "subida em ritmo forte"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "recuperação"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "desaquecimento"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Aumente a duração das subidas. Foque em manter uma cadência alta mesmo em terreno inclinado."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 30,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida fácil em terreno variado"
+            }
+          ]
+        }
+      ],
+      "note": "Use este treino para recuperar do treino de colinas. Mantenha um ritmo fácil e desfrute da corrida."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 15,
+          "type": "workout",
+          "note": "Ritmo de Repetição",
+          "workouts": [
+            {
+              "distance": "repetition",
+              "note": "Treino de velocidade",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "aquecimento"
+                },
+                {
+                  "distance": "repetition",
+                  "sets": "6x",
+                  "work": "30 seg",
+                  "rest": "sprint"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "90 seg",
+                  "rest": "recuperação entre sprints"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "desaquecimento"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Este treino de velocidade ajudará a melhorar sua cadência e eficiência de corrida. Realize em um terreno plano, se possível."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 30,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida fácil em trilhas"
+            }
+          ]
+        }
+      ],
+      "note": "Mantenha um ritmo fácil e foque na sua técnica de corrida em trilha."
+    },
+    {
+      "activities": [
+        {
+          "activity": "força",
+          "units": "",
+          "distance": "",
+          "type": "força",
+          "note": "Fortalecimento",
+          "workouts": [
+            {
+              "note": "Bulgarian split squat",
+              "link": "https://www.youtube.com/watch?v=2C-uNgKwPLE"
+            },
+            {
+              "note": "10 repetições (cada perna) com 2 minutos de pausa - 3 séries"
+            },
+            {
+              "note": "Prancha com rotação",
+              "link": "https://www.youtube.com/watch?v=vp6E7ELVYuA"
+            },
+            {
+              "note": "30 segundos com 1 minuto de pausa - 3 séries"
+            },
+            {
+              "note": "Step-up com peso",
+              "link": "https://www.youtube.com/watch?v=fHZ9X3nEWoY"
+            },
+            {
+              "note": "10 repetições (cada perna) com 2 minutos de pausa - 2 séries"
+            },
+            {
+              "note": "Russian twist",
+              "link": "https://www.youtube.com/watch?v=wkD8rjkodui"
+            },
+            {
+              "note": "20 repetições com 1 minuto de pausa - 3 séries"
+            }
+          ]
+        }
+      ],
+      "note": "Estes exercícios focam na força unilateral e rotacional, cruciais para a corrida em trilha."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 60,
+          "type": "long",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida longa em ritmo fácil, preferencialmente em trilhas técnicas"
+            }
+          ]
+        }
+      ],
+      "note": "Tente encontrar trilhas técnicas para este treino. Foque na navegação do terreno e na manutenção de um ritmo constante."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Reflita sobre seu progresso. Você está se sentindo mais confiante nas trilhas? Planeje suas próximas semanas de treinamento."
+    },
+    {
+      "activities": [
+        {
+          "activity": "trail",
+          "units": "min",
+          "distance": 30,
+          "type": "workout",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": "interval",
+              "note": "Treino em colinas",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "aquecimento"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "8x",
+                  "work": "2 min",
+                  "rest": "subida em ritmo forte"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "descida ou caminhada de recuperação"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "desaquecimento"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Mantenha o foco na técnica de subida. Visualize-se superando as colinas durante a corrida."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 25,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida fácil em trilhas"
+            }
+          ]
+        }
+      ],
+      "note": "Use este treino para recuperar e praticar a técnica em terrenos variados."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 30,
+          "type": "workout",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": "threshold",
+              "note": "Corrida tempo",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "aquecimento"
+                },
+                {
+                  "distance": "threshold",
+                  "sets": "",
+                  "work": "20 min",
+                  "rest": "ritmo tempo"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "desaquecimento"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Mantenha um ritmo desafiador mas sustentável. Este treino simula o esforço da corrida."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 30,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida fácil em terreno variado"
+            }
+          ]
+        }
+      ],
+      "note": "Pratique a leitura do terreno e a escolha da melhor linha de corrida."
+    },
+    {
+      "activities": [
+        {
+          "activity": "força",
+          "units": "",
+          "distance": "",
+          "type": "força",
+          "note": "Fortalecimento",
+          "workouts": [
+            {
+              "note": "Salto em caixa",
+              "link": "https://www.youtube.com/watch?v=52r_Ul5k03g"
+            },
+            {
+              "note": "8 repetições com 2 minutos de pausa - 3 séries"
+            },
+            {
+              "note": "Prancha com elevação alternada de braços e pernas",
+              "link": "https://www.youtube.com/watch?v=67rgxYNKbZY"
+            },
+            {
+              "note": "30 segundos com 1 minuto de pausa - 3 séries"
+            },
+            {
+              "note": "Afundo lateral",
+              "link": "https://www.youtube.com/watch?v=L8fvypPrzzs"
+            },
+            {
+              "note": "10 repetições (cada lado) com 1 minuto de pausa - 3 séries"
+            },
+            {
+              "note": "Ponte de glúteos unilateral",
+              "link": "https://www.youtube.com/watch?v=bGgH7juR4X0"
+            },
+            {
+              "note": "12 repetições (cada perna) com 1 minuto de pausa - 2 séries"
+            }
+          ]
+        }
+      ],
+      "note": "Estes exercícios ajudarão a melhorar sua potência, estabilidade e força unilateral para as trilhas."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 45,
+          "type": "long",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida longa em ritmo fácil, em trilhas similares ao percurso da prova"
+            }
+          ]
+        }
+      ],
+      "note": "Tente encontrar trilhas que se assemelhem ao percurso da prova. Pratique sua estratégia de alimentação e hidratação."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanse e visualize uma corrida bem-sucedida. Revise seu progresso até agora."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 20,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida fácil em trilhas"
+            }
+          ]
+        }
+      ],
+      "note": "Comece a reduzir o volume nesta semana final. Mantenha-se relaxado e confiante."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso Ativo",
+          "workouts": []
+        }
+      ],
+      "note": "Faça alguns exercícios leves de mobilidade ou yoga para manter-se flexível."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 20,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida fácil com 4-5 acelerações de 20 segundos"
+            }
+          ]
+        }
+      ],
+      "note": "As acelerações ajudam a manter-se afiado sem adicionar fadiga."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 20,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida fácil em terreno variado"
+            }
+          ]
+        }
+      ],
+      "note": "Mantenha-se solto e relaxado. Visualize uma corrida forte e confiante."
+    },
+    {
+      "activities": [
+        {
+          "activity": "força",
+          "units": "",
+          "distance": "",
+          "type": "força",
+          "note": "Fortalecimento",
+          "workouts": [
+            {
+              "note": "Agachamento",
+              "link": "https://www.youtube.com/watch?v=aclHkVaku9U"
+            },
+            {
+              "note": "10 repetições com 1 minuto de pausa - 2 séries"
+            },
+            {
+              "note": "Prancha",
+              "link": "https://www.youtube.com/watch?v=pSHjTRCQxIw"
+            },
+            {
+              "note": "30 segundos com 30 segundos de pausa - 2 séries"
+            },
+            {
+              "note": "Ponte de glúteos",
+              "link": "https://www.youtube.com/watch?v=YRqoIM0u0PY"
+            },
+            {
+              "note": "10 repetições com 1 minuto de pausa - 2 séries"
+            }
+          ]
+        }
+      ],
+      "note": "Sessão de força leve para manter o tônus muscular sem causar fadiga."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 20,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida fácil com 3-4 acelerações de 15 segundos"
+            }
+          ]
+        }
+      ],
+      "note": "Último treino antes da corrida. Mantenha-se solto e confiante."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanse, hidrate-se bem e prepare seu equipamento para amanhã."
+    },
+    {
+      "activities": [
+        {
+          "activity": "race",
+          "units": "km",
+          "distance": 5,
+          "type": "race",
+          "note": "Dia da Prova de Trail 5K",
+          "workouts": [
+            {
+              "distance": "race",
+              "note": "Corrida de Trail 5K"
+            }
+          ]
+        }
+      ],
+      "note": "É o grande dia! Confie no seu treinamento, mantenha um ritmo constante e aproveite a experiência. Boa sorte!"
+    }
+  ]

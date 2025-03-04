@@ -1,0 +1,1364 @@
+[
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Comece a semana com uma corrida leve para preparar seu corpo para os treinos mais intensos."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Mantenha um ritmo constante e foque na sua forma de corrida."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 35,
+          "type": "threshold",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": "threshold",
+              "note": "Corrida em ritmo de limiar"
+            }
+          ]
+        }
+      ],
+      "note": "Eliud Kipchoge: 'O corpo é capaz de fazer muito mais do que a mente acredita.'"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Use esta corrida para se recuperar do treino de limiar de ontem."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Aproveite o descanso para recuperação e prevenção de lesões."
+    },
+    {
+      "activities": [
+        {
+          "activity": "força",
+          "units": "",
+          "distance": "",
+          "type": "força",
+          "note": "Fortalecimento",
+          "workouts": [
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Avanço",
+              "link": "https://www.youtube.com/watch?v=g8-Ge9S0aUw"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "8 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Deadlift",
+              "link": "https://www.youtube.com/watch?v=plb5jEO4Unw"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "10 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Superman",
+              "link": "https://www.youtube.com/watch?v=kTMBsUwEGPM"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "10 repetições com 1 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Ponte",
+              "link": "https://www.youtube.com/watch?v=tqp5XQPpTxY"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "15 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Reverse Crunch",
+              "link": "https://www.youtube.com/watch?v=XY8KzdDcMFg"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "10 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            }
+          ]
+        }
+      ],
+      "note": "O treinamento de força é essencial para melhorar sua performance na corrida."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Termine a semana com uma corrida mais longa, mas mantenha o ritmo fácil."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Comece a semana com uma corrida leve para preparar seu corpo para os treinos mais intensos."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Aumente ligeiramente a distância, mas mantenha o ritmo fácil."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 7,
+          "type": "interval",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Intervalos no ritmo de 5K",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "2 km",
+                  "rest": "aquecimento"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "8x",
+                  "work": "400 m",
+                  "rest": "no ritmo de 5K"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "400 m",
+                  "rest": "trote entre cada intervalo"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "1 km",
+                  "rest": "desaquecimento"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Meb Keflezighi: 'O sucesso não é dado. É conquistado na pista, na estrada, no ginásio. Com sangue, suor e o desejo ocasional de desistir.'"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Use esta corrida para se recuperar do treino de intervalos de ontem."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "O descanso é tão importante quanto o treino para o seu progresso."
+    },
+    {
+      "activities": [
+        {
+          "activity": "força",
+          "units": "",
+          "distance": "",
+          "type": "força",
+          "note": "Fortalecimento",
+          "workouts": [
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Flexão de braço",
+              "link": "https://www.youtube.com/watch?v=UFa702F5WnY"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "10 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Tríceps no banco",
+              "link": "https://www.youtube.com/watch?v=qrS6aa0aQ9I"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "12 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Step-up",
+              "link": "https://www.youtube.com/watch?v=DxUNi119Qzs"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "10 repetições (cada lado) - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Agachamento",
+              "link": "https://www.youtube.com/watch?v=l83R5PblSMA"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "15 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            }
+          ]
+        }
+      ],
+      "note": "O treinamento de força ajuda a prevenir lesões e melhora sua economia de corrida."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Aumente a distância da sua corrida longa, mas mantenha o ritmo fácil e confortável."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Comece a semana com uma corrida leve para preparar seu corpo para os treinos mais intensos."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Mantenha um ritmo constante e foque na sua forma de corrida."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 40,
+          "type": "threshold",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": "threshold",
+              "note": "Corrida em ritmo de limiar"
+            }
+          ]
+        }
+      ],
+      "note": "Shalane Flanagan: 'Corra quando puder, caminhe quando precisar, rasteje se for necessário, mas nunca desista.'"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Use esta corrida para se recuperar do treino de limiar de ontem."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "O descanso é fundamental para a adaptação e o progresso."
+    },
+    {
+      "activities": [
+        {
+          "activity": "força",
+          "units": "",
+          "distance": "",
+          "type": "força",
+          "note": "Fortalecimento",
+          "workouts": [
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Avanço",
+              "link": "https://www.youtube.com/watch?v=g8-Ge9S0aUw"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "8 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Deadlift",
+              "link": "https://www.youtube.com/watch?v=plb5jEO4Unw"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "10 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Superman",
+              "link": "https://www.youtube.com/watch?v=kTMBsUwEGPM"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "10 repetições com 1 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Ponte",
+              "link": "https://www.youtube.com/watch?v=tqp5XQPpTxY"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "15 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Reverse Crunch",
+              "link": "https://www.youtube.com/watch?v=XY8KzdDcMFg"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "10 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            }
+          ]
+        }
+      ],
+      "note": "O fortalecimento muscular é crucial para prevenir lesões e melhorar sua performance."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 10,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Aumente a distância da sua corrida longa, mas mantenha o ritmo fácil e confortável."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Comece a semana com uma corrida leve para preparar seu corpo para os treinos mais intensos."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 7,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Aumente ligeiramente a distância, mas mantenha o ritmo fácil."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "interval",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Intervalos no ritmo de 5K",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "2 km",
+                  "rest": "aquecimento"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "9x",
+                  "work": "400 m",
+                  "rest": "no ritmo de 5K"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "400 m",
+                  "rest": "trote entre cada intervalo"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "2 km",
+                  "rest": "desaquecimento"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Kara Goucher: 'Não há segredo para o sucesso. É resultado de preparação, trabalho duro e aprender com o fracasso.'"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Use esta corrida para se recuperar do treino de intervalos de ontem."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Aproveite o descanso para recuperação física e mental."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanse bem hoje para estar preparado para a corrida de 5K amanhã."
+    },
+    {
+      "activities": [
+        {
+          "activity": "race",
+          "units": "km",
+          "distance": 5,
+          "type": "race",
+          "note": "Corrida 5K",
+          "workouts": [
+            {
+              "distance": "race",
+              "note": "Corrida de 5K"
+            }
+          ]
+        }
+      ],
+      "note": "Dia da prova de 5K! Dê o seu melhor e aproveite a experiência. Boa sorte!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Comece a semana com uma corrida leve para recuperar da corrida de 5K."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 8,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Aumente a distância, mas mantenha o ritmo fácil."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 45,
+          "type": "threshold",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": "threshold",
+              "note": "Corrida em ritmo de limiar"
+            }
+          ]
+        }
+      ],
+      "note": "Des Linden: 'Mantenha o foco, seja paciente e não desista. O trabalho duro compensa.'"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Use esta corrida para se recuperar do treino de limiar de ontem."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "O descanso é tão importante quanto o treino para seu progresso."
+    },
+    {
+      "activities": [
+        {
+          "activity": "força",
+          "units": "",
+          "distance": "",
+          "type": "força",
+          "note": "Fortalecimento",
+          "workouts": [
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Flexão de braço",
+              "link": "https://www.youtube.com/watch?v=UFa702F5WnY"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "10 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Tríceps no banco",
+              "link": "https://www.youtube.com/watch?v=qrS6aa0aQ9I"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "12 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Step-up",
+              "link": "https://www.youtube.com/watch?v=DxUNi119Qzs"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "10 repetições (cada lado) - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Agachamento",
+              "link": "https://www.youtube.com/watch?v=l83R5PblSMA"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "15 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            }
+          ]
+        }
+      ],
+      "note": "O treinamento de força é essencial para melhorar sua economia de corrida."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 10,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Mantenha um ritmo constante durante toda a corrida."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Comece a semana com uma corrida leve para preparar seu corpo para os treinos mais intensos."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 9,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Aumente a distância, mas mantenha o ritmo fácil."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 9,
+          "type": "interval",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Intervalos no ritmo de 5K",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "2 km",
+                  "rest": "aquecimento"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "10x",
+                  "work": "400 m",
+                  "rest": "no ritmo de 5K"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "400 m",
+                  "rest": "trote entre cada intervalo"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "1 km",
+                  "rest": "desaquecimento"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Mo Farah: 'Se você sonha com algo, tem que trabalhar duro para conseguir.'"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Use esta corrida para se recuperar do treino de intervalos de ontem."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Aproveite o descanso para recuperação física e mental."
+    },
+    {
+      "activities": [
+        {
+          "activity": "força",
+          "units": "",
+          "distance": "",
+          "type": "força",
+          "note": "Fortalecimento",
+          "workouts": [
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Avanço",
+              "link": "https://www.youtube.com/watch?v=g8-Ge9S0aUw"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "8 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Deadlift",
+              "link": "https://www.youtube.com/watch?v=plb5jEO4Unw"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "10 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Superman",
+              "link": "https://www.youtube.com/watch?v=kTMBsUwEGPM"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "10 repetições com 1 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Ponte",
+              "link": "https://www.youtube.com/watch?v=tqp5XQPpTxY"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "15 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Reverse Crunch",
+              "link": "https://www.youtube.com/watch?v=XY8KzdDcMFg"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "10 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            }
+          ]
+        }
+      ],
+      "note": "O fortalecimento muscular é crucial para prevenir lesões e melhorar sua performance."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 11,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Aumente a distância da sua corrida longa, mas mantenha o ritmo fácil e confortável."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Comece a semana com uma corrida leve para preparar seu corpo para os treinos mais intensos."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 10,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Mantenha um ritmo constante durante toda a corrida."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 50,
+          "type": "threshold",
+          "note": "Ritmo de Limiar",
+          "workouts": [
+            {
+              "distance": "threshold",
+              "note": "Corrida em ritmo de limiar"
+            }
+          ]
+        }
+      ],
+      "note": "Galen Rupp: 'O sucesso não é um acidente. É trabalho duro, perseverança, aprendizado, estudo, sacrifício e, acima de tudo, amor pelo que você está fazendo.'"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 6,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Use esta corrida para se recuperar do treino de limiar de ontem."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "O descanso adequado é fundamental para o progresso e prevenção de lesões."
+    },
+    {
+      "activities": [
+        {
+          "activity": "força",
+          "units": "",
+          "distance": "",
+          "type": "força",
+          "note": "Fortalecimento",
+          "workouts": [
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Flexão de braço",
+              "link": "https://www.youtube.com/watch?v=UFa702F5WnY"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "10 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Tríceps no banco",
+              "link": "https://www.youtube.com/watch?v=qrS6aa0aQ9I"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "12 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Step-up",
+              "link": "https://www.youtube.com/watch?v=DxUNi119Qzs"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "10 repetições (cada lado) - 2 séries",
+              "link": null
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "Agachamento",
+              "link": "https://www.youtube.com/watch?v=l83R5PblSMA"
+            },
+            {
+              "baseTable": null,
+              "distance": null,
+              "note": "15 repetições com 2 minutos de pausa - 2 séries",
+              "link": null
+            }
+          ]
+        }
+      ],
+      "note": "O treinamento de força é essencial para melhorar sua economia de corrida e prevenir lesões."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 13,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Esta é sua corrida mais longa do plano. Mantenha um ritmo constante e confortável."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Comece a semana de taper com uma corrida leve."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Mantenha o volume baixo para estar descansado para a corrida de 10K."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "interval",
+          "note": "Ritmo de Intervalo",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Intervalos no ritmo de 5K",
+              "series": [
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "2 km",
+                  "rest": "aquecimento"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "5x",
+                  "work": "400 m",
+                  "rest": "no ritmo de 5K"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "400 m",
+                  "rest": "trote entre cada intervalo"
+                },
+                {
+                  "distance": "easy",
+                  "sets": "",
+                  "work": "1 km",
+                  "rest": "desaquecimento"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Paula Radcliffe: 'Você precisa acreditar em si mesmo quando ninguém mais acredita em você - isso torna você um vencedor imediatamente.'"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "km",
+          "distance": 5,
+          "type": "easy",
+          "note": "Ritmo Fácil",
+          "workouts": [
+            {
+              "distance": "easy",
+              "note": "Corrida em ritmo confortável"
+            }
+          ]
+        }
+      ],
+      "note": "Mantenha-se ativo, mas não se esforce demais. Economize energia para a corrida de 10K."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanse bem e prepare-se mentalmente para a corrida de amanhã."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Faça uma caminhada leve e alongamentos suaves. Hidrate-se bem e prepare tudo para a corrida de amanhã."
+    },
+    {
+      "activities": [
+        {
+          "activity": "race",
+          "units": "km",
+          "distance": 10,
+          "type": "race",
+          "note": "Prova de 10 Km",
+          "workouts": [
+            {
+              "distance": "race",
+              "note": ""
+            }
+          ]
+        }
+      ],
+      "note": "Dia da prova de 10K! Confie no seu treinamento, mantenha um ritmo constante e dê o seu melhor. Boa sorte!"
+    }
+  ]

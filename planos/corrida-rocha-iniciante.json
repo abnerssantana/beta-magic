@@ -1,0 +1,2494 @@
+[
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Sobre a planilha e como treinar",
+            "link": "https://www.youtube.com/watch?v=JbpLK1VsJEk"
+          },
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Plano criado pelo Brunno Rocha | Volume semanal: 20 - 38 km.",
+            "link": null
+          }
+        ]
+      }
+    ],
+    "note": "As 2 primeiras semanas é uma base fácil, para trabalhar o volume semanal."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 4,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ],
+    "note": "Atualize a data de início do seu plano e o seu melhor tempo no 5 km e 10 km. Isso vai determinar os ritmos dos seus treinos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 4,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 4,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 4,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 4,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 4,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Antes de começar faça alguns educativos.",
+            "series": [
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "aquecimento"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "threshold",
+                "sets": "",
+                "work": "3 km",
+                "rest": "limiar"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": "6x tiros de 100 m após corrida. "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Antes de começar faça alguns educativos.",
+            "series": [
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "aquecimento"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "interval",
+                "sets": "3x",
+                "work": "800 m",
+                "rest": "com 500 m trotes"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "interval",
+        "note": "Ritmo de Repetição",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Antes de começar faça alguns educativos.",
+            "series": [
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "aquecimento"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "repetition",
+                "sets": "10x",
+                "work": "200 m",
+                "rest": "200 m trotes"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 9,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Semana de recuperação."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "long",
+        "note": "Ritmo de Maratona",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "marathon",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Antes de começar faça alguns educativos.",
+            "series": [
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "aquecimento"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "threshold",
+                "sets": "",
+                "work": "4 km",
+                "rest": "limiar"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Antes de começar faça alguns educativos.",
+            "series": [
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "aquecimento"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "interval",
+                "sets": "3x",
+                "work": "800 m",
+                "rest": "com 500 m trotes"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "interval",
+        "note": "Ritmo de Repetição",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Antes de começar faça alguns educativos.",
+            "series": [
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "aquecimento"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "repetition",
+                "sets": "10x",
+                "work": "200 m",
+                "rest": "200 m trotes"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Semana de recuperação."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 9,
+        "type": "long",
+        "note": "Ritmo de Maratona",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "marathon",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Antes de começar faça alguns educativos.",
+            "series": [
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "aquecimento"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "threshold",
+                "sets": "2x",
+                "work": "2 km",
+                "rest": "com 500 m trotes"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Antes de começar faça alguns educativos.",
+            "series": [
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "aquecimento"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "interval",
+                "sets": "4x",
+                "work": "800 m",
+                "rest": "com 400 m trotes"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "interval",
+        "note": "Ritmo de Repetição",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Antes de começar faça alguns educativos.",
+            "series": [
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1.5 km",
+                "rest": "aquecimento"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "repetition",
+                "sets": "6x",
+                "work": "400 m",
+                "rest": "400 m trotes"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1.5 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": "Semana de recuperação."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "long",
+        "note": "Ritmo de Maratona",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "marathon",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Antes de começar faça alguns educativos.",
+            "series": [
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "aquecimento"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "threshold",
+                "sets": "4x",
+                "work": "1 km",
+                "rest": "com 500 m trotes"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Antes de começar faça alguns educativos.",
+            "series": [
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "aquecimento"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "interval",
+                "sets": "5x",
+                "work": "800 m",
+                "rest": "com 400 m trotes"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "interval",
+        "note": "Ritmo de Repetição",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "note": "Antes de começar faça alguns educativos.",
+            "series": [
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "aquecimento"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "repetition",
+                "sets": "15x",
+                "work": "200 m",
+                "rest": "200 m trotes"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "1 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 18,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "3 km",
+                "rest": "aquecimento"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "threshold",
+                "sets": "",
+                "work": "4 km",
+                "rest": "limiar"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "3 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "aquecimento"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "threshold",
+                "sets": "",
+                "work": "2 km",
+                "rest": "limiar"
+              },
+              {
+                "baseTable": "fiveK",
+                "distance": "easy",
+                "sets": "",
+                "work": "2 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 3,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": "fiveK",
+            "distance": "easy",
+            "note": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "activities": [
+      {
+        "activity": "race",
+        "units": "km",
+        "distance": 10,
+        "type": "race",
+        "note": "Prova ou Teste",
+        "workouts": [
+          {
+            "distance": "race",
+            "note": "Hoje é o dia tão esperado! É o momento de colocar em prática todo o treinamento dedicado. Estude bem o percurso, e defina o ritmo da prova. Mantenha o ritmo que você estabeleceu. Confie no seu preparo e aproveite cada passo dessa jornada. Boa prova e divirta-se! Ritmo equivalente para o tempo de 5 km que você informou anteriormente."
+          }
+        ]
+      }
+    ]
+  }
+]

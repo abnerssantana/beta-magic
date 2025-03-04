@@ -1,0 +1,1373 @@
+[
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 5,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 23,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              },
+              {
+                "distance": "interval",
+                "sets": "8x",
+                "work": "1 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 min",
+                "rest": ""
+              }
+            ],
+            "note": "Intervalos de 1 minuto no ritmo de 5K com 1 minuto de recuperação entre cada intervalo."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 7,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "1 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "2 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "1 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "2x",
+                "work": "45 seg",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "2 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "1 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "45 seg",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "30 seg",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "15 seg",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 min",
+                "rest": ""
+              }
+            ],
+            "note": "Intervalos variados com recuperação de 1 minuto entre cada."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 2,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo fácil e confortável."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 10,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 25,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "30 seg",
+                "rest": "45s trotes"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "1 min",
+                "rest": "45s trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "30 seg",
+                "rest": "45s trotes"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "2 min",
+                "rest": "45s trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "30 seg",
+                "rest": "45s trotes"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "1 min",
+                "rest": "45s trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "30 seg",
+                "rest": "45s trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              }
+            ],
+            "note": "Intervalos variados com 45 segundos de recuperação entre cada."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 12,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 25,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "2 min",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "30 seg",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "1:30 min",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "30 seg",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "1 min",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "30 seg",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "1 min",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "30 seg",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "30 seg",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              }
+            ],
+            "note": "Intervalos variados com 30 segundos de recuperação entre cada."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 15,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo fácil e confortável."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 3,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 25,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "2x",
+                "work": "1:30 min",
+                "rest": "1:30 min trotes"
+              },
+              {
+                "distance": "interval",
+                "sets": "3x",
+                "work": "1 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "4x",
+                "work": "30 seg",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "5x",
+                "work": "15 seg",
+                "rest": "15 seg"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              }
+            ],
+            "note": "Fartlek contínuo. Cada intervalo 'forte' é seguido por uma recuperação no ritmo fácil."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 20,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 25,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              },
+              {
+                "distance": "interval",
+                "sets": "15x",
+                "work": "1 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              }
+            ],
+            "note": "Fartlek de 15 minutos alternando entre 1 minuto forte e 1 minuto fácil."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 25,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo fácil e confortável."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 25,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 25,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "30 seg",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "interval",
+                "sets": "4x",
+                "work": "30 seg",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "3 min",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "interval",
+                "sets": "4x",
+                "work": "30 seg",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "30 seg",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              }
+            ],
+            "note": "Intervalos variados com 30 segundos de recuperação entre cada."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 2,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              },
+              {
+                "distance": "interval",
+                "sets": "3x",
+                "work": "2 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "3x",
+                "work": "1 min",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "6x",
+                "work": "15 seg",
+                "rest": "2 min"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              }
+            ],
+            "note": "Intervalos variados com recuperação específica após cada série."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo fácil e confortável."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 25,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 35,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "4 min",
+                "rest": "2 min trotes"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "4 min",
+                "rest": "2:30 min trotes"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "4 min",
+                "rest": "2 min trotes"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "4 min",
+                "rest": "2:30 min trotes"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "4 min",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "4 min",
+                "rest": ""
+              }
+            ],
+            "note": "Intervalos de 4 minutos no ritmo de 5K com recuperação alternada de 2 e 2:30 minutos."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 25,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 33,
+        "type": "tempo",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "23 min",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              }
+            ],
+            "note": "Corrida tempo com 12 minutos de ida forte e controlada, e 11 minutos de volta progressivamente mais rápido. O objetivo é cobrir a mesma distância na ida e na volta."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 33,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Corrida longa em ritmo de recuperação."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 35,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "30 seg",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "15 seg",
+                "rest": "30s trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "45 seg",
+                "rest": "45s trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "15 seg",
+                "rest": "45s trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "1 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "15 seg",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "1:15 min",
+                "rest": "1:15 min"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "15 seg",
+                "rest": "1:15 min"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "1:30 min",
+                "rest": "1:30 min trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "15 seg",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              }
+            ],
+            "note": "Intervalos variados com recuperação progressivamente maior entre as séries."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 31,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 37,
+        "type": "tempo",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "7 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "25 min",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              }
+            ],
+            "note": "Corrida tempo com ritmo progressivamente mais rápido."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo fácil e confortável."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 35,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 35,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "5x",
+                "work": "45 seg",
+                "rest": "1:15 min trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "5x",
+                "work": "15 seg",
+                "rest": "45s trotes"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              }
+            ],
+            "note": "Treino em colinas. Mantenha o esforço constante nas subidas."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 25,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 33,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "8 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "3 min",
+                "rest": "1:30 min trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "1 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "interval",
+                "sets": "2x",
+                "work": "2 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "1 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "interval",
+                "sets": "2x",
+                "work": "2 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "1 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "5 min",
+                "rest": "1 min trotes"
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "30 seg",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "2 min",
+                "rest": ""
+              }
+            ],
+            "note": "Intervalos variados para trabalhar diferentes sistemas de energia."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida longa em ritmo fácil e confortável."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "tempo",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              },
+              {
+                "distance": "recovery",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "4 min",
+                "rest": ""
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "3 min",
+                "rest": ""
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "2 min",
+                "rest": ""
+              },
+              {
+                "distance": "repetition",
+                "sets": "",
+                "work": "1 min",
+                "rest": ""
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 min",
+                "rest": ""
+              }
+            ],
+            "note": "Corrida tempo com ritmo progressivamente mais rápido durante 15 minutos."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 25,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "O foco é promover a recuperação adequada dos treinos mais intensos anteriores."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 1,
+        "type": "recovery",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Corrida curta de recuperação antes do dia da prova."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "race",
+        "units": "km",
+        "distance": 5,
+        "type": "race",
+        "note": "Prova",
+        "workouts": [
+          {
+            "distance": "race",
+            "note": "Dia da prova de 5K. Boa sorte!"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  }
+]

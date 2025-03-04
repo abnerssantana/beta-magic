@@ -1,0 +1,860 @@
+[
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 15,
+        "type": "easy",
+        "note": "Corrida e Caminhada",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "15x",
+                "work": "30s",
+                "rest": "com 30s caminhada"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          { "distance": "easy", "note": "Corrida/caminhada por 10 minutos" }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "walk",
+        "note": "Caminhada",
+        "workouts": [{ "distance": "walk", "note": "Caminhada de 5 km" }]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 18,
+        "type": "easy",
+        "note": "Corrida e Caminhada",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "12x",
+                "work": "45s",
+                "rest": "com 45s caminhada"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 15,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          { "distance": "easy", "note": "Corrida/caminhada por 15 minutos" }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "walk",
+        "note": "Caminhada",
+        "workouts": [
+          {
+            "distance": "walk",
+            "note": "Caminhada de 5 km (tente superar o tempo da semana anterior)"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 20,
+        "type": "easy",
+        "note": "Corrida e Caminhada",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "10x",
+                "work": "60s",
+                "rest": "com 60s caminhada"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 20,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          { "distance": "easy", "note": "Corrida/caminhada por 20 minutos" }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "walk",
+        "note": "Caminhada",
+        "workouts": [
+          {
+            "distance": "walk",
+            "note": "Caminhada de 5 km (tente superar o tempo da semana anterior)"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 24,
+        "type": "easy",
+        "note": "Corrida e Caminhada",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "8x",
+                "work": "90s",
+                "rest": "com 90s caminhada"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 25,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          { "distance": "easy", "note": "Corrida/caminhada por 25 minutos" }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          { "distance": "easy", "note": "Corrida de 1 km, caminhada de 4 km" }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 24,
+        "type": "easy",
+        "note": "Corrida e Caminhada",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "6x",
+                "work": "2 min",
+                "rest": "com 2 min caminhada"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 30,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          { "distance": "easy", "note": "Corrida/caminhada por 30 minutos" }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          { "distance": "easy", "note": "Corrida de 2 km, caminhada de 3 km" }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 25,
+        "type": "easy",
+        "note": "Corrida e Caminhada",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "5x",
+                "work": "3 min",
+                "rest": "com 2 min caminhada"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 35,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          { "distance": "easy", "note": "Corrida/caminhada por 35 minutos" }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          { "distance": "easy", "note": "Corrida de 3 km, caminhada de 2 km" }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 28,
+        "type": "easy",
+        "note": "Corrida e Caminhada",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "4x",
+                "work": "5 min",
+                "rest": "com 2 min caminhada"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 40,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          { "distance": "easy", "note": "Corrida/caminhada por 40 minutos" }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          { "distance": "easy", "note": "Corrida de 4 km, caminhada de 1 km" }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 33,
+        "type": "easy",
+        "note": "Corrida e Caminhada",
+        "workouts": [
+          {
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "3x",
+                "work": "10 min",
+                "rest": "com 1 min caminhada"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "min",
+        "distance": 45,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          { "distance": "easy", "note": "Corrida/caminhada por 45 minutos" }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Fortalecimento",
+        "workouts": []
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "race",
+        "units": "km",
+        "distance": 5,
+        "type": "race",
+        "note": "Prova",
+        "workouts": [{ "distance": "race", "note": "Dia da prova! Corra 5K!" }]
+      }
+    ],
+    "note": "Dia da prova! Faça um aquecimento leve, mantenha um ritmo constante e dê o seu melhor. Boa sorte!"
+  }
+]

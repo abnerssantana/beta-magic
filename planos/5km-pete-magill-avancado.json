@@ -1,0 +1,1952 @@
+[
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável que permita conversar"
+          }
+        ]
+      }
+    ],
+    "note": "Semana 1 - Foco em construir uma base aeróbica sólida"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "interval",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "6-8x",
+                "work": "30s subida",
+                "rest": "recuperação em descida"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Subidas moderadas, foco na técnica"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Recuperação ativa, mantenha o ritmo leve"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "3 km",
+                "rest": "ritmo de prova"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Ritmo de Limiar: ligeiramente mais rápido que o ritmo de prova de 10km"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Descanso e recuperação são fundamentais para a adaptação"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foco na forma e na respiração"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Ritmo conversacional, construindo resistência"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Recuperação ativa após a corrida longa"
+          }
+        ]
+      }
+    ],
+    "note": "Semana 2 - Introduzindo mais intensidade"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "600m",
+                "rest": "200m trote"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Intervalos no ritmo de 5km ou ligeiramente mais rápido"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foco na recuperação e na técnica de corrida"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "4x",
+                "work": "1 km",
+                "rest": "1 min recuperação"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Ritmo: entre o ritmo de 5km e 10km"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Priorize o descanso e a recuperação"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Aumente levemente o ritmo nos últimos 2-3 km"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foco na recuperação"
+          }
+        ]
+      }
+    ],
+    "note": "Semana 3 - Aumentando o volume"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "8-10x",
+                "work": "40s subida",
+                "rest": "recuperação em descida"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Mantenha uma boa postura."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "4 km",
+                "rest": "ritmo de limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Mantenha um ritmo constante e confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Descanso ativo: considere fazer alongamentos ou fortalecimento"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Ritmo relaxado, foco na técnica"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo de Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Recuperação após a corrida longa"
+          }
+        ]
+      }
+    ],
+    "note": "Semana 4 - Intensificando os intervalos"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 9,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "800m",
+                "rest": "400m trote"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Aumente a distância dos intervalos"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foco na recuperação"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 9,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "5x",
+                "work": "1 km",
+                "rest": "1 min recuperação"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Fartlek, faça em um percurso com variações."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Foco na recuperação e no descanso"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Ritmo confortável, foco na técnica"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante, aumente levemente nos últimos 3 km"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": "Semana 5 - Foco em velocidade"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "interval",
+        "note": "Treino de Velocidade",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "10x",
+                "work": "200m",
+                "rest": "200m trote"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Foco em velocidade máxima nos 200m"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Recuperação após o treino de velocidade"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "6 km",
+                "rest": "ritmo de limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Fouqe no controle do ritmo."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Considere uma sessão de alongamento ou fortalecimento"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Ritmo constante, últimos 4 km no ritmo de maratona"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Recuperação após a corrida longa"
+          }
+        ]
+      }
+    ],
+    "note": "Semana 6 - Semana de recuperação"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "interval",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "45s subida",
+                "rest": "recuperação em descida"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Foco na técnica e força"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "4x",
+                "work": "1 km",
+                "rest": "1 min recuperação"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Mantenha o ritmo constante"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Priorize o descanso e a recuperação"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Ritmo relaxado, foco na técnica"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": "Semana 7 - Intensificando o treinamento"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "8x",
+                "work": "600m",
+                "rest": "200m trote"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Foco na manutenção do ritmo nos intervalos"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Recuperação após os intervalos"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "7 km",
+                "rest": "ritmo de limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Fouqe no controle do ritmo."
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Foco na recuperação"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 15,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Últimos 5 km no ritmo de meia maratona"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Recuperação após a corrida longa"
+          }
+        ]
+      }
+    ],
+    "note": "Semana 8 - Pico de intensidade"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "12x",
+                "work": "400m",
+                "rest": "90s recuperação"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Foco na velocidade e resistência"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "workout",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "2x",
+                "work": "3 km",
+                "rest": "2 min recuperação"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Mantenha o ritmo constante nos 3 km"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Foco na recuperação e no descanso"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 16,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "13 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "3 km",
+                "rest": "Ritmo de prova"
+              }
+            ],
+            "note": ""
+          }
+        ]
+      }
+    ],    
+   "note": "Mantenha um ritmo constante, últimos 3 km no ritmo de 5 km."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": "Semana 9 - Simulação de corrida"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "5x",
+                "work": "1000m",
+                "rest": "400m trote"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Ritmo próximo ao de 5k nos intervalos"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foco na recuperação"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "",
+                "work": "4 km",
+                "rest": "ritmo de prova"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Simule o ritmo de corrida nos 4 km centrais"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Priorize o descanso e a recuperação"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Ritmo relaxado, foco na técnica"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Recuperação após a corrida longa"
+          }
+        ]
+      }
+    ],
+    "note": "Semana 10 - Último pico de intensidade"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "interval",
+        "note": "Treino de Velocidade",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "10x",
+                "work": "500m",
+                "rest": "100m trote"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Foco na velocidade e resistência"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "3x",
+                "work": "2 km",
+                "rest": "2 min recuperação"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Mantenha o ritmo constante nos intervalos de 2 km"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Foco na recuperação"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 12,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Últimos 2 km no ritmo de 5k"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": "Semana 11 - Início do taper"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "400m",
+                "rest": "200m trote"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Mantenha a qualidade, reduza o volume"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foco na recuperação"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 7,
+        "type": "workout",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "threshold",
+                "sets": "3x",
+                "work": "1 km",
+                "rest": "1 min recuperação"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Mantenha a intensidade, reduza o volume"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Priorize o descanso e a recuperação"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Ritmo relaxado, foco na técnica"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Recuperação ativa"
+          }
+        ]
+      }
+    ],
+    "note": "Semana 12 - Semana da corrida"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "baseTable": null,
+            "distance": null,
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "aquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              },
+              {
+                "distance": "interval",
+                "sets": "4x",
+                "work": "200m",
+                "rest": "200m trote"
+              },
+              {
+                "distance": "easy",
+                "sets": "desaquecimento",
+                "work": "2 km",
+                "rest": "fácil"
+              }
+            ],
+            "note": "Mantenha a qualidade, reduza significativamente o volume"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 4,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Ritmo muito leve, foco na recuperação"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 3,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Corrida curta e leve, algumas acelerações no final"
+          }
+        ]
+      }
+    ],
+    "note": ""
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso",
+        "workouts": []
+      }
+    ],
+    "note": "Descanse bem, prepare-se mentalmente para a corrida"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 2,
+        "type": "easy",
+        "note": "Ritmo Recuperação",
+        "workouts": [
+          {
+            "distance": "recovery",
+            "note": "Corrida leve de aquecimento, algumas acelerações curtas"
+          }
+        ]
+      }
+    ],
+    "note": "Dia anterior à corrida, trote leve"
+  },
+  {
+    "activities": [
+      {
+        "activity": "race",
+        "units": "km",
+        "distance": 5,
+        "type": "race",
+        "note": "Corrida de 5km",
+        "workouts": [
+          {
+            "distance": "race",
+            "note": "Dê o seu melhor! Mantenha o ritmo planejado e termine forte."
+          }
+        ]
+      }
+    ],
+    "note": "Dia da corrida! Boa sorte!"
+  }
+]

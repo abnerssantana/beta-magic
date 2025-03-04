@@ -1,0 +1,1330 @@
+[
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 20,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "5x",
+                  "work": "30 seg",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "90 seg",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Lembre-se, cada jornada começa com um único passo. Você já deu o seu hoje!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "O descanso é tão importante quanto o exercício. Aproveite este dia para recuperar."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 20,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "6x",
+                  "work": "30 seg",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Cada passo te leva mais perto do seu objetivo. Continue persistindo!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Use este dia para refletir sobre seu progresso e se preparar mentalmente para o próximo treino."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 30,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "8x",
+                  "work": "30 seg",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está construindo uma base sólida. Mantenha o bom trabalho!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanso é parte do progresso. Aproveite para recuperar seu corpo e mente."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Último dia de descanso da semana. Prepare-se para os desafios da próxima semana!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 20,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "8x",
+                  "work": "1 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Nova semana, novos desafios. Você está pronto para elevar seu jogo!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Use este dia para se recuperar e refletir sobre seu progresso até agora."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 20,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "10x",
+                  "work": "1 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "30 seg",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está ficando mais forte a cada sessão. Continue assim!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Aproveite este dia para descansar e se preparar para o próximo desafio."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 30,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "15x",
+                  "work": "1 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "30 seg",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está progredindo de forma incrível! Lembre-se, a consistência é a chave do sucesso."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanse bem. Seu corpo precisa se recuperar para continuar melhorando."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Fim da segunda semana! Reflita sobre seu progresso e prepare-se para os desafios da próxima semana."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 25,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "7x",
+                  "work": "2 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está aumentando seu tempo de corrida. Lembre-se, progresso é progresso, não importa quão pequeno seja!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Use este dia para alongar e relaxar seus músculos. A recuperação é parte crucial do treinamento."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 25,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "8x",
+                  "work": "2 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "30 seg",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Cada passo te torna mais forte. Continue avançando!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Aproveite este dia para hidratar-se bem e preparar-se mentalmente para o próximo treino."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 30,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "7x",
+                  "work": "3 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está progredindo incrivelmente bem! Lembre-se: 'A persistência realiza o impossível.' - Provérbio Chinês"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanse e recupere-se. Seu corpo agradece por este tempo de regeneração."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Fim da terceira semana! Reflita sobre seu progresso e prepare-se para os novos desafios que virão."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 30,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "7x",
+                  "work": "3 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Nova semana, novas oportunidades de crescimento. Você está pronto para elevar seu desempenho!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Use este dia para descansar e visualizar seu sucesso nos próximos treinos."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 30,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "5x",
+                  "work": "4 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está aumentando seu tempo de corrida contínua. Grandes conquistas são a soma de pequenos esforços repetidos dia após dia."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Aproveite este dia para descansar e se preparar mentalmente para o próximo desafio."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 30,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "5x",
+                  "work": "4 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "30 seg",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Seu corpo está se adaptando, ficando mais forte a cada sessão. Mantenha o foco e a determinação!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanse bem. Lembre-se, é durante o descanso que seu corpo se fortalece e se prepara para novos desafios."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Fim da quarta semana! Você já percorreu metade do caminho. Celebre seu progresso e prepare-se para a segunda metade do programa!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 20,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "3x",
+                  "work": "6 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está progredindo para intervalos mais longos de corrida. Lembre-se, cada passo é uma vitória!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Use este dia para alongar e relaxar. A flexibilidade é tão importante quanto a força."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 25,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "3x",
+                  "work": "7 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está ficando mais forte a cada sessão. 'A força não vem da capacidade física. Vem de uma vontade indomável.' - Mahatma Gandhi"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Aproveite este dia para descansar e recarregar suas energias para o próximo treino."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 25,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "3x",
+                  "work": "7 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "30 seg",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está reduzindo o tempo de caminhada entre os intervalos. Seu corpo está se adaptando incrivelmente bem!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanse e recupere-se. Lembre-se, o descanso é tão importante quanto o treino para o seu progresso."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Fim da quinta semana! Reflita sobre seu progresso até agora. Você está mais próximo do seu objetivo a cada dia!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 35,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "3x",
+                  "work": "10 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está agora correndo por 10 minutos seguidos! Lembre-se de como começou e veja o quão longe chegou!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Use este dia para descansar e visualizar seu sucesso nos próximos treinos."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 30,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "3x",
+                  "work": "10 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "30 seg",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está reduzindo ainda mais o tempo de caminhada. Seu corpo está se tornando uma máquina de correr!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Aproveite este dia para descansar e se preparar mentalmente para o próximo desafio."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 35,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "2x",
+                  "work": "15 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "2 min",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Incrível! Você está correndo por 15 minutos seguidos agora. 'O sucesso é a soma de pequenos esforços repetidos dia após dia.' - Robert Collier"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanse bem. Seu corpo precisa se recuperar após esses treinos intensos."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Fim da sexta semana! Você está fazendo um progresso incrível. Continue assim!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 20,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "3x",
+                  "work": "6 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está progredindo para intervalos mais longos de corrida. Lembre-se, cada passo é uma vitória!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Use este dia para alongar e relaxar. A flexibilidade é tão importante quanto a força."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 25,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "3x",
+                  "work": "7 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está ficando mais forte a cada sessão. 'A força não vem da capacidade física. Vem de uma vontade indomável.' - Mahatma Gandhi"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Aproveite este dia para descansar e recarregar suas energias para o próximo treino."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 25,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "3x",
+                  "work": "7 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "30 seg",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está reduzindo o tempo de caminhada entre os intervalos. Seu corpo está se adaptando incrivelmente bem!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanse e recupere-se. Lembre-se, o descanso é tão importante quanto o treino para o seu progresso."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Fim da quinta semana! Reflita sobre seu progresso até agora. Você está mais próximo do seu objetivo a cada dia!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 35,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "3x",
+                  "work": "10 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "1 min",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está agora correndo por 10 minutos seguidos! Lembre-se de como começou e veja o quão longe chegou!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Use este dia para descansar e visualizar seu sucesso nos próximos treinos."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 30,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "3x",
+                  "work": "10 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "30 seg",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Você está reduzindo ainda mais o tempo de caminhada. Seu corpo está se tornando uma máquina de correr!"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Aproveite este dia para descansar e se preparar mentalmente para o próximo desafio."
+    },
+    {
+      "activities": [
+        {
+          "activity": "corrida",
+          "units": "min",
+          "distance": 35,
+          "type": "interval",
+          "note": "Corrida e Caminhada",
+          "workouts": [
+            {
+              "distance": null,
+              "note": "Caminhada rápida, seguida de alternância entre corrida e caminhada",
+              "series": [
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "5 min",
+                  "rest": "caminhada rápida"
+                },
+                {
+                  "distance": "interval",
+                  "sets": "2x",
+                  "work": "15 min",
+                  "rest": "corrida"
+                },
+                {
+                  "distance": "walk",
+                  "sets": "",
+                  "work": "2 min",
+                  "rest": "caminhada entre cada intervalo"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Incrível! Você está correndo por 15 minutos seguidos agora. 'O sucesso é a soma de pequenos esforços repetidos dia após dia.' - Robert Collier"
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Descanse bem. Seu corpo precisa se recuperar após esses treinos intensos."
+    },
+    {
+      "activities": [
+        {
+          "activity": "offday",
+          "units": "",
+          "distance": "",
+          "type": "off",
+          "note": "Dia de Descanso",
+          "workouts": []
+        }
+      ],
+      "note": "Fim da sexta semana! Você está fazendo um progresso incrível. Continue assim!"
+    }
+  ]

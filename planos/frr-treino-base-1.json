@@ -1,0 +1,1252 @@
+[
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Comece sua jornada com entusiasmo. Lembre-se, cada passo conta!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "A consistência é a chave para o progresso. Mantenha-se focado em seus objetivos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é tão importante quanto o treino. Aproveite para recuperar-se."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua forma e respiração durante a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Cada corrida é uma oportunidade de melhorar. Aproveite o processo!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo constante e confortável."
+          }
+        ]
+      }
+    ],
+    "note": "A paciência é fundamental na construção da resistência. Confie no processo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para recarregar suas energias e se preparar para o treino longo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável durante toda a corrida longa."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas constroem sua resistência mental e física. Aproveite o desafio!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Reflita sobre seus progressos e prepare-se para a próxima semana de treinos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e foque na sua técnica de corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Cada passo te leva mais perto dos seus objetivos. Mantenha-se motivado!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso adequado é essencial para o progresso. Aproveite este dia."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em manter um ritmo constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "A consistência é a chave para o sucesso. Continue com o bom trabalho!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua respiração e mantenha uma postura relaxada."
+          }
+        ]
+      }
+    ],
+    "note": "Pequenas melhorias diárias levam a grandes resultados. Continue progredindo!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para se preparar mentalmente para o treino longo de amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida longa."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas fortalecem seu corpo e mente. Aprecie a jornada!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para recarregar suas energias e refletir sobre seu progresso até agora."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e foque na sua técnica de corrida."
+          }
+        ]
+      }
+    ],
+    "note": "A consistência é a chave para o sucesso. Continue com o bom trabalho!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso adequado é essencial para o progresso. Aproveite este dia."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em manter um ritmo constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Cada corrida te torna mais forte. Mantenha o foco nos seus objetivos!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 5,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua respiração e mantenha uma postura relaxada."
+          }
+        ]
+      }
+    ],
+    "note": "Pequenas melhorias diárias levam a grandes resultados. Continue progredindo!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para se preparar mentalmente para o treino longo de amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida longa."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas fortalecem seu corpo e mente. Aprecie a jornada!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Reflita sobre seus progressos e prepare-se para a próxima semana de treinos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "A paciência é fundamental na construção da resistência. Confie no processo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é tão importante quanto o treino. Aproveite para recuperar-se."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Inclua 6 x 100m de tiros no final da corrida",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "100 m",
+                "rest": "com 100 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "3 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Os tiros ajudam a melhorar sua velocidade e eficiência. Dê o seu melhor!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua forma e respiração durante a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Cada corrida é uma oportunidade de melhorar. Aproveite o processo!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para recarregar suas energias e se preparar para o treino longo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável durante toda a corrida longa."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas constroem sua resistência mental e física. Aproveite o desafio!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para recarregar suas energias e se preparar mentalmente para a semana."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "A consistência é a chave para o progresso. Mantenha-se focado em seus objetivos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é tão importante quanto o treino. Aproveite para recuperar-se."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "threshold",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Inclua 16 minutos de corrida no ritmo de limiar",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "3 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "16 min",
+                "rest": "ritmo de limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "3 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Os treinos de limiar são fundamentais para melhorar sua resistência. Mantenha o foco e o ritmo!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua forma e respiração durante a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Cada corrida é uma oportunidade de melhorar. Aproveite o processo!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para se preparar mentalmente para o treino longo de amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável durante toda a corrida longa."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas constroem sua resistência mental e física. Aproveite o desafio!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Reflita sobre seus progressos e prepare-se para a próxima semana de treinos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e foque na sua técnica de corrida."
+          }
+        ]
+      }
+    ],
+    "note": "A paciência é fundamental na construção da resistência. Confie no processo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso adequado é essencial para o progresso. Aproveite este dia."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Inclua 6 x 100m de tiros no final da corrida",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "6 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "100 m",
+                "rest": "com 100 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "4 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Os tiros ajudam a melhorar sua velocidade e eficiência. Dê o seu melhor!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 6,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em manter um ritmo constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Cada passo te leva mais perto dos seus objetivos. Mantenha-se motivado!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para recarregar suas energias e se preparar para o treino longo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida longa."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas fortalecem seu corpo e mente. Aprecie a jornada!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para recarregar suas energias e refletir sobre seu progresso até agora."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "A consistência é a chave para o sucesso. Continue com o bom trabalho!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso adequado é essencial para o progresso. Aproveite este dia."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "threshold",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Inclua 18 minutos de corrida no ritmo de limiar",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "3 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "18 min",
+                "rest": "ritmo de limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "3 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Os treinos de limiar são desafiadores, mas essenciais para seu progresso. Mantenha o foco!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 8,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua forma e respiração durante a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Cada corrida te torna mais forte. Aprecie o processo de melhoria contínua."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para se preparar mentalmente para o treino longo de amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável durante toda a corrida longa."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas são a base da sua resistência. Aproveite cada quilômetro!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Reflita sobre seus progressos e prepare-se para a próxima semana de treinos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e foque na sua técnica de corrida."
+          }
+        ]
+      }
+    ],
+    "note": "A paciência e a persistência são suas melhores aliadas. Continue avançando!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é fundamental para a adaptação. Aproveite para recuperar-se completamente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Inclua 6 x 100m de tiros no final da corrida",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "7 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "6x",
+                "work": "100 m",
+                "rest": "com 100 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "4 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Os tiros melhoram sua velocidade e economia de corrida. Dê o seu melhor em cada repetição!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em manter um ritmo constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Cada passo te leva mais perto dos seus objetivos. Mantenha a motivação alta!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para recarregar suas energias e se preparar para o treino longo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida longa."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas fortalecem seu corpo e mente. Aprecie a jornada e o desafio!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para recarregar suas energias e se preparar mentalmente para as últimas semanas do plano."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Você chegou longe! Continue focado e confiante em sua preparação."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é crucial para absorver o treinamento. Aproveite este dia."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "threshold",
+        "note": "Ritmo de Limiar",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Inclua 20 minutos de corrida no ritmo de limiar",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "3 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "threshold",
+                "sets": "",
+                "work": "20 min",
+                "rest": "ritmo de limiar"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "3 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Os treinos de limiar são desafiadores, mas fundamentais para seu progresso. Mantenha o foco e a determinação!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Foque na sua forma e respiração durante a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Cada corrida te torna mais forte. Aprecie o processo de melhoria contínua."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para se preparar mentalmente para o treino longo de amanhã."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável durante toda a corrida longa."
+          }
+        ]
+      }
+    ],
+    "note": "As corridas longas são o pilar da sua resistência. Aproveite cada quilômetro e sinta seu progresso!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Reflita sobre seus progressos e prepare-se para a última semana de treinos."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 11,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e foque na sua técnica de corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Você está na reta final do plano. Mantenha a confiança e a determinação!"
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "O descanso é fundamental para a adaptação. Aproveite para recuperar-se completamente."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 13,
+        "type": "interval",
+        "note": "Ritmo de Intervalo",
+        "workouts": [
+          {
+            "distance": null,
+            "note": "Inclua 8 x 100m de tiros no final da corrida",
+            "series": [
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "8 km",
+                "rest": "aquecimento"
+              },
+              {
+                "distance": "interval",
+                "sets": "8x",
+                "work": "100 m",
+                "rest": "com 100 m trote entre"
+              },
+              {
+                "distance": "easy",
+                "sets": "",
+                "work": "5 km",
+                "rest": "desaquecimento"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "Os tiros finais do plano! Dê o seu melhor em cada repetição e sinta o quanto você progrediu."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 10,
+        "type": "easy",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Concentre-se em manter um ritmo constante durante toda a corrida."
+          }
+        ]
+      }
+    ],
+    "note": "Você está quase lá! Mantenha o foco e a motivação alta nesta reta final."
+  },
+  {
+    "activities": [
+      {
+        "activity": "offday",
+        "units": "",
+        "distance": "",
+        "type": "off",
+        "note": "Dia de Descanso ou Cross-training",
+        "workouts": []
+      }
+    ],
+    "note": "Use este dia para recarregar suas energias e se preparar para o último treino longo."
+  },
+  {
+    "activities": [
+      {
+        "activity": "corrida",
+        "units": "km",
+        "distance": 14,
+        "type": "long",
+        "note": "Ritmo Fácil",
+        "workouts": [
+          {
+            "distance": "easy",
+            "note": "Mantenha um ritmo confortável e constante durante toda a corrida longa."
+          }
+        ]
+      }
+    ],
+    "note": "Parabéns! Este é seu último treino longo do plano. Aprecie cada momento e celebre seu progresso!"
+  }
+]

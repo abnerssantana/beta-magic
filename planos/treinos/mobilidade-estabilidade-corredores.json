@@ -1,0 +1,254 @@
+[
+    {
+      "day": "Dia 1",
+      "note": "Mobilidade geral para melhorar a flexibilidade e amplitude de movimento.",
+      "exercises": [
+        {
+          "name": "Mobilidade de tornozelo",
+          "sets": 1,
+          "reps": 5,
+          "video": "https://www.youtube.com/embed/gO4wggqP0_w"
+        },
+        {
+          "name": "Mobilidade de quadril",
+          "sets": 1,
+          "reps": 5,
+          "video": "https://www.youtube.com/embed/4m7lvTco7tM"
+        },
+        {
+          "name": "Mobilidade torácica",
+          "sets": 1,
+          "reps": 5,
+          "video": "https://www.youtube.com/embed/LbE3oc7mNJ8"
+        },
+        {
+          "name": "Mobilidade de ombros",
+          "sets": 1,
+          "reps": 5,
+          "video": "https://www.youtube.com/embed/D3cfUS8MIU0"
+        },
+        {
+          "name": "Alongamento de isquiotibiais",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/8KvWLf0jFQs"
+        },
+        {
+          "name": "Alongamento de quadríceps",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/VSu2K_EwYBA"
+        },
+        {
+          "name": "Alongamento de panturrilha",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/kc2glDjeNfQ"
+        },
+        {
+          "name": "Rotação torácica",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/JHEzkSZfGFE"
+        }
+      ]
+    },
+    {
+      "day": "Dia 2",
+      "note": "Mobilidade específica e ativação para preparar o corpo para a corrida.",
+      "exercises": [
+        {
+          "name": "Marcha lateral com miniband",
+          "sets": 1,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/Bw2pnygLH6M"
+        },
+        {
+          "name": "Ponte bilateral",
+          "sets": 1,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/vcsCENw91E4"
+        },
+        {
+          "name": "Prancha ventral",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/wY3P6S2TUHg"
+        },
+        {
+          "name": "Prancha lateral",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/_dOBib2jk8U"
+        },
+        {
+          "name": "Alongamento dinâmico de flexores do quadril",
+          "sets": 1,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/bg7FpuU4JSQ"
+        },
+        {
+          "name": "Mobilidade de adutores",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/8xnhUqiILcE"
+        },
+        {
+          "name": "Alongamento de IT band",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/bIw1R5-CpR4"
+        },
+        {
+          "name": "Educativos de corrida (escolha 2)",
+          "sets": 1,
+          "reps": 10,
+          "video": null
+        }
+      ]
+    },
+    {
+      "day": "Dia 3",
+      "note": "Dia de corrida. Siga seu plano de treinamento regular.",
+      "exercises": [
+        {
+          "name": "Dia de corrida",
+          "sets": 0,
+          "reps": 0,
+          "video": null
+        }
+      ]
+    },
+    {
+      "day": "Dia 4",
+      "note": "Repetir o planejamento do Dia 1.",
+      "exercises": [
+        {
+          "name": "Mobilidade de tornozelo",
+          "sets": 1,
+          "reps": 5,
+          "video": "https://www.youtube.com/embed/gO4wggqP0_w"
+        },
+        {
+          "name": "Mobilidade de quadril",
+          "sets": 1,
+          "reps": 5,
+          "video": "https://www.youtube.com/embed/4m7lvTco7tM"
+        },
+        {
+          "name": "Mobilidade torácica",
+          "sets": 1,
+          "reps": 5,
+          "video": "https://www.youtube.com/embed/LbE3oc7mNJ8"
+        },
+        {
+          "name": "Mobilidade de ombros",
+          "sets": 1,
+          "reps": 5,
+          "video": "https://www.youtube.com/embed/D3cfUS8MIU0"
+        },
+        {
+          "name": "Alongamento de isquiotibiais",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/8KvWLf0jFQs"
+        },
+        {
+          "name": "Alongamento de quadríceps",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/VSu2K_EwYBA"
+        },
+        {
+          "name": "Alongamento de panturrilha",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/kc2glDjeNfQ"
+        },
+        {
+          "name": "Rotação torácica",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/JHEzkSZfGFE"
+        }
+      ]
+    },
+    {
+      "day": "Dia 5",
+      "note": "Repetir o planejamento do Dia 2.",
+      "exercises": [
+        {
+          "name": "Marcha lateral com miniband",
+          "sets": 1,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/Bw2pnygLH6M"
+        },
+        {
+          "name": "Ponte bilateral",
+          "sets": 1,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/vcsCENw91E4"
+        },
+        {
+          "name": "Prancha ventral",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/wY3P6S2TUHg"
+        },
+        {
+          "name": "Prancha lateral",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/_dOBib2jk8U"
+        },
+        {
+          "name": "Alongamento dinâmico de flexores do quadril",
+          "sets": 1,
+          "reps": 10,
+          "video": "https://www.youtube.com/embed/bg7FpuU4JSQ"
+        },
+        {
+          "name": "Mobilidade de adutores",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/8xnhUqiILcE"
+        },
+        {
+          "name": "Alongamento de IT band",
+          "sets": 1,
+          "time": 30,
+          "video": "https://www.youtube.com/embed/bIw1R5-CpR4"
+        },
+        {
+          "name": "Educativos de corrida (escolha 2)",
+          "sets": 1,
+          "reps": 10,
+          "video": null
+        }
+      ]
+    },
+    {
+      "day": "Dia 6",
+      "note": "Dia de corrida. Siga seu plano de treinamento regular.",
+      "exercises": [
+        {
+          "name": "Dia de corrida",
+          "sets": 0,
+          "reps": 0,
+          "video": null
+        }
+      ]
+    },
+    {
+      "day": "Dia 7",
+      "note": "Dia de corrida. Siga seu plano de treinamento regular.",
+      "exercises": [
+        {
+          "name": "Dia de corrida",
+          "sets": 0,
+          "reps": 0,
+          "video": null
+        }
+      ]
+    }
+  ]
