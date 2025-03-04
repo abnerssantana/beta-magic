@@ -19,7 +19,7 @@ export const calculateActivityPace = (
   if (activity.units !== "km") return "N/A";
 
   // Para dias de descanso ou recuperação por tempo
-  if (activity.type === "offday" || activity.type === "recovery" && activity.units === "min") {
+  if (activity.type === "offday" || activity.type === "recovery" ) {
     return "N/A";
   }
 
