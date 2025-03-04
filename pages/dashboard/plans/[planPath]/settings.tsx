@@ -19,18 +19,6 @@ import { Check, Info, Save, AlertTriangle, ArrowLeft, Clock } from "lucide-react
 import { getPlanByPath } from "@/lib/db-utils";
 import { getUserCustomPaces } from "@/lib/user-utils";
 
-// Mapeamento de tipos de atividade para nomes de ritmos
-const paceTypeMapping: Record<string, string> = {
-  recovery: "Recovery Km",
-  easy: "Easy Km",
-  marathon: "M Km",
-  threshold: "T Km",
-  interval: "I Km",
-  repetition: "R 1000m",
-  walk: "Recovery Km", // Usa o mesmo ritmo que recovery
-  race: "Race Pace",
-  long: "Easy Km" // Usa o mesmo ritmo que easy
-};
 
 interface PaceSetting {
   name: string;
@@ -330,9 +318,10 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
                     <TimeInput
                       value={baseTime}
                       onChange={setBaseTime}
+                      showHours={true}
+                      icon={<Clock className="h-4 w-4 text-muted-foreground" />}
                       className="pl-10"
                     />
-                    <Clock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                   </div>
                 </div>
 
@@ -414,17 +403,16 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
                             Resetar
                           </button>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <TimeInput
-                            value={extractPaceTimeValue(pace)}
-                            onChange={(value) => updatePaceSetting(
-                              paceSettings.findIndex(p => p.name === pace.name),
-                              value
-                            )}
-                            className="flex-1"
-                          />
-                          <span className="text-sm text-muted-foreground">/km</span>
-                        </div>
+                        <TimeInput
+                          value={extractPaceTimeValue(pace)}
+                          onChange={(value) => updatePaceSetting(
+                            paceSettings.findIndex(p => p.name === pace.name),
+                            value
+                          )}
+                          showHours={false}
+                          suffix="/km"
+                          className="flex-1"
+                        />
                       </div>
                     ))}
                 </TabsContent>
@@ -452,17 +440,16 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
                             Resetar
                           </button>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <TimeInput
-                            value={extractPaceTimeValue(pace)}
-                            onChange={(value) => updatePaceSetting(
-                              paceSettings.findIndex(p => p.name === pace.name),
-                              value
-                            )}
-                            className="flex-1"
-                          />
-                          <span className="text-sm text-muted-foreground">/km</span>
-                        </div>
+                        <TimeInput
+                          value={extractPaceTimeValue(pace)}
+                          onChange={(value) => updatePaceSetting(
+                            paceSettings.findIndex(p => p.name === pace.name),
+                            value
+                          )}
+                          showHours={false}
+                          suffix="/km"
+                          className="flex-1"
+                        />
                       </div>
                     ))}
                 </TabsContent>

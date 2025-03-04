@@ -33,11 +33,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { PlanSummary } from "@/models";
+import { PlanModel, PlanSummary } from "@/models";
 import { getUserActivePlan, getUserSummary } from "@/lib/user-utils";
+import { getPlanByPath } from "@/lib/db-utils";
+import { TrainingCalendar } from "@/components/dashboard/TrainingCalendar";
 
 interface DashboardProps {
   activePlan: PlanSummary | null;
+  fullPlan: PlanModel | null;
   todayWorkout: any | null;
   weekProgress: number;
   userSummary: {
@@ -66,18 +69,25 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const activePlan = await getUserActivePlan(userId);
     const userSummary = await getUserSummary(userId);
 
-    // Definir o treino do dia
-    // Na fase 1, pode ser apenas um placeholder até implementarmos a lógica completa
+    // Buscar o plano completo com workouts se existir um plano ativo
+    let fullPlan = null;
+    if (activePlan) {
+      fullPlan = await getPlanByPath(activePlan.path);
+    }
+
+    // Definir o treino do dia - melhorado com dados mais realistas
     const todayWorkout = activePlan ? {
-      title: "Treino fácil de recuperação",
+      title: "Corrida fácil de recuperação",
       distance: "8 km",
       pace: "6:00/km",
-      description: "Mantenha o ritmo fácil, foco na técnica e respiração."
+      description: "Mantenha o ritmo fácil, foco na técnica e respiração. Preste atenção à sua forma de correr.",
+      type: "easy"
     } : null;
 
     return {
       props: {
         activePlan: activePlan ? JSON.parse(JSON.stringify(activePlan)) : null,
+        fullPlan: fullPlan ? JSON.parse(JSON.stringify(fullPlan)) : null,
         todayWorkout,
         weekProgress: 40, // Exemplo - será calculado dinamicamente na próxima fase
         userSummary
@@ -89,6 +99,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
       props: {
         activePlan: null,
+        fullPlan: null,
         todayWorkout: null,
         weekProgress: 0,
         userSummary: {
@@ -104,6 +115,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const Dashboard: React.FC<DashboardProps> = ({
   activePlan,
+  fullPlan,
   todayWorkout,
   weekProgress,
   userSummary
@@ -116,6 +128,18 @@ const Dashboard: React.FC<DashboardProps> = ({
       format(new Date(), "EEEE, d 'de' MMMM", { locale: ptBR })
     );
   }, []);
+
+  // Função para mapear tipo de atividade para cor
+  const getActivityColor = (type: string) => {
+    const types: {[key: string]: string} = {
+      'easy': 'bg-green-500/10 text-green-700 dark:text-green-300 border-green-500/30',
+      'recovery': 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/30',
+      'threshold': 'bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/30',
+      'interval': 'bg-purple-500/10 text-purple-700 dark:text-purple-300 border-purple-500/30'
+    };
+    
+    return types[type] || 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/30';
+  };
 
   return (
     <Layout>
@@ -159,12 +183,62 @@ const Dashboard: React.FC<DashboardProps> = ({
         <Tabs defaultValue="overview">
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="overview">Visão Geral</TabsTrigger>
-            <TabsTrigger value="today">Treino de Hoje</TabsTrigger>
+            <TabsTrigger value="calendar">Calendário</TabsTrigger>
             <TabsTrigger value="progress">Meu Progresso</TabsTrigger>
           </TabsList>
           
-          {/* Visão Geral */}
+          {/* Visão Geral - modificada para destacar o treino de hoje */}
           <TabsContent value="overview" className="space-y-4">
+            {/* Treino de Hoje em Destaque */}
+            {activePlan && todayWorkout && (
+              <Card className="border-primary/20 bg-primary/5">
+                <CardHeader className="pb-2">
+                  <CardTitle className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <PlayCircle className="h-5 w-5 text-primary" />
+                      <span>Treino de Hoje</span>
+                    </div>
+                    <Badge variant="outline" className={getActivityColor(todayWorkout.type)}>
+                      {todayWorkout.type === 'easy' ? 'Fácil' : 
+                      todayWorkout.type === 'recovery' ? 'Recuperação' : 
+                      todayWorkout.type === 'threshold' ? 'Limiar' : 
+                      todayWorkout.type}
+                    </Badge>
+                  </CardTitle>
+                  <CardDescription>
+                    {currentDate}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-col md:flex-row gap-4 items-center">
+                    <div className="flex-1">
+                      <p className="text-lg font-semibold mb-1">{todayWorkout.title}</p>
+                      <p className="text-sm text-muted-foreground">{todayWorkout.description}</p>
+                    </div>
+                    
+                    <div className="flex gap-4">
+                      <div className="flex flex-col items-center p-3 bg-muted/50 rounded-lg min-w-20">
+                        <span className="text-xs text-muted-foreground">Distância</span>
+                        <span className="text-lg font-bold">{todayWorkout.distance}</span>
+                      </div>
+                      
+                      <div className="flex flex-col items-center p-3 bg-muted/50 rounded-lg min-w-20">
+                        <span className="text-xs text-muted-foreground">Ritmo</span>
+                        <span className="text-lg font-bold">{todayWorkout.pace}</span>
+                      </div>
+                      
+                      <Button asChild className="self-center">
+                        <Link href="/dashboard/log">
+                          <PlayCircle className="mr-2 h-4 w-4" />
+                          Iniciar
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+            
             {/* Resumo de Estatísticas */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <Card className="bg-primary/5 border-primary/20">
@@ -216,7 +290,7 @@ const Dashboard: React.FC<DashboardProps> = ({
               </Card>
             </div>
             
-            {/* Plano Ativo */}
+            {/* Plano Ativo - adicionado botão de configuração */}
             <Card className="overflow-hidden">
               <CardHeader className="bg-muted/50">
                 <CardTitle>Plano de Treino Ativo</CardTitle>
@@ -243,12 +317,20 @@ const Dashboard: React.FC<DashboardProps> = ({
                         </div>
                       </div>
                       
-                      <Button asChild>
-                        <Link href={`/plano/${activePlan.path}`}>
-                          Ver Plano Completo
-                          <ChevronRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
+                      <div className="flex gap-2">
+                        <Button variant="outline" size="sm" asChild>
+                          <Link href={`/dashboard/plans/${activePlan.path}/settings`}>
+                            <Settings className="mr-2 h-4 w-4" />
+                            Configurar
+                          </Link>
+                        </Button>
+                        <Button size="sm" asChild>
+                          <Link href={`/plano/${activePlan.path}`}>
+                            Ver Plano
+                            <ChevronRight className="ml-2 h-4 w-4" />
+                          </Link>
+                        </Button>
+                      </div>
                     </div>
                     
                     <div className="space-y-2">
@@ -305,90 +387,12 @@ const Dashboard: React.FC<DashboardProps> = ({
             </Card>
           </TabsContent>
           
-          {/* Treino de Hoje */}
-          <TabsContent value="today" className="space-y-4">
-            <Card>
-              <CardHeader>
-                <CardTitle>Treino de Hoje</CardTitle>
-                <CardDescription>
-                  {currentDate}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="p-6">
-                {todayWorkout ? (
-                  <div className="space-y-6">
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-xl font-semibold">{todayWorkout.title}</h3>
-                        <Badge variant="outline" className="bg-green-500/10 text-green-700 dark:text-green-400 border-green-200 dark:border-green-800">
-                          Treino de Hoje
-                        </Badge>
-                      </div>
-                      <p className="text-muted-foreground">
-                        {todayWorkout.description}
-                      </p>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                      <Card className="bg-muted/50">
-                        <CardContent className="p-4 text-center">
-                          <Activity className="h-5 w-5 mx-auto mb-2 text-primary" />
-                          <h4 className="text-sm font-medium mb-1">Distância</h4>
-                          <p className="text-xl font-bold">{todayWorkout.distance}</p>
-                        </CardContent>
-                      </Card>
-                      
-                      <Card className="bg-muted/50">
-                        <CardContent className="p-4 text-center">
-                          <Clock className="h-5 w-5 mx-auto mb-2 text-primary" />
-                          <h4 className="text-sm font-medium mb-1">Ritmo Alvo</h4>
-                          <p className="text-xl font-bold">{todayWorkout.pace}</p>
-                        </CardContent>
-                      </Card>
-                      
-                      <Card className="bg-muted/50 col-span-2 md:col-span-1">
-                        <CardContent className="p-4 flex flex-col items-center justify-center h-full">
-                          <Button className="w-full" size="lg">
-                            <PlayCircle className="mr-2 h-5 w-5" />
-                            Iniciar Treino
-                          </Button>
-                        </CardContent>
-                      </Card>
-                    </div>
-                    
-                    <div className="flex justify-between">
-                      <Button variant="outline" asChild>
-                        <Link href="/dashboard/log">
-                          Registrar Manualmente
-                        </Link>
-                      </Button>
-                      
-                      <Button variant="secondary" asChild>
-                        <Link href="/dashboard/calendar">
-                          Ver Calendário Completo
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="flex flex-col items-center justify-center py-6 text-center">
-                    <div className="rounded-full bg-muted p-3 mb-4">
-                      <Calendar className="h-6 w-6 text-muted-foreground" />
-                    </div>
-                    <h3 className="text-lg font-medium mb-2">Nenhum treino para hoje</h3>
-                    <p className="text-muted-foreground max-w-md mb-4">
-                      Você não tem treinos agendados para hoje ou ainda não selecionou um plano de treinamento.
-                    </p>
-                    <Button asChild>
-                      <Link href="/dashboard/plans">
-                        Escolher um Plano
-                        <ChevronRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+          {/* Calendário - substitui a aba de Treino de Hoje */}
+          <TabsContent value="calendar" className="space-y-4">
+            <TrainingCalendar 
+              activePlan={activePlan} 
+              planWorkouts={fullPlan?.dailyWorkouts || null} 
+            />
           </TabsContent>
           
           {/* Meu Progresso */}
