@@ -1,32 +1,26 @@
 // pages/api/auth/[...nextauth].ts
-import NextAuth, { NextAuthOptions } from 'next-auth';
+import NextAuth, { NextAuthOptions, Session } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
 import { compare } from 'bcrypt';
 import clientPromise from '@/lib/mongodb';
 
-// Define extended types for NextAuth
-import { Session, User } from 'next-auth';
-
-// Extended types to avoid using 'any'
-interface ExtendedUser extends User {
-  role?: string;
-}
-
-interface ExtendedSession extends Session {
-  user?: {
-    name?: string | null;
-    email?: string | null;
-    image?: string | null;
-    role?: string;
-    id?: string;
-  };
+declare module 'next-auth' {
+  interface Session {
+    user: {
+      id: string;
+      name?: string | null;
+      email?: string | null;
+      image?: string | null;
+      role?: string | null;
+    };
+  }
 }
 
 // Função para verificar se o usuário é administrador
 const isAdminEmail = (email: string): boolean => {
-  return email.endsWith('@magictraining.run') || email === 'admin@example.com';
+  return email.endsWith('@magictraining.run');
 };
 
 export const authOptions: NextAuthOptions = {
@@ -35,16 +29,23 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID || '',
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
-      // Permite apenas emails específicos no login com Google
+      authorization: {
+        params: {
+          prompt: 'consent',
+          access_type: 'offline',
+          scope: 'openid profile email'
+        }
+      },
       profile(profile) {
         return {
           id: profile.sub,
           name: profile.name,
           email: profile.email,
           image: profile.picture,
-          role: isAdminEmail(profile.email) ? 'admin' : 'user',
+          // Define role baseado apenas no email
+          role: isAdminEmail(profile.email) ? 'admin' : 'user'
         };
-      },
+      }
     }),
     CredentialsProvider({
       name: 'Credentials',
@@ -60,13 +61,13 @@ export const authOptions: NextAuthOptions = {
         const client = await clientPromise;
         const db = client.db('magic-training');
         const user = await db.collection('users').findOne({ email: credentials.email });
-        
+
         if (!user) {
           throw new Error('Email ou senha incorretos');
         }
 
         const isPasswordValid = await compare(credentials.password, user.password);
-        
+
         if (!isPasswordValid) {
           throw new Error('Email ou senha incorretos');
         }
@@ -81,7 +82,14 @@ export const authOptions: NextAuthOptions = {
       }
     })
   ],
-  adapter: MongoDBAdapter(clientPromise),
+  adapter: MongoDBAdapter(clientPromise, {
+    collections: {
+      Users: 'users',
+      Accounts: 'accounts',
+      Sessions: 'sessions',
+      VerificationTokens: 'verification_tokens'
+    }
+  }),
   session: {
     strategy: 'jwt',
     maxAge: 30 * 24 * 60 * 60, // 30 dias
@@ -92,41 +100,49 @@ export const authOptions: NextAuthOptions = {
     error: '/auth/error',
   },
   callbacks: {
-    async jwt({ token, user, trigger, session }) {
-      // Inicialização inicial ao fazer login
+    async signIn({ account, profile }) {
+      // Quando for login do Google, remove qualquer restrição de domínio
+      if (account?.provider === 'google') {
+        // Log para rastreamento
+        console.log('Google Sign In Attempt:', {
+          email: profile?.email,
+          name: profile?.name
+        });
+
+        // Remove validações de domínio
+        // Apenas verifica se tem email
+        return !!profile?.email;
+      }
+      return true;
+    },
+
+    async jwt({ token, user, account }) {
+      // Adiciona informações do usuário ao token
       if (user) {
-        const extendedUser = user as ExtendedUser;
-        token.role = isAdminEmail(extendedUser.email as string) ? 'admin' : 'user';
-        token.name = extendedUser.name;
-        token.email = extendedUser.email;
-        token.id = extendedUser.id;
-        token.picture = extendedUser.image;
+        token.id = user.id;
+        token.email = user.email;
+        token.name = user.name;
+        token.picture = user.image;
+
+        // Define role baseado apenas no email, permitindo qualquer domínio
+        token.role = isAdminEmail(user.email as string) ? 'admin' : 'user';
       }
-      
-      // Este callback é chamado sempre que um token JWT é criado ou atualizado
-      if (trigger === "update" && session) {
-        const extendedSession = session as ExtendedSession;
-        // Atualize os campos necessários do token
-        if (extendedSession.user?.name) token.name = extendedSession.user.name;
-        if (extendedSession.user?.email) token.email = extendedSession.user.email;
-        if (extendedSession.user?.image) token.picture = extendedSession.user.image;
-        if (extendedSession.user?.role) token.role = extendedSession.user.role;
-      }
-      
+
       return token;
     },
+
     async session({ session, token }) {
-      // Transferir as reivindicações do token para a sessão
-      const extendedSession = session as ExtendedSession;
-      if (extendedSession.user) {
-        extendedSession.user.role = token.role as string;
-        extendedSession.user.name = token.name as string; 
-        extendedSession.user.email = token.email as string;
-        extendedSession.user.image = token.picture as string;
-        extendedSession.user.id = token.id as string;
+      // Transfere informações do token para a sessão
+      if (session.user) {
+        session.user.id = token.id as string;
+        session.user.email = token.email as string;
+        session.user.name = token.name as string;
+        session.user.image = token.picture as string;
+        session.user.role = token.role as string;
       }
-      return extendedSession;
-    },
+
+      return session;
+    }
   },
 };
 
