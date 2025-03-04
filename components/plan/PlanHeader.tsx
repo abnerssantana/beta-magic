@@ -216,7 +216,7 @@ export function PlanHeader({
         {/* Plan Description - Mobile Dialog */}
         <div className="md:hidden">
           <Dialog>
-            <DialogTrigger asChild>
+            <DialogTrigger>
               <Button
                 variant="outline"
                 className="w-full justify-between text-left font-normal ring-1 ring-border"
