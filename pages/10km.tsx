@@ -24,34 +24,33 @@ import {
   CardDescription
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
-interface Plan {
-  name: string;
-  nivel?: string;
-  coach?: string;
-  info?: string;
-  path: string;
-  duration?: string;
-  activities?: string[];
-  img?: string;
-  isNew?: boolean;
-  distances?: string[];
-  volume?: string;
-}
+import { getPlansByDistance } from '@/lib/db-utils';
+import { PlanSummary } from '@/lib/field-projection';
 
 interface TenKPageProps {
-  plans: Plan[];
+  plans: PlanSummary[];
 }
 
 export const getStaticProps: GetStaticProps<TenKPageProps> = async () => {
-  const allPlans = await import('../planos/index').then((module) => module.default as Plan[]);
-  const tenKPlans = allPlans.filter(plan => plan.distances?.includes('10km'));
+  try {
+    // Busca planos com distância 10km do banco de dados
+    const tenKPlans = await getPlansByDistance('10km', { fields: 'summary' });
 
-  return {
-    props: {
-      plans: tenKPlans,
-    },
-  };
+    return {
+      props: {
+        plans: JSON.parse(JSON.stringify(tenKPlans)),
+      },
+      revalidate: 3600 // Revalidar a cada hora
+    };
+  } catch (error) {
+    console.error('Erro ao buscar planos de 10km:', error);
+    return { 
+      props: { 
+        plans: [] 
+      },
+      revalidate: 60 // Em caso de erro, tenta novamente após 1 minuto
+    };
+  }
 };
 
 const PageHeader = () => (
@@ -203,7 +202,7 @@ const TenKPage: React.FC<TenKPageProps> = ({ plans }) => {
     return levels.reduce((acc, level) => {
       acc[level] = plans.filter(plan => plan.nivel?.toLowerCase() === level);
       return acc;
-    }, {} as Record<string, Plan[]>);
+    }, {} as Record<string, PlanSummary[]>);
   }, [plans]);
 
   return (

@@ -184,7 +184,7 @@ const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
 
       <div className="flex h-[calc(100vh-3.5rem)] lg:h-screen overflow-hidden">
         {/* Sidebar */}
-        <div className="hidden lg:block w-52 shrink-0">
+        <div className="hidden lg:block w-60 shrink-0">
           <Sidebar />
         </div>
 

@@ -28,7 +28,7 @@ export function Layout({ children, showMobileHeader = true }: LayoutProps) {
       {/* Main Layout Container - ajustado para considerar o header móvel */}
       <div className="flex md:h-screen h-[calc(100vh-3.5rem)] mt-0">
         {/* Sidebar - Hidden on mobile */}
-        <div className="hidden md:block w-52 shrink-0">
+        <div className="hidden md:block w-60 shrink-0">
           <Sidebar />
         </div>
 

@@ -211,7 +211,7 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
   return (
     <div className="flex h-screen bg-background">
       {/* Desktop Sidebar */}
-      <div className="hidden lg:block w-52 shrink-0">
+      <div className="hidden lg:block w-60 shrink-0">
         <Sidebar onScrollToToday={scrollToToday} />
       </div>
 

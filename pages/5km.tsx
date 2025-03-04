@@ -24,34 +24,33 @@ import {
   CardDescription
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
-interface Plan {
-  name: string;
-  nivel?: string;
-  coach?: string;
-  info?: string;
-  path: string;
-  duration?: string;
-  activities?: string[];
-  img?: string;
-  isNew?: boolean;
-  distances?: string[];
-  volume?: string;
-}
+import { getPlansByDistance } from '@/lib/db-utils';
+import { PlanSummary } from '@/lib/field-projection';
 
 interface FiveKPageProps {
-  plans: Plan[];
+  plans: PlanSummary[];
 }
 
 export const getStaticProps: GetStaticProps<FiveKPageProps> = async () => {
-  const allPlans = await import('../planos/index').then((module) => module.default as Plan[]);
-  const fiveKPlans = allPlans.filter(plan => plan.distances?.includes('5km'));
+  try {
+    // Busca planos com distância 5km do banco de dados
+    const fiveKPlans = await getPlansByDistance('5km', { fields: 'summary' });
 
-  return {
-    props: {
-      plans: fiveKPlans,
-    },
-  };
+    return {
+      props: {
+        plans: JSON.parse(JSON.stringify(fiveKPlans)),
+      },
+      revalidate: 3600 // Revalidar a cada hora
+    };
+  } catch (error) {
+    console.error('Erro ao buscar planos de 5km:', error);
+    return { 
+      props: { 
+        plans: [] 
+      },
+      revalidate: 60 // Em caso de erro, tenta novamente após 1 minuto
+    };
+  }
 };
 
 const PageHeader = () => (
@@ -204,7 +203,7 @@ const FiveKPage: React.FC<FiveKPageProps> = ({ plans }) => {
     return levels.reduce((acc, level) => {
       acc[level] = plans.filter(plan => plan.nivel?.toLowerCase() === level);
       return acc;
-    }, {} as Record<string, Plan[]>);
+    }, {} as Record<string, PlanSummary[]>);
   }, [plans]);
 
   return (
