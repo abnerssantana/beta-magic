@@ -11,23 +11,25 @@ export async function getUserActivePlan(userId: string): Promise<PlanSummary | n
   try {
     const client = await clientPromise;
     const db = client.db('magic-training');
-    
+
     // Buscar perfil do usuário
     const userProfile = await db.collection('userProfiles').findOne({ userId });
-    
-    if (!userProfile || !userProfile.activePlan) {
+
+    const activePlanPath = userProfile?.activePlan;
+    if (!activePlanPath) {
       return null;
     }
-    
+
     // Buscar detalhes do plano ativo
-    const activePlan = await getPlanByPath(userProfile.activePlan, { fields: 'summary' });
+    const activePlan = await getPlanByPath(activePlanPath, { fields: 'summary' });
     return activePlan as PlanSummary;
-    
+
   } catch (error) {
     console.error('Erro ao buscar plano ativo do usuário:', error);
     return null;
   }
 }
+
 
 /**
  * Obtém os planos salvos do usuário
@@ -154,25 +156,28 @@ export async function getUserPlans(userId: string) {
     // Buscar perfil do usuário, plano ativo e planos salvos
     const activePlan = await getUserActivePlan(userId);
     const savedPlans = await getUserSavedPlans(userId);
-    
+
     // Buscar todos os planos para recomendar
-    const allPlans = await getPlanSummaries();
-    
+    const allPlans = (await getPlanSummaries()) || [];
+
     // Filtrar os planos já salvos
-    const savedPlanPaths = savedPlans.map(plan => plan.path);
+    const savedPlanPaths = savedPlans
+      .map(plan => plan.path)
+      .filter((path): path is string => typeof path === 'string'); // Garante que path é string
+
     let recommendedPlans = allPlans.filter(plan => 
-      !savedPlanPaths.includes(plan.path)
+      plan.path && !savedPlanPaths.includes(plan.path) // Verifica se plan.path existe
     );
-    
+
     // Limitar a 6 recomendações
     recommendedPlans = recommendedPlans.slice(0, 6);
-    
+
     return {
       activePlan,
       savedPlans,
       recommendedPlans
     };
-    
+
   } catch (error) {
     console.error('Erro ao buscar planos do usuário:', error);
     return {
