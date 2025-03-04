@@ -24,34 +24,33 @@ import {
   CardDescription
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
-interface Plan {
-  name: string;
-  nivel?: string;
-  coach?: string;
-  info?: string;
-  path: string;
-  duration?: string;
-  activities?: string[];
-  img?: string;
-  isNew?: boolean;
-  distances?: string[];
-  volume?: string;
-}
+import { getPlansByDistance } from '@/lib/db-utils';
+import { PlanSummary } from '@/lib/field-projection';
 
 interface HalfMarathonPageProps {
-  plans: Plan[];
+  plans: PlanSummary[];
 }
 
 export const getStaticProps: GetStaticProps<HalfMarathonPageProps> = async () => {
-  const allPlans = await import('../planos/index').then((module) => module.default as Plan[]);
-  const halfMarathonPlans = allPlans.filter(plan => plan.distances?.includes('21km'));
+  try {
+    // Busca planos com distância 21km do banco de dados
+    const halfMarathonPlans = await getPlansByDistance('21km', { fields: 'summary' });
 
-  return {
-    props: {
-      plans: halfMarathonPlans,
-    },
-  };
+    return {
+      props: {
+        plans: JSON.parse(JSON.stringify(halfMarathonPlans)),
+      },
+      revalidate: 3600 // Revalidar a cada hora
+    };
+  } catch (error) {
+    console.error('Erro ao buscar planos de meia maratona:', error);
+    return { 
+      props: { 
+        plans: [] 
+      },
+      revalidate: 60 // Em caso de erro, tenta novamente após 1 minuto
+    };
+  }
 };
 
 const PageHeader = () => (
@@ -200,7 +199,7 @@ const HalfMarathonPage: React.FC<HalfMarathonPageProps> = ({ plans }) => {
     return levels.reduce((acc, level) => {
       acc[level] = plans.filter(plan => plan.nivel?.toLowerCase() === level);
       return acc;
-    }, {} as Record<string, Plan[]>);
+    }, {} as Record<string, PlanSummary[]>);
   }, [plans]);
 
   return (
