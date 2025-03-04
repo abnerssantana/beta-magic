@@ -1,8 +1,8 @@
-// pages/index.tsx
 import React, { useState, useMemo, useEffect } from "react";
 import Head from "next/head";
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next'; // Mudamos para GetServerSideProps
 import { useRouter } from 'next/router';
+import { getSession } from 'next-auth/react'; // Importamos getSession
 import { AnimatePresence, motion } from 'framer-motion';
 import { Sidebar } from "@/components/default/Sidebar";
 import { MobileHeader } from "@/components/default/MobileHeader";
@@ -31,7 +31,21 @@ interface HomeProps {
   plans: PlanSummary[];
 }
 
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+// Mudamos de getStaticProps para getServerSideProps
+export const getServerSideProps: GetServerSideProps<HomeProps> = async (context) => {
+  // Verificar se o usuário está logado
+  const session = await getSession(context);
+  
+  // Se estiver logado, redirecionar para a dashboard
+  if (session) {
+    return {
+      redirect: {
+        destination: '/dashboard',
+        permanent: false,
+      },
+    };
+  }
+
   try {
     // Buscar apenas os sumários dos planos (sem dailyWorkouts)
     const allPlans = await getPlanSummaries();
@@ -40,7 +54,6 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
       props: {
         plans: JSON.parse(JSON.stringify(allPlans)),
       },
-      revalidate: 3600, // Revalidar a cada 1 hora
     };
   } catch (error) {
     console.error('Erro ao buscar planos:', error);
@@ -48,7 +61,6 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
       props: {
         plans: [],
       },
-      revalidate: 60,
     };
   }
 };

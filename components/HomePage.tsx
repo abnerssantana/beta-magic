@@ -1,15 +1,17 @@
+// pages/index.tsx
 import React, { useState, useMemo, useEffect } from "react";
 import Head from "next/head";
 import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { EnhancedSearch } from "@/components/default/EnhancedSearch";
+import { Sidebar } from "@/components/default/Sidebar";
 import { MobileHeader } from "@/components/default/MobileHeader";
+import { EnhancedSearch } from "@/components/default/EnhancedSearch";
 import FeaturedContent, { getLevelBadgeStyles } from "@/components/default/FeaturedContent";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { PlanSummary } from '@/lib/field-projection';
 import { getPlanSummaries } from '@/lib/db-utils';
+import { PlanSummary } from '@/lib/field-projection';
 
 interface Filters {
   searchTerm: string;
@@ -73,7 +75,69 @@ const FeaturedPlans = ({ plans }: { plans: PlanSummary[] }) => (
                 href={`/plano/${plan.path}`}
                 className="block h-full"
               >
-                <TrainingCard plan={plan} />
+                <div className="group relative hover:shadow-md transition-all duration-300 h-full bg-white dark:bg-muted/30 border-border/40 hover:border-border/90 overflow-hidden flex flex-col rounded-lg border">
+                  <div className="p-5 flex flex-col h-full space-y-4">
+                    {/* Header Section */}
+                    <div className="space-y-3 grow">
+                      <div className="flex items-start justify-between gap-2">
+                        <h3 className="text-lg font-semibold leading-tight group-hover:text-primary transition-colors line-clamp-2">
+                          {plan.name}
+                        </h3>
+                        {plan.isNew && (
+                          <Badge
+                            variant="destructive"
+                            className="text-xs"
+                          >
+                            Novo
+                          </Badge>
+                        )}
+                      </div>
+
+                      {plan.coach && (
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <span className="line-clamp-1">{plan.coach}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Info Section */}
+                    <div className="space-y-3">
+                      <div className="flex flex-wrap items-center gap-3 text-sm">
+                        {plan.volume && (
+                          <div className="flex items-center gap-1.5 text-muted-foreground">
+                            <span>{plan.volume} km/sem</span>
+                          </div>
+                        )}
+                        {(plan.duration) && (
+                          <div className="flex items-center gap-1.5 text-muted-foreground">
+                            <span>{plan.duration}</span>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="flex flex-wrap gap-2">
+                        {plan.nivel && (
+                          <Badge
+                            variant="outline"
+                            className={getLevelBadgeStyles(plan.nivel)}
+                          >
+                            {plan.nivel}
+                          </Badge>
+                        )}
+                        {plan.distances && plan.distances.length > 0 && (
+                          <Badge
+                            variant="secondary"
+                            className="bg-secondary/30 hover:bg-secondary/50 text-xs border-0 
+                                    text-secondary-foreground/90 dark:bg-secondary/20 
+                                    dark:hover:bg-secondary/30 dark:text-secondary-foreground/80"
+                          >
+                            {plan.distances[0]}
+                          </Badge>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </a>
             </motion.div>
           ))}
@@ -81,74 +145,6 @@ const FeaturedPlans = ({ plans }: { plans: PlanSummary[] }) => (
       </div>
     </CardContent>
   </Card>
-);
-
-// Enhanced TrainingCard component
-const TrainingCard = ({ plan }: { plan: PlanSummary }) => (
-  <div className="group relative hover:shadow-md transition-all duration-300 h-full bg-white dark:bg-muted/30 border-border/40 hover:border-border/90 overflow-hidden flex flex-col rounded-lg border">
-    <div className="p-5 flex flex-col h-full space-y-4">
-      {/* Header Section */}
-      <div className="space-y-3 grow">
-        <div className="flex items-start justify-between gap-2">
-          <h3 className="text-lg font-semibold leading-tight group-hover:text-primary transition-colors line-clamp-2">
-            {plan.name}
-          </h3>
-          {plan.isNew && (
-            <Badge 
-              variant="destructive" 
-              className="text-xs"
-            >
-              Novo
-            </Badge>
-          )}
-        </div>
-        
-        {plan.coach && (
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <span className="line-clamp-1">{plan.coach}</span>
-          </div>
-        )}
-      </div>
-
-      {/* Info Section */}
-      <div className="space-y-3">
-        <div className="flex flex-wrap items-center gap-3 text-sm">
-          {plan.volume && (
-            <div className="flex items-center gap-1.5 text-muted-foreground">
-              <span>{plan.volume} km/sem</span>
-            </div>
-          )}
-          {(plan.duration) && (
-            <div className="flex items-center gap-1.5 text-muted-foreground">
-              <span>{plan.duration}</span>
-            </div>
-          )}
-        </div>
-
-        <div className="flex flex-wrap gap-2">
-          {plan.nivel && (
-            <Badge 
-              variant="outline"
-              className={getLevelBadgeStyles(plan.nivel)}
-            >
-              {plan.nivel}
-            </Badge>
-          )}
-          {plan.distances?.map((distance, idx) => (
-            <Badge 
-              key={`${plan.path}-${distance}-${idx}`}
-              variant="secondary"
-              className="bg-secondary/30 hover:bg-secondary/50 text-xs border-0 
-                       text-secondary-foreground/90 dark:bg-secondary/20 
-                       dark:hover:bg-secondary/30 dark:text-secondary-foreground/80"
-            >
-              {distance}
-            </Badge>
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
 );
 
 const Home: React.FC<HomeProps> = ({ plans = [] }) => {
@@ -275,14 +271,79 @@ const Home: React.FC<HomeProps> = ({ plans = [] }) => {
     });
   };
 
+  // Enhanced TrainingCard with explicit level indicator
+  const EnhancedTrainingCard = ({ plan }: { plan: PlanSummary }) => (
+    <div className="group relative hover:shadow-md transition-all duration-300 h-full bg-white dark:bg-muted/30 border-border/40 hover:border-border/90 overflow-hidden flex flex-col rounded-lg border">
+      <div className="p-5 flex flex-col h-full space-y-4">
+        {/* Header Section */}
+        <div className="space-y-3 grow">
+          <div className="flex items-start justify-between gap-2">
+            <h3 className="text-lg font-semibold leading-tight group-hover:text-primary transition-colors line-clamp-2">
+              {plan.name}
+            </h3>
+            {plan.isNew && (
+              <Badge
+                variant="destructive"
+                className="text-xs"
+              >
+                Novo
+              </Badge>
+            )}
+          </div>
+
+          {plan.coach && (
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span className="line-clamp-1">{plan.coach}</span>
+            </div>
+          )}
+        </div>
+
+        {/* Info Section */}
+        <div className="space-y-3">
+          <div className="flex flex-wrap items-center gap-3 text-sm">
+            {plan.volume && (
+              <div className="flex items-center gap-1.5 text-muted-foreground">
+                <span>{plan.volume} km/sem</span>
+              </div>
+            )}
+            {(plan.duration) && (
+              <div className="flex items-center gap-1.5 text-muted-foreground">
+                <span>{plan.duration}</span>
+              </div>
+            )}
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {plan.nivel && (
+              <Badge
+                variant="outline"
+                className={getLevelBadgeStyles(plan.nivel)}
+              >
+                {plan.nivel}
+              </Badge>
+            )}
+            {plan.distances?.map((distance, idx) => (
+              <Badge
+                key={`${plan.path}-${distance}-${idx}`}
+                variant="secondary"
+                className="bg-secondary/30 hover:bg-secondary/50 text-xs border-0 
+                         text-secondary-foreground/90 dark:bg-secondary/20 
+                         dark:hover:bg-secondary/30 dark:text-secondary-foreground/80"
+              >
+                {distance}
+              </Badge>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <Head>
         <title>Magic Training - Planilhas de treinamento para corrida</title>
-        <meta 
-          name="description" 
-          content="Planos de treinamento gratuitos para corrida e fortalecimento, inspirados em renomados livros e elaborados por experientes treinadores." 
-        />
+        <meta name="description" content="Planos de treinamento gratuitos para corrida e fortalecimento, inspirados em renomados livros e elaborados por experientes treinadores." />
         <meta property="og:title" content="Magic Training - Planilhas de treinamento para corrida" />
         <meta property="og:description" content="Planos de treinamento gratuitos para corrida e fortalecimento, inspirados em renomados livros e elaborados por experientes treinadores." />
         <meta property="og:url" content={typeof window !== "undefined" ? window.location.href : ""} />
@@ -297,11 +358,16 @@ const Home: React.FC<HomeProps> = ({ plans = [] }) => {
       </div>
 
       <div className="flex h-[calc(100vh-3.5rem)] lg:h-screen overflow-hidden">
+        {/* Sidebar */}
+        <div className="hidden lg:block w-60 shrink-0">
+          <Sidebar />
+        </div>
+
         {/* Main Content */}
         <main className="flex-1 overflow-y-auto">
           <div className="container mx-auto px-4 py-8">
-            <div className="space-y-8">
-              {/* Search Section */}
+            <div className="flex flex-col gap-6">
+              {/* Enhanced Search Section */}
               <div className="space-y-6">
                 <EnhancedSearch
                   filters={filters}
@@ -321,7 +387,7 @@ const Home: React.FC<HomeProps> = ({ plans = [] }) => {
                     <FeaturedContent />
                   </>
                 ) : (
-                  // Filtered Plans Grid
+                  // Filtered Plans Grid with clear level indication
                   <motion.div
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6"
                     layout
@@ -340,7 +406,7 @@ const Home: React.FC<HomeProps> = ({ plans = [] }) => {
                             href={`/plano/${plan.path}`}
                             className="block h-full"
                           >
-                            <TrainingCard plan={plan} />
+                            <EnhancedTrainingCard plan={plan} />
                           </a>
                         </motion.div>
                       ))}

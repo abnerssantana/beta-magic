@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import { Layout } from "@/components/layout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
@@ -19,6 +18,19 @@ import { defaultTimes, findClosestRaceParams, findPaceValues } from "@/lib/plan-
 import { Check, Info, Save, AlertTriangle, ArrowLeft, Clock } from "lucide-react";
 import { getPlanByPath } from "@/lib/db-utils";
 import { getUserCustomPaces } from "@/lib/user-utils";
+
+// Mapeamento de tipos de atividade para nomes de ritmos
+const paceTypeMapping: Record<string, string> = {
+  recovery: "Recovery Km",
+  easy: "Easy Km",
+  marathon: "M Km",
+  threshold: "T Km",
+  interval: "I Km",
+  repetition: "R 1000m",
+  walk: "Recovery Km", // Usa o mesmo ritmo que recovery
+  race: "Race Pace",
+  long: "Easy Km" // Usa o mesmo ritmo que easy
+};
 
 interface PaceSetting {
   name: string;
@@ -97,6 +109,24 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
 
+  // Função para extrair o valor do tempo de um ritmo
+  const extractPaceTimeValue = (pace: PaceSetting): string => {
+    if (!pace.value || typeof pace.value !== 'string') {
+      return "00:00";
+    }
+    
+    // O ritmo está no formato "MM:SS" ou pode ter um sufixo "/km"
+    // Remover qualquer texto adicional e manter apenas MM:SS
+    const cleanValue = pace.value.replace(/\/km$/, '').trim();
+    
+    // Verificar se é um formato válido MM:SS
+    if (/^\d{1,2}:\d{2}$/.test(cleanValue)) {
+      return cleanValue;
+    }
+    
+    return "00:00";
+  };
+
   // Calcular ritmos quando os parâmetros mudarem
   useEffect(() => {
     if (params !== null) {
@@ -111,10 +141,14 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
             const isCustomKey = `custom_${key}`;
             const customValue = customPaces[isCustomKey];
             
+            // Garantir que value e customValue são strings
+            const safeValue = typeof value === 'string' ? value : String(value || "00:00");
+            const safeCustomValue = typeof customValue === 'string' ? customValue : String(customValue || "");
+            
             return {
               name: key,
-              value: customValue || value,
-              default: value,
+              value: safeCustomValue || safeValue,
+              default: safeValue,
               isCustom: !!customValue
             };
           });
@@ -136,9 +170,13 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
     
     // Função para ajustar um ritmo
     const adjustPace = (pace: string, factor: number): string => {
+      if (!pace || typeof pace !== 'string') {
+        return "00:00";
+      }
+      
       // Converte o ritmo para segundos
       const [minutes, seconds] = pace.split(":").map(Number);
-      const totalSeconds = minutes * 60 + seconds;
+      const totalSeconds = (isNaN(minutes) ? 0 : minutes) * 60 + (isNaN(seconds) ? 0 : seconds);
       
       // Aplica o fator de ajuste
       const adjustedSeconds = totalSeconds * (100 / factor);
@@ -165,10 +203,13 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
   // Função para atualizar um ritmo específico
   const updatePaceSetting = (index: number, newValue: string) => {
     const newSettings = [...paceSettings];
+    // Garantir que o valor está no formato MM:SS
+    const formattedValue = newValue.trim();
+    
     newSettings[index] = {
       ...newSettings[index],
-      value: newValue,
-      isCustom: newValue !== newSettings[index].default
+      value: formattedValue,
+      isCustom: formattedValue !== newSettings[index].default
     };
     
     setPaceSettings(newSettings);
@@ -353,13 +394,13 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
                 <TabsContent value="running" className="space-y-4">
                   {paceSettings
                     .filter(pace => 
-                      ["Recovery Km", "Easy Km", "M Km", "T Km"].includes(pace.name)
+                      ["Recovery Km", "Easy Km", "M Km", "T Km", "Race Pace"].includes(pace.name)
                     )
                     .map((pace, index) => (
                       <div key={index} className="space-y-2">
                         <div className="flex justify-between">
                           <Label className="text-sm">
-                            {pace.name.replace(" Km", "")}
+                            {pace.name.replace(" Km", "").replace("Race Pace", "Race")}
                             {pace.isCustom && (
                               <span className="ml-2 text-xs text-blue-500">(Personalizado)</span>
                             )}
@@ -375,7 +416,7 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
                         </div>
                         <div className="flex items-center gap-2">
                           <TimeInput
-                            value={pace.value.split(" ")[0]}
+                            value={extractPaceTimeValue(pace)}
                             onChange={(value) => updatePaceSetting(
                               paceSettings.findIndex(p => p.name === pace.name),
                               value
@@ -391,7 +432,7 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
                 <TabsContent value="intervals" className="space-y-4">
                   {paceSettings
                     .filter(pace => 
-                      ["I Km", "R 1000m", "R 400m", "R 200m"].includes(pace.name)
+                      ["I Km", "R 1000m"].includes(pace.name)
                     )
                     .map((pace, index) => (
                       <div key={index} className="space-y-2">
@@ -413,7 +454,7 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
                         </div>
                         <div className="flex items-center gap-2">
                           <TimeInput
-                            value={pace.value.split(" ")[0]}
+                            value={extractPaceTimeValue(pace)}
                             onChange={(value) => updatePaceSetting(
                               paceSettings.findIndex(p => p.name === pace.name),
                               value

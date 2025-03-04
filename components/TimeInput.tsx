@@ -7,9 +7,19 @@ interface TimeInputProps {
   value: string;
   onChange: (value: string) => void;
   className?: string;
+  showHours?: boolean;
+  suffix?: string;
+  icon?: React.ReactNode;
 }
 
-const TimeInput: React.FC<TimeInputProps> = ({ value, onChange, className }) => {
+const TimeInput: React.FC<TimeInputProps> = ({ 
+  value, 
+  onChange, 
+  className,
+  showHours = false,
+  suffix,
+  icon = <Clock className="h-4 w-4 text-muted-foreground" />
+}) => {
   const [hours, setHours] = useState('00');
   const [minutes, setMinutes] = useState('00');
   const [seconds, setSeconds] = useState('00');
@@ -17,22 +27,52 @@ const TimeInput: React.FC<TimeInputProps> = ({ value, onChange, className }) => 
 
   // Parse initial value
   useEffect(() => {
-    if (value) {
-      const [h = '00', m = '00', s = '00'] = value.split(':');
+    if (!value) {
+      setHours('00');
+      setMinutes('00');
+      setSeconds('00');
+      return;
+    }
+
+    // Remove any suffix and trim
+    const cleanValue = value.replace(/\/km|\/mi$/, '').trim();
+    
+    // Split by colon
+    const parts = cleanValue.split(':');
+    
+    if (showHours) {
+      // Format: HH:MM:SS
+      const [h = '00', m = '00', s = '00'] = parts;
       setHours(h.padStart(2, '0'));
       setMinutes(m.padStart(2, '0'));
       setSeconds(s.padStart(2, '0'));
+    } else {
+      // Format: MM:SS (e.g. for paces)
+      if (parts.length === 3) {
+        // If it's in HH:MM:SS format but we only need MM:SS
+        const [_, m = '00', s = '00'] = parts;
+        setMinutes(m.padStart(2, '0'));
+        setSeconds(s.padStart(2, '0'));
+      } else {
+        const [m = '00', s = '00'] = parts;
+        setMinutes(m.padStart(2, '0'));
+        setSeconds(s.padStart(2, '0'));
+      }
     }
-  }, [value]);
+  }, [value, showHours]);
 
   const updateValue = (newHours: string, newMinutes: string, newSeconds: string) => {
-    onChange(`${newHours}:${newMinutes}:${newSeconds}`);
+    if (showHours) {
+      onChange(`${newHours}:${newMinutes}:${newSeconds}`);
+    } else {
+      onChange(`${newMinutes}:${newSeconds}`);
+    }
   };
 
   const handleInputChange = (part: 'hours' | 'minutes' | 'seconds', value: string) => {
     const numValue = parseInt(value) || 0;
     let newValue = numValue.toString().padStart(2, '0');
-
+    
     switch (part) {
       case 'hours':
         newValue = Math.min(99, numValue).toString().padStart(2, '0');
@@ -54,38 +94,46 @@ const TimeInput: React.FC<TimeInputProps> = ({ value, onChange, className }) => 
 
   return (
     <div className="relative">
-      <div 
+      <div
         className={cn(
-          "flex items-center pl-10 rounded-md ring-offset-background",
+          "flex items-center rounded-md ring-offset-background",
           "border border-input bg-background",
+          icon ? "pl-10" : "pl-3",
           focused && "ring-2 ring-ring ring-offset-2",
           className
         )}
       >
-        <Clock className="absolute left-3 h-4 w-4 text-muted-foreground" />
+        {icon && <div className="absolute left-3">{icon}</div>}
         
-        <Input
-          type="number"
-          value={hours}
-          onChange={(e) => handleInputChange('hours', e.target.value)}
-          className="w-12 border-0 p-2 text-center focus:ring-0 focus-visible:ring-0"
-          min="0"
-          max="99"
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
-        />
-        <span className="text-muted-foreground px-0.5">:</span>
+        {showHours && (
+          <>
+            <Input
+              type="number"
+              value={hours}
+              onChange={(e) => handleInputChange('hours', e.target.value)}
+              className="w-12 border-0 p-2 text-center focus:ring-0 focus-visible:ring-0"
+              min="0"
+              max="99"
+              onFocus={() => setFocused(true)}
+              onBlur={() => setFocused(false)}
+            />
+            <span className="text-muted-foreground px-0.5">:</span>
+          </>
+        )}
+        
         <Input
           type="number"
           value={minutes}
           onChange={(e) => handleInputChange('minutes', e.target.value)}
           className="w-12 border-0 p-2 text-center focus:ring-0 focus-visible:ring-0"
           min="0"
-          max="59"
+          max={showHours ? 59 : 99}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
         />
+        
         <span className="text-muted-foreground px-0.5">:</span>
+        
         <Input
           type="number"
           value={seconds}
@@ -96,6 +144,10 @@ const TimeInput: React.FC<TimeInputProps> = ({ value, onChange, className }) => 
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
         />
+        
+        {suffix && (
+          <span className="text-muted-foreground pl-2 pr-3">{suffix}</span>
+        )}
       </div>
     </div>
   );
