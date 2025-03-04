@@ -1,5 +1,5 @@
 // lib/plan-utils.ts
-import { format, parseISO, addDays, subDays } from "date-fns";
+import { format, parseISO, addDays } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
 import { PredictedRaceTime } from '@/types';
 import { races, paces } from "@/lib/PacesRaces";

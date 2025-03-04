@@ -10,7 +10,6 @@ import { EnhancedSearch } from "@/components/default/EnhancedSearch";
 import FeaturedContent, { getLevelBadgeStyles } from "@/components/default/FeaturedContent";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { PlanModel } from '@/models';
 import { getPlanSummaries } from '@/lib/db-utils';
 import { PlanSummary } from '@/lib/field-projection';
 
