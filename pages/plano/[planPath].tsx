@@ -311,7 +311,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<PlanProps> = async ({ params }) => {
   try {
-    const plan = await getPlanByPath(params?.planPath as string);
+    // Aqui precisamos do plano completo com dailyWorkouts
+    const plan = await getPlanByPath(params?.planPath as string, { fields: 'full' });
     
     if (!plan || !["iniciante", "intermediário", "avançado", "elite"].includes(plan.nivel)) {
       return { notFound: true };
@@ -321,7 +322,6 @@ export const getStaticProps: GetStaticProps<PlanProps> = async ({ params }) => {
       props: {
         plan: JSON.parse(JSON.stringify(plan))
       },
-      // Aumentar para 7 dias (604800 segundos)
       revalidate: 604800
     };
   } catch (error) {

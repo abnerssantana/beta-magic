@@ -4,11 +4,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Trainer } from '@/types/trainers';
+import { TrainerSummary } from '@/models'; // Importar TrainerSummary
 import { cn } from '@/lib/utils';
 
 interface TrainerCardProps {
-  trainer: Trainer;
+  trainer: TrainerSummary; // Agora usando TrainerSummary em vez de Trainer
   planCount: number;
   className?: string;
 }

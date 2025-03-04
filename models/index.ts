@@ -29,8 +29,8 @@ export interface TrainingDay {
   note?: string;
 }
 
-// Modelo de plano para MongoDB
-export interface PlanModel {
+// Interfaces de resumo (sem dados pesados)
+export interface PlanSummary {
   _id?: ObjectId;
   name: string;
   nivel: 'iniciante' | 'intermediário' | 'avançado' | 'elite';
@@ -45,12 +45,30 @@ export interface PlanModel {
   volume?: string;      // Ex: "50"
   trainingPeaksUrl?: string;
   videoUrl?: string;
+  createdAt: Date;
+  updatedAt: Date;
+  // Não inclui dailyWorkouts
+}
+
+// Modelo completo de plano para MongoDB
+export interface PlanModel extends PlanSummary {
   dailyWorkouts: TrainingDay[]; // Array de dias de treino
+}
+
+// Interface de resumo do treinador
+export interface TrainerSummary {
+  _id?: ObjectId;
+  id: string;                // slug do treinador 
+  name: string;
+  fullName?: string;
+  title: string;
+  profileImage: string;
+  // biografia e redes sociais parciais ou ausentes
   createdAt: Date;
   updatedAt: Date;
 }
 
-// Modelo de treinador para MongoDB
+// Modelo completo de treinador para MongoDB
 export interface TrainerModel {
   _id?: ObjectId;
   id: string;           // slug do treinador

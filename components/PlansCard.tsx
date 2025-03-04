@@ -3,24 +3,11 @@ import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
+import { PlanSummary } from "@/models"; // Importar PlanSummary
 
-interface TrainingPlan {
-  name: string;
-  trainer?: string;
-  speed?: string;
-  volume?: string;
-  level?: string;
-  weeks?: string;
-  duration?: string;
-  isNew?: boolean;
-  activities?: string[];
-  path: string;
-  img?: string;
-  info?: string;
-}
-
+// Pode aceitar tanto PlanModel quanto PlanSummary
 interface TrainingCardProps {
-  plan: TrainingPlan;
+  plan: PlanSummary; // Alterado para PlanSummary
   className?: string;
 }
 
@@ -67,10 +54,10 @@ export function TrainingCard({ plan, className }: TrainingCardProps) {
             )}
           </div>
           
-          {plan.trainer && (
+          {plan.coach && (
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <User2 className="h-4 w-4" />
-              <span className="line-clamp-1">{plan.trainer}</span>
+              <span className="line-clamp-1">{plan.coach}</span>
             </div>
           )}
         </div>
@@ -84,24 +71,24 @@ export function TrainingCard({ plan, className }: TrainingCardProps) {
                 <span>{plan.volume} km/sem</span>
               </div>
             )}
-            {(plan.weeks || plan.duration) && (
+            {plan.duration && (
               <div className="flex items-center gap-1.5 text-muted-foreground">
                 <Calendar className="h-4 w-4" />
-                <span>{plan.weeks || plan.duration}</span>
+                <span>{plan.duration}</span>
               </div>
             )}
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {plan.level && (
+            {plan.nivel && (
               <Badge 
                 variant="outline"
                 className={cn(
                   "px-2 py-0.5 text-xs capitalize font-medium rounded-md transition-colors",
-                  getLevelBadgeStyles(plan.level)
+                  getLevelBadgeStyles(plan.nivel)
                 )}
               >
-                {plan.level}
+                {plan.nivel}
               </Badge>
             )}
             {plan.activities?.map((activity, index) => (

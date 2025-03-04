@@ -10,8 +10,9 @@ import { EnhancedSearch } from "@/components/default/EnhancedSearch";
 import FeaturedContent, { getLevelBadgeStyles } from "@/components/default/FeaturedContent";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { getAllPlans } from '@/lib/db-utils';
 import { PlanModel } from '@/models';
+import { getPlanSummaries } from '@/lib/db-utils';
+import { PlanSummary } from '@/lib/field-projection';
 
 interface Filters {
   searchTerm: string;
@@ -28,14 +29,14 @@ type QueryKeyMap = {
 };
 
 interface HomeProps {
-  plans: PlanModel[];
+  plans: PlanSummary[];
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   try {
-    // Buscar todos os planos do MongoDB
-    const allPlans = await getAllPlans();
-    
+    // Buscar apenas os sumários dos planos (sem dailyWorkouts)
+    const allPlans = await getPlanSummaries();
+
     return {
       props: {
         plans: JSON.parse(JSON.stringify(allPlans)),
@@ -54,7 +55,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 };
 
 // Featured Plans Component
-const FeaturedPlans = ({ plans }: { plans: PlanModel[] }) => (
+const FeaturedPlans = ({ plans }: { plans: PlanSummary[] }) => (
   <Card>
     <CardHeader>
       <CardTitle>Planos em Destaque</CardTitle>
@@ -149,7 +150,7 @@ const FeaturedPlans = ({ plans }: { plans: PlanModel[] }) => (
 
 const Home: React.FC<HomeProps> = ({ plans = [] }) => {
   const router = useRouter();
-  
+
   const [filters, setFilters] = useState<Filters>({
     searchTerm: "",
     level: "todos",
@@ -272,7 +273,7 @@ const Home: React.FC<HomeProps> = ({ plans = [] }) => {
   };
 
   // Enhanced TrainingCard with explicit level indicator
-  const EnhancedTrainingCard = ({ plan }: { plan: PlanModel }) => (
+  const EnhancedTrainingCard = ({ plan }: { plan: PlanSummary }) => (
     <div className="group relative hover:shadow-md transition-all duration-300 h-full bg-white dark:bg-muted/30 border-border/40 hover:border-border/90 overflow-hidden flex flex-col rounded-lg border">
       <div className="p-5 flex flex-col h-full space-y-4">
         {/* Header Section */}

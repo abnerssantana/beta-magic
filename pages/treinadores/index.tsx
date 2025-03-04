@@ -7,23 +7,23 @@ import { HeroLayout } from '@/components/default/HeroLayout';
 import { Card, CardContent } from "@/components/ui/card";
 import { TrainerCard } from '@/components/TrainerCard';
 import { Info } from 'lucide-react';
-import { getAllTrainers, getAllPlans } from '@/lib/db-utils';
-import { PlanModel, TrainerModel } from '@/models';
+import { getTrainerSummaries, getPlanSummaries } from '@/lib/db-utils';
+import { TrainerSummary, PlanSummary } from '@/models'; // Importar os novos tipos
 
-interface TrainerWithPlanCount extends TrainerModel {
+interface TrainerWithPlanCount extends TrainerSummary {
   planCount: number;
 }
 
 interface TrainersPageProps {
-  trainers: TrainerModel[];
-  plans: PlanModel[];  
+  trainers: TrainerSummary[];
+  plans: PlanSummary[];
 }
 
 export const getStaticProps: GetStaticProps<TrainersPageProps> = async () => {
   try {
     const [trainers, plans] = await Promise.all([
-      getAllTrainers(),
-      getAllPlans()
+      getTrainerSummaries(),
+      getPlanSummaries()
     ]);
     
     return {
