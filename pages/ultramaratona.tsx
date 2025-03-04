@@ -24,40 +24,47 @@ import {
   CardDescription
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
-interface Plan {
-  name: string;
-  nivel?: string;
-  coach?: string;
-  info?: string;
-  path: string;
-  duration?: string;
-  activities?: string[];
-  img?: string;
-  isNew?: boolean;
-  distances?: string[];
-  volume?: string;
-}
+import { getPlansByDistance } from '@/lib/db-utils';
+import { PlanSummary } from '@/lib/field-projection';
 
 interface UltraPageProps {
-  plans: Plan[];
+  plans: PlanSummary[];
 }
 
 export const getStaticProps: GetStaticProps<UltraPageProps> = async () => {
-  const allPlans = await import('../planos/index').then((module) => module.default as Plan[]);
-  // Filtra planos que incluem distâncias acima de 42km (50km, 80km, etc)
-  const ultraPlans = allPlans.filter(plan => 
-    plan.distances?.some(distance => {
-      const distanceNum = parseInt(distance.replace(/[^0-9]/g, ''));
-      return distanceNum > 42;
-    })
-  );
+  try {
+    // Buscar planos para distâncias acima de 42km
+    // Buscamos por "50km", "80km", etc. 
+    // Poderia ser melhorado para buscar todas as distâncias ultra de uma vez
+    const ultraPlans = await Promise.all([
+      getPlansByDistance('50km', { fields: 'summary' }),
+      getPlansByDistance('80km', { fields: 'summary' }),
+      getPlansByDistance('100km', { fields: 'summary' }),
+      getPlansByDistance('160km', { fields: 'summary' })
+    ]).then(results => {
+      // Combinar todos os resultados e remover duplicatas por path
+      const allPlans = results.flat();
+      const uniquePlans = allPlans.filter((plan, index, self) =>
+        index === self.findIndex(p => p.path === plan.path)
+      );
+      return uniquePlans;
+    });
 
-  return {
-    props: {
-      plans: ultraPlans,
-    },
-  };
+    return {
+      props: {
+        plans: JSON.parse(JSON.stringify(ultraPlans)),
+      },
+      revalidate: 3600 // Revalidar a cada hora
+    };
+  } catch (error) {
+    console.error('Erro ao buscar planos de ultramaratona:', error);
+    return { 
+      props: { 
+        plans: [] 
+      },
+      revalidate: 60 // Em caso de erro, tenta novamente após 1 minuto
+    };
+  }
 };
 
 const PageHeader = () => (
@@ -206,7 +213,7 @@ const UltraPage: React.FC<UltraPageProps> = ({ plans }) => {
     return levels.reduce((acc, level) => {
       acc[level] = plans.filter(plan => plan.nivel?.toLowerCase() === level);
       return acc;
-    }, {} as Record<string, Plan[]>);
+    }, {} as Record<string, PlanSummary[]>);
   }, [plans]);
 
   return (

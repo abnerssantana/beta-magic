@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import { GetStaticProps } from 'next';
 import { Layout } from '@/components/layout';
 import { HeroLayout } from '@/components/default/HeroLayout';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -23,8 +24,9 @@ import {
   Medal,
   HelpCircle
 } from 'lucide-react';
-import plans from '@/planos';
 import { TrainingCard } from "@/components/PlansCard";
+import { PlanSummary } from '@/lib/field-projection';
+import { getPlanSummaries } from '@/lib/db-utils';
 
 // Types for better type safety
 interface TrainingTime {
@@ -39,6 +41,10 @@ interface FormData {
   targetDistance: string;
   usedPlan: string;
   planDuration: string;
+}
+
+interface FindPlanPageProps {
+  plans: PlanSummary[];
 }
 
 const containerVariants = {
@@ -59,7 +65,29 @@ const containerVariants = {
   }
 };
 
-const FindPlanPage: React.FC = () => {
+export const getStaticProps: GetStaticProps<FindPlanPageProps> = async () => {
+  try {
+    // Buscar apenas os sumários dos planos (sem dailyWorkouts)
+    const allPlans = await getPlanSummaries();
+
+    return {
+      props: {
+        plans: JSON.parse(JSON.stringify(allPlans)),
+      },
+      revalidate: 3600, // Revalidar a cada 1 hora
+    };
+  } catch (error) {
+    console.error('Erro ao buscar planos:', error);
+    return {
+      props: {
+        plans: [],
+      },
+      revalidate: 60,
+    };
+  }
+};
+
+const FindPlanPage: React.FC<FindPlanPageProps> = ({ plans }) => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
     trainingTime: { months: 0, years: 0 },
@@ -69,11 +97,11 @@ const FindPlanPage: React.FC = () => {
     usedPlan: '',
     planDuration: ''
   });
-  const [recommendedPlans, setRecommendedPlans] = useState<typeof plans>([]);
+  const [recommendedPlans, setRecommendedPlans] = useState<PlanSummary[]>([]);
   const [error, setError] = useState('');
 
   // Tips for each step
-  const stepTips = {
+  const stepTips: Record<number, string> = {
     1: "Conte todo o tempo que você já treinou, mesmo com pausas.",
     2: "Considere a média de quilômetros das últimas 4-6 semanas.",
     3: "Escolha a maior distância que você já completou em uma corrida ou treino.",
@@ -165,7 +193,7 @@ const FindPlanPage: React.FC = () => {
         (userLevel === 'iniciante' && plan.nivel === 'intermediário') ||
         (userLevel === 'intermediário' && plan.nivel === 'avançado') ||
         (userLevel === 'avançado' && plan.nivel === 'elite') ||
-        (userLevel === 'elite' && ['elite', 'avançado'].includes(plan.nivel));
+        (userLevel === 'elite' && ['elite', 'avançado'].includes(plan.nivel || ''));
 
       // Distance matching
       const distanceMatch = 
@@ -173,14 +201,17 @@ const FindPlanPage: React.FC = () => {
         !plan.distances || 
         plan.distances.includes(formData.targetDistance);
 
-      // Duration matching
-      const planDurationWeeks = parseInt(plan.duration);
-      const durationMatch = planDurationWeeks <= parseInt(formData.planDuration);
+      // Duration matching - parse duração do plano (ex: "16 semanas" -> 16)
+      const planDurationWeeks = parseInt((plan.duration || '').replace(/\D/g, ''));
+      const durationMatch = 
+        !plan.duration || 
+        isNaN(planDurationWeeks) || 
+        planDurationWeeks <= parseInt(formData.planDuration);
 
       // Volume matching
       const volumeMatch = 
         !plan.volume || 
-        weeklyVolume >= parseInt(plan.volume);
+        parseInt(formData.weeklyVolume) >= parseInt(plan.volume);
 
       return levelMatch && distanceMatch && durationMatch && volumeMatch;
     });
@@ -548,7 +579,7 @@ const FindPlanPage: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {recommendedPlans.map((plan, index) => (
-                        <TrainingCard key={index} plan={plan} />
+                        <TrainingCard key={`${plan.path}-${index}`} plan={plan} />
                       ))}
                     </div>
                   </>
@@ -564,12 +595,12 @@ const FindPlanPage: React.FC = () => {
                       </div>
                       <p className="text-sm text-muted-foreground mb-4">
                         Sugestões:
-                        <ul className="list-disc list-inside mt-2">
-                          <li>Tente ajustar alguns critérios</li>
-                          <li>Considere planos próximos ao seu nível</li>
-                          <li>Entre em contato para orientação personalizada</li>
-                        </ul>
                       </p>
+                      <ul className="list-disc list-inside mt-2 text-sm text-muted-foreground">
+                        <li>Tente ajustar alguns critérios</li>
+                        <li>Considere planos próximos ao seu nível</li>
+                        <li>Entre em contato para orientação personalizada</li>
+                      </ul>
                     </CardContent>
                   </Card>
                 )}
