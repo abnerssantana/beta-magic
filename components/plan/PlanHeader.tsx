@@ -36,7 +36,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { DEFAULT_TRAININGPEAKS_CONTACT } from '../../planos';
 import VO2maxIndicator from '@/components/default/VO2maxIndicator';
 
 interface Plan {
@@ -135,7 +134,7 @@ export function PlanHeader({
     // Request link - internal navigation
     return (
       <Link
-        href={DEFAULT_TRAININGPEAKS_CONTACT}
+        href="/contato-trainingpeaks"
         className={cn(
           "inline-flex items-center justify-center",
           "bg-blue-500 hover:bg-blue-600",

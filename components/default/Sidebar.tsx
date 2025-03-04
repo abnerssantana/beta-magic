@@ -89,7 +89,7 @@ export function Sidebar({ onScrollToToday }: SidebarProps) {
               priority
             />
           </div>
-          <span className="text-base font-semibold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70 group-hover:from-primary group-hover:to-primary/70 transition-all duration-300">
+          <span className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70 group-hover:from-primary group-hover:to-primary/70 transition-all duration-300">
             {siteConfig.name}
           </span>
         </Link>
