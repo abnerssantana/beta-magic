@@ -4,10 +4,12 @@ import { getSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { format } from "date-fns";
 import { Layout } from "@/components/layout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input"; // Adicionado para o campo de data
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -15,10 +17,10 @@ import TimeInput from "@/components/TimeInput";
 import { PlanModel } from "@/models";
 import { Slider } from "@/components/ui/slider";
 import { defaultTimes, findClosestRaceParams, findPaceValues } from "@/lib/plan-utils";
-import { Check, Info, Save, AlertTriangle, ArrowLeft, Clock } from "lucide-react";
+import { Check, Info, Save, AlertTriangle, ArrowLeft, Clock, Calendar } from "lucide-react";
 import { getPlanByPath } from "@/lib/db-utils";
 import { getUserCustomPaces } from "@/lib/user-utils";
-
+import { storageHelper } from "@/lib/plan-utils"; // Importando storageHelper para lidar com a data
 
 interface PaceSetting {
   name: string;
@@ -93,6 +95,10 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
   const [allPaces, setAllPaces] = useState<Record<string, string> | null>(null);
   const [adjustmentFactor, setAdjustmentFactor] = useState(
     parseFloat(customPaces["adjustmentFactor"] || "100")
+  );
+  // Nova state para data inicial
+  const [startDate, setStartDate] = useState(
+    customPaces["startDate"] || storageHelper.getStartDate(plan.path)
   );
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
@@ -225,7 +231,8 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
       const settingsToSave: Record<string, string> = {
         baseTime,
         baseDistance,
-        adjustmentFactor: adjustmentFactor.toString()
+        adjustmentFactor: adjustmentFactor.toString(),
+        startDate // Incluindo a data inicial nas configurações salvas
       };
       
       // Adicionar ritmos personalizados
@@ -234,6 +241,9 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
           settingsToSave[`custom_${setting.name}`] = setting.value;
         }
       });
+      
+      // Salvar a data no localStorage também
+      storageHelper.saveSettings(plan.path, { startDate });
       
       // Enviar para a API
       const response = await fetch(`/api/user/plans/${plan.path}/paces`, {
@@ -291,10 +301,30 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
             <CardHeader>
               <CardTitle>Configuração Base</CardTitle>
               <CardDescription>
-                Defina seu ritmo base para calcular os demais ritmos
+                Defina seu ritmo base e data inicial do plano
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
+              {/* Nova seção para data inicial */}
+              <div className="space-y-2">
+                <Label htmlFor="startDate">Data Inicial do Plano</Label>
+                <div className="relative">
+                  <Input
+                    type="date"
+                    id="startDate"
+                    value={startDate}
+                    onChange={(e) => setStartDate(e.target.value)}
+                    className="pl-10"
+                  />
+                  <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Esta é a data em que você vai começar (ou começou) o plano de treinamento.
+                </p>
+              </div>
+              
+              <Separator className="my-4" />
+              
               <div className="grid gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="baseDistance">Distância de Referência</Label>
@@ -420,7 +450,7 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
                 <TabsContent value="intervals" className="space-y-4">
                   {paceSettings
                     .filter(pace => 
-                      ["I Km", "R 1000m"].includes(pace.name)
+                      ["I Km", "R 1000m", "I 800m", "R 400m"].includes(pace.name)
                     )
                     .map((pace, index) => (
                       <div key={index} className="space-y-2">

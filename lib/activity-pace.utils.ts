@@ -1,5 +1,7 @@
+// lib/activity-pace.utils.ts
 import { Activity, PredictedRaceTime } from '@/types/training';
 
+// Mantém o mapeamento existente
 const PACE_MAPPING: Record<string, string> = {
   recovery: "Recovery Km",
   easy: "Easy Km",
@@ -12,6 +14,7 @@ const PACE_MAPPING: Record<string, string> = {
   long: "Easy Km",
 };
 
+// Funções auxiliares existentes
 const getPaceInSeconds = (paceString: string): number => {
   const [minutes, seconds] = paceString.split(':').map(Number);
   return minutes * 60 + seconds;
@@ -40,12 +43,51 @@ const calculateWalkPaceRange = (selectedPaces: Record<string, string> | null): s
   return `${formatPace(lowerSeconds)}-${formatPace(upperSeconds)}`;
 };
 
+/**
+ * Verifica se existe um ritmo personalizado para o tipo de atividade
+ * @param activityType Tipo de atividade
+ * @param customPaces Ritmos personalizados
+ * @returns Ritmo personalizado ou null se não existir
+ */
+const getCustomPace = (
+  activityType: string,
+  customPaces: Record<string, string> | null
+): string | null => {
+  if (!customPaces) return null;
+  
+  // Verificar primeiro customização direta por tipo de atividade
+  const directCustomKey = `custom_${activityType}`;
+  if (customPaces[directCustomKey]) {
+    return customPaces[directCustomKey].split(" ")[0];
+  }
+  
+  // Verificar customização pelo mapeamento
+  const paceKey = PACE_MAPPING[activityType];
+  if (!paceKey) return null;
+  
+  const mappedCustomKey = `custom_${paceKey}`;
+  if (customPaces[mappedCustomKey]) {
+    return customPaces[mappedCustomKey].split(" ")[0];
+  }
+  
+  return null;
+};
+
 export const calculateActivityPace = (
   activity: Activity,
   selectedPaces: Record<string, string> | null,
   getPredictedRaceTime: (distance: number) => PredictedRaceTime | null
 ): string => {
   if (!activity) return "N/A";
+  
+  // Verificações para unidades em minutos (tempo fixo)
+  if (activity.units === "min") return "N/A";
+
+  // Checar se há ritmos personalizados para o tipo de atividade
+  if (activity.type) {
+    const customPace = getCustomPace(activity.type, selectedPaces);
+    if (customPace) return customPace;
+  }
 
   // Handle race type activities
   if (activity.type === "race" && typeof activity.distance === "number") {

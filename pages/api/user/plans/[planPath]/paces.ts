@@ -72,6 +72,7 @@ async function getUserPaces(
   }
 }
 
+// No handler do método POST:
 async function updateUserPaces(
   req: NextApiRequest, 
   res: NextApiResponse,
@@ -91,6 +92,11 @@ async function updateUserPaces(
     
     if (!paceSettings || typeof paceSettings !== 'object') {
       return res.status(400).json({ error: 'Dados inválidos' });
+    }
+
+    // Validar a data inicial, se fornecida
+    if (paceSettings.startDate && !/^\d{4}-\d{2}-\d{2}$/.test(paceSettings.startDate)) {
+      return res.status(400).json({ error: 'Formato de data inválido. Use YYYY-MM-DD.' });
     }
 
     const client = await clientPromise;
