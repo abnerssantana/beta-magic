@@ -512,6 +512,41 @@ export async function getPlansByDistance(
 }
 
 /**
+ * Busca apenas os paths dos planos para getStaticPaths (otimizado)
+ * @returns Promise com array de paths de planos
+ */
+export async function getAllPlanPaths(): Promise<string[]> {
+  const cacheKey = 'plans:paths';
+  
+  // Tenta buscar do cache primeiro
+  const cachedPaths = getCachedItem<string[]>(cacheKey);
+  if (cachedPaths) {
+    return cachedPaths;
+  }
+  
+  try {
+    const client = await clientPromise;
+    const db = client.db('magic-training');
+    
+    // Busca apenas o campo 'path', economizando memória e processamento
+    const pathObjects = await db
+      .collection('plans')
+      .find({}, { projection: { path: 1, _id: 0 } })
+      .toArray();
+    
+    const paths = pathObjects.map(doc => doc.path);
+    
+    // Armazena no cache por um dia
+    setCachedItem(cacheKey, paths, SUMMARIES_CACHE_TTL);
+    
+    return paths;
+  } catch (error) {
+    console.error('Error fetching plan paths:', error);
+    return [];
+  }
+}
+
+/**
  * Add a new plan
  * @param plan The plan data to add
  * @returns Promise resolving to the ObjectId of the inserted plan

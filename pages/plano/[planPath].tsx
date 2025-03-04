@@ -1,6 +1,7 @@
 // pages/plano/[planPath].tsx
-import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useRef, useCallback, useMemo, Suspense } from "react";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import { format, parseISO, addDays, subDays, isToday, isPast } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -9,10 +10,16 @@ import { races, paces } from "@/lib/PacesRaces";
 import { Sidebar } from "@/components/default/Sidebar";
 import { MobileHeader } from "@/components/default/MobileHeader";
 import { PlanHeader } from '@/components/plan/PlanHeader';
-import { WeeklyView } from '@/components/plan/WeeklyView';
 import { Activity as TypeActivity, WeeklyBlock, PredictedRaceTime, Activity } from '@/types';
-import { getPlanByPath, getAllPlans } from '@/lib/db-utils';
+import { getPlanByPath, getAllPlanPaths } from '@/lib/db-utils';
 import { PlanModel } from '@/models';
+import { Loader2 } from 'lucide-react';
+
+// Carregamento dinâmico do componente WeeklyView (pesado)
+const WeeklyView = dynamic(() => import('@/components/plan/WeeklyView'), {
+  loading: () => <div className="p-4 text-center"><Loader2 className="h-8 w-8 animate-spin mx-auto" /></div>,
+  ssr: false // Não renderiza no servidor para economizar recursos
+});
 
 // Types
 interface PlanProps {
@@ -42,31 +49,87 @@ const defaultTimes: Record<string, string> = {
   "42km": "03:10:49"
 };
 
+// Componente para renderização preguiçosa de blocos semanais
+const LazyWeeklyBlock = ({ week, windex, todayRef, getActivityPace, convertMinutesToHours, getPredictedRaceTime }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const blockRef = useRef(null);
+
+  useEffect(() => {
+    // Se esta semana contém o dia atual, torna-a visível imediatamente
+    if (week.days.some(day => day.isToday)) {
+      setIsVisible(true);
+      return;
+    }
+
+    // Configura Intersection Observer apenas para blocos não visíveis
+    if (!isVisible) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
+        },
+        { rootMargin: "200px" } // Carrega quando estiver a 200px de distância
+      );
+
+      if (blockRef.current) {
+        observer.observe(blockRef.current);
+      }
+
+      return () => observer.disconnect();
+    }
+  }, [week, isVisible]);
+
+  // Placeholder com altura aproximada enquanto não carrega
+  if (!isVisible) {
+    return (
+      <div 
+        ref={blockRef} 
+        className="bg-muted/20 rounded-lg animate-pulse h-64 mb-2"
+        aria-label={`Carregando semana ${windex + 1}`}
+      />
+    );
+  }
+
+  return (
+    <WeeklyView
+      week={week}
+      windex={windex}
+      todayRef={todayRef}
+      getActivityPace={getActivityPace}
+      convertMinutesToHours={convertMinutesToHours}
+      getPredictedRaceTime={getPredictedRaceTime}
+    />
+  );
+};
+
 // Main Component
 const Plan: React.FC<PlanProps> = ({ plan }) => {
-  // Local Storage Helpers
-  const getInitialDate = (): string => {
+  // Local Storage Helpers com uso de sessionStorage para melhor performance
+  const getInitialDate = useCallback((): string => {
     if (typeof window === "undefined") return format(new Date(), "yyyy-MM-dd");
-    return localStorage.getItem("startDate") || format(new Date(), "yyyy-MM-dd");
-  };
+    return sessionStorage.getItem(`${plan.path}_startDate`) || format(new Date(), "yyyy-MM-dd");
+  }, [plan.path]);
 
-  const getInitialEndDate = (): string => {
+  const getInitialEndDate = useCallback((): string => {
     if (typeof window === "undefined") return format(addDays(new Date(), plan.dailyWorkouts.length), "yyyy-MM-dd");
-    return localStorage.getItem("endDate") || format(addDays(new Date(), plan.dailyWorkouts.length), "yyyy-MM-dd");
-  };
+    return sessionStorage.getItem(`${plan.path}_endDate`) || format(addDays(new Date(), plan.dailyWorkouts.length), "yyyy-MM-dd");
+  }, [plan.path, plan.dailyWorkouts.length]);
 
   // State
   const [startDate, setStartDate] = useState<string>(getInitialDate());
   const [endDate, setEndDate] = useState<string>(getInitialEndDate());
   const [selectedTime, setSelectedTime] = useState<string>(
-    typeof window !== "undefined" ? localStorage.getItem("selectedTime") || "00:19:57" : "00:19:57"
+    typeof window !== "undefined" ? sessionStorage.getItem(`${plan.path}_selectedTime`) || "00:19:57" : "00:19:57"
   );
   const [selectedDistance, setSelectedDistance] = useState<string>(
-    typeof window !== "undefined" ? localStorage.getItem("selectedDistance") || "5km" : "5km"
+    typeof window !== "undefined" ? sessionStorage.getItem(`${plan.path}_selectedDistance`) || "5km" : "5km"
   );
   const [weeklyBlocks, setWeeklyBlocks] = useState<WeeklyBlock[]>([]);
   const [params, setParams] = useState<number | null>(null);
   const [selectedPaces, setSelectedPaces] = useState<Record<string, string> | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Refs
   const todayRef = useRef<HTMLDivElement>(null);
@@ -144,53 +207,70 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
     setParams(null);
   };
 
+  // Memoize pace calculations for performance
+  const memoizedFoundPaces = useMemo(() => {
+    if (!params) return null;
+    return paces.find((pace) => pace.Params === params);
+  }, [params]);
+
   // Effects
   useEffect(() => {
-    // Persist state to localStorage
+    // Persist state to sessionStorage (more efficient than localStorage)
     if (typeof window !== "undefined") {
-      localStorage.setItem("startDate", startDate);
-      localStorage.setItem("endDate", endDate);
-      localStorage.setItem("selectedTime", selectedTime);
-      localStorage.setItem("selectedDistance", selectedDistance);
+      sessionStorage.setItem(`${plan.path}_startDate`, startDate);
+      sessionStorage.setItem(`${plan.path}_endDate`, endDate);
+      sessionStorage.setItem(`${plan.path}_selectedTime`, selectedTime);
+      sessionStorage.setItem(`${plan.path}_selectedDistance`, selectedDistance);
     }
-  }, [startDate, endDate, selectedTime, selectedDistance]);
+  }, [startDate, endDate, selectedTime, selectedDistance, plan.path]);
 
   useEffect(() => {
-    // Calculate closest race params
+    // Calculate closest race params - memoize computation
+    if (!selectedTime || !selectedDistance) return;
+
     const inputSeconds = timeToSeconds(selectedTime);
     const closestRace = races.reduce((closest, current) => {
       const distanceKey = selectedDistance as keyof typeof current;
-      const currentSeconds = timeToSeconds(current[distanceKey] as string);
-      return Math.abs(currentSeconds - inputSeconds) <
-        Math.abs(timeToSeconds(closest[distanceKey] as string) - inputSeconds)
+      const currentValue = current[distanceKey];
+      
+      // Safety check
+      if (typeof currentValue !== 'string') return closest;
+      
+      const currentSeconds = timeToSeconds(currentValue);
+      const closestValue = closest[distanceKey];
+      
+      // Safety check
+      if (typeof closestValue !== 'string') return current;
+      
+      return Math.abs(currentSeconds - inputSeconds) 
+        Math.abs(timeToSeconds(closestValue) - inputSeconds)
         ? current
         : closest;
     }, races[0]);
+    
     setParams(closestRace.Params);
   }, [selectedTime, selectedDistance]);
 
   useEffect(() => {
     // Update paces based on params
-    if (!params) {
+    if (!params || !memoizedFoundPaces) {
       setSelectedPaces(null);
       return;
     }
 
-    const foundPaces = paces.find((pace) => pace.Params === params);
-    if (!foundPaces) {
-      setSelectedPaces(null);
-      return;
-    }
-
-    const { ...pacesWithoutParams } = foundPaces;
+    const { Params, ...pacesWithoutParams } = memoizedFoundPaces;
     const validPaces = Object.fromEntries(
-      Object.entries(pacesWithoutParams).filter(([value]) => value !== undefined)
+      Object.entries(pacesWithoutParams).filter(([_, value]) => value !== undefined)
     ) as Record<string, string>;
+    
     setSelectedPaces(validPaces);
-  }, [params]);
+  }, [params, memoizedFoundPaces]);
 
-  useEffect(() => {
-    // Organize data into weekly blocks
+  // Usar o useMemo para evitar recálculos desnecessários
+  const organizedWeeklyBlocks = useMemo(() => {
+    // Sinaliza início do processamento pesado
+    setIsLoading(true);
+    
     const blocks: WeeklyBlock[] = [];
     let currentWeek: WeeklyBlock = {
       weekStart: format(parseISO(startDate), "yyyy-MM-dd"),
@@ -220,9 +300,29 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
         isPast: isPast(date),
       });
     });
+    
     blocks.push(currentWeek);
-    setWeeklyBlocks(blocks);
+    setIsLoading(false);
+    return blocks;
   }, [startDate, plan.dailyWorkouts]);
+
+  // Atualizar weeklyBlocks quando organizedWeeklyBlocks mudar
+  useEffect(() => {
+    setWeeklyBlocks(organizedWeeklyBlocks);
+  }, [organizedWeeklyBlocks]);
+
+  // Auto-scroll para hoje quando os blocos semanais estiverem prontos
+  useEffect(() => {
+    if (!isLoading && weeklyBlocks.length > 0) {
+      // Timeout para garantir que os elementos estejam renderizados
+      const timer = setTimeout(() => {
+        if (todayRef.current) {
+          scrollToToday();
+        }
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading, weeklyBlocks, scrollToToday]);
 
   // Derived values
   const percentage = useMemo(() => params ? (params / 85) * 100 : 0, [params]);
@@ -267,19 +367,26 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
                 percentage={percentage}
               />
 
-              <div className="grid grid-cols-1 gap-1 p-2">
-                {weeklyBlocks.map((week, windex) => (
-                  <WeeklyView
-                    key={week.weekStart}
-                    week={week}
-                    windex={windex}
-                    todayRef={todayRef}
-                    getActivityPace={getActivityPace}
-                    convertMinutesToHours={convertMinutesToHours}
-                    getPredictedRaceTime={getPredictedRaceTime}
-                  />
-                ))}
-              </div>
+              {isLoading ? (
+                <div className="flex items-center justify-center p-12">
+                  <Loader2 className="h-8 w-8 animate-spin mr-2" />
+                  <span>Carregando plano de treino...</span>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 gap-1 p-2">
+                  {weeklyBlocks.map((week, windex) => (
+                    <LazyWeeklyBlock
+                      key={week.weekStart}
+                      week={week}
+                      windex={windex}
+                      todayRef={todayRef}
+                      getActivityPace={getActivityPace}
+                      convertMinutesToHours={convertMinutesToHours}
+                      getPredictedRaceTime={getPredictedRaceTime}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -291,12 +398,14 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
 // Static Site Generation
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
-    const plans = await getAllPlans();
-    // Filtramos apenas os planos que não começam com 'treino/'
-    const runPlans = plans.filter(plan => !plan.path.startsWith('treino/'));
+    // Função otimizada que busca apenas os paths, não os planos completos
+    const planPaths = await getAllPlanPaths();
     
-    const paths = runPlans.map((plan) => ({
-      params: { planPath: plan.path },
+    // Filtramos apenas os planos que não começam com 'treino/'
+    const runPlanPaths = planPaths.filter(path => !path.startsWith('treino/'));
+    
+    const paths = runPlanPaths.map((path) => ({
+      params: { planPath: path },
     }));
     
     return { 
@@ -322,6 +431,7 @@ export const getStaticProps: GetStaticProps<PlanProps> = async ({ params }) => {
       props: {
         plan: JSON.parse(JSON.stringify(plan))
       },
+      // Uma semana em segundos - tempo razoável para revalidação
       revalidate: 604800
     };
   } catch (error) {
