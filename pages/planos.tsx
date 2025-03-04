@@ -2,31 +2,13 @@ import React, { useState, useMemo, useEffect } from "react";
 import Head from "next/head";
 import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
-import { TrainingCard } from "@/components/PlansCard";
 import { AnimatePresence, motion } from 'framer-motion';
-import { Sidebar } from "@/components/default/Sidebar";
-import { MobileHeader } from "@/components/default/MobileHeader";
+import { TrainingCard } from "@/components/PlansCard";
+import { Layout } from "@/components/layout";
 import { EnhancedSearch } from "@/components/default/EnhancedSearch";
-
-// Define types
-export interface Plan {
-  name: string;
-  nivel?: string;
-  coach?: string;
-  info?: string;
-  path: string;
-  duration?: string;
-  activities?: string[];
-  img?: string;
-  isNew?: boolean;
-  distances?: string[];
-  volume?: string;
-}
-
-export interface HomeProps {
-  plans: Plan[];
-  treinoPlans: Plan[];
-}
+import { Card, CardContent } from "@/components/ui/card";
+import { getPlanSummaries } from '@/lib/db-utils';
+import { PlanSummary } from '@/models';
 
 interface Filters {
   searchTerm: string;
@@ -42,23 +24,35 @@ type QueryKeyMap = {
   [K in keyof Filters]: string;
 };
 
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const [plans, treinoPlans] = await Promise.all([
-    import('../planos/index').then((module) => module.default as Plan[]),
-    import('../planos/treino').then((module) => module.default as Plan[]),
-  ]);
+interface PlansPageProps {
+  plans: PlanSummary[];
+}
 
-  return {
-    props: {
-      plans,
-      treinoPlans,
-    },
-  };
+export const getStaticProps: GetStaticProps<PlansPageProps> = async () => {
+  try {
+    // Buscar apenas os sumários dos planos (sem dailyWorkouts) usando a nova função otimizada
+    const plans = await getPlanSummaries();
+    
+    return {
+      props: {
+        plans: JSON.parse(JSON.stringify(plans)),
+      },
+      revalidate: 3600, // Revalidar a cada hora
+    };
+  } catch (error) {
+    console.error('Erro ao buscar planos:', error);
+    return {
+      props: {
+        plans: [],
+      },
+      // Revalidar mais rapidamente em caso de erro
+      revalidate: 60,
+    };
+  }
 };
 
-const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
+const PlansPage: React.FC<PlansPageProps> = ({ plans = [] }) => {
   const router = useRouter();
-  const allPlans = useMemo(() => [...plans, ...treinoPlans], [plans, treinoPlans]);
 
   const [filters, setFilters] = useState<Filters>({
     searchTerm: "",
@@ -70,6 +64,7 @@ const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
     type: "todos"
   });
 
+  // Sincronizar filtros com a query string da URL
   useEffect(() => {
     setFilters(prev => ({
       ...prev,
@@ -82,8 +77,9 @@ const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
     }));
   }, [router.query]);
 
+  // Filtrar planos com base nos critérios selecionados
   const filteredPlans = useMemo(() => {
-    return allPlans.filter((plan) => {
+    return plans.filter((plan) => {
       if (!plan) return false;
 
       const searchMatch = filters.searchTerm === "" || [
@@ -113,7 +109,7 @@ const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
       return searchMatch && levelMatch && trainerMatch &&
         durationMatch && volumeMatch && distanceMatch;
     });
-  }, [allPlans, filters]);
+  }, [plans, filters]);
 
   const handleFilterChange = (key: keyof Filters, value: string) => {
     const queryKeyMap: QueryKeyMap = {
@@ -165,95 +161,76 @@ const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <Layout>
       <Head>
-        <title>Magic Training - Planilhas de treinamento para corrida</title>
-        <meta name="description" content="Planos de treinamento gratuitos para corrida e fortalecimento, inspirados em renomados livros e elaborados por experientes treinadores." />
-        <meta property="og:title" content="Magic Training - Planilhas de treinamento para corrida" />
-        <meta property="og:description" content="Planos de treinamento gratuitos para corrida e fortalecimento, inspirados em renomados livros e elaborados por experientes treinadores." />
+        <title>Planilhas de corrida completas - Magic Training</title>
+        <meta 
+          name="description" 
+          content="Explore todos os planos de treino para corrida disponíveis no Magic Training, filtrados por distância, nível e objetivos." 
+        />
+        <meta property="og:title" content="Explore Planos de Treino para Corrida - Magic Training" />
+        <meta property="og:description" content="Planos de treinamento gratuitos para corrida, inspirados em renomados livros e elaborados por experientes treinadores." />
         <meta property="og:url" content={typeof window !== "undefined" ? window.location.href : ""} />
-        <meta property="og:image" content="/img/pages/home.jpg" />
-        <meta property="og:site_name" content="Magic Training" />
+        <meta property="og:image" content="/img/pages/plans.jpg" />
         <meta property="og:type" content="website" />
       </Head>
 
-      {/* Mobile Header */}
-      <div className="lg:hidden">
-        <MobileHeader />
+      <div className="space-y-8">
+        <Card className="border-none shadow-none">
+          <CardContent className="p-2">
+            <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground/90 mb-4">
+              Todos os Planos
+            </h1>
+            
+            <p className="text-muted-foreground mb-6">
+              Explore nossa coleção completa de planos de treinamento para corrida. 
+              Use os filtros para encontrar o plano ideal para sua distância, nível de experiência e objetivos.
+            </p>
+            
+            <EnhancedSearch
+              filters={filters}
+              allPlans={plans}
+              onFilterChange={handleFilterChange}
+              onClearFilters={handleClearFilters}
+            />
+          </CardContent>
+        </Card>
+
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6"
+          layout
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredPlans.map((plan) => (
+              <motion.div
+                key={plan.path}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.2 }}
+                layout
+              >
+                <TrainingCard plan={plan} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+
+          {filteredPlans.length === 0 && (
+            <motion.div
+              className="col-span-full text-center py-12"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <p className="text-lg text-muted-foreground">
+                Nenhum plano encontrado com os filtros selecionados.
+              </p>
+            </motion.div>
+          )}
+        </motion.div>
       </div>
-
-      <div className="flex h-[calc(100vh-3.5rem)] lg:h-screen overflow-hidden">
-        {/* Sidebar */}
-        <div className="hidden lg:block w-60 shrink-0">
-          <Sidebar />
-        </div>
-
-        {/* Main Content */}
-        <main className="flex-1 overflow-y-auto">
-          <div className="container mx-auto px-4 py-8">
-            <div className="flex flex-col gap-6">
-              {/* Enhanced Search Section */}
-              <div className="space-y-6">
-                <EnhancedSearch
-                  filters={filters}
-                  allPlans={allPlans}
-                  onFilterChange={handleFilterChange}
-                  onClearFilters={handleClearFilters}
-                />
-
-                <motion.div
-                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6"
-                  layout
-                >
-                  <AnimatePresence mode="sync">
-                    {filteredPlans.map((plan, index) => (
-                      <motion.div
-                        key={plan.path || index}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.2 }}
-                        layout
-                      >
-                        <TrainingCard
-                          plan={{
-                            name: plan.name,
-                            trainer: plan.coach,
-                            speed: plan.volume,
-                            level: plan.nivel,
-                            weeks: plan.duration,
-                            isNew: plan.isNew,
-                            activities: plan.activities,
-                            path: plan.path,
-                            img: plan.img,
-                            info: plan.info,
-                            volume: plan.volume
-                          }}
-                        />
-                      </motion.div>
-                    ))}
-                  </AnimatePresence>
-
-                  {filteredPlans.length === 0 && (
-                    <motion.div
-                      className="col-span-full text-center py-12"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                    >
-                      <p className="text-lg text-muted-foreground">
-                        Nenhum plano encontrado com os filtros selecionados.
-                      </p>
-                    </motion.div>
-                  )}
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </main>
-      </div>
-    </div>
+    </Layout>
   );
 };
 
-export default Home;
+export default PlansPage;
