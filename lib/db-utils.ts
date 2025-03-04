@@ -2,8 +2,9 @@
 import clientPromise from './mongodb';
 import { ObjectId } from 'mongodb';
 import { PlanModel, TrainerModel } from '../models';
+import { getCachedItem, setCachedItem, invalidateCacheItem, invalidateCacheByPrefix } from './cache';
 
-// Define proper types for query parameters
+// Definição da interface PlanQueryOptions
 interface PlanQueryOptions {
   nivel?: string;
   coach?: string;
@@ -12,7 +13,21 @@ interface PlanQueryOptions {
   limit?: number;
 }
 
-// Interface for MongoDB queries
+// Cache keys constants
+const CACHE_KEYS = {
+  ALL_PLANS: 'plans:all',
+  PLAN_BY_PATH: 'plan:',
+  ALL_TRAINERS: 'trainers:all',
+  TRAINER_BY_ID: 'trainer:',
+  PLANS_BY_TRAINER: 'plans:trainer:',
+  PLANS_BY_LEVEL: 'plans:level:',
+  PLANS_BY_DISTANCE: 'plans:distance:'
+};
+
+// 7 dias (em milissegundos) para ttl do cache de planos
+const PLANS_CACHE_TTL = 7 * 24 * 60 * 60 * 1000;
+
+// Interface para MongoDB queries
 interface MongoQuery {
   nivel?: 'iniciante' | 'intermediário' | 'avançado' | 'elite';
   coach?: string;
@@ -26,6 +41,18 @@ interface MongoQuery {
  * @returns Promise resolving to an array of PlanModel objects
  */
 export async function getAllPlans(options: PlanQueryOptions = {}): Promise<PlanModel[]> {
+  // Gera um cache key que inclui os filtros
+  const cacheKey = options && Object.keys(options).length > 0 
+    ? `${CACHE_KEYS.ALL_PLANS}:${JSON.stringify(options)}`
+    : CACHE_KEYS.ALL_PLANS;
+  
+  // Tenta buscar do cache primeiro
+  const cachedPlans = getCachedItem<PlanModel[]>(cacheKey);
+  if (cachedPlans) {
+    return cachedPlans;
+  }
+  
+  // Se não está no cache, busca do banco de dados
   const client = await clientPromise;
   const db = client.db('magic-training');
   
@@ -58,11 +85,16 @@ export async function getAllPlans(options: PlanQueryOptions = {}): Promise<PlanM
   
   try {
     // Use projection to limit fields if needed for performance
-    return await db
+    const plans = await db
       .collection<PlanModel>('plans')
       .find(query)
       .limit(options.limit || 0)
       .toArray();
+    
+    // Armazena no cache
+    setCachedItem(cacheKey, plans, PLANS_CACHE_TTL);
+    
+    return plans;
   } catch (error) {
     console.error('Error fetching plans:', error);
     return [];
@@ -77,13 +109,28 @@ export async function getAllPlans(options: PlanQueryOptions = {}): Promise<PlanM
 export async function getPlanByPath(path: string): Promise<PlanModel | null> {
   if (!path) return null;
   
+  const cacheKey = `${CACHE_KEYS.PLAN_BY_PATH}${path}`;
+  
+  // Tenta buscar do cache
+  const cachedPlan = getCachedItem<PlanModel>(cacheKey);
+  if (cachedPlan) {
+    return cachedPlan;
+  }
+  
   try {
     const client = await clientPromise;
     const db = client.db('magic-training');
     
-    return await db
+    const plan = await db
       .collection<PlanModel>('plans')
       .findOne({ path });
+    
+    if (plan) {
+      // Armazena no cache
+      setCachedItem(cacheKey, plan, PLANS_CACHE_TTL);
+    }
+    
+    return plan;
   } catch (error) {
     console.error(`Error fetching plan with path ${path}:`, error);
     return null;
@@ -95,14 +142,27 @@ export async function getPlanByPath(path: string): Promise<PlanModel | null> {
  * @returns Promise resolving to an array of TrainerModel objects
  */
 export async function getAllTrainers(): Promise<TrainerModel[]> {
+  const cacheKey = CACHE_KEYS.ALL_TRAINERS;
+  
+  // Tenta buscar do cache
+  const cachedTrainers = getCachedItem<TrainerModel[]>(cacheKey);
+  if (cachedTrainers) {
+    return cachedTrainers;
+  }
+  
   try {
     const client = await clientPromise;
     const db = client.db('magic-training');
     
-    return await db
+    const trainers = await db
       .collection<TrainerModel>('trainers')
       .find({})
       .toArray();
+    
+    // Armazena no cache (TTL mais longo para treinadores)
+    setCachedItem(cacheKey, trainers, PLANS_CACHE_TTL);
+    
+    return trainers;
   } catch (error) {
     console.error('Error fetching trainers:', error);
     return [];
@@ -117,13 +177,28 @@ export async function getAllTrainers(): Promise<TrainerModel[]> {
 export async function getTrainerById(id: string): Promise<TrainerModel | null> {
   if (!id) return null;
   
+  const cacheKey = `${CACHE_KEYS.TRAINER_BY_ID}${id}`;
+  
+  // Tenta buscar do cache
+  const cachedTrainer = getCachedItem<TrainerModel>(cacheKey);
+  if (cachedTrainer) {
+    return cachedTrainer;
+  }
+  
   try {
     const client = await clientPromise;
     const db = client.db('magic-training');
     
-    return await db
+    const trainer = await db
       .collection<TrainerModel>('trainers')
       .findOne({ id });
+    
+    if (trainer) {
+      // Armazena no cache
+      setCachedItem(cacheKey, trainer, PLANS_CACHE_TTL);
+    }
+    
+    return trainer;
   } catch (error) {
     console.error(`Error fetching trainer with ID ${id}:`, error);
     return null;
@@ -138,14 +213,27 @@ export async function getTrainerById(id: string): Promise<TrainerModel | null> {
 export async function getPlansByTrainer(coach: string): Promise<PlanModel[]> {
   if (!coach) return [];
   
+  const cacheKey = `${CACHE_KEYS.PLANS_BY_TRAINER}${coach}`;
+  
+  // Tenta buscar do cache
+  const cachedPlans = getCachedItem<PlanModel[]>(cacheKey);
+  if (cachedPlans) {
+    return cachedPlans;
+  }
+  
   try {
     const client = await clientPromise;
     const db = client.db('magic-training');
     
-    return await db
+    const plans = await db
       .collection<PlanModel>('plans')
       .find({ coach })
       .toArray();
+    
+    // Armazena no cache
+    setCachedItem(cacheKey, plans, PLANS_CACHE_TTL);
+    
+    return plans;
   } catch (error) {
     console.error(`Error fetching plans for trainer ${coach}:`, error);
     return [];
@@ -158,14 +246,27 @@ export async function getPlansByTrainer(coach: string): Promise<PlanModel[]> {
  * @returns Promise resolving to an array of PlanModel objects
  */
 export async function getPlansByLevel(nivel: 'iniciante' | 'intermediário' | 'avançado' | 'elite'): Promise<PlanModel[]> {
+  const cacheKey = `${CACHE_KEYS.PLANS_BY_LEVEL}${nivel}`;
+  
+  // Tenta buscar do cache
+  const cachedPlans = getCachedItem<PlanModel[]>(cacheKey);
+  if (cachedPlans) {
+    return cachedPlans;
+  }
+  
   try {
     const client = await clientPromise;
     const db = client.db('magic-training');
     
-    return await db
+    const plans = await db
       .collection<PlanModel>('plans')
       .find({ nivel })
       .toArray();
+    
+    // Armazena no cache
+    setCachedItem(cacheKey, plans, PLANS_CACHE_TTL);
+    
+    return plans;
   } catch (error) {
     console.error(`Error fetching plans for level ${nivel}:`, error);
     return [];
@@ -180,14 +281,27 @@ export async function getPlansByLevel(nivel: 'iniciante' | 'intermediário' | 'a
 export async function getPlansByDistance(distance: string): Promise<PlanModel[]> {
   if (!distance) return [];
   
+  const cacheKey = `${CACHE_KEYS.PLANS_BY_DISTANCE}${distance}`;
+  
+  // Tenta buscar do cache
+  const cachedPlans = getCachedItem<PlanModel[]>(cacheKey);
+  if (cachedPlans) {
+    return cachedPlans;
+  }
+  
   try {
     const client = await clientPromise;
     const db = client.db('magic-training');
     
-    return await db
+    const plans = await db
       .collection<PlanModel>('plans')
       .find({ distances: distance })
       .toArray();
+    
+    // Armazena no cache
+    setCachedItem(cacheKey, plans, PLANS_CACHE_TTL);
+    
+    return plans;
   } catch (error) {
     console.error(`Error fetching plans for distance ${distance}:`, error);
     return [];
@@ -210,6 +324,12 @@ export async function addPlan(plan: Omit<PlanModel, '_id' | 'createdAt' | 'updat
       createdAt: timestamp,
       updatedAt: timestamp
     });
+    
+    // Invalidar caches relacionados
+    invalidateCacheByPrefix(CACHE_KEYS.ALL_PLANS);
+    invalidateCacheByPrefix(CACHE_KEYS.PLANS_BY_TRAINER);
+    invalidateCacheByPrefix(CACHE_KEYS.PLANS_BY_LEVEL);
+    invalidateCacheByPrefix(CACHE_KEYS.PLANS_BY_DISTANCE);
     
     return result.insertedId;
   } catch (error) {
@@ -241,6 +361,13 @@ export async function updatePlan(path: string, updates: Partial<PlanModel>): Pro
       }
     );
     
+    // Invalidar caches relacionados
+    invalidateCacheItem(`${CACHE_KEYS.PLAN_BY_PATH}${path}`);
+    invalidateCacheByPrefix(CACHE_KEYS.ALL_PLANS);
+    invalidateCacheByPrefix(CACHE_KEYS.PLANS_BY_TRAINER);
+    invalidateCacheByPrefix(CACHE_KEYS.PLANS_BY_LEVEL);
+    invalidateCacheByPrefix(CACHE_KEYS.PLANS_BY_DISTANCE);
+    
     return result.modifiedCount > 0;
   } catch (error) {
     console.error(`Error updating plan ${path}:`, error);
@@ -261,6 +388,13 @@ export async function deletePlan(path: string): Promise<boolean> {
     const db = client.db('magic-training');
     
     const result = await db.collection<PlanModel>('plans').deleteOne({ path });
+    
+    // Invalidar caches relacionados
+    invalidateCacheItem(`${CACHE_KEYS.PLAN_BY_PATH}${path}`);
+    invalidateCacheByPrefix(CACHE_KEYS.ALL_PLANS);
+    invalidateCacheByPrefix(CACHE_KEYS.PLANS_BY_TRAINER);
+    invalidateCacheByPrefix(CACHE_KEYS.PLANS_BY_LEVEL);
+    invalidateCacheByPrefix(CACHE_KEYS.PLANS_BY_DISTANCE);
     
     return result.deletedCount > 0;
   } catch (error) {

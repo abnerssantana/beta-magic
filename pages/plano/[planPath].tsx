@@ -321,7 +321,8 @@ export const getStaticProps: GetStaticProps<PlanProps> = async ({ params }) => {
       props: {
         plan: JSON.parse(JSON.stringify(plan))
       },
-      revalidate: 3600 // Revalidar a cada hora
+      // Aumentar para 7 dias (604800 segundos)
+      revalidate: 604800
     };
   } catch (error) {
     console.error(`Erro ao buscar plano ${params?.planPath}:`, error);
