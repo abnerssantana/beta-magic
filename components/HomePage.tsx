@@ -4,30 +4,12 @@ import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { TrainingCard } from "@/components/PlansCard";
 import { EnhancedSearch } from "@/components/default/EnhancedSearch";
 import { MobileHeader } from "@/components/default/MobileHeader";
-import FeaturedContent from "@/components/default/FeaturedContent";
-
-// Types
-export interface Plan {
-  name: string;
-  nivel?: string;
-  coach?: string;
-  info?: string;
-  path: string;
-  duration?: string;
-  activities?: string[];
-  img?: string;
-  isNew?: boolean;
-  distances?: string[];
-  volume?: string;
-}
-
-export interface HomeProps {
-  plans: Plan[];
-  treinoPlans: Plan[];
-}
+import FeaturedContent, { getLevelBadgeStyles } from "@/components/default/FeaturedContent";
+import { Badge } from "@/components/ui/badge";
+import { PlanSummary } from '@/lib/field-projection';
+import { getPlanSummaries } from '@/lib/db-utils';
 
 interface Filters {
   searchTerm: string;
@@ -43,32 +25,135 @@ type QueryKeyMap = {
   [K in keyof Filters]: string;
 };
 
-// Static Props
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const [plans, treinoPlans] = await Promise.all([
-    import('../planos/index').then((module) => module.default as Plan[]),
-    import('../planos/treino').then((module) => {
-      return module.default.map(plan => ({
-        ...plan,
-        path: `treino/${plan.path}`
-      })) as Plan[];
-    }),
-  ]);
+interface HomeProps {
+  plans: PlanSummary[];
+}
 
-  return {
-    props: {
-      plans,
-      treinoPlans,
-    },
-  };
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  try {
+    // Buscar apenas os sumários dos planos (sem dailyWorkouts)
+    const allPlans = await getPlanSummaries();
+
+    return {
+      props: {
+        plans: JSON.parse(JSON.stringify(allPlans)),
+      },
+      revalidate: 3600, // Revalidar a cada 1 hora
+    };
+  } catch (error) {
+    console.error('Erro ao buscar planos:', error);
+    return {
+      props: {
+        plans: [],
+      },
+      revalidate: 60,
+    };
+  }
 };
 
-// Main Component
-const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
-  const router = useRouter();
-  const allPlans = useMemo(() => [...plans, ...treinoPlans], [plans, treinoPlans]);
+// Featured Plans Component
+const FeaturedPlans = ({ plans }: { plans: PlanSummary[] }) => (
+  <Card>
+    <CardHeader>
+      <CardTitle>Planos em Destaque</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <AnimatePresence mode="popLayout">
+          {plans.map((plan) => (
+            <motion.div
+              key={plan.path}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+              layout
+            >
+              <a
+                href={`/plano/${plan.path}`}
+                className="block h-full"
+              >
+                <TrainingCard plan={plan} />
+              </a>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+    </CardContent>
+  </Card>
+);
 
-  // State
+// Enhanced TrainingCard component
+const TrainingCard = ({ plan }: { plan: PlanSummary }) => (
+  <div className="group relative hover:shadow-md transition-all duration-300 h-full bg-white dark:bg-muted/30 border-border/40 hover:border-border/90 overflow-hidden flex flex-col rounded-lg border">
+    <div className="p-5 flex flex-col h-full space-y-4">
+      {/* Header Section */}
+      <div className="space-y-3 grow">
+        <div className="flex items-start justify-between gap-2">
+          <h3 className="text-lg font-semibold leading-tight group-hover:text-primary transition-colors line-clamp-2">
+            {plan.name}
+          </h3>
+          {plan.isNew && (
+            <Badge 
+              variant="destructive" 
+              className="text-xs"
+            >
+              Novo
+            </Badge>
+          )}
+        </div>
+        
+        {plan.coach && (
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <span className="line-clamp-1">{plan.coach}</span>
+          </div>
+        )}
+      </div>
+
+      {/* Info Section */}
+      <div className="space-y-3">
+        <div className="flex flex-wrap items-center gap-3 text-sm">
+          {plan.volume && (
+            <div className="flex items-center gap-1.5 text-muted-foreground">
+              <span>{plan.volume} km/sem</span>
+            </div>
+          )}
+          {(plan.duration) && (
+            <div className="flex items-center gap-1.5 text-muted-foreground">
+              <span>{plan.duration}</span>
+            </div>
+          )}
+        </div>
+
+        <div className="flex flex-wrap gap-2">
+          {plan.nivel && (
+            <Badge 
+              variant="outline"
+              className={getLevelBadgeStyles(plan.nivel)}
+            >
+              {plan.nivel}
+            </Badge>
+          )}
+          {plan.distances?.map((distance, idx) => (
+            <Badge 
+              key={`${plan.path}-${distance}-${idx}`}
+              variant="secondary"
+              className="bg-secondary/30 hover:bg-secondary/50 text-xs border-0 
+                       text-secondary-foreground/90 dark:bg-secondary/20 
+                       dark:hover:bg-secondary/30 dark:text-secondary-foreground/80"
+            >
+              {distance}
+            </Badge>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const Home: React.FC<HomeProps> = ({ plans = [] }) => {
+  const router = useRouter();
+
   const [filters, setFilters] = useState<Filters>({
     searchTerm: "",
     level: "todos",
@@ -79,7 +164,6 @@ const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
     type: "todos"
   });
 
-  // Effects
   useEffect(() => {
     setFilters(prev => ({
       ...prev,
@@ -92,9 +176,8 @@ const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
     }));
   }, [router.query]);
 
-  // Memos
   const filteredPlans = useMemo(() => {
-    return allPlans.filter((plan) => {
+    return plans.filter((plan) => {
       if (!plan) return false;
 
       const searchMatch = filters.searchTerm === "" || [
@@ -124,7 +207,7 @@ const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
       return searchMatch && levelMatch && trainerMatch &&
         durationMatch && volumeMatch && distanceMatch;
     });
-  }, [allPlans, filters]);
+  }, [plans, filters]);
 
   const hasActiveFilters = useMemo(() => {
     return filters.searchTerm !== "" ||
@@ -138,12 +221,11 @@ const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
 
   // Featured plans (top 6)
   const featuredPlans = useMemo(() => {
-    return allPlans
+    return plans
       .filter(plan => plan.isNew)
       .slice(0, 6);
-  }, [allPlans]);
+  }, [plans]);
 
-  // Handlers
   const handleFilterChange = (key: keyof Filters, value: string) => {
     const queryKeyMap: QueryKeyMap = {
       searchTerm: 'q',
@@ -215,7 +297,6 @@ const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
       </div>
 
       <div className="flex h-[calc(100vh-3.5rem)] lg:h-screen overflow-hidden">
-
         {/* Main Content */}
         <main className="flex-1 overflow-y-auto">
           <div className="container mx-auto px-4 py-8">
@@ -224,7 +305,7 @@ const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
               <div className="space-y-6">
                 <EnhancedSearch
                   filters={filters}
-                  allPlans={allPlans}
+                  allPlans={plans}
                   onFilterChange={handleFilterChange}
                   onClearFilters={handleClearFilters}
                 />
@@ -233,29 +314,7 @@ const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
                   <>
                     {/* Featured Plans */}
                     {featuredPlans.length > 0 && (
-                      <Card>
-                        <CardHeader>
-                          <CardTitle>Planos em Destaque</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <AnimatePresence mode="sync">
-                              {featuredPlans.map((plan) => (
-                                <motion.div
-                                  key={plan.path}
-                                  initial={{ opacity: 0, y: 20 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  exit={{ opacity: 0, y: -20 }}
-                                  transition={{ duration: 0.2 }}
-                                  layout
-                                >
-                                  <TrainingCard plan={plan} />
-                                </motion.div>
-                              ))}
-                            </AnimatePresence>
-                          </div>
-                        </CardContent>
-                      </Card>
+                      <FeaturedPlans plans={featuredPlans} />
                     )}
 
                     {/* Featured Content */}
@@ -267,7 +326,7 @@ const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6"
                     layout
                   >
-                    <AnimatePresence mode="sync">
+                    <AnimatePresence mode="popLayout">
                       {filteredPlans.map((plan) => (
                         <motion.div
                           key={plan.path}
@@ -277,7 +336,12 @@ const Home: React.FC<HomeProps> = ({ plans = [], treinoPlans = [] }) => {
                           transition={{ duration: 0.2 }}
                           layout
                         >
-                          <TrainingCard plan={plan} />
+                          <a
+                            href={`/plano/${plan.path}`}
+                            className="block h-full"
+                          >
+                            <TrainingCard plan={plan} />
+                          </a>
                         </motion.div>
                       ))}
                     </AnimatePresence>
