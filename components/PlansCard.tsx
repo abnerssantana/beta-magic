@@ -3,16 +3,15 @@ import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
-import { PlanSummary } from "@/models"; // Importar PlanSummary
+import { PlanSummary } from "@/models";
 
-// Pode aceitar tanto PlanModel quanto PlanSummary
 interface TrainingCardProps {
-  plan: PlanSummary; // Alterado para PlanSummary
+  plan: PlanSummary;
   className?: string;
 }
 
 const getLevelBadgeStyles = (level: string) => {
-  switch (level.toLowerCase()) {
+  switch (level?.toLowerCase()) {
     case 'iniciante': return 'text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/30';
     case 'intermediário': return 'text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800 hover:bg-blue-50 dark:hover:bg-blue-950/30';
     case 'avançado': return 'text-purple-700 dark:text-purple-400 border-purple-200 dark:border-purple-800 hover:bg-purple-50 dark:hover:bg-purple-950/30';
@@ -22,15 +21,14 @@ const getLevelBadgeStyles = (level: string) => {
 }
 
 export function TrainingCard({ plan, className }: TrainingCardProps) {
-  const planLink = plan.path.startsWith('treino/') 
-  ? `/${plan.path}` 
-  : `/plano/${plan.path}`;
+  // Sempre direciona para a rota de planos de corrida
+  const planLink = `/plano/${plan.path}`;
 
   return (
     <Card className={cn(
       "group relative hover:shadow-md transition-all duration-300 h-full",
       "bg-white dark:bg-muted/30 border-border/40 hover:border-border/90",
-      "overflow-hidden flex flex-col",
+      "overflow-hidden flex flex-col p-0",
       className
     )}>
       <Link href={planLink} className="absolute inset-0 z-10">
@@ -91,7 +89,8 @@ export function TrainingCard({ plan, className }: TrainingCardProps) {
                 {plan.nivel}
               </Badge>
             )}
-            {plan.activities?.map((activity, index) => (
+            {/* Mostrar distâncias para planos de corrida */}
+            {plan.distances?.map((distance, index) => (
               <Badge 
                 key={index}
                 variant="secondary"
@@ -99,7 +98,7 @@ export function TrainingCard({ plan, className }: TrainingCardProps) {
                          text-secondary-foreground/90 dark:bg-secondary/20 
                          dark:hover:bg-secondary/30 dark:text-secondary-foreground/80"
               >
-                {activity}
+                {distance}
               </Badge>
             ))}
           </div>
