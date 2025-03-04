@@ -1,23 +1,31 @@
-// pages/plano/[planPath].tsx
-import React, { useState, useEffect, useRef, useCallback, useMemo, Suspense } from "react";
+import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { format, parseISO, addDays, subDays, isToday, isPast } from "date-fns";
-import { ptBR } from "date-fns/locale/pt-BR";
+import { format, parseISO, addDays, subDays } from "date-fns";
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { calculateActivityPace } from '@/lib/activity-pace.utils';
-import { races, paces } from "@/lib/PacesRaces";
+import { 
+  limitDescription, 
+  defaultTimes,
+  convertMinutesToHours,
+  getPredictedRaceTimeFactory,
+  findClosestRaceParams,
+  findPaceValues,
+  formatTimeInput,
+  storageHelper,
+  organizePlanIntoWeeklyBlocks
+} from '@/lib/plan-utils';
 import { Sidebar } from "@/components/default/Sidebar";
 import { MobileHeader } from "@/components/default/MobileHeader";
 import { PlanHeader } from '@/components/plan/PlanHeader';
-import { Activity as TypeActivity, WeeklyBlock, PredictedRaceTime, Activity } from '@/types';
-import { getPlanByPath, getAllPlanPaths } from '@/lib/db-utils';
+import { WeeklyBlock, Activity, PredictedRaceTime } from '@/types';
+import { getPlanByPath, getAllPlans } from '@/lib/db-utils';
 import { PlanModel } from '@/models';
-import { Loader2 } from 'lucide-react';
+import WeekSkeleton from '@/components/plan/WeekSkeleton';
 
-// Carregamento dinâmico do componente WeeklyView (pesado)
+// Carregamento dinâmico do componente WeeklyView
 const WeeklyView = dynamic(() => import('@/components/plan/WeeklyView'), {
-  loading: () => <div className="p-4 text-center"><Loader2 className="h-8 w-8 animate-spin mx-auto" /></div>,
+  loading: () => <WeekSkeleton />,
   ssr: false // Não renderiza no servidor para economizar recursos
 });
 
@@ -26,33 +34,26 @@ interface PlanProps {
   plan: PlanModel;
 }
 
-// Utility Functions
-const timeToSeconds = (time: string): number => {
-  const [h, m, s] = time.split(":").map(parseFloat);
-  return h * 3600 + m * 60 + (s || 0);
-};
-
-const limitDescription = (description: string, limit = 160): string => {
-  if (description.length <= limit) return description;
-  return description.slice(0, limit).trim() + '...';
-};
-
-const defaultTimes: Record<string, string> = {
-  "1500m": "00:05:24",
-  "1600m": "00:05:50",
-  "3km": "00:11:33",
-  "3200m": "00:12:28",
-  "5km": "00:19:57",
-  "10km": "00:41:21",
-  "15km": "01:03:36",
-  "21km": "01:31:35",
-  "42km": "03:10:49"
-};
+interface LazyWeeklyBlockProps {
+  week: WeeklyBlock;
+  windex: number;
+  todayRef: React.RefObject<HTMLDivElement>;
+  getActivityPace: (activity: Activity) => string;
+  convertMinutesToHours: (minutes: number) => string;
+  getPredictedRaceTime: (distance: number) => PredictedRaceTime | null;
+}
 
 // Componente para renderização preguiçosa de blocos semanais
-const LazyWeeklyBlock = ({ week, windex, todayRef, getActivityPace, convertMinutesToHours, getPredictedRaceTime }) => {
+const LazyWeeklyBlock: React.FC<LazyWeeklyBlockProps> = ({ 
+  week, 
+  windex, 
+  todayRef, 
+  getActivityPace, 
+  convertMinutesToHours, 
+  getPredictedRaceTime 
+}) => {
   const [isVisible, setIsVisible] = useState(false);
-  const blockRef = useRef(null);
+  const blockRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Se esta semana contém o dia atual, torna-a visível imediatamente
@@ -62,7 +63,7 @@ const LazyWeeklyBlock = ({ week, windex, todayRef, getActivityPace, convertMinut
     }
 
     // Configura Intersection Observer apenas para blocos não visíveis
-    if (!isVisible) {
+    if (!isVisible && blockRef.current) {
       const observer = new IntersectionObserver(
         (entries) => {
           if (entries[0].isIntersecting) {
@@ -70,25 +71,20 @@ const LazyWeeklyBlock = ({ week, windex, todayRef, getActivityPace, convertMinut
             observer.disconnect();
           }
         },
-        { rootMargin: "200px" } // Carrega quando estiver a 200px de distância
+        { rootMargin: "300px" } // Carrega quando estiver a 300px de distância
       );
 
-      if (blockRef.current) {
-        observer.observe(blockRef.current);
-      }
-
+      observer.observe(blockRef.current);
       return () => observer.disconnect();
     }
   }, [week, isVisible]);
 
-  // Placeholder com altura aproximada enquanto não carrega
+  // Placeholder com Skeleton enquanto não carrega
   if (!isVisible) {
     return (
-      <div 
-        ref={blockRef} 
-        className="bg-muted/20 rounded-lg animate-pulse h-64 mb-2"
-        aria-label={`Carregando semana ${windex + 1}`}
-      />
+      <div ref={blockRef}>
+        <WeekSkeleton />
+      </div>
     );
   }
 
@@ -106,26 +102,11 @@ const LazyWeeklyBlock = ({ week, windex, todayRef, getActivityPace, convertMinut
 
 // Main Component
 const Plan: React.FC<PlanProps> = ({ plan }) => {
-  // Local Storage Helpers com uso de sessionStorage para melhor performance
-  const getInitialDate = useCallback((): string => {
-    if (typeof window === "undefined") return format(new Date(), "yyyy-MM-dd");
-    return sessionStorage.getItem(`${plan.path}_startDate`) || format(new Date(), "yyyy-MM-dd");
-  }, [plan.path]);
-
-  const getInitialEndDate = useCallback((): string => {
-    if (typeof window === "undefined") return format(addDays(new Date(), plan.dailyWorkouts.length), "yyyy-MM-dd");
-    return sessionStorage.getItem(`${plan.path}_endDate`) || format(addDays(new Date(), plan.dailyWorkouts.length), "yyyy-MM-dd");
-  }, [plan.path, plan.dailyWorkouts.length]);
-
   // State
-  const [startDate, setStartDate] = useState<string>(getInitialDate());
-  const [endDate, setEndDate] = useState<string>(getInitialEndDate());
-  const [selectedTime, setSelectedTime] = useState<string>(
-    typeof window !== "undefined" ? sessionStorage.getItem(`${plan.path}_selectedTime`) || "00:19:57" : "00:19:57"
-  );
-  const [selectedDistance, setSelectedDistance] = useState<string>(
-    typeof window !== "undefined" ? sessionStorage.getItem(`${plan.path}_selectedDistance`) || "5km" : "5km"
-  );
+  const [startDate, setStartDate] = useState<string>(storageHelper.getStartDate(plan.path));
+  const [endDate, setEndDate] = useState<string>(storageHelper.getEndDate(plan.path, plan.dailyWorkouts.length));
+  const [selectedTime, setSelectedTime] = useState<string>(storageHelper.getSelectedTime(plan.path));
+  const [selectedDistance, setSelectedDistance] = useState<string>(storageHelper.getSelectedDistance(plan.path));
   const [weeklyBlocks, setWeeklyBlocks] = useState<WeeklyBlock[]>([]);
   const [params, setParams] = useState<number | null>(null);
   const [selectedPaces, setSelectedPaces] = useState<Record<string, string> | null>(null);
@@ -141,35 +122,13 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
     }
   }, []);
 
-  const getPredictedRaceTime = useCallback((distance: number): PredictedRaceTime | null => {
-    if (!params) return null;
-
-    const raceData = races.find(race => race.Params === params);
-    const distanceKey = `${distance}km`;
-
-    if (!raceData || !raceData[distanceKey as keyof typeof raceData]) return null;
-
-    const timeString = raceData[distanceKey as keyof typeof raceData] as string;
-    const [hours, minutes, seconds] = timeString.split(':').map(Number);
-    const totalMinutes = hours * 60 + minutes + seconds / 60;
-    const paceMinutes = totalMinutes / distance;
-    const paceMinutesInt = Math.floor(paceMinutes);
-    const paceSeconds = Math.round((paceMinutes - paceMinutesInt) * 60);
-    const paceString = `${paceMinutesInt}:${paceSeconds.toString().padStart(2, '0')}`;
-
-    return { time: timeString, pace: paceString };
+  const getPredictedRaceTime = useMemo(() => {
+    return getPredictedRaceTimeFactory(params);
   }, [params]);
 
   const getActivityPace = useCallback((activity: Activity): string => {
     return calculateActivityPace(activity, selectedPaces, getPredictedRaceTime);
   }, [selectedPaces, getPredictedRaceTime]);
-
-  const convertMinutesToHours = useCallback((minutes: number): string => {
-    if (minutes <= 59) return `${Math.round(minutes)}min`;
-    const hours = Math.floor(minutes / 60);
-    const remainingMinutes = Math.round(minutes % 60);
-    return `${hours}h${remainingMinutes.toString().padStart(2, '0')}`;
-  }, []);
 
   // Event Handlers
   const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -187,17 +146,7 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
   };
 
   const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const inputTime = event.target.value.replace(/[^0-9]/g, "");
-    let formattedTime = inputTime;
-
-    if (inputTime.length > 2) {
-      formattedTime = `${inputTime.slice(0, 2)}:${inputTime.slice(2)}`;
-    }
-    if (inputTime.length > 4) {
-      formattedTime = `${inputTime.slice(0, 2)}:${inputTime.slice(2, 4)}:${inputTime.slice(4, 6)}`;
-    }
-
-    setSelectedTime(formattedTime);
+    setSelectedTime(formatTimeInput(event.target.value));
   };
 
   const handleDistanceChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
@@ -207,101 +156,33 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
     setParams(null);
   };
 
-  // Memoize pace calculations for performance
-  const memoizedFoundPaces = useMemo(() => {
-    if (!params) return null;
-    return paces.find((pace) => pace.Params === params);
-  }, [params]);
-
   // Effects
   useEffect(() => {
-    // Persist state to sessionStorage (more efficient than localStorage)
-    if (typeof window !== "undefined") {
-      sessionStorage.setItem(`${plan.path}_startDate`, startDate);
-      sessionStorage.setItem(`${plan.path}_endDate`, endDate);
-      sessionStorage.setItem(`${plan.path}_selectedTime`, selectedTime);
-      sessionStorage.setItem(`${plan.path}_selectedDistance`, selectedDistance);
-    }
+    // Persist state to sessionStorage
+    storageHelper.saveSettings(plan.path, {
+      startDate,
+      endDate,
+      selectedTime,
+      selectedDistance
+    });
   }, [startDate, endDate, selectedTime, selectedDistance, plan.path]);
 
   useEffect(() => {
-    // Calculate closest race params - memoize computation
-    if (!selectedTime || !selectedDistance) return;
-
-    const inputSeconds = timeToSeconds(selectedTime);
-    const closestRace = races.reduce((closest, current) => {
-      const distanceKey = selectedDistance as keyof typeof current;
-      const currentValue = current[distanceKey];
-      
-      // Safety check
-      if (typeof currentValue !== 'string') return closest;
-      
-      const currentSeconds = timeToSeconds(currentValue);
-      const closestValue = closest[distanceKey];
-      
-      // Safety check
-      if (typeof closestValue !== 'string') return current;
-      
-      return Math.abs(currentSeconds - inputSeconds) 
-        Math.abs(timeToSeconds(closestValue) - inputSeconds)
-        ? current
-        : closest;
-    }, races[0]);
-    
-    setParams(closestRace.Params);
+    // Calculate closest race params
+    const foundParams = findClosestRaceParams(selectedTime, selectedDistance);
+    setParams(foundParams);
   }, [selectedTime, selectedDistance]);
 
   useEffect(() => {
     // Update paces based on params
-    if (!params || !memoizedFoundPaces) {
-      setSelectedPaces(null);
-      return;
-    }
+    const paceValues = findPaceValues(params);
+    setSelectedPaces(paceValues);
+  }, [params]);
 
-    const { Params, ...pacesWithoutParams } = memoizedFoundPaces;
-    const validPaces = Object.fromEntries(
-      Object.entries(pacesWithoutParams).filter(([_, value]) => value !== undefined)
-    ) as Record<string, string>;
-    
-    setSelectedPaces(validPaces);
-  }, [params, memoizedFoundPaces]);
-
-  // Usar o useMemo para evitar recálculos desnecessários
+  // Organizar dados em semanas - usando memoização
   const organizedWeeklyBlocks = useMemo(() => {
-    // Sinaliza início do processamento pesado
     setIsLoading(true);
-    
-    const blocks: WeeklyBlock[] = [];
-    let currentWeek: WeeklyBlock = {
-      weekStart: format(parseISO(startDate), "yyyy-MM-dd"),
-      days: [],
-    };
-
-    plan.dailyWorkouts.forEach((day, index) => {
-      const date = addDays(parseISO(startDate), index);
-      const formattedDate = format(date, "EEEE, d 'de' MMMM", { locale: ptBR });
-
-      if (index !== 0 && index % 7 === 0) {
-        blocks.push(currentWeek);
-        currentWeek = {
-          weekStart: format(date, "yyyy-MM-dd"),
-          days: [],
-        };
-      }
-
-      currentWeek.days.push({
-        date: formattedDate,
-        activities: day.activities.map(activity => ({
-          ...activity,
-          type: activity.type as TypeActivity['type']
-        })),
-        note: day.note,
-        isToday: isToday(date),
-        isPast: isPast(date),
-      });
-    });
-    
-    blocks.push(currentWeek);
+    const blocks = organizePlanIntoWeeklyBlocks(plan.dailyWorkouts, startDate);
     setIsLoading(false);
     return blocks;
   }, [startDate, plan.dailyWorkouts]);
@@ -368,9 +249,11 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
               />
 
               {isLoading ? (
-                <div className="flex items-center justify-center p-12">
-                  <Loader2 className="h-8 w-8 animate-spin mr-2" />
-                  <span>Carregando plano de treino...</span>
+                // Mostrar múltiplos esqueletos durante o carregamento inicial
+                <div className="space-y-1">
+                  {[...Array(3)].map((_, index) => (
+                    <WeekSkeleton key={index} />
+                  ))}
                 </div>
               ) : (
                 <div className="grid grid-cols-1 gap-1 p-2">
@@ -398,14 +281,11 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
 // Static Site Generation
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
-    // Função otimizada que busca apenas os paths, não os planos completos
-    const planPaths = await getAllPlanPaths();
+    // Buscar os planos com dados resumidos para gerar os paths
+    const plans = await getAllPlans({ fields: 'summary' });
     
-    // Filtramos apenas os planos que não começam com 'treino/'
-    const runPlanPaths = planPaths.filter(path => !path.startsWith('treino/'));
-    
-    const paths = runPlanPaths.map((path) => ({
-      params: { planPath: path },
+    const paths = plans.map((plan) => ({
+      params: { planPath: plan.path },
     }));
     
     return { 
@@ -423,7 +303,7 @@ export const getStaticProps: GetStaticProps<PlanProps> = async ({ params }) => {
     // Aqui precisamos do plano completo com dailyWorkouts
     const plan = await getPlanByPath(params?.planPath as string, { fields: 'full' });
     
-    if (!plan || !["iniciante", "intermediário", "avançado", "elite"].includes(plan.nivel)) {
+    if (!plan || !plan.nivel || !["iniciante", "intermediário", "avançado", "elite"].includes(plan.nivel)) {
       return { notFound: true };
     }
 
