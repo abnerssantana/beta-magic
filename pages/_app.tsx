@@ -4,7 +4,6 @@ import { ThemeProvider } from 'next-themes';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import { AutoAdSense } from '@/components/AutoAdSense';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
@@ -49,7 +48,6 @@ function Magic({ Component, pageProps: { session, ...pageProps } }: AppPropsWith
         </Head>
         <GoogleAnalytics gaId="G-4H63PT4LXH" />
         <SpeedInsights />
-        <AutoAdSense />
         <SessionProvider session={session}>
           {getLayout(<Component {...pageProps} />)}
         </SessionProvider>
