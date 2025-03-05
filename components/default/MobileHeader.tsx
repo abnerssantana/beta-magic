@@ -76,7 +76,6 @@ export function MobileHeader({ onScrollToToday }: MobileHeaderProps) {
                   className="md:hidden rounded-lg hover:bg-muted/50"
                 >
                   <Menu className="h-5 w-5" />
-                  <span className="sr-only">Toggle menu</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="w-72 p-0 rounded-r-lg">

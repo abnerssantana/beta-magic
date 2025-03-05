@@ -83,10 +83,7 @@ const FeaturedPlans = ({ plans }: { plans: PlanSummary[] }) => (
               transition={{ duration: 0.2 }}
               layout
             >
-              <a
-                href={`/plano/${plan.path}`}
-                className="block h-full"
-              >
+              <a href={`/plano/${plan.path}`} className="block h-full">
                 <div className="group relative hover:shadow-md transition-all duration-300 h-full bg-white dark:bg-muted/30 border-border/40 hover:border-border/90 overflow-hidden flex flex-col rounded-lg border">
                   <div className="p-5 flex flex-col h-full space-y-4">
                     {/* Header Section */}
