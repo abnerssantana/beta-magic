@@ -1,11 +1,20 @@
-// Versão alternativa simplificada do NavUser
+"use client"
+
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSession, signOut } from 'next-auth/react';
+import {
+  LayoutDashboard,
+  User,
+  Shield,
+  Settings,
+  LogOut,
+  ChevronsUpDown,
+  Sparkles
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ChevronsUpDown, User, Shield, Settings, LogOut } from 'lucide-react';
 
 export function NavUser() {
   const { data: session, status } = useSession();
@@ -48,58 +57,120 @@ export function NavUser() {
 
   return (
     <div className="px-3 py-4 mt-2 relative">
+      {/* Toggle Button */}
       <Button
         variant="outline"
         size="lg"
-        className="w-full h-auto justify-between py-2 px-3 rounded-lg"
+        className="w-full h-auto justify-between py-2 px-3 rounded-lg border-border/40 bg-muted/10 hover:bg-muted/30 transition-all duration-200"
         onClick={() => setIsOpen(!isOpen)}
       >
         <Avatar className="h-8 w-8 rounded-lg">
           <AvatarImage 
             src={session.user?.image || ""} 
             alt={session.user?.name || "User"} 
+            className="object-cover rounded-lg"
           />
-          <AvatarFallback className="bg-primary/10 text-primary">
+          <AvatarFallback className="rounded-lg bg-primary/10 text-primary text-xs font-medium">
             {getInitials()}
           </AvatarFallback>
         </Avatar>
-        <div className="grid flex-1 text-left text-sm ml-3">
-          <span className="truncate font-semibold">{session.user?.name}</span>
+        <div className="grid flex-1 text-left text-sm leading-tight ml-3">
+          <span className="truncate font-semibold text-foreground">{session.user?.name}</span>
           <span className="truncate text-xs text-muted-foreground">{session.user?.email}</span>
         </div>
-        <ChevronsUpDown className="ml-auto h-4 w-4" />
+        <ChevronsUpDown className="ml-auto size-4 text-muted-foreground" />
       </Button>
       
+      {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-full left-3 right-3 mt-2 bg-background border border-border rounded-lg shadow-lg z-50">
-          <div className="p-2 flex flex-col space-y-1">
-            <Link href="/admin/perfil" className="flex items-center p-2 rounded-md hover:bg-muted">
-              <User className="mr-2 h-4 w-4" />
-              <span>Meu Perfil</span>
-            </Link>
-            
-            {isAdmin && (
-              <Link href="/admin" className="flex items-center p-2 rounded-md hover:bg-muted">
-                <Shield className="mr-2 h-4 w-4" />
-                <span>Painel Admin</span>
-              </Link>
-            )}
-            
-            <Link href="/admin/configuracoes" className="flex items-center p-2 rounded-md hover:bg-muted">
-              <Settings className="mr-2 h-4 w-4" />
-              <span>Configurações</span>
-            </Link>
-            
-            <hr className="my-1 border-border/50" />
-            
-            <button 
-              onClick={() => signOut({ callbackUrl: '/' })}
-              className="flex items-center p-2 rounded-md text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30"
-            >
-              <LogOut className="mr-2 h-4 w-4" />
-              <span>Sair da conta</span>
-            </button>
+        <div className="absolute z-50 top-full left-3 right-3 -mt-3 bg-background border border-border rounded-lg shadow-lg">
+          {/* Menu Header */}
+          <div className="p-3 border-b border-border">
+            <div className="flex items-center gap-2">
+              <Avatar className="h-8 w-8 rounded-lg">
+                <AvatarImage 
+                  src={session.user?.image || ""} 
+                  alt={session.user?.name || "User"} 
+                  className="object-cover rounded-lg"
+                />
+                <AvatarFallback className="rounded-lg bg-primary/10 text-primary text-xs font-medium">
+                  {getInitials()}
+                </AvatarFallback>
+              </Avatar>
+              <div className="grid flex-1 text-left text-sm leading-tight">
+                <span className="truncate font-semibold text-foreground">{session.user?.name}</span>
+                <span className="truncate text-xs text-muted-foreground">{session.user?.email}</span>
+              </div>
+            </div>
           </div>
+
+          {/* Dashboard Link */}
+          <Link 
+            href="/dashboard" 
+            className="flex items-center gap-2 p-2.5 text-sm hover:bg-muted rounded-md mx-1 my-1"
+            onClick={() => setIsOpen(false)}
+          >
+            <LayoutDashboard className="h-4 w-4 text-muted-foreground" />
+            <span>Dashboard</span>
+          </Link>
+          
+          <div className="border-t border-border my-1"></div>
+          
+          {/* Upgrade Section */}
+          <Link 
+            href="/apoiar" 
+            className="flex items-center gap-2 p-2.5 text-sm hover:bg-muted rounded-md mx-1 my-1"
+            onClick={() => setIsOpen(false)}
+          >
+            <Sparkles className="h-4 w-4 text-muted-foreground" />
+            <span>Upgrade Premium</span>
+          </Link>
+          
+          <div className="border-t border-border my-1"></div>
+          
+          {/* User Options */}
+          <Link 
+            href="/admin/perfil" 
+            className="flex items-center gap-2 p-2.5 text-sm hover:bg-muted rounded-md mx-1 my-1"
+            onClick={() => setIsOpen(false)}
+          >
+            <User className="h-4 w-4 text-muted-foreground" />
+            <span>Meu Perfil</span>
+          </Link>
+          
+          {isAdmin && (
+            <Link 
+              href="/admin" 
+              className="flex items-center gap-2 p-2.5 text-sm hover:bg-muted rounded-md mx-1 my-1"
+              onClick={() => setIsOpen(false)}
+            >
+              <Shield className="h-4 w-4 text-muted-foreground" />
+              <span>Painel Admin</span>
+            </Link>
+          )}
+          
+          <Link 
+            href="/admin/configuracoes" 
+            className="flex items-center gap-2 p-2.5 text-sm hover:bg-muted rounded-md mx-1 my-1"
+            onClick={() => setIsOpen(false)}
+          >
+            <Settings className="h-4 w-4 text-muted-foreground" />
+            <span>Configurações</span>
+          </Link>
+          
+          <div className="border-t border-border my-1"></div>
+          
+          {/* Logout */}
+          <button 
+            className="flex w-full items-center gap-2 p-2.5 text-sm hover:bg-red-50 dark:hover:bg-red-950/30 text-red-500 dark:text-red-400 rounded-md mx-1 my-1"
+            onClick={() => {
+              setIsOpen(false);
+              signOut({ callbackUrl: '/' });
+            }}
+          >
+            <LogOut className="h-4 w-4" />
+            <span>Sair da conta</span>
+          </button>
         </div>
       )}
     </div>
