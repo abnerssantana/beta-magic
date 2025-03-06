@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 import { useSession, getSession } from 'next-auth/react';
-import { getUserActivePlan, getUserSummary, getUserCustomPaces } from '@/lib/user-utils';
+import { getUserActivePlan, getUserSummary, getUserCustomPaces, getUserWorkouts } from '@/lib/user-utils';
 import { getPlanByPath } from '@/lib/db-utils';
 import { calculateActivityPace } from '@/lib/activity-pace.utils';
 import {
@@ -9,7 +9,7 @@ import {
   organizePlanIntoWeeklyBlocks
 } from '@/lib/plan-utils';
 import { Activity } from '@/types';
-
+import { WorkoutLog } from '@/models/userProfile';
 
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
@@ -42,6 +42,7 @@ interface DashboardProps {
     streakDays: number;
     nextMilestone: string;
   };
+  completedWorkouts: WorkoutLog[];
 }
 
 const Dashboard: React.FC<DashboardProps> = ({
@@ -49,7 +50,8 @@ const Dashboard: React.FC<DashboardProps> = ({
   fullPlan,
   todayWorkout,
   weekProgress,
-  userSummary
+  userSummary,
+  completedWorkouts
 }) => {
   const { data: session } = useSession();
   const [currentDate, setCurrentDate] = useState("");
@@ -122,13 +124,15 @@ const Dashboard: React.FC<DashboardProps> = ({
             <ActivePlanCard activePlan={activePlan} weekProgress={weekProgress} />
 
             {/* Registro de Atividades Recentes */}
-            <RecentActivities />
+            <RecentActivities completedWorkouts={completedWorkouts} />
           </TabsContent>
-          {/* Calendário - substitui a aba de Treino de Hoje */}
+
+          {/* Calendário - Mostra a semana atual de treinos e permite navegar entre semanas */}
           <TabsContent value="calendar" className="space-y-4">
             <TrainingCalendar
               activePlan={activePlan}
               planWorkouts={fullPlan?.dailyWorkouts || null}
+              completedWorkouts={completedWorkouts}
             />
           </TabsContent>
 
@@ -159,6 +163,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const userId = session.user.id;
     const activePlan = await getUserActivePlan(userId);
     const userSummary = await getUserSummary(userId);
+    
+    // Buscar treinos completados pelo usuário
+    const completedWorkouts = await getUserWorkouts(userId);
 
     // Buscar o plano completo com workouts se existir um plano ativo
     let fullPlan = null;
@@ -202,7 +209,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           );
 
           // Extrair os ritmos personalizados do formato correto
-          // Os ritmos personalizados estão no formato "custom_X Km" no objeto userPaces
           const formattedUserPaces = { ...userPaces };
 
           // Calcular o ritmo com a função melhorada
@@ -225,9 +231,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       }
     }
 
-    // Calcular progresso semanal (simplificado para demonstração)
-    // Em uma implementação completa, isso seria baseado nos treinos concluídos
-    const weekProgress = 40;
+    // Calcular progresso semanal com base nos treinos completados
+    // Esta é uma versão simplificada - idealmente seria baseada nos treinos previstos vs. realizados
+    const today = new Date();
+    const startOfWeek = new Date(today);
+    startOfWeek.setDate(today.getDate() - today.getDay() + (today.getDay() === 0 ? -6 : 1)); // Ajuste para começar na segunda-feira
+    
+    const workoutsThisWeek = completedWorkouts.filter(workout => {
+      const workoutDate = new Date(workout.date);
+      return workoutDate >= startOfWeek && workoutDate <= today;
+    });
+    
+    // Assumindo que deveria haver um treino por dia, 7 treinos na semana
+    const targetWorkouts = 7; 
+    const weekProgress = Math.min(Math.round((workoutsThisWeek.length / targetWorkouts) * 100), 100);
 
     return {
       props: {
@@ -235,7 +252,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         fullPlan: fullPlan ? JSON.parse(JSON.stringify(fullPlan)) : null,
         todayWorkout: todayWorkout ? JSON.parse(JSON.stringify(todayWorkout)) : null,
         weekProgress,
-        userSummary
+        userSummary,
+        completedWorkouts: JSON.parse(JSON.stringify(completedWorkouts))
       },
     };
   } catch (error) {
@@ -252,7 +270,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           completedWorkouts: 0,
           streakDays: 0,
           nextMilestone: "5K"
-        }
+        },
+        completedWorkouts: []
       },
     };
   }

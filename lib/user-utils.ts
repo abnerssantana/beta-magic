@@ -187,3 +187,28 @@ export async function getUserPlans(userId: string) {
     };
   }
 }
+
+/**
+ * Obtém os treinos registrados do usuário
+ * @param userId ID do usuário
+ * @returns Array de treinos registrados
+ */
+export async function getUserWorkouts(userId: string): Promise<WorkoutLog[]> {
+  try {
+    const client = await clientPromise;
+    const db = client.db('magic-training');
+    
+    // Buscar todos os treinos do usuário, ordenados por data (mais recentes primeiro)
+    const workouts = await db
+      .collection<WorkoutLog>('workouts')
+      .find({ userId })
+      .sort({ date: -1 })
+      .toArray();
+    
+    return workouts;
+    
+  } catch (error) {
+    console.error('Erro ao buscar treinos do usuário:', error);
+    return [];
+  }
+}

@@ -1,7 +1,6 @@
-// components/dashboard/TrainingCalendar.tsx
 import React, { useState, useEffect } from 'react';
 import Link from "next/link";
-import { format, addDays, isToday, isPast, startOfWeek, endOfWeek, eachDayOfInterval } from 'date-fns';
+import { format, addDays, isToday, isPast, startOfWeek, endOfWeek, eachDayOfInterval, isSameDay } from 'date-fns';
 import { ptBR } from 'date-fns/locale/pt-BR';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -9,18 +8,23 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Calendar as CalendarIcon, ChevronLeft, ChevronRight, Clock, Activity, CheckCircle } from 'lucide-react';
 import { PlanSummary } from '@/models';
+import { WorkoutLog } from '@/models/userProfile';
+import WorkoutDetailsModal from '@/components/dashboard/WorkoutDetailsModal';
 
 interface TrainingCalendarProps {
   activePlan: PlanSummary | null;
   planWorkouts: any[] | null;
+  completedWorkouts?: WorkoutLog[];
 }
 
-export function TrainingCalendar({ activePlan, planWorkouts }: TrainingCalendarProps) {
+export function TrainingCalendar({ activePlan, planWorkouts, completedWorkouts = [] }: TrainingCalendarProps) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [weekDays, setWeekDays] = useState<Date[]>([]);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    // Definir os dias da semana atual
+    // Define the days of the current week
     const startDate = startOfWeek(currentDate, { weekStartsOn: 1 });
     const endDate = endOfWeek(currentDate, { weekStartsOn: 1 });
     
@@ -40,7 +44,7 @@ export function TrainingCalendar({ activePlan, planWorkouts }: TrainingCalendarP
     setCurrentDate(new Date());
   };
 
-  // Mapear o tipo de atividade para uma cor específica
+  // Map activity type to a specific color
   const getActivityColor = (activityType: string) => {
     const types: {[key: string]: string} = {
       'easy': 'bg-green-500/10 text-green-700 dark:text-green-300 border-green-500/30',
@@ -58,19 +62,34 @@ export function TrainingCalendar({ activePlan, planWorkouts }: TrainingCalendarP
     return types[activityType] || 'bg-gray-500/10 text-gray-700 dark:text-gray-300 border-gray-500/30';
   };
 
-  // Calcular dia e índice no plano de treino - simplificado para demonstração
-  const getPlanDayIndex = (date: Date) => {
-    return Math.floor(Math.random() * (planWorkouts?.length || 0));
+  // Calculate day index in the training plan - simplified for demonstration
+  const getPlanDay = (date: Date) => {
+    if (!planWorkouts) return null;
+    
+    // This is a simplified approach. In a real implementation, you would:
+    // 1. Calculate the difference in days between the plan start date and the provided date
+    // 2. Get the corresponding day in the plan based on this difference
+    
+    // For demonstration, we'll use a simple algorithm
+    // Get the day of the week (0-6)
+    const dayOfWeek = date.getDay();
+    
+    // If workouts exist, return the corresponding day's workout or null
+    return planWorkouts[dayOfWeek] ? planWorkouts[dayOfWeek].activities : null;
   };
 
-  // Obter atividades para um dia específico
-  const getDayActivities = (date: Date) => {
-    if (!planWorkouts) return [];
-    
-    const dayIndex = getPlanDayIndex(date);
-    if (dayIndex < 0 || dayIndex >= planWorkouts.length) return [];
-    
-    return planWorkouts[dayIndex].activities || [];
+  // Get completed workouts for a specific date
+  const getCompletedWorkoutsForDate = (date: Date) => {
+    return completedWorkouts.filter(workout => {
+      const workoutDate = new Date(workout.date);
+      return isSameDay(workoutDate, date);
+    });
+  };
+
+  // Handle day click to open the modal
+  const handleDayClick = (date: Date) => {
+    setSelectedDate(date);
+    setIsModalOpen(true);
   };
 
   return (
@@ -102,48 +121,64 @@ export function TrainingCalendar({ activePlan, planWorkouts }: TrainingCalendarP
             </CardHeader>
             <CardContent className="pt-0">
               <div className="grid grid-cols-7 gap-2">
-                {weekDays.map((day, index) => (
-                  <div
-                    key={index}
-                    className={`
-                      min-h-[150px] p-2 rounded-lg border
-                      ${isToday(day) ? 'border-primary ring-1 ring-primary/20 bg-primary/5' : 'border-border'}
-                    `}
-                  >
-                    <div className="text-center mb-1">
-                      <div className="text-xs uppercase text-muted-foreground">
-                        {format(day, 'EEEE', { locale: ptBR })}
-                      </div>
-                      <div className={`text-lg font-bold ${isToday(day) ? 'text-primary' : ''}`}>
-                        {format(day, 'd', { locale: ptBR })}
-                      </div>
-                    </div>
-                    
-                    <Separator className="my-1" />
-                    
-                    <div className="space-y-1">
-                      {getDayActivities(day).map((activity: any, actIndex: number) => (
-                        <div
-                          key={actIndex}
-                          className={`text-xs p-1 rounded ${getActivityColor(activity.type)} flex justify-between items-center`}
-                        >
-                          <span className="font-medium truncate">{activity.type}</span>
-                          <span>{activity.distance} {activity.units}</span>
-                          
-                          {isPast(day) && (
-                            <CheckCircle className="h-3 w-3 text-green-500" />
-                          )}
+                {weekDays.map((day, index) => {
+                  // Get activities for this day
+                  const activities = getPlanDay(day);
+                  const dayCompletedWorkouts = getCompletedWorkoutsForDate(day);
+                  const hasCompletedWorkouts = dayCompletedWorkouts.length > 0;
+                  
+                  return (
+                    <div
+                      key={index}
+                      className={`
+                        min-h-[150px] p-2 rounded-lg border cursor-pointer
+                        ${isToday(day) ? 'border-primary ring-1 ring-primary/20 bg-primary/5' : 'border-border'}
+                        hover:bg-muted/20 transition-colors duration-200
+                      `}
+                      onClick={() => handleDayClick(day)}
+                    >
+                      <div className="text-center mb-1">
+                        <div className="text-xs uppercase text-muted-foreground">
+                          {format(day, 'EEEE', { locale: ptBR })}
                         </div>
-                      ))}
+                        <div className={`text-lg font-bold ${isToday(day) ? 'text-primary' : ''}`}>
+                          {format(day, 'd', { locale: ptBR })}
+                        </div>
+                      </div>
                       
-                      {getDayActivities(day).length === 0 && (
-                        <div className="text-xs text-muted-foreground text-center p-2">
-                          Descanso
-                        </div>
-                      )}
+                      <Separator className="my-1" />
+                      
+                      <div className="space-y-1">
+                        {activities && activities.map((activity: any, actIndex: number) => (
+                          <div
+                            key={actIndex}
+                            className={`text-xs p-1 rounded ${getActivityColor(activity.type)} flex justify-between items-center`}
+                          >
+                            <span className="font-medium truncate">{activity.type}</span>
+                            <span>{activity.distance} {activity.units}</span>
+                            
+                            {isPast(day) && (
+                              <CheckCircle className="h-3 w-3 text-green-500" />
+                            )}
+                          </div>
+                        ))}
+                        
+                        {hasCompletedWorkouts && (
+                          <div className="text-xs bg-green-500/10 border border-green-500/20 rounded p-1 flex justify-between mt-1">
+                            <span className="font-medium">Treino realizado</span>
+                            <span>{dayCompletedWorkouts.length}</span>
+                          </div>
+                        )}
+                        
+                        {!activities && !hasCompletedWorkouts && (
+                          <div className="text-xs text-muted-foreground text-center p-2">
+                            Descanso
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </CardContent>
           </Card>
@@ -196,6 +231,20 @@ export function TrainingCalendar({ activePlan, planWorkouts }: TrainingCalendarP
           </CardContent>
         </Card>
       )}
+
+      {/* Workout Details Modal */}
+      {selectedDate && (
+        <WorkoutDetailsModal
+          open={isModalOpen}
+          onOpenChange={setIsModalOpen}
+          date={selectedDate}
+          plannedActivities={getPlanDay(selectedDate) || []}
+          completedWorkouts={getCompletedWorkoutsForDate(selectedDate)}
+          activePlanPath={activePlan?.path}
+        />
+      )}
     </div>
   );
 }
+
+export default TrainingCalendar;
