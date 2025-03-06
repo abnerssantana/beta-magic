@@ -34,8 +34,12 @@ interface ConfigurePacesProps {
 
 export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: ConfigurePacesProps) {
   // Main states
-  const [baseTime, setBaseTime] = useState(customPaces["baseTime"] || "00:19:57");
-  const [baseDistance, setBaseDistance] = useState(customPaces["baseDistance"] || "5km");
+  // Use default time based on selected distance
+  const initialDistance = customPaces["baseDistance"] || "5km";
+  const initialTime = customPaces["baseTime"] || defaultTimes[initialDistance] || "00:19:57";
+  
+  const [baseTime, setBaseTime] = useState(initialTime);
+  const [baseDistance, setBaseDistance] = useState(initialDistance);
   const [params, setParams] = useState<number | null>(null);
   const [paceSettings, setPaceSettings] = useState<PaceSetting[]>([]);
   const [allPaces, setAllPaces] = useState<Record<string, string> | null>(null);
@@ -64,6 +68,17 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
     return pace.value.replace(/\/km$/, '').trim();
   };
 
+  // Handle distance change and update default time accordingly
+  const handleDistanceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newDistance = e.target.value;
+    setBaseDistance(newDistance);
+    
+    // If the time wasn't customized or is invalid, set the default time for this distance
+    if (!customPaces["baseTime"] || !isValidPace(baseTime)) {
+      setBaseTime(defaultTimes[newDistance] || "00:00:00");
+    }
+  };
+
   // Update parameters when base time changes
   useEffect(() => {
     const newParams = findClosestRaceParams(baseTime, baseDistance);
@@ -74,28 +89,68 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
   useEffect(() => {
     if (params !== null) {
       const calculatedPaces = findPaceValues(params);
-      setAllPaces(calculatedPaces);
-
-      // Transform into pace settings
+      
       if (calculatedPaces) {
-        // Map only essential paces
-        const settings: PaceSetting[] = essentialPaces
-          .map(key => {
-            const isCustomKey = `custom_${key}`;
-            const customValue = customPaces[isCustomKey];
-            const defaultValue = calculatedPaces[key] || "00:00";
-            
-            return {
-              name: key,
-              value: customValue && isValidPace(customValue) ? customValue : defaultValue,
-              default: defaultValue,
-              isCustom: !!(customValue && isValidPace(customValue)),
-              description: paceDescriptions[key] || ""
-            };
-          })
-          .filter(setting => isValidPace(setting.default)); // Filter only valid paces
+        setAllPaces(calculatedPaces);
         
-        setPaceSettings(settings);
+        // Create settings array with all essential paces
+        const settings: PaceSetting[] = [];
+        
+        // Process all essential paces
+        essentialPaces.forEach(key => {
+          const isCustomKey = `custom_${key}`;
+          const customValue = customPaces[isCustomKey];
+          const defaultValue = calculatedPaces[key] || "";
+          
+          // Use the pace from pace-manager, or fall back to a default
+          settings.push({
+            name: key,
+            value: customValue && isValidPace(customValue) ? customValue : defaultValue,
+            default: defaultValue,
+            isCustom: !!(customValue && isValidPace(customValue)),
+            description: paceDescriptions[key] || ""
+          });
+        });
+        
+        // Filter out invalid paces
+        const validSettings = settings.filter(setting => isValidPace(setting.default) || isValidPace(setting.value));
+        
+        // If the filtered list doesn't include Recovery Km or Easy Km, add them with defaults
+        const hasRecovery = validSettings.some(p => p.name === "Recovery Km");
+        const hasEasy = validSettings.some(p => p.name === "Easy Km");
+        
+        if (!hasRecovery) {
+          validSettings.unshift({
+            name: "Recovery Km",
+            value: customPaces["custom_Recovery Km"] || "6:00",
+            default: "6:00",
+            isCustom: !!customPaces["custom_Recovery Km"],
+            description: paceDescriptions["Recovery Km"] || "Ritmo muito leve para recuperação ativa"
+          });
+        }
+        
+        if (!hasEasy) {
+          // Insert after Recovery Km
+          const insertIndex = validSettings.findIndex(p => p.name === "Recovery Km") + 1;
+          validSettings.splice(insertIndex, 0, {
+            name: "Easy Km",
+            value: customPaces["custom_Easy Km"] || "5:30",
+            default: "5:30",
+            isCustom: !!customPaces["custom_Easy Km"],
+            description: paceDescriptions["Easy Km"] || "Ritmo fácil - use para a maioria dos treinos"
+          });
+        }
+        
+        // Sort to ensure Recovery and Easy are first
+        validSettings.sort((a, b) => {
+          if (a.name === "Recovery Km") return -1;
+          if (b.name === "Recovery Km") return 1;
+          if (a.name === "Easy Km") return -1;
+          if (b.name === "Easy Km") return 1;
+          return 0;
+        });
+        
+        setPaceSettings(validSettings);
       }
     }
   }, [params, customPaces]);
@@ -177,7 +232,7 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
       
       // Add custom paces
       paceSettings.forEach(setting => {
-        if (setting.isCustom) {
+        if (setting.isCustom || setting.name === "Recovery Km" || setting.name === "Easy Km") {
           settingsToSave[`custom_${setting.name}`] = setting.value;
         }
       });
@@ -256,7 +311,7 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
                   <select
                     id="baseDistance"
                     value={baseDistance}
-                    onChange={(e) => setBaseDistance(e.target.value)}
+                    onChange={handleDistanceChange}
                     className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     <option value="5km">5km</option>
