@@ -36,18 +36,16 @@ interface TPPlanPageProps {
 
 // Mapeamento dos tipos de atividade para zonas do TrainingPeaks
 const activityToZoneMap = {
-    'easy': { zone: 'Z2', name: 'Fácil', percent: '114-129%' },
-    'recovery': { zone: 'Z1', name: 'Recuperação', percent: '130-150%' },
-    'threshold': { zone: 'Z4', name: 'Limiar', percent: '98-102%' },
-    'interval': { zone: 'Z5a', name: 'VO2max', percent: '90-97%' },
+    'easy': { zone: 'Z2', name: 'Fácil', percent: '60-76%' },
+    'recovery': { zone: 'Z1', name: 'Recuperação', percent: '76-85%' },
+    'threshold': { zone: 'Z4', name: 'Limiar', percent: '85-95%' },
+    'interval': { zone: 'Z5a', name: 'VO2max', percent: '95-105%' },
     'repetition': { zone: 'Z5b', name: 'Anaeróbico', percent: '85-89%' },
     'race': { zone: 'Z4', name: 'Limiar', percent: '98-102%' },
     'marathon': { zone: 'Z3', name: 'Moderado', percent: '106-113%' },
     'long': { zone: 'Z2', name: 'Fácil', percent: '114-129%' }
   };
 
-
-// Obter a zona do TrainingPeaks para uma atividade
 // Obter a zona do TrainingPeaks para uma atividade
 const getTPZone = (activityType: string) => {
     return activityToZoneMap[activityType] || { zone: 'Off', name: '', percent: 'Sem ritmo' };
@@ -63,7 +61,7 @@ const getTPZone = (activityType: string) => {
       'Z5a': 'bg-red-500/10 text-red-600 border-red-200',
       'Z5b': 'bg-purple-500/10 text-purple-600 border-purple-200',
       'Z5c': 'bg-pink-500/10 text-pink-600 border-pink-200',
-      'off': 'bg-pink-500/10 text-white border-black'
+      'off': 'bg-black text-white border-black'
     };
     return colors[zone] || colors['off'];
   };
