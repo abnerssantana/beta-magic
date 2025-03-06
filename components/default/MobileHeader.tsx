@@ -4,20 +4,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
-import { useSession, signOut } from 'next-auth/react';
-import { Menu, Calendar, User, Shield, Settings, LogOut, ChevronsUpDown, Sparkles } from 'lucide-react';
+import { useSession } from 'next-auth/react';
+import { Menu, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Sidebar } from './Sidebar';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 interface MobileHeaderProps {
   onScrollToToday?: () => void;
