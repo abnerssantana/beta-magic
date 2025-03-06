@@ -47,24 +47,32 @@ const activityToZoneMap = {
   };
 
 // Obter a zona do TrainingPeaks para uma atividade
-const getTPZone = (activityType: string) => {
-    return activityToZoneMap[activityType] || { zone: 'Off', name: '', percent: 'Sem ritmo' };
-  };
+type ActivityType = 'easy' | 'recovery' | 'threshold' | 'interval' | 'repetition' | 'race' | 'marathon' | 'long';
+
+const getTPZone = (activityType: ActivityType) => {
+  return activityToZoneMap[activityType] || { zone: 'Off', name: '', percent: 'Sem ritmo' };
+};
+
   
   // Obter a cor da badge baseada na zona
+  
+  type TPZone = 'Z1' | 'Z2' | 'Z3' | 'Z4' | 'Z5a' | 'Z5b' | 'Z5c' | 'off';
+
   const getZoneColor = (zone: string) => {
-    const colors = {
-      'Z1': 'bg-blue-500/10 text-blue-600 border-blue-200',
-      'Z2': 'bg-green-500/10 text-green-600 border-green-200',
-      'Z3': 'bg-yellow-500/10 text-yellow-600 border-yellow-200',
-      'Z4': 'bg-orange-500/10 text-orange-600 border-orange-200',
-      'Z5a': 'bg-red-500/10 text-red-600 border-red-200',
-      'Z5b': 'bg-purple-500/10 text-purple-600 border-purple-200',
-      'Z5c': 'bg-pink-500/10 text-pink-600 border-pink-200',
-      'off': 'bg-black text-white border-black'
+    const colors: Record<TPZone, string> = {
+      Z1: 'bg-blue-500/10 text-blue-600 border-blue-200',
+      Z2: 'bg-green-500/10 text-green-600 border-green-200',
+      Z3: 'bg-yellow-500/10 text-yellow-600 border-yellow-200',
+      Z4: 'bg-orange-500/10 text-orange-600 border-orange-200',
+      Z5a: 'bg-red-500/10 text-red-600 border-red-200',
+      Z5b: 'bg-purple-500/10 text-purple-600 border-purple-200',
+      Z5c: 'bg-pink-500/10 text-pink-600 border-pink-200',
+      off: 'bg-black text-white border-black',
     };
-    return colors[zone] || colors['off'];
+  
+    return colors[zone as TPZone] || colors.off;
   };
+  
 
 const TrainingPeaksPlanPage: React.FC<TPPlanPageProps> = ({ plan }) => {
   const [thresholdPace, setThresholdPace] = useState("4:00");
