@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Slider } from "@/components/ui/slider";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Info, BarChart2, Percent, Activity, Heart } from "lucide-react";
+import { Info, BarChart2, Percent, Activity, Heart, Calculator } from "lucide-react";
 import { races, paces } from "@/lib/PacesRaces";
 import VO2maxIndicator from '@/components/default/VO2maxConfig';
 import Head from 'next/head';
@@ -24,7 +24,7 @@ interface PaceIntensities {
 }
 
 // Componente principal
-const VDOTIntensityConverter: React.FC = () => {
+const VDOTCalculator: React.FC = () => {
   // Estados
   const [vdot, setVdot] = useState<number>(50);
   const [thresholdPace, setThresholdPace] = useState<string>("4:00");
@@ -141,7 +141,7 @@ const VDOTIntensityConverter: React.FC = () => {
 
         return closestRace.Params;
     } catch (error) {
-        console.error("Erro ao encontrar VDOT:", error);
+        console.error("Erro ao calcular VDOT:", error);
         return null;
     }
 };
@@ -226,44 +226,44 @@ const VDOTIntensityConverter: React.FC = () => {
   return (
     <Layout>
       <Head>
-        <title>Conversor de Intensidades VDOT - Magic Training</title>
-        <meta 
-          name="description" 
-          content="Converta ritmos de corrida para percentagem do limiar baseado no VDOT de Jack Daniels" 
+      <title>Calculadora de Ritmos de Corrida e Zonas de FC - Magic Training</title>
+        <meta
+          name="description"
+          content="Otimize seus treinos de corrida com a Calculadora de Ritmos e Zonas de Frequência Cardíaca."
         />
       </Head>
 
       <div className="space-y-6">
         <div className="flex flex-col space-y-2">
-          <h1 className="text-2xl font-bold tracking-tight">Conversor de Intensidades VDOT</h1>
+          <h1 className="text-2xl font-bold tracking-tight">Calculadora</h1>
           <p className="text-muted-foreground">
-            Converta ritmos de corrida para percentagem do limiar baseado na metodologia VDOT de Jack Daniels
+          Otimize seus treinos de corrida com a Calculadora de Ritmos, Calculadora de Zonas de Treinamento, Zonas de Frequência Cardíaca e Calculadora de Equivalências Fisiológicas.
           </p>
         </div>
 
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Heart className="h-5 w-5 text-primary" />
-              Configuração VDOT
+              <Calculator className="h-5 w-5 text-primary" />
+              Cálculo de VDOT
             </CardTitle>
             <CardDescription>
-              Escolha seu valor VDOT ou calcule-o a partir do seu tempo em uma distância específica
+              Calcule seu VDOT inserindo seu tempo em uma corrida recente ou selecione um valor diretamente
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             {/* Seleção de método de entrada - Ordem das abas alterada */}
             <Tabs value={inputMethod} onValueChange={setInputMethod} className="w-full">
               <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="custom">Tempo em Corrida</TabsTrigger>
-                <TabsTrigger value="slider">VDOT Direto</TabsTrigger>
+                <TabsTrigger value="custom">Calcular por Desempenho</TabsTrigger>
+                <TabsTrigger value="slider">Selecionar Valor VDOT</TabsTrigger>
               </TabsList>
 
               {/* Cálculo com tempo e distância - primeira aba */}
               <TabsContent value="custom" className="space-y-4 pt-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">Distância</label>
+                    <label className="text-sm font-medium">Distância da Corrida</label>
                     <Select
                       value={customDistance}
                       onValueChange={setCustomDistance}
@@ -298,7 +298,7 @@ const VDOTIntensityConverter: React.FC = () => {
                 
                 <div className="bg-muted/20 p-3 rounded-lg">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm">VDOT calculado:</span>
+                    <span className="text-sm">Seu VDOT calculado:</span>
                     <Badge variant="outline" className="bg-primary/10 text-primary">
                       {vdot}
                     </Badge>
@@ -324,7 +324,7 @@ const VDOTIntensityConverter: React.FC = () => {
                     className="w-full"
                   />
                   <p className="text-xs text-muted-foreground">
-                    Arraste o slider para ajustar seu valor VDOT entre 30 e 85
+                    Ajuste o valor VDOT conforme sua condição atual ou objetivo de treinamento
                   </p>
                 </div>
               </TabsContent>
@@ -338,7 +338,7 @@ const VDOTIntensityConverter: React.FC = () => {
               <div className="space-y-4">
                 <h3 className="text-sm font-medium flex items-center gap-2">
                   <Activity className="h-4 w-4 text-primary" />
-                  Ritmos de Treinamento
+                  Seus Ritmos de Treinamento Calculados
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {trainingPaces.map(({ key, label, value }) => (
@@ -358,7 +358,7 @@ const VDOTIntensityConverter: React.FC = () => {
               <div className="space-y-2">
                 <h3 className="text-sm font-medium flex items-center gap-2">
                   <Activity className="h-4 w-4 text-primary" />
-                  Tempos Previstos (VDOT {vdot})
+                  Tempos Previstos em Provas
                 </h3>
                 <div className="grid grid-cols-4 gap-2">
                   {vdotRaceTimes.map((item) => (
@@ -380,22 +380,22 @@ const VDOTIntensityConverter: React.FC = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Percent className="h-5 w-5 text-primary" />
-              Intensidades de Treinamento
+              Calculadora de Zonas de Treinamento
             </CardTitle>
             <CardDescription>
-              Comparação entre as intensidades baseadas em porcentagem do ritmo de limiar
+              Visualize as zonas de intensidade e seus ritmos correspondentes baseados no seu limiar anaeróbico
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               <div className="bg-muted/20 p-3 rounded-lg">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="text-sm font-medium">Ritmo de Limiar (T):</span>
+                  <span className="text-sm font-medium">Seu Ritmo de Limiar (T):</span>
                   <Badge variant="outline" className="bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/30">
                     {thresholdPace}/km
                   </Badge>
                   <span className="text-sm text-muted-foreground">
-                    (100% do ritmo de limiar, ~88% VO2max)
+                    (Referência: 100% do limiar = aproximadamente 88% do VO2max)
                   </span>
                 </div>
               </div>
@@ -447,10 +447,10 @@ const VDOTIntensityConverter: React.FC = () => {
                   <Info className="h-4 w-4 text-primary mt-0.5" />
                   <div className="space-y-1">
                     <p>
-                      <strong>Nota sobre as intensidades:</strong> Esta tabela mostra a relação entre o ritmo de limiar (T) e os outros ritmos de treino no sistema VDOT.
+                      <strong>Como usar esta calculadora:</strong> A coluna "Ritmo" mostra os paces calculados com base no seu limiar atual, enquanto a coluna "VDOT" mostra os valores precisos da tabela VDOT.
                     </p>
                     <p className="text-muted-foreground">
-                      A coluna "% Limiar" mostra quanto cada zona representa em relação ao ritmo de limiar, enquanto a coluna "Ritmo" mostra o pace calculado. A coluna "VDOT" mostra o ritmo exato baseado nas tabelas de Jack Daniels.
+                      Use estes ritmos para planejar seus treinos específicos e garantir que está treinando na intensidade correta para cada objetivo.
                     </p>
                   </div>
                 </div>
@@ -464,10 +464,10 @@ const VDOTIntensityConverter: React.FC = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <BarChart2 className="h-5 w-5 text-primary" />
-              Equivalências Fisiológicas
+              Calculadora de Equivalências Fisiológicas
             </CardTitle>
             <CardDescription>
-              Correlação entre diferentes métricas de intensidade (% do Limiar, % do VO2max, % da FC máxima)
+              Conheça a correspondência entre diferentes métricas de intensidade para monitorar seu treino de múltiplas formas
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -478,7 +478,7 @@ const VDOTIntensityConverter: React.FC = () => {
                     <TableHead>Zona</TableHead>
                     <TableHead className="text-right">% Limiar</TableHead>
                     <TableHead className="text-right">% VO2max</TableHead>
-                    <TableHead className="text-right">% FC max</TableHead>
+                    <TableHead className="text-right">% FC máx</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -503,10 +503,10 @@ const VDOTIntensityConverter: React.FC = () => {
                 <Info className="h-4 w-4 text-primary mt-0.5" />
                 <div className="space-y-1">
                   <p>
-                    <strong>Como usar esta tabela:</strong> Você pode relacionar as diferentes métricas de intensidade entre si.
+                    <strong>Aplicação prática:</strong> Use esta tabela para converter entre diferentes métricas de intensidade.
                   </p>
                   <p className="text-muted-foreground">
-                    Por exemplo, correr a 76% do ritmo de limiar corresponde aproximadamente a 75% do VO2max e 77% da frequência cardíaca máxima.
+                    Por exemplo, se seu treino pede corrida a 75% do VO2max, você pode correr a 76% do ritmo de limiar ou monitorar sua frequência cardíaca em aproximadamente 77% da sua FC máxima.
                   </p>
                 </div>
               </div>
@@ -518,4 +518,4 @@ const VDOTIntensityConverter: React.FC = () => {
   );
 };
 
-export default VDOTIntensityConverter;
+export default VDOTCalculator;
