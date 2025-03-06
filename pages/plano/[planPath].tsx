@@ -2,26 +2,47 @@ import React, { useState, useEffect, useRef, useCallback, useMemo } from "react"
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { format, parseISO, addDays, subDays } from "date-fns";
+import { ptBR } from "date-fns/locale/pt-BR";
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { calculateActivityPace } from '@/lib/activity-pace.utils';
-import { 
-  limitDescription, 
-  defaultTimes,
-  convertMinutesToHours,
-  getPredictedRaceTimeFactory,
-  findClosestRaceParams,
-  findPaceValues,
-  formatTimeInput,
-  storageHelper,
-  organizePlanIntoWeeklyBlocks
-} from '@/lib/plan-utils';
+import { races, paces } from "@/lib/PacesRaces";
 import { Sidebar } from "@/components/default/Sidebar";
 import { MobileHeader } from "@/components/default/MobileHeader";
 import { PlanHeader } from '@/components/plan/PlanHeader';
 import { WeeklyBlock, Activity, PredictedRaceTime } from '@/types';
-import { getPlanByPath, getAllPlans } from '@/lib/db-utils';
+import { getPlanByPath, getAllPlanPaths } from '@/lib/db-utils';
 import { PlanModel } from '@/models';
 import WeekSkeleton from '@/components/plan/WeekSkeleton';
+
+// Funções utilitárias para ritmos (mantidas do código original)
+const timeToSeconds = (time: string): number => {
+  const [h = 0, m = 0, s = 0] = time.split(":").map(parseFloat);
+  return h * 3600 + m * 60 + s;
+};
+
+const limitDescription = (description: string, limit = 160): string => {
+  if (!description || description.length <= limit) return description || '';
+  return description.slice(0, limit).trim() + '...';
+};
+
+const defaultTimes: Record<string, string> = {
+  "1500m": "00:05:24",
+  "1600m": "00:05:50",
+  "3km": "00:11:33",
+  "3200m": "00:12:28",
+  "5km": "00:19:57",
+  "10km": "00:41:21",
+  "15km": "01:03:36",
+  "21km": "01:31:35",
+  "42km": "03:10:49"
+};
+
+const convertMinutesToHours = (minutes: number): string => {
+  if (minutes <= 59) return `${Math.round(minutes)}min`;
+  const hours = Math.floor(minutes / 60);
+  const remainingMinutes = Math.round(minutes % 60);
+  return `${hours}h${remainingMinutes.toString().padStart(2, '0')}`;
+};
 
 // Carregamento dinâmico do componente WeeklyView
 const WeeklyView = dynamic(() => import('@/components/plan/WeeklyView'), {
@@ -100,6 +121,82 @@ const LazyWeeklyBlock: React.FC<LazyWeeklyBlockProps> = ({
   );
 };
 
+// Helper para localStorage/sessionStorage
+const storageHelper = {
+  getStartDate: (planPath: string): string => {
+    if (typeof window === "undefined") return format(new Date(), "yyyy-MM-dd");
+    return sessionStorage.getItem(`${planPath}_startDate`) || format(new Date(), "yyyy-MM-dd");
+  },
+  
+  getEndDate: (planPath: string, daysCount: number): string => {
+    if (typeof window === "undefined") return format(addDays(new Date(), daysCount), "yyyy-MM-dd");
+    return sessionStorage.getItem(`${planPath}_endDate`) || format(addDays(new Date(), daysCount), "yyyy-MM-dd");
+  },
+  
+  getSelectedTime: (planPath: string): string => {
+    if (typeof window === "undefined") return "00:19:57";
+    return sessionStorage.getItem(`${planPath}_selectedTime`) || "00:19:57";
+  },
+  
+  getSelectedDistance: (planPath: string): string => {
+    if (typeof window === "undefined") return "5km";
+    return sessionStorage.getItem(`${planPath}_selectedDistance`) || "5km";
+  },
+  
+  saveSettings: (planPath: string, values: { startDate?: string; endDate?: string; selectedTime?: string; selectedDistance?: string }): void => {
+    if (typeof window === "undefined") return;
+    
+    if (values.startDate) {
+      sessionStorage.setItem(`${planPath}_startDate`, values.startDate);
+    }
+    
+    if (values.endDate) {
+      sessionStorage.setItem(`${planPath}_endDate`, values.endDate);
+    }
+    
+    if (values.selectedTime) {
+      sessionStorage.setItem(`${planPath}_selectedTime`, values.selectedTime);
+    }
+    
+    if (values.selectedDistance) {
+      sessionStorage.setItem(`${planPath}_selectedDistance`, values.selectedDistance);
+    }
+  }
+};
+
+// Organizar plano em blocos semanais
+const organizePlanIntoWeeklyBlocks = (dailyWorkouts: any[], startDate: string): WeeklyBlock[] => {
+  const blocks: WeeklyBlock[] = [];
+  let currentWeek: WeeklyBlock = {
+    weekStart: format(parseISO(startDate), "yyyy-MM-dd"),
+    days: [],
+  };
+
+  dailyWorkouts.forEach((day, index) => {
+    const date = addDays(parseISO(startDate), index);
+    const formattedDate = format(date, "EEEE, d 'de' MMMM", { locale: ptBR });
+
+    if (index !== 0 && index % 7 === 0) {
+      blocks.push(currentWeek);
+      currentWeek = {
+        weekStart: format(date, "yyyy-MM-dd"),
+        days: [],
+      };
+    }
+
+    currentWeek.days.push({
+      date: formattedDate,
+      activities: day.activities,
+      note: day.note,
+      isToday: format(date, "yyyy-MM-dd") === format(new Date(), "yyyy-MM-dd"),
+      isPast: date < new Date() && format(date, "yyyy-MM-dd") !== format(new Date(), "yyyy-MM-dd"),
+    });
+  });
+  
+  blocks.push(currentWeek);
+  return blocks;
+};
+
 // Main Component
 const Plan: React.FC<PlanProps> = ({ plan }) => {
   // State
@@ -122,10 +219,27 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
     }
   }, []);
 
-  const getPredictedRaceTime = useMemo(() => {
-    return getPredictedRaceTimeFactory(params);
+  // Predictor de tempo de corrida (conforme original)
+  const getPredictedRaceTime = useCallback((distance: number): PredictedRaceTime | null => {
+    if (!params) return null;
+
+    const raceData = races.find(race => race.Params === params);
+    const distanceKey = `${distance}km`;
+
+    if (!raceData || !raceData[distanceKey as keyof typeof raceData]) return null;
+
+    const timeString = raceData[distanceKey as keyof typeof raceData] as string;
+    const [hours, minutes, seconds] = timeString.split(':').map(Number);
+    const totalMinutes = hours * 60 + minutes + seconds / 60;
+    const paceMinutes = totalMinutes / distance;
+    const paceMinutesInt = Math.floor(paceMinutes);
+    const paceSeconds = Math.round((paceMinutes - paceMinutesInt) * 60);
+    const paceString = `${paceMinutesInt}:${paceSeconds.toString().padStart(2, '0')}`;
+
+    return { time: timeString, pace: paceString };
   }, [params]);
 
+  // Cálculo de ritmo (integrado com activity-pace.utils)
   const getActivityPace = useCallback((activity: Activity): string => {
     return calculateActivityPace(activity, selectedPaces || {}, getPredictedRaceTime);
   }, [selectedPaces, getPredictedRaceTime]);
@@ -143,6 +257,21 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
     const newStartDate = format(subDays(parseISO(newEndDate), plan.dailyWorkouts.length - 1), "yyyy-MM-dd");
     setEndDate(newEndDate);
     setStartDate(newStartDate);
+  };
+
+  // Formatação de tempo (como no original)
+  const formatTimeInput = (input: string): string => {
+    const inputTime = input.replace(/[^0-9]/g, "");
+    let formattedTime = inputTime;
+
+    if (inputTime.length > 2) {
+      formattedTime = `${inputTime.slice(0, 2)}:${inputTime.slice(2)}`;
+    }
+    if (inputTime.length > 4) {
+      formattedTime = `${inputTime.slice(0, 2)}:${inputTime.slice(2, 4)}:${inputTime.slice(4, 6)}`;
+    }
+
+    return formattedTime;
   };
 
   const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -167,16 +296,55 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
     });
   }, [startDate, endDate, selectedTime, selectedDistance, plan.path]);
 
+  // Encontrar o parâmetro de corrida mais próximo (conforme original)
   useEffect(() => {
-    // Calculate closest race params
-    const foundParams = findClosestRaceParams(selectedTime, selectedDistance);
-    setParams(foundParams);
+    const inputSeconds = timeToSeconds(selectedTime);
+    
+    try {
+      const closestRace = races.reduce((closest, current) => {
+        const distanceKey = selectedDistance as keyof typeof current;
+        const currentValue = current[distanceKey];
+        
+        // Safety check
+        if (typeof currentValue !== 'string') return closest;
+        
+        const currentSeconds = timeToSeconds(currentValue);
+        const closestValue = closest[distanceKey];
+        
+        // Safety check
+        if (typeof closestValue !== 'string') return current;
+        
+        return Math.abs(currentSeconds - inputSeconds) < 
+          Math.abs(timeToSeconds(closestValue) - inputSeconds)
+          ? current
+          : closest;
+      }, races[0]);
+      
+      setParams(closestRace.Params);
+    } catch (error) {
+      console.error('Error finding closest race params:', error);
+      setParams(null);
+    }
   }, [selectedTime, selectedDistance]);
 
+  // Atualizar ritmos com base no parâmetro (conforme original)
   useEffect(() => {
-    // Update paces based on params
-    const paceValues = findPaceValues(params);
-    setSelectedPaces(paceValues);
+    if (!params) {
+      setSelectedPaces(null);
+      return;
+    }
+
+    const foundPaces = paces.find((pace) => pace.Params === params);
+    if (!foundPaces) {
+      setSelectedPaces(null);
+      return;
+    }
+
+    const { Params, ...pacesWithoutParams } = foundPaces;
+    const validPaces = Object.fromEntries(
+      Object.entries(pacesWithoutParams).filter(([_, value]) => value !== undefined)
+    ) as Record<string, string>;
+    setSelectedPaces(validPaces);
   }, [params]);
 
   // Organizar dados em semanas - usando memoização
@@ -282,10 +450,10 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
     // Buscar os planos com dados resumidos para gerar os paths
-    const plans = await getAllPlans({ fields: 'summary' });
+    const planPaths = await getAllPlanPaths();
     
-    const paths = plans.map((plan) => ({
-      params: { planPath: plan.path },
+    const paths = planPaths.map((path) => ({
+      params: { planPath: path },
     }));
     
     return { 
