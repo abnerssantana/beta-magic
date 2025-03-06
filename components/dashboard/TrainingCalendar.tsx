@@ -93,34 +93,34 @@ export function TrainingCalendar({ activePlan, planWorkouts, completedWorkouts =
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {activePlan ? (
         <>
           <Card>
-            <CardHeader className="py-3">
+            <CardHeader className="py-3 px-3">
               <div className="flex items-center justify-between">
-                <CardTitle>
+                <CardTitle className="text-sm flex items-center gap-2">
                   <span>{activePlan.name}</span>
-                  <Badge variant="outline" className="ml-2">
+                  <Badge variant="outline" className="text-xs">
                     {activePlan.nivel}
                   </Badge>
                 </CardTitle>
-                <div className="flex items-center gap-2">
-                  <Button variant="outline" size="sm" onClick={goToPreviousWeek}>
-                    <ChevronLeft className="h-4 w-4" />
+                <div className="flex items-center gap-1">
+                  <Button variant="outline" size="sm" onClick={goToPreviousWeek} className="h-7 w-7 p-0">
+                    <ChevronLeft className="h-3.5 w-3.5" />
                   </Button>
-                  <Button variant="outline" size="sm" onClick={goToToday}>
-                    <CalendarIcon className="h-4 w-4 mr-1" />
+                  <Button variant="outline" size="sm" onClick={goToToday} className="h-7 text-xs">
+                    <CalendarIcon className="h-3.5 w-3.5 mr-1" />
                     Hoje
                   </Button>
-                  <Button variant="outline" size="sm" onClick={goToNextWeek}>
-                    <ChevronRight className="h-4 w-4" />
+                  <Button variant="outline" size="sm" onClick={goToNextWeek} className="h-7 w-7 p-0">
+                    <ChevronRight className="h-3.5 w-3.5" />
                   </Button>
                 </div>
               </div>
             </CardHeader>
-            <CardContent className="pt-0">
-              <div className="grid grid-cols-7 gap-2">
+            <CardContent className="px-3 pt-0 pb-3">
+              <div className="grid grid-cols-7 gap-1.5">
                 {weekDays.map((day, index) => {
                   // Get activities for this day
                   const activities = getPlanDay(day);
@@ -131,7 +131,7 @@ export function TrainingCalendar({ activePlan, planWorkouts, completedWorkouts =
                     <div
                       key={index}
                       className={`
-                        min-h-[150px] p-2 rounded-lg border cursor-pointer
+                        min-h-[120px] p-1.5 rounded-lg border cursor-pointer text-xs
                         ${isToday(day) ? 'border-primary ring-1 ring-primary/20 bg-primary/5' : 'border-border'}
                         hover:bg-muted/20 transition-colors duration-200
                       `}
@@ -139,9 +139,9 @@ export function TrainingCalendar({ activePlan, planWorkouts, completedWorkouts =
                     >
                       <div className="text-center mb-1">
                         <div className="text-xs uppercase text-muted-foreground">
-                          {format(day, 'EEEE', { locale: ptBR })}
+                          {format(day, 'EEEEEE', { locale: ptBR })}
                         </div>
-                        <div className={`text-lg font-bold ${isToday(day) ? 'text-primary' : ''}`}>
+                        <div className={`text-base font-semibold ${isToday(day) ? 'text-primary' : ''}`}>
                           {format(day, 'd', { locale: ptBR })}
                         </div>
                       </div>
@@ -154,24 +154,24 @@ export function TrainingCalendar({ activePlan, planWorkouts, completedWorkouts =
                             key={actIndex}
                             className={`text-xs p-1 rounded ${getActivityColor(activity.type)} flex justify-between items-center`}
                           >
-                            <span className="font-medium truncate">{activity.type}</span>
-                            <span>{activity.distance} {activity.units}</span>
+                            <span className="font-medium truncate text-xs">{activity.type}</span>
+                            <span className="text-xs">{activity.distance}</span>
                             
                             {isPast(day) && (
-                              <CheckCircle className="h-3 w-3 text-green-500" />
+                              <CheckCircle className="h-2.5 w-2.5 text-green-500" />
                             )}
                           </div>
                         ))}
                         
                         {hasCompletedWorkouts && (
                           <div className="text-xs bg-green-500/10 border border-green-500/20 rounded p-1 flex justify-between mt-1">
-                            <span className="font-medium">Treino realizado</span>
+                            <span className="font-medium">Feito</span>
                             <span>{dayCompletedWorkouts.length}</span>
                           </div>
                         )}
                         
                         {!activities && !hasCompletedWorkouts && (
-                          <div className="text-xs text-muted-foreground text-center p-2">
+                          <div className="text-xs text-muted-foreground text-center p-1">
                             Descanso
                           </div>
                         )}
@@ -184,46 +184,64 @@ export function TrainingCalendar({ activePlan, planWorkouts, completedWorkouts =
           </Card>
           
           <Card>
-            <CardHeader>
-              <CardTitle>Próximos Treinos</CardTitle>
+            <CardHeader className="p-3">
+              <CardTitle className="text-sm">Próximos Treinos</CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {[1, 2, 3].map((_, index) => (
-                  <div key={index} className="flex items-center gap-4">
-                    <div className={`w-2 h-full min-h-[40px] rounded-full ${index === 0 ? 'bg-primary' : 'bg-muted'}`} />
-                    <div className="flex-1">
-                      <div className="flex justify-between items-center">
-                        <div className="font-medium">
-                          {index === 0 ? 'Amanhã' : `${index+1} dias`} - {['Corrida fácil', 'Intervalos', 'Longo'][index]}
+            <CardContent className="p-3">
+              <div className="space-y-3">
+                {[0, 1, 2].map((offset, index) => {
+                  const futureDate = addDays(new Date(), offset + 1);
+                  const dayActivities = getPlanDay(futureDate);
+                  
+                  if (!dayActivities || dayActivities.length === 0) return null;
+                  
+                  const mainActivity = dayActivities[0];
+                  const relativeDay = offset === 0 ? 'Amanhã' : `Em ${offset+1} dias`;
+                  const activityName = mainActivity.note || mainActivity.type;
+                  
+                  return (
+                    <div key={index} className="flex items-center gap-3">
+                      <div className={`w-1 h-10 rounded-full ${index === 0 ? 'bg-primary' : 'bg-muted'}`} />
+                      <div className="flex-1">
+                        <div className="flex justify-between items-center">
+                          <div className="text-sm font-medium">
+                            {relativeDay} - {activityName}
+                          </div>
+                          <Badge variant="outline" className="flex items-center gap-1 text-xs h-5">
+                            <Clock className="h-2.5 w-2.5" />
+                            {mainActivity.distance} {mainActivity.units}
+                          </Badge>
                         </div>
-                        <Badge variant="outline" className="flex items-center gap-1">
-                          <Clock className="h-3 w-3" />
-                          {['6:00', '4:30', '5:30'][index]} /km
-                        </Badge>
-                      </div>
-                      <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                        <Activity className="h-3.5 w-3.5" />
-                        {[8, 6, 16][index]} km
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
+                
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  asChild 
+                  className="w-full h-8 text-xs mt-2"
+                >
+                  <Link href={`/plano/${activePlan.path}`}>
+                    Ver plano completo
+                  </Link>
+                </Button>
               </div>
             </CardContent>
           </Card>
         </>
       ) : (
         <Card>
-          <CardContent className="pt-6 flex flex-col items-center text-center">
-            <div className="rounded-full bg-muted p-3 mb-4">
-              <CalendarIcon className="h-6 w-6 text-muted-foreground" />
+          <CardContent className="p-4 flex flex-col items-center text-center">
+            <div className="rounded-full bg-muted p-2 mb-3">
+              <CalendarIcon className="h-5 w-5 text-muted-foreground" />
             </div>
-            <h3 className="text-lg font-medium mb-2">Nenhum plano ativo</h3>
-            <p className="text-muted-foreground max-w-md mb-4">
-              Você ainda não tem um plano de treino ativo. Ative um plano para visualizar seu calendário de treinos.
+            <h3 className="text-base font-medium mb-2">Nenhum plano ativo</h3>
+            <p className="text-xs text-muted-foreground max-w-md mb-3">
+              Ative um plano para visualizar seu calendário de treinos.
             </p>
-            <Button asChild>
+            <Button asChild size="sm" className="h-8 text-xs">
               <Link href="/dashboard/plans">
                 Escolher um Plano
               </Link>

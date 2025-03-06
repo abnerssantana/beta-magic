@@ -16,11 +16,12 @@ import Head from "next/head";
 import Link from "next/link";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
-import { Settings, Rabbit } from "lucide-react";
+import { Settings, FileText, BarChart2, Calendar as CalendarIcon } from "lucide-react";
 
 import { Layout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
 import { PlanSummary, PlanModel } from "@/models";
 
 // Componentes modularizados
@@ -72,54 +73,59 @@ const Dashboard: React.FC<DashboardProps> = ({
         />
       </Head>
 
-      <div className="space-y-6">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div className="space-y-4">
+        {/* Header - Mais compacto */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
-              Bem-vindo(a), {session?.user?.name?.split(" ")[0]}
+            <h1 className="text-xl sm:text-2xl font-bold tracking-tight flex items-center gap-2">
+              <Badge variant="outline" className="bg-primary/10 text-primary">
+                {format(new Date(), "dd/MM")}
+              </Badge>
+              Olá, {session?.user?.name?.split(" ")[0]}!
             </h1>
-            <p className="text-muted-foreground">
-              {currentDate} • Vamos treinar hoje?
+            <p className="text-sm text-muted-foreground">
+              {currentDate}
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm" asChild>
-              <Link href="/dashboard/settings">
-                <Settings className="mr-2 h-4 w-4" />
-                Configurações
-              </Link>
-            </Button>
+          <div className="flex items-center gap-2 mt-2 sm:mt-0">
+            {activePlan && (
+              <Button variant="outline" size="sm" asChild className="h-8 text-xs">
+                <Link href={`/dashboard/plans/${activePlan.path}/settings`}>
+                  <Settings className="mr-1.5 h-3.5 w-3.5" />
+                  Config. Plano
+                </Link>
+              </Button>
+            )}
 
-            <Button variant="default" size="sm" asChild>
+            <Button variant="default" size="sm" asChild className="h-8 text-xs">
               <Link href="/dashboard/plans">
-                <Rabbit className="mr-2 h-4 w-4" />
+                <FileText className="mr-1.5 h-3.5 w-3.5" />
                 Meus Planos
               </Link>
             </Button>
           </div>
         </div>
 
-        <Tabs defaultValue="overview">
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="overview">Visão Geral</TabsTrigger>
-            <TabsTrigger value="calendar">Calendário</TabsTrigger>
-            <TabsTrigger value="progress">Meu Progresso</TabsTrigger>
+        {/* Reordenação: StatsSummary primeiro */}
+        <StatsSummary userSummary={userSummary} />
+
+        {/* Treino de Hoje em Destaque - agora o segundo elemento */}
+        <TodayWorkout
+          activePlan={activePlan}
+          todayWorkout={todayWorkout}
+          currentDate={currentDate}
+        />
+
+        <Tabs defaultValue="overview" className="space-y-3">
+          <TabsList className="grid w-full grid-cols-3 h-9">
+            <TabsTrigger value="overview" className="text-xs">Visão Geral</TabsTrigger>
+            <TabsTrigger value="calendar" className="text-xs">Calendário</TabsTrigger>
+            <TabsTrigger value="progress" className="text-xs">Progresso</TabsTrigger>
           </TabsList>
 
           {/* Visão Geral - com componentes modularizados */}
-          <TabsContent value="overview" className="space-y-4">
-            {/* Treino de Hoje em Destaque */}
-            <TodayWorkout
-              activePlan={activePlan}
-              todayWorkout={todayWorkout}
-              currentDate={currentDate}
-            />
-
-            {/* Resumo de Estatísticas */}
-            <StatsSummary userSummary={userSummary} />
-
+          <TabsContent value="overview" className="space-y-4 pt-2">
             {/* Plano Ativo */}
             <ActivePlanCard activePlan={activePlan} weekProgress={weekProgress} />
 
@@ -127,8 +133,8 @@ const Dashboard: React.FC<DashboardProps> = ({
             <RecentActivities completedWorkouts={completedWorkouts} />
           </TabsContent>
 
-          {/* Calendário - Mostra a semana atual de treinos e permite navegar entre semanas */}
-          <TabsContent value="calendar" className="space-y-4">
+          {/* Calendário - Layout compacto */}
+          <TabsContent value="calendar" className="space-y-4 pt-2">
             <TrainingCalendar
               activePlan={activePlan}
               planWorkouts={fullPlan?.dailyWorkouts || null}
@@ -137,7 +143,7 @@ const Dashboard: React.FC<DashboardProps> = ({
           </TabsContent>
 
           {/* Meu Progresso */}
-          <TabsContent value="progress" className="space-y-4">
+          <TabsContent value="progress" className="space-y-4 pt-2">
             <ProgressTab />
           </TabsContent>
         </Tabs>
@@ -182,7 +188,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         const startDate = userPaces.startDate || format(new Date(), "yyyy-MM-dd");
 
         // Organizar o plano em blocos semanais a partir da data de início
-        const weeklyBlocks = organizePlanIntoWeeklyBlocks(fullPlan.dailyWorkouts, startDate);
+        const weeklyBlocks = organizePlanIntoWeeklyBlocks(
+          fullPlan.dailyWorkouts || [],
+          startDate
+        );
 
         // Encontrar o dia de hoje nos blocos semanais
         let todayActivities = null;

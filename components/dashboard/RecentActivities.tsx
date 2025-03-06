@@ -2,10 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import { format, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale/pt-BR';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Activity, Calendar, Clock, BarChart2 } from "lucide-react";
+import { Activity, Calendar, Clock, BarChart2, PlusCircle } from "lucide-react";
 import { WorkoutLog } from '@/models/userProfile';
 
 interface RecentActivitiesProps {
@@ -16,7 +16,7 @@ export const RecentActivities: React.FC<RecentActivitiesProps> = ({ completedWor
   // Ordenar workouts por data, do mais recente para o mais antigo
   const sortedWorkouts = [...completedWorkouts]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 5); // Pegar apenas os 5 mais recentes
+    .slice(0, 3); // Pegar apenas os 3 mais recentes para uma exibição mais compacta
 
   // Formatar a duração (minutos) para hh:mm:ss
   const formatDuration = (minutes: number): string => {
@@ -24,7 +24,9 @@ export const RecentActivities: React.FC<RecentActivitiesProps> = ({ completedWor
     const mins = Math.floor(minutes % 60);
     const secs = Math.round((minutes % 1) * 60);
     
-    return `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    return hours > 0 
+      ? `${hours}h${mins.toString().padStart(2, '0')}`
+      : `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
   // Função para obter a cor baseada no tipo de atividade
@@ -42,76 +44,89 @@ export const RecentActivities: React.FC<RecentActivitiesProps> = ({ completedWor
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Atividades Recentes</CardTitle>
-        <CardDescription>
-          Seus treinos mais recentes
-        </CardDescription>
+    <Card className="border-border/50">
+      <CardHeader className="p-3">
+        <CardTitle className="text-sm">Atividades Recentes</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
+      <CardContent className="p-3">
+        <div className="space-y-2">
           {sortedWorkouts.length > 0 ? (
-            sortedWorkouts.map((workout, index) => (
-              <div key={index} className="flex items-start gap-4 p-2 rounded-lg hover:bg-muted/30 transition-colors">
-                <div className={`w-1.5 self-stretch rounded-full ${getActivityColor(workout.activityType)}`} />
-                
-                <div className="flex-1">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h4 className="font-medium">{workout.title}</h4>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-3.5 w-3.5" />
-                          <span>{format(parseISO(workout.date), "d 'de' MMMM", { locale: ptBR })}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Activity className="h-3.5 w-3.5" />
-                          <span>{workout.distance} km</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Clock className="h-3.5 w-3.5" />
-                          <span>{formatDuration(workout.duration)}</span>
+            <>
+              {sortedWorkouts.map((workout, index) => (
+                <div 
+                  key={index} 
+                  className="flex items-start gap-3 p-2 rounded-lg hover:bg-muted/30 transition-colors"
+                >
+                  <div className={`w-1 self-stretch rounded-full ${getActivityColor(workout.activityType)}`} />
+                  
+                  <div className="flex-1">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h4 className="text-sm font-medium">{workout.title}</h4>
+                        <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground mt-0.5">
+                          <div className="flex items-center gap-1">
+                            <Calendar className="h-3 w-3" />
+                            <span>{format(parseISO(workout.date), "d MMM", { locale: ptBR })}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Activity className="h-3 w-3" />
+                            <span>{workout.distance} km</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Clock className="h-3 w-3" />
+                            <span>{formatDuration(workout.duration)}</span>
+                          </div>
                         </div>
                       </div>
+                      
+                      <Badge variant="outline" className={`${getActivityColor(workout.activityType)} text-xs h-5`}>
+                        {workout.activityType}
+                      </Badge>
                     </div>
                     
-                    <Badge variant="outline" className={getActivityColor(workout.activityType)}>
-                      {workout.activityType}
-                    </Badge>
+                    {workout.pace && (
+                      <div className="mt-1 flex items-center gap-1 text-xs">
+                        <BarChart2 className="h-3 w-3 text-primary" />
+                        <span className="font-medium">{workout.pace}</span>
+                      </div>
+                    )}
                   </div>
-                  
-                  {workout.pace && (
-                    <div className="mt-2 flex items-center gap-1 text-sm">
-                      <BarChart2 className="h-3.5 w-3.5 text-primary" />
-                      <span className="font-medium">Ritmo: {workout.pace}</span>
-                    </div>
-                  )}
-                  
-                  {workout.notes && (
-                    <p className="mt-1 text-sm text-muted-foreground">{workout.notes}</p>
-                  )}
                 </div>
+              ))}
+              
+              <div className="flex justify-center mt-3">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  asChild 
+                  className="h-8 text-xs"
+                >
+                  <Link href="/dashboard/activities">
+                    Ver todas
+                  </Link>
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  asChild 
+                  className="h-8 text-xs ml-2"
+                >
+                  <Link href="/dashboard/log">
+                    <PlusCircle className="mr-1.5 h-3.5 w-3.5" />
+                    Registrar
+                  </Link>
+                </Button>
               </div>
-            ))
+            </>
           ) : (
-            <div className="text-center py-6">
-              <p className="text-muted-foreground">
+            <div className="text-center py-4">
+              <p className="text-muted-foreground text-sm mb-3">
                 Você ainda não registrou nenhum treino.
               </p>
-              <Button variant="link" asChild>
+              <Button variant="default" size="sm" asChild className="h-8 text-xs">
                 <Link href="/dashboard/log">
-                  Registrar treino manual
-                </Link>
-              </Button>
-            </div>
-          )}
-          
-          {sortedWorkouts.length > 0 && (
-            <div className="flex justify-center mt-4">
-              <Button variant="outline" size="sm" asChild>
-                <Link href="/dashboard/activities">
-                  Ver todas as atividades
+                  <PlusCircle className="mr-1.5 h-3.5 w-3.5" />
+                  Registrar treino
                 </Link>
               </Button>
             </div>

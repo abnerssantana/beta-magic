@@ -1,6 +1,7 @@
 import clientPromise from './mongodb';
 import { PlanSummary } from './field-projection';
 import { getPlanByPath, getPlanSummaries } from './db-utils';
+import { WorkoutLog } from '@/models/userProfile';
 
 /**
  * Obtém o plano ativo do usuário

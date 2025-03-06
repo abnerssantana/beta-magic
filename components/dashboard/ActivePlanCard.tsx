@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { Settings, ChevronRight, Activity } from "lucide-react";
+import { Settings, ChevronRight, Activity, Calendar } from "lucide-react";
 import { PlanSummary } from '@/models';
 
 interface ActivePlanCardProps {
@@ -15,26 +15,23 @@ interface ActivePlanCardProps {
 export const ActivePlanCard: React.FC<ActivePlanCardProps> = ({ activePlan, weekProgress }) => {
   if (!activePlan) {
     return (
-      <Card className="overflow-hidden">
-        <CardHeader className="bg-muted/50">
-          <CardTitle>Plano de Treino Ativo</CardTitle>
-          <CardDescription>
-            Seu plano atual e progresso semanal
-          </CardDescription>
+      <Card className="overflow-hidden border-border/50">
+        <CardHeader className="bg-muted/20 p-3">
+          <CardTitle className="text-sm">Plano de Treino Ativo</CardTitle>
         </CardHeader>
-        <CardContent className="p-6">
-          <div className="flex flex-col items-center justify-center py-6 text-center">
-            <div className="rounded-full bg-muted p-3 mb-4">
-              <Activity className="h-6 w-6 text-muted-foreground" />
+        <CardContent className="p-4">
+          <div className="flex flex-col items-center justify-center py-4 text-center">
+            <div className="rounded-full bg-muted p-2 mb-3">
+              <Activity className="h-5 w-5 text-muted-foreground" />
             </div>
-            <h3 className="text-lg font-medium mb-2">Nenhum plano ativo</h3>
-            <p className="text-muted-foreground max-w-md mb-4">
-              Você ainda não selecionou um plano de treinamento. Escolha um plano para começar a acompanhar seu progresso.
+            <h3 className="text-base font-medium mb-2">Nenhum plano ativo</h3>
+            <p className="text-xs text-muted-foreground max-w-md mb-3">
+              Selecione um plano para começar a acompanhar seu progresso.
             </p>
-            <Button asChild>
+            <Button asChild size="sm" className="h-8 text-xs">
               <Link href="/dashboard/plans">
                 Escolher um Plano
-                <ChevronRight className="ml-2 h-4 w-4" />
+                <ChevronRight className="ml-1.5 h-3.5 w-3.5" />
               </Link>
             </Button>
           </div>
@@ -44,53 +41,60 @@ export const ActivePlanCard: React.FC<ActivePlanCardProps> = ({ activePlan, week
   }
 
   return (
-    <Card className="overflow-hidden">
-      <CardHeader className="bg-muted/50">
-        <CardTitle>Plano de Treino Ativo</CardTitle>
-        <CardDescription>
-          Seu plano atual e progresso semanal
-        </CardDescription>
+    <Card className="overflow-hidden border-border/50">
+      <CardHeader className="bg-muted/20 p-3">
+        <CardTitle className="text-sm">Plano de Treino Ativo</CardTitle>
       </CardHeader>
-      <CardContent className="p-6">
-        <div className="space-y-4">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+      <CardContent className="p-4">
+        <div className="space-y-3">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <div className="space-y-1">
-              <h3 className="text-xl font-semibold">{activePlan.name}</h3>
+              <h3 className="text-base font-semibold">{activePlan.name}</h3>
               <div className="flex flex-wrap gap-2 items-center">
                 <Badge variant="outline" className="text-xs">
                   {activePlan.nivel}
                 </Badge>
-                <span className="text-sm text-muted-foreground">
+                <span className="text-xs text-muted-foreground">
                   {activePlan.coach}
                 </span>
-                <span className="text-sm text-muted-foreground">
-                  • {activePlan.duration}
+                <span className="text-xs text-muted-foreground flex items-center">
+                  <Calendar className="h-3 w-3 mr-1 inline" />
+                  {activePlan.duration}
                 </span>
               </div>
             </div>
             
-            <div className="flex gap-2">
-              <Button variant="outline" size="sm" asChild>
+            <div className="flex gap-2 mt-2 sm:mt-0">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                asChild 
+                className="h-8 text-xs"
+              >
                 <Link href={`/dashboard/plans/${activePlan.path}/settings`}>
-                  <Settings className="mr-2 h-4 w-4" />
-                  Configurar
+                  <Settings className="mr-1.5 h-3.5 w-3.5" />
+                  Config.
                 </Link>
               </Button>
-              <Button size="sm" asChild>
+              <Button 
+                size="sm" 
+                asChild 
+                className="h-8 text-xs"
+              >
                 <Link href={`/plano/${activePlan.path}`}>
-                  Ver Plano
-                  <ChevronRight className="ml-2 h-4 w-4" />
+                  Ver
+                  <ChevronRight className="ml-1.5 h-3.5 w-3.5" />
                 </Link>
               </Button>
             </div>
           </div>
           
-          <div className="space-y-2">
-            <div className="flex justify-between text-sm">
+          <div className="space-y-1">
+            <div className="flex justify-between text-xs">
               <span className="text-muted-foreground">Progresso Semanal</span>
               <span className="font-medium">{weekProgress}%</span>
             </div>
-            <Progress value={weekProgress} className="h-2" />
+            <Progress value={weekProgress} className="h-1.5" />
           </div>
         </div>
       </CardContent>
