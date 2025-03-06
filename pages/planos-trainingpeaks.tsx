@@ -9,9 +9,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Search, Info } from 'lucide-react';
+import { Search, Info, Calculator } from 'lucide-react';
 import { getPlanSummaries } from '@/lib/db-utils';
 import { PlanSummary } from '@/models';
+import { Button } from "@/components/ui/button";
 
 interface PlanosTrainingPeaksProps {
   plans: PlanSummary[];
@@ -20,16 +21,16 @@ interface PlanosTrainingPeaksProps {
 export default function PlanosTrainingPeaks({ plans }: PlanosTrainingPeaksProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [nivelFilter, setNivelFilter] = useState('todos');
-  
+
   // Filtrar planos com base no termo de busca e filtro de nível
   const filteredPlans = plans.filter(plan => {
-    const matchesSearch = searchTerm === '' || 
+    const matchesSearch = searchTerm === '' ||
       plan.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       plan.coach.toLowerCase().includes(searchTerm.toLowerCase()) ||
       plan.info.toLowerCase().includes(searchTerm.toLowerCase());
-      
+
     const matchesNivel = nivelFilter === 'todos' || plan.nivel === nivelFilter;
-    
+
     return matchesSearch && matchesNivel;
   });
 
@@ -37,9 +38,9 @@ export default function PlanosTrainingPeaks({ plans }: PlanosTrainingPeaksProps)
     <Layout>
       <Head>
         <title>Planos para TrainingPeaks - Magic Training</title>
-        <meta 
-          name="description" 
-          content="Visualize e adapte seus planos de treinamento para o formato de zonas do TrainingPeaks" 
+        <meta
+          name="description"
+          content="Visualize e adapte seus planos de treinamento para o formato de zonas do TrainingPeaks"
         />
       </Head>
 
@@ -47,14 +48,14 @@ export default function PlanosTrainingPeaks({ plans }: PlanosTrainingPeaksProps)
         <HeroLayout
           title="Planos para TrainingPeaks"
           description="Visualize seus planos de treinamento com as zonas de ritmo do TrainingPeaks para facilitar a criação de workouts na plataforma"
-          
+
           info={
             <Card className="bg-primary/5 border-primary/20 p-0">
               <CardContent className="p-4">
                 <div className="flex items-center gap-2">
                   <Info className="h-4 w-4 text-primary" />
                   <p className="text-sm text-primary/90">
-                    Selecione um plano para visualizá-lo com as zonas do TrainingPeaks. Você poderá definir seu ritmo de limiar 
+                    Selecione um plano para visualizá-lo com as zonas do TrainingPeaks. Você poderá definir seu ritmo de limiar
                     e exportar as zonas diretamente para o TrainingPeaks.
                   </p>
                 </div>
@@ -66,36 +67,52 @@ export default function PlanosTrainingPeaks({ plans }: PlanosTrainingPeaksProps)
             {/* Filtros */}
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-4">
-                <div className="relative flex-1">
+                {/* Campo de busca preenchendo o restante da linha */}
+                <div className="relative flex-1 min-w-0">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
                     placeholder="Buscar planos..."
                     value={searchTerm}
                     onChange={e => setSearchTerm(e.target.value)}
-                    className="pl-9"
+                    className="pl-9 w-full"
                   />
                 </div>
-                
-                <Tabs 
-                  value={nivelFilter} 
-                  onValueChange={setNivelFilter}
-                  className="sm:w-80"
-                >
-                  <TabsList className="grid grid-cols-4 w-full">
-                    <TabsTrigger value="todos">Todos</TabsTrigger>
-                    <TabsTrigger value="iniciante">Iniciante</TabsTrigger>
-                    <TabsTrigger value="intermediário">Interm.</TabsTrigger>
-                    <TabsTrigger value="avançado">Avançado</TabsTrigger>
-                  </TabsList>
-                </Tabs>
+
+                {/* Tabs e Botão alinhados no desktop */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
+                  <Tabs
+                    value={nivelFilter}
+                    onValueChange={setNivelFilter}
+                    className="sm:w-80"
+                  >
+                    <TabsList className="grid grid-cols-4 w-full sm:w-80">
+                      <TabsTrigger value="todos">Todos</TabsTrigger>
+                      <TabsTrigger value="iniciante">Iniciante</TabsTrigger>
+                      <TabsTrigger value="intermediário">Interm.</TabsTrigger>
+                      <TabsTrigger value="avançado">Avançado</TabsTrigger>
+                    </TabsList>
+                  </Tabs>
+
+                  {/* Botão */}
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    asChild
+                    className="h-8 w-full sm:w-fit mt-3 sm:mt-0 text-white text-xs bg-blue-600 hover:bg-blue-900 hover:text-white"
+                  >
+                    <Link href="/trainingpeaks/configuracao">
+                      <Calculator className="mr-1.5 h-3.5 w-3.5" />
+                      Zonas TrainingPeaks
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
-            
             {/* Lista de planos */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {filteredPlans.map(plan => (
-                <Link 
-                  key={plan.path} 
+                <Link
+                  key={plan.path}
                   href={`/trainingpeaks/${plan.path}`}
                   className="block h-full"
                 >
@@ -105,11 +122,11 @@ export default function PlanosTrainingPeaks({ plans }: PlanosTrainingPeaksProps)
                         <h3 className="font-medium">{plan.name}</h3>
                         <Badge variant="outline">{plan.nivel}</Badge>
                       </div>
-                      
+
                       <p className="text-sm text-muted-foreground mb-2 line-clamp-2 flex-grow">
                         {plan.info}
                       </p>
-                      
+
                       <div className="flex flex-wrap items-center gap-2 text-xs mt-2">
                         <span className="text-muted-foreground">{plan.coach}</span>
                         <span className="text-muted-foreground">•</span>
@@ -121,7 +138,7 @@ export default function PlanosTrainingPeaks({ plans }: PlanosTrainingPeaksProps)
                           </>
                         )}
                       </div>
-                      
+
                       <div className="flex flex-wrap gap-1 mt-2">
                         {plan.distances?.map((distance, index) => (
                           <Badge key={index} variant="secondary" className="text-xs">
@@ -133,7 +150,7 @@ export default function PlanosTrainingPeaks({ plans }: PlanosTrainingPeaksProps)
                   </Card>
                 </Link>
               ))}
-              
+
               {filteredPlans.length === 0 && (
                 <div className="col-span-full text-center py-8">
                   <p className="text-muted-foreground">
@@ -152,7 +169,7 @@ export default function PlanosTrainingPeaks({ plans }: PlanosTrainingPeaksProps)
 export const getStaticProps: GetStaticProps<PlanosTrainingPeaksProps> = async () => {
   try {
     const plans = await getPlanSummaries();
-    
+
     return {
       props: {
         plans: JSON.parse(JSON.stringify(plans))
