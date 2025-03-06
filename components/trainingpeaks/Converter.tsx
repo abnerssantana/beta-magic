@@ -23,66 +23,15 @@ export const TrainingPeaksConverter: React.FC<TrainingPeaksConverterProps> = ({ 
   // Zonas do TrainingPeaks
   // min = porcentagem que resulta em ritmo mais rápido (menor min/km)
   // max = porcentagem que resulta em ritmo mais lento (maior min/km)
-  const activityToZoneMap = {
-  'recovery': { 
-    zone: 'Z1', 
-    name: 'Recuperação', 
-    range: { min: 50, max: 76 }, 
-    description: 'Corridas muito fáceis para recuperação ativa'
-  },
-  'easy': { 
-    zone: 'Z2', 
-    name: 'Fácil', 
-    range: { min: 76, max: 85 }, 
-    description: 'Corridas aeróbicas que desenvolvem resistência base' 
-  },
-  'marathon': { 
-    zone: 'Z3', 
-    name: 'Maratona', 
-    range: { min: 85, max: 100 }, 
-    description: 'Ritmo específico para prova de maratona'
-  },
-  'threshold': { 
-    zone: 'Z4', 
-    name: 'Limiar', 
-    range: { min: 100, max: 112 }, 
-    description: 'Ritmo no limiar anaeróbico/lactato'
-  },
-  'interval': { 
-    zone: 'Z5a', 
-    name: 'Intervalo', 
-    range: { min: 112, max: 130 }, 
-    description: 'Treinos para maximizar VO2max'
-  },
-  'repetition': { 
-    zone: 'Z5b', 
-    name: 'Repetição', 
-    range: { min: 130, max: 150 }, 
-    description: 'Treinos para potência e economia de corrida'
-  },
-  'race': { 
-    zone: 'Z4', 
-    name: 'Limiar', 
-    range: { min: 100, max: 112 }, 
-    description: 'Ritmo no limiar anaeróbico/lactato'
-  },
-  'long': { 
-    zone: 'Z2', 
-    name: 'Fácil', 
-    range: { min: 76, max: 85 }, 
-    description: 'Corridas aeróbicas que desenvolvem resistência base'
-  }
-};
-
-// Função utilitária para determinar zona de um percentual
-function getZoneForPercentage(percentage: number) {
-  for (const [key, zone] of Object.entries(activityToZoneMap)) {
-    if (percentage >= zone.range.min && percentage < zone.range.max) {
-      return { key, zone };
-    }
-  }
-  return null;
-}
+  const paceZones: PaceZone[] = [
+    { zone: 'Z1', name: 'Recuperação', min: 130, max: 150, description: 'Recovery/R - Recuperação ativa' },
+    { zone: 'Z2', name: 'Fácil', min: 114, max: 129, description: 'Easy/E - Ritmo aeróbico base' },
+    { zone: 'Z3', name: 'Moderado', min: 106, max: 113, description: 'Marathon/M - Ritmo específico de maratona' },
+    { zone: 'Z4', name: 'Limiar', min: 98, max: 102, description: 'Threshold/T - Ritmo de limiar anaeróbico' },
+    { zone: 'Z5a', name: 'VO2Max', min: 90, max: 97, description: 'Interval/I - Intervalos para VO2max' },
+    { zone: 'Z5b', name: 'Anaeróbico', min: 85, max: 89, description: 'Repetition/R - Treino de repetições' },
+    { zone: 'Z5c', name: 'Sprint', min: 75, max: 84, description: 'Sprint - Velocidade máxima' },
+  ];
   
   // Converter o ritmo de limiar para segundos
   useEffect(() => {
