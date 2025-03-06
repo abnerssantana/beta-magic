@@ -27,8 +27,8 @@ export const TrainingPeaksConverter: React.FC<TrainingPeaksConverterProps> = ({ 
     { zone: 'Z2', name: 'Fácil', min: 76, max: 84, description: 'Easy/E - Corridas aeróbicas que desenvolvem resistência base' },
     { zone: 'Z3', name: 'Maratona', min: 85, max: 99, description: 'Marathon/M - Ritmo específico para prova de maratona' },
     { zone: 'Z4', name: 'Limiar', min: 100, max: 111, description: 'Threshold/T - Ritmo no limiar anaeróbico/lactato' },
-    { zone: 'Z5a', name: 'Intervalo', min: 112, max: 129, description: 'Interval/I - Treinos para maximizar VO2max' },
-    { zone: 'Z5b', name: 'Repetição', min: 130, max: 150, description: 'Repetition/R - Treinos para potência e economia de corrida' },
+    { zone: 'Z5', name: 'Intervalo', min: 112, max: 129, description: 'Interval/I - Treinos para maximizar VO2max' },
+    { zone: 'Z6', name: 'Repetição', min: 130, max: 150, description: 'Repetition/R - Treinos para potência e economia de corrida' },
   ];
 
   // Converter o ritmo de limiar para segundos

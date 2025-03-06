@@ -304,7 +304,7 @@ const AdminDashboard: React.FC = () => {
         title="Painel Administrativo"
         description="Gerencie os planos de treinamento do Magic Training"
         info={
-          <Card className="bg-primary/5 border-primary/20">
+          <Card className="bg-primary/5 border-primary/20 p-4">
             <CardContent>
               <div className="flex items-center gap-2">
                 <Info className="h-4 w-4 text-primary" />
