@@ -1,4 +1,3 @@
-// components/trainingpeaks/Converter.tsx
 import React, { useState, useEffect } from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
@@ -20,10 +19,10 @@ export const TrainingPeaksConverter: React.FC<TrainingPeaksConverterProps> = ({ 
   const [thresholdSeconds, setThresholdSeconds] = useState(240); // Padrão: 4:00 min/km
   const [copied, setCopied] = useState(false);
 
-// Zonas do TrainingPeaks ajustadas com novas porcentagens
-// min = porcentagem que resulta em ritmo mais rápido (menor min/km)
-// max = porcentagem que resulta em ritmo mais lento (maior min/km)
-const paceZones: PaceZone[] = [
+  // Zonas do TrainingPeaks ajustadas com novas porcentagens
+  // min = porcentagem que resulta em ritmo mais rápido (menor min/km)
+  // max = porcentagem que resulta em ritmo mais lento (maior min/km)
+  const paceZones: PaceZone[] = [
     { zone: 'Z1', name: 'Recuperação', min: 65, max: 75, description: 'Recovery/R - Corridas muito fáceis para recuperação ativa' },
     { zone: 'Z2', name: 'Fácil', min: 76, max: 84, description: 'Easy/E - Corridas aeróbicas que desenvolvem resistência base' },
     { zone: 'Z3', name: 'Maratona', min: 85, max: 99, description: 'Marathon/M - Ritmo específico para prova de maratona' },
@@ -31,7 +30,6 @@ const paceZones: PaceZone[] = [
     { zone: 'Z5a', name: 'Intervalo', min: 112, max: 129, description: 'Interval/I - Treinos para maximizar VO2max' },
     { zone: 'Z5b', name: 'Repetição', min: 130, max: 150, description: 'Repetition/R - Treinos para potência e economia de corrida' },
   ];
-  
 
   // Converter o ritmo de limiar para segundos
   useEffect(() => {
@@ -53,33 +51,35 @@ const paceZones: PaceZone[] = [
 
   // Calcular o ritmo a partir da porcentagem do limiar
   const calculatePaceFromPercentage = (percentage: number): string => {
-    const paceSeconds = (thresholdSeconds * 100) / percentage; // Corrigido: (thresholdSeconds * 100) / percentage
+    const paceSeconds = (thresholdSeconds * 100) / percentage;
     const minutes = Math.floor(paceSeconds / 60);
     const seconds = Math.round(paceSeconds % 60);
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
-  // Gerar texto CSV para TrainingPeaks
-  const generateCsvForTrainingPeaks = () => {
-    let csvContent = "Zone,Name,Low,High\n";
+  // Gerar texto formatado para TrainingPeaks
+  const generateTextForTrainingPeaks = () => {
+    let textContent = "Zonas de Ritmo para TrainingPeaks\n";
+    textContent += `Ritmo de Limiar Base: ${thresholdPace}/km\n\n`;
 
     paceZones.forEach((zone) => {
-      // No TrainingPeaks:
-      // "Low" é o valor mais lento (maior tempo por km) = maior porcentagem
-      // "High" é o valor mais rápido (menor tempo por km) = menor porcentagem
-      const lowPaceSeconds = (thresholdSeconds * 100) / zone.min; // Valor mais lento
-      const highPaceSeconds = (thresholdSeconds * 100) / zone.max; // Valor mais rápido
+      const slowPace = calculatePaceFromPercentage(zone.min);
+      const fastPace = calculatePaceFromPercentage(zone.max);
 
-      // TrainingPeaks espera segundos por km
-      csvContent += `${zone.zone.replace('Z', '')},${zone.name},${Math.round(lowPaceSeconds)},${Math.round(highPaceSeconds)}\n`;
+      textContent += `${zone.zone} - ${zone.name}\n`;
+      textContent += `Porcentagem do Limiar: ${zone.min}% - ${zone.max}%\n`;
+      textContent += `Ritmo: ${slowPace} - ${fastPace}/km\n`;
+      textContent += `Descrição: ${zone.description}\n\n`;
     });
 
-    return csvContent;
+    textContent += "Gerado por Magic Training";
+
+    return textContent;
   };
 
   // Copiar para o clipboard
   const copyToClipboard = () => {
-    const text = generateCsvForTrainingPeaks();
+    const text = generateTextForTrainingPeaks();
     navigator.clipboard.writeText(text)
       .then(() => {
         setCopied(true);
@@ -90,14 +90,14 @@ const paceZones: PaceZone[] = [
       });
   };
 
-  // Download do CSV
-  const downloadCsv = () => {
-    const csvContent = generateCsvForTrainingPeaks();
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  // Download do texto
+  const downloadText = () => {
+    const textContent = generateTextForTrainingPeaks();
+    const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.setAttribute('href', url);
-    link.setAttribute('download', 'trainingpeaks_pace_zones.csv');
+    link.setAttribute('download', 'magic_training_pace_zones.txt');
     link.style.visibility = 'hidden';
     document.body.appendChild(link);
     link.click();
@@ -118,13 +118,13 @@ const paceZones: PaceZone[] = [
         </Button>
 
         <Button
-          onClick={downloadCsv}
+          onClick={downloadText}
           variant="outline"
           size="sm"
           className="h-8 gap-1"
         >
           <Download className="h-3.5 w-3.5" />
-          <span className="text-xs">CSV</span>
+          <span className="text-xs">Texto</span>
         </Button>
       </div>
 
