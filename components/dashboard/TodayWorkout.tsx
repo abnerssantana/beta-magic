@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { PlayCircle, Activity, Clock, Youtube, BarChart2 } from "lucide-react";
+import { PlayCircle, Calendar, Youtube, ArrowRight } from "lucide-react";
 import { PlanSummary } from '@/models';
 
 interface TodayWorkoutProps {
@@ -33,12 +33,12 @@ const getActivityColor = (type: string) => {
 // Função para mapear o tipo de atividade para um nome legível
 const getActivityTypeName = (type: string): string => {
   const types: Record<string, string> = {
-    'easy': 'Fácil',
+    'easy': 'Corrida Fácil',
     'recovery': 'Recuperação',
     'threshold': 'Limiar',
     'interval': 'Intervalado',
     'repetition': 'Repetições',
-    'long': 'Longo',
+    'long': 'Corrida Longa',
     'marathon': 'Maratona',
     'race': 'Competição',
     'offday': 'Descanso',
@@ -56,21 +56,26 @@ export const TodayWorkout: React.FC<TodayWorkoutProps> = ({ activePlan, todayWor
   if (!todayWorkout) {
     return (
       <Card className="border-primary/20 bg-primary/5">
-        <CardContent className="p-4 flex flex-col sm:flex-row items-center text-center sm:text-left gap-3">
-          <div className="bg-muted/50 rounded-full p-2 sm:mr-2">
-            <Activity className="h-5 w-5 text-muted-foreground" />
+        <CardContent className="p-4">
+          <div className="flex items-center gap-4">
+            <div className="bg-muted/50 rounded-full p-3 flex-shrink-0">
+              <Calendar className="h-5 w-5 text-muted-foreground" />
+            </div>
+            
+            <div className="flex-1">
+              <h3 className="text-base font-medium">Dia de descanso</h3>
+              <p className="text-sm text-muted-foreground mt-1">
+                Recupere-se hoje. Um bom descanso é essencial para o progresso no treinamento.
+              </p>
+            </div>
+            
+            <Button asChild size="sm" variant="outline" className="flex-shrink-0">
+              <Link href={`/plano/${activePlan.path}`}>
+                Ver Plano
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
-          <div className="flex-1">
-            <h3 className="text-base font-medium">Nenhum treino hoje</h3>
-            <p className="text-xs text-muted-foreground">
-              Aproveite o dia de descanso ou ajuste seu plano para registrar seu treino.
-            </p>
-          </div>
-          <Button asChild size="sm" variant="outline" className="mt-2 sm:mt-0 self-center shrink-0 h-8 text-xs">
-            <Link href={`/plano/${activePlan.path}`}>
-              Ver Plano Completo
-            </Link>
-          </Button>
         </CardContent>
       </Card>
     );
@@ -78,99 +83,72 @@ export const TodayWorkout: React.FC<TodayWorkoutProps> = ({ activePlan, todayWor
 
   return (
     <Card className="border-primary/20 bg-primary/5">
-      <CardHeader className="pb-0 pt-3 px-3">
-        <CardTitle className="text-base flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <PlayCircle className="h-4 w-4 text-primary" />
-            <span>Treino de Hoje</span>
-          </div>
-          <Badge variant="outline" className={getActivityColor(todayWorkout.type)}>
-            {getActivityTypeName(todayWorkout.type)}
-          </Badge>
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="p-3">
-        <div className="flex flex-col sm:flex-row gap-3 items-start">
-          <div className="flex-1">
-            <p className="text-base font-medium mb-1">{todayWorkout.title}</p>
-            <p className="text-xs text-muted-foreground line-clamp-2 mb-2">{todayWorkout.description}</p>
-            
-            {/* Exibir detalhes dos workouts quando existirem */}
-            {todayWorkout.workouts && todayWorkout.workouts.length > 0 && (
-              <div className="mt-2 space-y-2">
-                {todayWorkout.workouts.map((workout: any, idx: number) => (
-                  <div key={idx} className="p-2 bg-muted/30 rounded-md">
-                    {workout.note && <p className="text-xs font-medium mb-1">{workout.note}</p>}
-                    
-                    {workout.series && workout.series.length > 0 && (
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-1">
-                        {workout.series.slice(0, 3).map((serie: any, sIdx: number) => (
-                          <div key={sIdx} className="bg-muted/40 p-1.5 rounded text-xs">
-                            <div className="font-medium">{serie.sets}</div>
-                            <div className="flex items-center justify-between mt-1 text-xs">
-                              <span className="text-xs">{serie.work}</span>
-                              {serie.rest && <span className="text-xs text-muted-foreground">/ {serie.rest}</span>}
-                            </div>
-                          </div>
-                        ))}
-                        {workout.series.length > 3 && (
-                          <div className="bg-muted/40 p-1.5 rounded text-xs flex items-center justify-center">
-                            +{workout.series.length - 3} séries
-                          </div>
-                        )}
-                      </div>
-                    )}
-                    
-                    {workout.link && (
-                      <Button 
-                        variant="secondary" 
-                        size="sm"
-                        className="mt-2 h-7 text-xs bg-rose-500/80 hover:bg-rose-500/60 text-white"
-                        onClick={() => window.open(workout.link, '_blank')}
-                      >
-                        <Youtube className="text-white mr-1.5 h-3 w-3" />
-                        Ver vídeo
-                      </Button>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-          
-          <div className="flex flex-row sm:flex-col gap-2 w-full sm:w-auto shrink-0">
-            <div className="flex flex-col items-center p-2 bg-muted/50 rounded-lg w-full sm:w-24">
-              <span className="text-xs text-muted-foreground">Distância</span>
-              <span className="text-base font-bold">{todayWorkout.distance}</span>
+      <CardContent className="p-4">
+        <div className="flex flex-col space-y-4">
+          {/* Cabeçalho com título e badge */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <PlayCircle className="h-5 w-5 text-primary" />
+              <h3 className="font-medium">Treino de Hoje</h3>
             </div>
-            
-            <div className="flex flex-col items-center p-2 bg-muted/50 rounded-lg w-full sm:w-24">
-              <span className="text-xs text-muted-foreground">Ritmo</span>
-              <span className="text-base font-bold">{todayWorkout.pace}</span>
-            </div>
-            
-            <div className="flex flex-col gap-2 w-full sm:w-24">
-              <Button 
-                variant="outline" 
-                size="sm" 
-                asChild
-                className="h-8 text-xs"
-              >
-                <Link href={`/plano/${activePlan.path}`}>
-                  Ver Plano
-                </Link>
-              </Button>
+            <Badge variant="outline" className={getActivityColor(todayWorkout.type)}>
+              {getActivityTypeName(todayWorkout.type)}
+            </Badge>
+          </div>
+
+          {/* Conteúdo principal */}
+          <div className="flex items-center gap-4">
+            {/* Detalhes do treino */}
+            <div className="flex-1">
+              <p className="font-medium text-lg">{todayWorkout.title}</p>
+              <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{todayWorkout.description}</p>
               
-              <Button 
-                asChild
-                size="sm"
-                className="h-8 text-xs"
-              >
-                <Link href="/dashboard/log">
-                  <PlayCircle className="mr-1.5 h-3.5 w-3.5" />
-                  Registrar
-                </Link>
-              </Button>
+              {/* Séries (se existirem) */}
+              {todayWorkout.workouts && todayWorkout.workouts.length > 0 && todayWorkout.workouts[0].series && (
+                <div className="flex flex-wrap items-center gap-2 mt-3">
+                  {todayWorkout.workouts[0].series.slice(0, 3).map((serie: any, sIdx: number) => (
+                    <div key={sIdx} className="bg-muted/40 p-2 rounded text-xs">
+                      <span className="font-medium">{serie.sets}</span>
+                      {serie.work && <span className="ml-1">{serie.work}</span>}
+                      {serie.rest && <span className="text-muted-foreground ml-1">/ {serie.rest}</span>}
+                    </div>
+                  ))}
+                  {todayWorkout.workouts[0].series.length > 3 && (
+                    <Badge variant="secondary">+{todayWorkout.workouts[0].series.length - 3} séries</Badge>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* Métricas e botões */}
+            <div className="flex items-center gap-3 flex-shrink-0">
+              <div className="flex gap-3">
+                <div className="text-center px-3 py-2 bg-muted/50 rounded-lg">
+                  <span className="block text-xs text-muted-foreground">Distância</span>
+                  <span className="block font-bold">{todayWorkout.distance}</span>
+                </div>
+                
+                <div className="text-center px-3 py-2 bg-muted/50 rounded-lg">
+                  <span className="block text-xs text-muted-foreground">Ritmo</span>
+                  <span className="block font-bold">{todayWorkout.pace}</span>
+                </div>
+              </div>
+              
+              <div className="flex gap-2">
+                {todayWorkout.workouts && todayWorkout.workouts[0] && todayWorkout.workouts[0].link && (
+                  <Button variant="outline" size="sm" className="h-9 px-3 bg-rose-500/10 text-rose-600 border-rose-200 hover:bg-rose-500/20" onClick={() => window.open(todayWorkout.workouts[0].link, '_blank')}>
+                    <Youtube className="mr-1.5 h-4 w-4" />
+                    Vídeo
+                  </Button>
+                )}
+                
+                <Button asChild size="sm" className="h-9">
+                  <Link href="/dashboard/log">
+                    <PlayCircle className="mr-1.5 h-4 w-4" />
+                    Registrar
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>

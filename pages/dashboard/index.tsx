@@ -16,7 +16,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
-import { Settings, FileText, BarChart2, CalendarDays } from "lucide-react";
+import { Settings, FileText, BarChart2, CalendarDays, Calendar } from "lucide-react";
 
 import { Layout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
@@ -75,36 +75,33 @@ const Dashboard: React.FC<DashboardProps> = ({
       </Head>
 
       <div className="space-y-4">
-        {/* Header - Mais compacto */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-          <div>
-            <h1 className="text-xl sm:text-2xl font-bold tracking-tight flex items-center gap-2">
-              <Badge variant="outline" className="bg-primary/10 text-primary">
-                {format(new Date(), "dd/MM")}
-              </Badge>
-              Olá, {session?.user?.name?.split(" ")[0]}!
-            </h1>
-            <p className="text-sm text-muted-foreground">
-              {currentDate}
-            </p>
-          </div>
-
-          <div className="flex items-center gap-2 mt-2 sm:mt-0">
-            <Button variant="outline" size="sm" asChild className="h-8 text-xs">
-              <Link href="/dashboard/log">
-                <BarChart2 className="mr-1.5 h-3.5 w-3.5" />
-                Registrar Treino
-              </Link>
-            </Button>
-
-            <Button variant="default" size="sm" asChild className="h-8 text-xs">
-              <Link href="/dashboard/plans">
-                <FileText className="mr-1.5 h-3.5 w-3.5" />
-                Meus Planos
-              </Link>
-            </Button>
-          </div>
-        </div>
+  {/* Header - Redesenhado */}
+  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+    <div className="space-y-1">
+      <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
+        Olá, {session?.user?.name?.split(" ")[0]}!
+      </h1>
+      <p className="text-sm text-muted-foreground flex items-center">
+        <Calendar className="mr-1.5 h-3.5 w-3.5" />
+        {format(new Date(), "EEEE, d 'de' MMMM", { locale: ptBR })} • Vamos treinar hoje?
+      </p>
+    </div>
+    
+    <div className="flex items-center gap-2 mt-2 sm:mt-0">
+      <Button variant="outline" size="sm" asChild className="h-9">
+        <Link href="/dashboard/log">
+          <BarChart2 className="mr-2 h-4 w-4" />
+          Registrar Treino
+        </Link>
+      </Button>
+      <Button variant="default" size="sm" asChild className="h-9">
+        <Link href="/dashboard/plans">
+          <FileText className="mr-2 h-4 w-4" />
+          Meus Planos
+        </Link>
+      </Button>
+    </div>
+  </div>
 
         {/* Reordenação: StatsSummary primeiro */}
         <StatsSummary userSummary={userSummary} />

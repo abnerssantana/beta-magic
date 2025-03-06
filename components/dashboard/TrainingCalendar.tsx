@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import Link from "next/link";
 import { format, addDays, isToday, isPast, startOfWeek, endOfWeek, eachDayOfInterval, isSameDay } from 'date-fns';
 import { ptBR } from 'date-fns/locale/pt-BR';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { Calendar as CalendarIcon, ChevronLeft, ChevronRight, Clock, Activity, CheckCircle } from 'lucide-react';
+import { CalendarIcon, ChevronLeft, ChevronRight, CheckCircle } from 'lucide-react';
 import { PlanSummary } from '@/models';
 import { WorkoutLog } from '@/models/userProfile';
 import WorkoutDetailsModal from '@/components/dashboard/WorkoutDetailsModal';
+import Link from 'next/link';
 
 interface TrainingCalendarProps {
   activePlan: PlanSummary | null;
@@ -62,15 +61,10 @@ export function TrainingCalendar({ activePlan, planWorkouts, completedWorkouts =
     return types[activityType] || 'bg-gray-500/10 text-gray-700 dark:text-gray-300 border-gray-500/30';
   };
 
-  // Calculate day index in the training plan - simplified for demonstration
+  // Calculate day index in the training plan
   const getPlanDay = (date: Date) => {
     if (!planWorkouts) return null;
     
-    // This is a simplified approach. In a real implementation, you would:
-    // 1. Calculate the difference in days between the plan start date and the provided date
-    // 2. Get the corresponding day in the plan based on this difference
-    
-    // For demonstration, we'll use a simple algorithm
     // Get the day of the week (0-6)
     const dayOfWeek = date.getDay();
     
@@ -92,163 +86,169 @@ export function TrainingCalendar({ activePlan, planWorkouts, completedWorkouts =
     setIsModalOpen(true);
   };
 
+  // No Active Plan State
+  if (!activePlan) {
+    return (
+      <div className="bg-muted/30 rounded-lg p-4 flex flex-col items-center text-center">
+        <div className="rounded-full bg-muted p-2 mb-3">
+          <CalendarIcon className="h-5 w-5 text-muted-foreground" />
+        </div>
+        <h3 className="text-base font-medium mb-2">Nenhum plano ativo</h3>
+        <p className="text-xs text-muted-foreground max-w-md mb-3">
+          Ative um plano para visualizar seu calendário de treinos.
+        </p>
+        <Button asChild size="sm" className="h-8 text-xs">
+          <Link href="/dashboard/plans">
+            Escolher um Plano
+          </Link>
+        </Button>
+      </div>
+    );
+  }
+
   return (
-    <div className="space-y-4">
-      {activePlan ? (
-        <>
-          <Card>
-            <CardHeader className="py-3 px-3">
-              <div className="flex items-center justify-between">
-                <CardTitle className="text-sm flex items-center gap-2">
-                  <span>{activePlan.name}</span>
-                  <Badge variant="outline" className="text-xs">
-                    {activePlan.nivel}
-                  </Badge>
-                </CardTitle>
-                <div className="flex items-center gap-1">
-                  <Button variant="outline" size="sm" onClick={goToPreviousWeek} className="h-7 w-7 p-0">
-                    <ChevronLeft className="h-3.5 w-3.5" />
-                  </Button>
-                  <Button variant="outline" size="sm" onClick={goToToday} className="h-7 text-xs">
-                    <CalendarIcon className="h-3.5 w-3.5 mr-1" />
-                    Hoje
-                  </Button>
-                  <Button variant="outline" size="sm" onClick={goToNextWeek} className="h-7 w-7 p-0">
-                    <ChevronRight className="h-3.5 w-3.5" />
-                  </Button>
+    <div className="bg-background">
+      <CardHeader className="py-2 px-0">
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-sm flex items-center gap-2">
+            <span className="truncate">{activePlan.name}</span>
+            <Badge variant="outline" className="text-xs">
+              {activePlan.nivel}
+            </Badge>
+          </CardTitle>
+          <div className="flex items-center gap-1">
+            <Button variant="outline" size="sm" onClick={goToPreviousWeek} className="h-7 w-7 p-0">
+              <ChevronLeft className="h-3.5 w-3.5" />
+            </Button>
+            <Button variant="outline" size="sm" onClick={goToToday} className="h-7 text-xs">
+              <CalendarIcon className="h-3.5 w-3.5 mr-1" />
+              Hoje
+            </Button>
+            <Button variant="outline" size="sm" onClick={goToNextWeek} className="h-7 w-7 p-0">
+              <ChevronRight className="h-3.5 w-3.5" />
+            </Button>
+          </div>
+        </div>
+      </CardHeader>
+      <div className="px-0 pt-0 pb-2">
+        {/* Weekly Grid View - Optimized for desktop */}
+        <div className="hidden md:grid md:grid-cols-7 gap-1.5 mb-2">
+          {weekDays.map((day, index) => {
+            const activities = getPlanDay(day);
+            const dayCompletedWorkouts = getCompletedWorkoutsForDate(day);
+            const hasCompletedWorkouts = dayCompletedWorkouts.length > 0;
+            
+            return (
+              <div
+                key={`grid-${index}`}
+                className={`
+                  min-h-[120px] p-1.5 rounded-lg cursor-pointer text-xs
+                  ${isToday(day) ? 'bg-primary/5 ring-1 ring-primary/30' : ''}
+                  ${hasCompletedWorkouts ? 'bg-green-500/10 ring-1 ring-green-500/30' : 'bg-muted/30'}
+                  hover:bg-muted/50 transition-colors duration-200
+                `}
+                onClick={() => handleDayClick(day)}
+              >
+                <div className="text-center mb-1">
+                  <div className="text-xs uppercase text-muted-foreground">
+                    {format(day, 'EEEEEE', { locale: ptBR })}
+                  </div>
+                  <div className={`text-base font-semibold ${isToday(day) ? 'text-primary' : hasCompletedWorkouts ? 'text-green-600 dark:text-green-400' : ''}`}>
+                    {format(day, 'd', { locale: ptBR })}
+                  </div>
+                </div>
+                
+                <div className="h-px bg-border/50 my-1" />
+                
+                <div className="space-y-1">
+                  {activities && activities.map((activity: any, actIndex: number) => (
+                    <div
+                      key={actIndex}
+                      className={`text-xs p-1 rounded ${getActivityColor(activity.type)} flex justify-between items-center`}
+                    >
+                      <span className="font-medium truncate text-xs">{activity.type}</span>
+                      <span className="text-xs">{activity.distance}</span>
+                      
+                      {hasCompletedWorkouts && (
+                        <CheckCircle className="h-2.5 w-2.5 text-green-600 dark:text-green-400" />
+                      )}
+                    </div>
+                  ))}
+                  
+                  {!activities && (
+                    <div className="text-xs text-muted-foreground text-center p-1">
+                      Descanso
+                    </div>
+                  )}
                 </div>
               </div>
-            </CardHeader>
-            <CardContent className="px-3 pt-0 pb-3">
-              <div className="grid grid-cols-7 gap-1.5">
-                {weekDays.map((day, index) => {
-                  // Get activities for this day
-                  const activities = getPlanDay(day);
-                  const dayCompletedWorkouts = getCompletedWorkoutsForDate(day);
-                  const hasCompletedWorkouts = dayCompletedWorkouts.length > 0;
-                  
-                  return (
-                    <div
-                      key={index}
-                      className={`
-                        min-h-[120px] p-1.5 rounded-lg border cursor-pointer text-xs
-                        ${isToday(day) ? 'border-primary ring-1 ring-primary/20 bg-primary/5' : 'border-border'}
-                        hover:bg-muted/20 transition-colors duration-200
-                      `}
-                      onClick={() => handleDayClick(day)}
-                    >
-                      <div className="text-center mb-1">
-                        <div className="text-xs uppercase text-muted-foreground">
-                          {format(day, 'EEEEEE', { locale: ptBR })}
-                        </div>
-                        <div className={`text-base font-semibold ${isToday(day) ? 'text-primary' : ''}`}>
-                          {format(day, 'd', { locale: ptBR })}
-                        </div>
-                      </div>
-                      
-                      <Separator className="my-1" />
-                      
-                      <div className="space-y-1">
-                        {activities && activities.map((activity: any, actIndex: number) => (
-                          <div
-                            key={actIndex}
-                            className={`text-xs p-1 rounded ${getActivityColor(activity.type)} flex justify-between items-center`}
-                          >
-                            <span className="font-medium truncate text-xs">{activity.type}</span>
-                            <span className="text-xs">{activity.distance}</span>
-                            
-                            {isPast(day) && (
-                              <CheckCircle className="h-2.5 w-2.5 text-green-500" />
-                            )}
-                          </div>
-                        ))}
-                        
-                        {hasCompletedWorkouts && (
-                          <div className="text-xs bg-green-500/10 border border-green-500/20 rounded p-1 flex justify-between mt-1">
-                            <span className="font-medium">Feito</span>
-                            <span>{dayCompletedWorkouts.length}</span>
-                          </div>
-                        )}
-                        
-                        {!activities && !hasCompletedWorkouts && (
-                          <div className="text-xs text-muted-foreground text-center p-1">
-                            Descanso
-                          </div>
-                        )}
-                      </div>
+            );
+          })}
+        </div>
+
+        {/* List View - Optimized for mobile */}
+        <div className="md:hidden space-y-2">
+          {weekDays.map((day, index) => {
+            const activities = getPlanDay(day);
+            const dayCompletedWorkouts = getCompletedWorkoutsForDate(day);
+            const hasCompletedWorkouts = dayCompletedWorkouts.length > 0;
+            const isCurrentDay = isToday(day);
+            
+            return (
+              <div
+                key={`list-${index}`}
+                className={`
+                  p-2 rounded-lg cursor-pointer text-sm
+                  ${isCurrentDay ? 'bg-primary/5 ring-1 ring-primary/30' : ''}
+                  ${hasCompletedWorkouts ? 'bg-green-500/10 ring-1 ring-green-500/30' : 'bg-muted/30'}
+                  hover:bg-muted/50 transition-colors duration-200
+                `}
+                onClick={() => handleDayClick(day)}
+              >
+                <div className="flex justify-between items-center mb-1">
+                  <div className="flex items-center gap-2">
+                    <div className={`text-base font-semibold ${isCurrentDay ? 'text-primary' : hasCompletedWorkouts ? 'text-green-600 dark:text-green-400' : ''}`}>
+                      {format(day, 'EEEE', { locale: ptBR })}
                     </div>
-                  );
-                })}
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card>
-            <CardHeader className="p-3">
-              <CardTitle className="text-sm">Próximos Treinos</CardTitle>
-            </CardHeader>
-            <CardContent className="p-3">
-              <div className="space-y-3">
-                {[0, 1, 2].map((offset, index) => {
-                  const futureDate = addDays(new Date(), offset + 1);
-                  const dayActivities = getPlanDay(futureDate);
-                  
-                  if (!dayActivities || dayActivities.length === 0) return null;
-                  
-                  const mainActivity = dayActivities[0];
-                  const relativeDay = offset === 0 ? 'Amanhã' : `Em ${offset+1} dias`;
-                  const activityName = mainActivity.note || mainActivity.type;
-                  
-                  return (
-                    <div key={index} className="flex items-center gap-3">
-                      <div className={`w-1 h-10 rounded-full ${index === 0 ? 'bg-primary' : 'bg-muted'}`} />
-                      <div className="flex-1">
-                        <div className="flex justify-between items-center">
-                          <div className="text-sm font-medium">
-                            {relativeDay} - {activityName}
-                          </div>
-                          <Badge variant="outline" className="flex items-center gap-1 text-xs h-5">
-                            <Clock className="h-2.5 w-2.5" />
-                            {mainActivity.distance} {mainActivity.units}
-                          </Badge>
-                        </div>
-                      </div>
+                    <div className="text-sm text-muted-foreground">
+                      {format(day, 'd MMM', { locale: ptBR })}
                     </div>
-                  );
-                })}
+                  </div>
+                  
+                  {hasCompletedWorkouts && (
+                    <Badge variant="outline" className="bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/30">
+                      Concluído
+                    </Badge>
+                  )}
+                </div>
                 
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  asChild 
-                  className="w-full h-8 text-xs mt-2"
-                >
-                  <Link href={`/plano/${activePlan.path}`}>
-                    Ver plano completo
-                  </Link>
-                </Button>
+                <div className="space-y-1 mt-2">
+                  {activities && activities.map((activity: any, actIndex: number) => (
+                    <div
+                      key={actIndex}
+                      className={`text-xs p-1.5 rounded ${getActivityColor(activity.type)} flex justify-between items-center`}
+                    >
+                      <span className="font-medium truncate text-xs">{activity.note || activity.type}</span>
+                      <div className="flex items-center gap-1">
+                        <span className="text-xs">{activity.distance} {activity.units}</span>
+                        {hasCompletedWorkouts && (
+                          <CheckCircle className="h-2.5 w-2.5 text-green-600 dark:text-green-400" />
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                  
+                  {!activities && (
+                    <div className="text-xs text-muted-foreground text-center p-1">
+                      Dia de descanso
+                    </div>
+                  )}
+                </div>
               </div>
-            </CardContent>
-          </Card>
-        </>
-      ) : (
-        <Card>
-          <CardContent className="p-4 flex flex-col items-center text-center">
-            <div className="rounded-full bg-muted p-2 mb-3">
-              <CalendarIcon className="h-5 w-5 text-muted-foreground" />
-            </div>
-            <h3 className="text-base font-medium mb-2">Nenhum plano ativo</h3>
-            <p className="text-xs text-muted-foreground max-w-md mb-3">
-              Ative um plano para visualizar seu calendário de treinos.
-            </p>
-            <Button asChild size="sm" className="h-8 text-xs">
-              <Link href="/dashboard/plans">
-                Escolher um Plano
-              </Link>
-            </Button>
-          </CardContent>
-        </Card>
-      )}
+            );
+          })}
+        </div>
+      </div>
 
       {/* Workout Details Modal */}
       {selectedDate && (
