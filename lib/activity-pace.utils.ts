@@ -1,6 +1,42 @@
 import { Activity } from '@/types';
 
 /**
+ * Normaliza um ritmo para o formato MM:SS (remove o sufixo '/km' se existir)
+ */
+export function normalizePace(pace: string): string {
+  // Remover o sufixo '/km' se existir
+  const cleanPace = pace.replace(/\/km$/, '').trim();
+  
+  // Verificar se está no formato MM:SS
+  if (/^\d{1,2}:\d{2}$/.test(cleanPace)) {
+    return cleanPace;
+  }
+  
+  // Se não está em um formato reconhecível, retornar um valor padrão
+  return "N/A";
+}
+
+/**
+ * Registra um log detalhado sobre o ritmo calculado (somente em desenvolvimento)
+ */
+function logPaceCalculation(
+  activityType: string, 
+  userPace: string | undefined, 
+  standardPace: string | undefined, 
+  defaultPace: string | undefined,
+  finalPace: string
+) {
+  if (process.env.NODE_ENV === 'development') {
+    console.group(`Ritmo calculado para atividade: ${activityType}`);
+    console.log(`Ritmo personalizado: ${userPace || 'Não disponível'}`);
+    console.log(`Ritmo padrão calculado: ${standardPace || 'Não disponível'}`);
+    console.log(`Ritmo default: ${defaultPace || 'Não disponível'}`);
+    console.log(`Ritmo final utilizado: ${finalPace}`);
+    console.groupEnd();
+  }
+}
+
+/**
  * Calcula o ritmo para uma atividade específica baseado em:
  * 1. Ritmos personalizados do usuário
  * 2. Ritmos padrão calculados do plano
@@ -56,32 +92,45 @@ export function calculateActivityPace(
   
   const activityType = activity.type;
   
+  // Definir valores iniciais
+  let customPace: string | undefined;
+  let standardPace: string | undefined;
+  let defaultPace: string | undefined = defaultPaces[activityType];
+  let finalPace: string = "N/A";
+  
   // 1. Verifica se existe ritmo personalizado para esta atividade
   const customPaceKey = customPaceKeyMap[activityType];
   if (customPaceKey && userPaces[customPaceKey]) {
-    // Limpa o sufixo "/km" se existir
-    return userPaces[customPaceKey].replace('/km', '');
+    customPace = normalizePace(userPaces[customPaceKey]);
+    finalPace = customPace;
   }
   
   // 2. Para tipos especiais que dependem da distância (como corrida de prova)
-  if (activityType === 'race' && typeof activity.distance === 'number') {
-    const predictedTime = getPredictedRaceTime(activity.distance);
-    if (predictedTime && predictedTime.pace) {
-      return predictedTime.pace;
+  if (!finalPace || finalPace === "N/A") {
+    if (activityType === 'race' && typeof activity.distance === 'number') {
+      const predictedTime = getPredictedRaceTime(activity.distance);
+      if (predictedTime && predictedTime.pace) {
+        finalPace = predictedTime.pace;
+      }
     }
   }
   
   // 3. Tenta obter o ritmo padrão calculado do plano
-  const standardPaceKey = standardPaceKeyMap[activityType];
-  if (standardPaceKey && userPaces[standardPaceKey]) {
-    return userPaces[standardPaceKey].replace('/km', '');
+  if ((!finalPace || finalPace === "N/A") && activityType in standardPaceKeyMap) {
+    const standardPaceKey = standardPaceKeyMap[activityType];
+    if (standardPaceKey && userPaces[standardPaceKey]) {
+      standardPace = normalizePace(userPaces[standardPaceKey]);
+      finalPace = standardPace;
+    }
   }
   
   // 4. Usa o ritmo default baseado no tipo de atividade
-  if (activityType in defaultPaces) {
-    return defaultPaces[activityType];
+  if ((!finalPace || finalPace === "N/A") && activityType in defaultPaces) {
+    finalPace = defaultPace || "N/A";
   }
   
-  // 5. Caso não encontre nenhum ritmo aplicável
-  return "N/A";
+  // Registra o log sobre as escolhas de ritmo (em desenvolvimento)
+  logPaceCalculation(activityType, customPace, standardPace, defaultPace, finalPace);
+  
+  return finalPace;
 }

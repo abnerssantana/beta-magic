@@ -85,7 +85,28 @@ export async function getUserCustomPaces(userId: string, planPath: string): Prom
       return {};
     }
     
-    return userProfile.customPaces[planPath];
+    // Log para depuração (somente em desenvolvimento)
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`Ritmos personalizados encontrados para ${planPath}:`, userProfile.customPaces[planPath]);
+    }
+    
+    // Normalizar todos os ritmos para garantir consistência
+    const rawPaces = userProfile.customPaces[planPath];
+    const normalizedPaces: Record<string, string> = {};
+    
+    for (const [key, value] of Object.entries(rawPaces)) {
+      if (typeof value === 'string') {
+        // Para ritmos personalizados (que começam com 'custom_'), garantir formato MM:SS
+        if (key.startsWith('custom_') && /^\d{1,2}:\d{2}$/.test(value.replace(/\/km$/, '').trim())) {
+          normalizedPaces[key] = value.replace(/\/km$/, '').trim();
+        } else {
+          // Para outros valores como baseTime, startDate, etc.
+          normalizedPaces[key] = value;
+        }
+      }
+    }
+    
+    return normalizedPaces;
     
   } catch (error) {
     console.error(`Erro ao buscar ritmos personalizados para ${planPath}:`, error);

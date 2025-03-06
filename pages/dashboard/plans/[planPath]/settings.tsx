@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import { Layout } from "@/components/layout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge"
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -16,13 +15,15 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import TimeInput from "@/components/TimeInput";
 import { PlanModel } from "@/models";
 import { Slider } from "@/components/ui/slider";
-import { defaultTimes, findClosestRaceParams, findPaceValues } from "@/lib/plan-utils";
-import { Check, Info, Save, AlertTriangle, ArrowLeft, Clock, Calendar, BarChart2 } from "lucide-react";
+import { findClosestRaceParams, findPaceValues } from "@/lib/plan-utils";
+import { Info, Save, ArrowLeft, Clock, Calendar, BarChart2 } from "lucide-react";
 import { getPlanByPath } from "@/lib/db-utils";
 import { getUserCustomPaces } from "@/lib/user-utils";
 import { storageHelper } from "@/lib/plan-utils";
 import VO2maxIndicator from "@/components/default/VO2maxConfig";
+import PaceSettingsManager from "@/components/plan/PaceSettingsManager";
 import { toast } from "sonner";
+import { normalizePace } from "@/lib/activity-pace.utils";
 
 interface PaceSetting {
   name: string;
@@ -38,16 +39,17 @@ interface PlanSettingsProps {
   baseParams: number | null;
 }
 
-// Descrições dos ritmos para melhorar a compreensão
-const paceDescriptions: Record<string, string> = {
-  "Recovery Km": "Ritmo de recuperação - use após treinos intensos ou para recuperação ativa",
-  "Easy Km": "Ritmo fácil - sua zona de conversação, para a maioria dos treinos",
-  "M Km": "Ritmo de maratona - sustentável para provas longas",
-  "T Km": "Ritmo de limiar - na fronteira entre aeróbico e anaeróbico",
-  "I Km": "Ritmo de intervalo - para melhorar VO₂max em intervalos de 3-5 min",
-  "R 1000m": "Ritmo de repetição - para treinar velocidade e economia de corrida",
-  "I 800m": "Intervalo de 800m - ritmo ligeiramente mais rápido que o ritmo I",
-  "R 400m": "Repetição de 400m - para desenvolvimento de velocidade"
+// Tempos padrão para diferentes distâncias
+const defaultTimes: Record<string, string> = {
+  "1500m": "00:05:24",
+  "1600m": "00:05:50",
+  "3km": "00:11:33",
+  "3200m": "00:12:28",
+  "5km": "00:19:57",
+  "10km": "00:41:21",
+  "15km": "01:03:36",
+  "21km": "01:31:35",
+  "42km": "03:10:49"
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -121,24 +123,6 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
   // Calcular percentual para VO2max indicator
   const percentage = params ? (params / 85) * 100 : 0;
 
-  // Função para extrair o valor do tempo de um ritmo
-  const extractPaceTimeValue = (pace: PaceSetting): string => {
-    if (!pace.value || typeof pace.value !== 'string') {
-      return "00:00";
-    }
-    
-    // O ritmo está no formato "MM:SS" ou pode ter um sufixo "/km"
-    // Remover qualquer texto adicional e manter apenas MM:SS
-    const cleanValue = pace.value.replace(/\/km$/, '').trim();
-    
-    // Verificar se é um formato válido MM:SS
-    if (/^\d{1,2}:\d{2}$/.test(cleanValue)) {
-      return cleanValue;
-    }
-    
-    return "00:00";
-  };
-
   // Calcular ritmos quando os parâmetros mudarem
   useEffect(() => {
     if (params !== null) {
@@ -157,12 +141,16 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
             const safeValue = typeof value === 'string' ? value : String(value || "00:00");
             const safeCustomValue = typeof customValue === 'string' ? customValue : String(customValue || "");
             
+            // Normalizar valores para garantir formato consistente
+            const normalizedDefault = normalizePace(safeValue);
+            const normalizedCustom = customValue ? normalizePace(safeCustomValue) : "";
+            
             return {
               name: key,
-              value: safeCustomValue || safeValue,
-              default: safeValue,
+              value: normalizedCustom || normalizedDefault,
+              default: normalizedDefault,
               isCustom: !!customValue,
-              description: paceDescriptions[key] || ""
+              description: ""
             };
           });
         
@@ -218,7 +206,12 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
   const updatePaceSetting = (index: number, newValue: string) => {
     const newSettings = [...paceSettings];
     // Garantir que o valor está no formato MM:SS
-    const formattedValue = newValue.trim();
+    const formattedValue = normalizePace(newValue.trim());
+    
+    if (formattedValue === "N/A") {
+      toast.error("Formato de ritmo inválido. Use o formato MM:SS.");
+      return;
+    }
     
     newSettings[index] = {
       ...newSettings[index],
@@ -279,6 +272,11 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
       // Salvar a data no localStorage também
       storageHelper.saveSettings(plan.path, { startDate });
       
+      // Mostrar detalhes dos dados sendo salvos (somente em desenvolvimento)
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Salvando configurações:', settingsToSave);
+      }
+      
       // Enviar para a API
       const response = await fetch(`/api/user/plans/${plan.path}/paces`, {
         method: "POST",
@@ -301,23 +299,6 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
     } finally {
       setIsSaving(false);
     }
-  };
-
-  // Função para formatar o nome do ritmo para exibição
-  const formatPaceName = (name: string): string => {
-    const replacements: Record<string, string> = {
-      "Recovery Km": "Recuperação",
-      "Easy Km": "Fácil",
-      "M Km": "Maratona",
-      "T Km": "Limiar",
-      "Race Pace": "Prova",
-      "I Km": "Intervalo",
-      "R 1000m": "Repetição 1000m",
-      "I 800m": "Intervalo 800m",
-      "R 400m": "Repetição 400m"
-    };
-
-    return replacements[name] || name;
   };
 
   return (
@@ -482,115 +463,37 @@ const PlanSettings: React.FC<PlanSettingsProps> = ({
                   <TabsTrigger value="intervals">Intervalados</TabsTrigger>
                 </TabsList>
                 
-                <TabsContent value="running" className="space-y-6 pt-4">
-                  {paceSettings
-                    .filter(pace => 
-                      ["Recovery Km", "Easy Km", "M Km", "T Km", "Race Pace"].includes(pace.name)
-                    )
-                    .map((pace, index) => (
-                      <div key={index} className="space-y-2 bg-muted/20 p-3 rounded-lg">
-                        <div className="flex justify-between">
-                          <Label className="text-sm font-medium flex items-center gap-2">
-                            {formatPaceName(pace.name)}
-                            {pace.isCustom && (
-                              <Badge variant="outline" className="bg-primary/10 text-primary hover:bg-primary/20 text-xs">
-                                Personalizado
-                              </Badge>
-                            )}
-                          </Label>
-                          <button
-                            onClick={() => resetPaceSetting(
-                              paceSettings.findIndex(p => p.name === pace.name)
-                            )}
-                            className="text-xs text-muted-foreground hover:text-primary"
-                          >
-                            Resetar
-                          </button>
-                        </div>
-                        <TimeInput
-                          value={extractPaceTimeValue(pace)}
-                          onChange={(value) => updatePaceSetting(
-                            paceSettings.findIndex(p => p.name === pace.name),
-                            value
-                          )}
-                          showHours={false}
-                          suffix="/km"
-                          className="flex-1"
-                        />
-                        {pace.description && (
-                          <p className="text-xs text-muted-foreground italic">
-                            {pace.description}
-                          </p>
-                        )}
-                      </div>
-                    ))}
+                <TabsContent value="running" className="pt-4">
+                  <PaceSettingsManager
+                    paceSettings={paceSettings}
+                    onUpdatePaceSetting={updatePaceSetting}
+                    onResetPaceSetting={resetPaceSetting}
+                    onApplyAdjustment={applyAdjustmentFactor}
+                    onResetAll={resetAllPaces}
+                    onSaveSettings={saveSettings}
+                    activeTab={activeTab}
+                    isSaving={isSaving}
+                    saveSuccess={saveSuccess}
+                  />
                 </TabsContent>
                 
-                <TabsContent value="intervals" className="space-y-6 pt-4">
-                  {paceSettings
-                    .filter(pace => 
-                      ["I Km", "R 1000m", "I 800m", "R 400m"].includes(pace.name)
-                    )
-                    .map((pace, index) => (
-                      <div key={index} className="space-y-2 bg-muted/20 p-3 rounded-lg">
-                        <div className="flex justify-between">
-                          <Label className="text-sm font-medium flex items-center gap-2">
-                            {formatPaceName(pace.name)}
-                            {pace.isCustom && (
-                              <Badge variant="outline" className="bg-primary/10 text-primary hover:bg-primary/20 text-xs">
-                                Personalizado
-                              </Badge>
-                            )}
-                          </Label>
-                          <button
-                            onClick={() => resetPaceSetting(
-                              paceSettings.findIndex(p => p.name === pace.name)
-                            )}
-                            className="text-xs text-muted-foreground hover:text-primary"
-                          >
-                            Resetar
-                          </button>
-                        </div>
-                        <TimeInput
-                          value={extractPaceTimeValue(pace)}
-                          onChange={(value) => updatePaceSetting(
-                            paceSettings.findIndex(p => p.name === pace.name),
-                            value
-                          )}
-                          showHours={false}
-                          suffix="/km"
-                          className="flex-1"
-                        />
-                        {pace.description && (
-                          <p className="text-xs text-muted-foreground italic">
-                            {pace.description}
-                          </p>
-                        )}
-                      </div>
-                    ))}
+                <TabsContent value="intervals" className="pt-4">
+                  <PaceSettingsManager
+                    paceSettings={paceSettings}
+                    onUpdatePaceSetting={updatePaceSetting}
+                    onResetPaceSetting={resetPaceSetting}
+                    onApplyAdjustment={applyAdjustmentFactor}
+                    onResetAll={resetAllPaces}
+                    onSaveSettings={saveSettings}
+                    activeTab={activeTab}
+                    isSaving={isSaving}
+                    saveSuccess={saveSuccess}
+                  />
                 </TabsContent>
               </Tabs>
             </CardContent>
           </Card>
         </div>
-
-        <Alert variant={saveSuccess ? "default" : "default"} className={saveSuccess ? "bg-green-500/10 border-green-500/20 text-green-700 dark:text-green-300" : "bg-muted"}>
-          {saveSuccess ? (
-            <>
-              <Check className="h-4 w-4" />
-              <AlertDescription>
-                Configurações salvas com sucesso! Seus ritmos personalizados serão aplicados ao plano.
-              </AlertDescription>
-            </>
-          ) : (
-            <>
-              <AlertTriangle className="h-4 w-4" />
-              <AlertDescription>
-                Lembre-se de salvar suas alterações antes de sair. Suas configurações serão aplicadas ao visualizar o plano.
-              </AlertDescription>
-            </>
-          )}
-        </Alert>
 
         <div className="flex justify-between">
           <Button 
