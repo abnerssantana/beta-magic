@@ -1,78 +1,73 @@
-import { Activity, PredictedRaceTime } from '@/types';
+// lib/activity-pace.utils.ts
+// Atualize ou crie esta função melhorada de cálculo de ritmo
+
+import { Activity } from '@/types';
 
 /**
- * Calcula o ritmo para uma atividade específica com base nos ritmos personalizados
- * @param activity Atividade para calcular o ritmo
- * @param selectedPaces Ritmos personalizados selecionados pelo usuário
- * @param getPredictedRaceTime Função para obter o tempo de prova previsto
- * @returns Ritmo calculado no formato "MM:SS"
+ * Calcula o ritmo para uma atividade específica baseado em:
+ * 1. Ritmos personalizados do usuário
+ * 2. Ritmos padrão do plano
+ * 3. Valor default baseado no tipo da atividade
  */
-export const calculateActivityPace = (
+export function calculateActivityPace(
   activity: Activity,
-  selectedPaces: Record<string, string> | null,
-  getPredictedRaceTime: (distance: number) => PredictedRaceTime | null
-): string => {
-  // Se não temos paces selecionados, retorne N/A
-  if (!selectedPaces) return "N/A";
-
-  // Se a unidade não for km, retorne N/A (não calculamos ritmos para minutos)
-  if (activity.units !== "km") return "N/A";
-
-  // Para dias de descanso ou recuperação por tempo
-  if (activity.type === "offday" || activity.type === "recovery" ) {
+  userPaces: Record<string, string>,
+  getPredictedRaceTime: (distance: number) => any
+): string {
+  // Se não tem atividade ou ritmos, retorna N/A
+  if (!activity || !activity.type) {
     return "N/A";
   }
-
-  // Mapeamento de tipos de atividade para tipos de ritmos
-  const paceMapping: { [key: string]: string } = {
-    recovery: "Recovery Km",
-    easy: "Easy Km",
-    threshold: "T Km",
-    interval: "I Km",
-    repetition: "R 1000m",
-    race: "", // Tratado separadamente
-    marathon: "M Km",
-    walk: "Recovery Km", // Usando recup como fallback para caminhada
-    offday: "N/A", // Dias de descanso não têm pace
+  
+  // Mapeamento de tipos de atividade para chaves de ritmo
+  const paceKeyMap: Record<string, string> = {
+    'easy': 'custom_Easy Km',
+    'recovery': 'custom_Recovery Km',
+    'threshold': 'custom_T Km',
+    'interval': 'custom_I Km',
+    'repetition': 'custom_R 1000m',
+    'long': 'custom_M Km',
+    'marathon': 'custom_M Km',
+    'race': 'custom_Race Pace',
   };
-
-  // Se é um tipo desconhecido, use easy como fallback
-  const paceKey = paceMapping[activity.type] || "Easy Km";
-
-  // Caso especial para treinos de corrida
-  if (activity.type === "race" && typeof activity.distance === 'number') {
-    // Para corridas, usamos o ritmo previsto para a distância específica
-    const prediction = getPredictedRaceTime(activity.distance);
-    if (prediction) {
-      return prediction.pace;
-    }
-    
-    // Fallback para Race Pace se disponível
-    if (selectedPaces["Race Pace"]) {
-      return selectedPaces["Race Pace"];
-    }
-    
-    // Segundo fallback para T Km
-    return selectedPaces["T Km"] || "N/A";
+  
+  // Ritmos padrão por tipo de atividade (caso não tenha personalizado)
+  const defaultPaces: Record<string, string> = {
+    'easy': '6:00',
+    'recovery': '6:30',
+    'threshold': '4:30',
+    'interval': '4:00',
+    'repetition': '3:45',
+    'long': '5:30',
+    'marathon': '5:00',
+    'race': '4:30',
+    'offday': 'N/A',
+    'walk': '8:00'
+  };
+  
+  // Tenta obter o ritmo personalizado do usuário
+  const activityType = activity.type;
+  const paceKey = paceKeyMap[activityType];
+  
+  // 1. Verifica se existe ritmo personalizado para esta atividade
+  if (paceKey && userPaces[paceKey]) {
+    // Limpa o sufixo "/km" se existir
+    return userPaces[paceKey].replace('/km', '');
   }
-
-  // Se o tipo está no mapeamento e encontramos esse pace, use-o
-  if (paceKey !== "N/A" && selectedPaces[paceKey]) {
-    return selectedPaces[paceKey];
-  }
-
-  // Caso especial para treinos com workout que têm seus próprios ritmos
-  if (activity.workouts && activity.workouts.length > 0) {
-    // Se há séries com distâncias específicas, deixe para exibir no componente de série
-    const hasWorkoutWithSeries = activity.workouts.some(
-      (w) => w.series && w.series.length > 0 && w.series.some((s) => s.distance)
-    );
-    
-    if (hasWorkoutWithSeries) {
-      return "Variado";
+  
+  // 2. Para tipos especiais que dependem da distância (como corrida de prova)
+  if (activityType === 'race' && typeof activity.distance === 'number') {
+    const predictedTime = getPredictedRaceTime(activity.distance);
+    if (predictedTime && predictedTime.pace) {
+      return predictedTime.pace;
     }
   }
-
-  // Fallback para easy
-  return selectedPaces["Easy Km"] || "N/A";
-};
+  
+  // 3. Usa o ritmo padrão baseado no tipo de atividade
+  if (activityType in defaultPaces) {
+    return defaultPaces[activityType];
+  }
+  
+  // 4. Caso não encontre nenhum ritmo aplicável
+  return "N/A";
+}

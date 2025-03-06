@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSession, signOut } from 'next-auth/react';
@@ -20,6 +20,33 @@ export function NavUser() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  
+  // Fechar o dropdown quando clicar fora
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+  
+  // Fechar o dropdown na mudança de rota
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setIsOpen(false);
+    };
+    
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router]);
   
   // Se o usuário não estiver autenticado, exibir botão de login
   if (status !== 'authenticated' || !session) {
@@ -56,7 +83,7 @@ export function NavUser() {
                 session.user?.email === 'admin@example.com';
 
   return (
-    <div className="px-3 py-4 mt-2 relative">
+    <div className="px-3 py-4 mt-2 relative" ref={dropdownRef}>
       {/* Toggle Button */}
       <Button
         variant="outline"
@@ -83,7 +110,7 @@ export function NavUser() {
       
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute z-50 top-full left-3 right-3 -mt-3 bg-background border border-border rounded-lg shadow-lg">
+        <div className="absolute z-50 top-full left-3 right-3 mt-1 bg-background border border-border rounded-lg shadow-lg">
           {/* Menu Header */}
           <div className="p-3 border-b border-border">
             <div className="flex items-center gap-2">
@@ -108,7 +135,6 @@ export function NavUser() {
           <Link 
             href="/dashboard" 
             className="flex items-center gap-2 p-2.5 text-sm hover:bg-muted rounded-md mx-1 my-1"
-            onClick={() => setIsOpen(false)}
           >
             <LayoutDashboard className="h-4 w-4 text-muted-foreground" />
             <span>Dashboard</span>
@@ -120,7 +146,6 @@ export function NavUser() {
           <Link 
             href="/apoiar" 
             className="flex items-center gap-2 p-2.5 text-sm hover:bg-muted rounded-md mx-1 my-1"
-            onClick={() => setIsOpen(false)}
           >
             <Sparkles className="h-4 w-4 text-muted-foreground" />
             <span>Upgrade Premium</span>
@@ -132,7 +157,6 @@ export function NavUser() {
           <Link 
             href="/admin/perfil" 
             className="flex items-center gap-2 p-2.5 text-sm hover:bg-muted rounded-md mx-1 my-1"
-            onClick={() => setIsOpen(false)}
           >
             <User className="h-4 w-4 text-muted-foreground" />
             <span>Meu Perfil</span>
@@ -142,7 +166,6 @@ export function NavUser() {
             <Link 
               href="/admin" 
               className="flex items-center gap-2 p-2.5 text-sm hover:bg-muted rounded-md mx-1 my-1"
-              onClick={() => setIsOpen(false)}
             >
               <Shield className="h-4 w-4 text-muted-foreground" />
               <span>Painel Admin</span>
@@ -152,7 +175,6 @@ export function NavUser() {
           <Link 
             href="/admin/configuracoes" 
             className="flex items-center gap-2 p-2.5 text-sm hover:bg-muted rounded-md mx-1 my-1"
-            onClick={() => setIsOpen(false)}
           >
             <Settings className="h-4 w-4 text-muted-foreground" />
             <span>Configurações</span>
@@ -163,10 +185,7 @@ export function NavUser() {
           {/* Logout */}
           <button 
             className="flex w-full items-center gap-2 p-2.5 text-sm hover:bg-red-50 dark:hover:bg-red-950/30 text-red-500 dark:text-red-400 rounded-md mx-1 my-1"
-            onClick={() => {
-              setIsOpen(false);
-              signOut({ callbackUrl: '/' });
-            }}
+            onClick={() => signOut({ callbackUrl: '/' })}
           >
             <LogOut className="h-4 w-4" />
             <span>Sair da conta</span>

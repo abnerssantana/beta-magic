@@ -3,10 +3,10 @@ import { useSession, getSession } from 'next-auth/react';
 import { getUserActivePlan, getUserSummary, getUserCustomPaces } from '@/lib/user-utils';
 import { getPlanByPath } from '@/lib/db-utils';
 import { calculateActivityPace } from '@/lib/activity-pace.utils';
-import { 
-  findClosestRaceParams, 
+import {
+  findClosestRaceParams,
   getPredictedRaceTimeFactory,
-  organizePlanIntoWeeklyBlocks 
+  organizePlanIntoWeeklyBlocks
 } from '@/lib/plan-utils';
 import { Activity } from '@/types';
 
@@ -163,23 +163,23 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     // Buscar o plano completo com workouts se existir um plano ativo
     let fullPlan = null;
     let todayWorkout = null;
-    
+
     if (activePlan) {
       fullPlan = await getPlanByPath(activePlan.path);
-      
+
       if (fullPlan) {
         // Obter as configurações do usuário para o plano
         const userPaces = await getUserCustomPaces(userId, activePlan.path);
-        
+
         // Obter a data de início do plano (do customPaces ou usar o padrão do localStorage)
         const startDate = userPaces.startDate || format(new Date(), "yyyy-MM-dd");
-        
+
         // Organizar o plano em blocos semanais a partir da data de início
         const weeklyBlocks = organizePlanIntoWeeklyBlocks(fullPlan.dailyWorkouts, startDate);
-        
+
         // Encontrar o dia de hoje nos blocos semanais
         let todayActivities = null;
-        
+
         for (const week of weeklyBlocks) {
           for (const day of week.days) {
             if (day.isToday) {
@@ -189,23 +189,29 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           }
           if (todayActivities) break;
         }
-        
+
         // Se encontrou atividades para hoje, processar para exibição
         if (todayActivities && todayActivities.length > 0) {
           // Pegar a primeira atividade (principal) do dia
           const mainActivity = todayActivities[0];
-          
+
           // Calcular o ritmo usando os ritmos personalizados do usuário
           const baseParams = findClosestRaceParams(
-            userPaces.baseTime || "00:19:57", 
+            userPaces.baseTime || "00:19:57",
             userPaces.baseDistance || "5km"
           );
+
+          // Extrair os ritmos personalizados do formato correto
+          // Os ritmos personalizados estão no formato "custom_X Km" no objeto userPaces
+          const formattedUserPaces = { ...userPaces };
+
+          // Calcular o ritmo com a função melhorada
           const pace = calculateActivityPace(
-            mainActivity, 
-            userPaces, 
+            mainActivity,
+            formattedUserPaces,
             getPredictedRaceTimeFactory(baseParams)
           );
-          
+
           // Criar o objeto de treino do dia
           todayWorkout = {
             title: mainActivity.note || getTitleFromActivityType(mainActivity.type),
@@ -234,7 +240,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   } catch (error) {
     console.error("Erro ao carregar dados do dashboard:", error);
-    
+
     return {
       props: {
         activePlan: null,
@@ -266,7 +272,7 @@ function getTitleFromActivityType(type: string): string {
     'offday': 'Dia de Descanso',
     'walk': 'Caminhada'
   };
-  
+
   return titles[type] || 'Treino';
 }
 
@@ -284,24 +290,24 @@ function getDescriptionFromActivity(activity: Activity): string {
     'offday': 'Dia de descanso para recuperação e adaptação.',
     'walk': 'Caminhada ativa para recuperação e manutenção do condicionamento básico.'
   };
-  
+
   // Se a atividade tem uma nota, usar isso como descrição principal
   if (activity.note) {
     return activity.note;
   }
-  
+
   // Se tem workouts com notas, adicionar à descrição
   if (activity.workouts && activity.workouts.length > 0) {
     const workoutNotes = activity.workouts
       .filter(w => w.note)
       .map(w => w.note)
       .join(". ");
-    
+
     if (workoutNotes) {
       return workoutNotes;
     }
   }
-  
+
   // Caso contrário, usar a descrição padrão do tipo
   return defaultDescriptions[activity.type] || 'Siga as instruções do treino conforme indicado.';
 }

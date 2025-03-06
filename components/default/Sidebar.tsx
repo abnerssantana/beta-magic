@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -15,25 +15,20 @@ import {
   InfoIcon,
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 // Importar a configuração do site
 import { siteConfig, NavItem } from '@/lib/sidebar';
 
 // Importar o componente NavUser
 import { NavUser } from '@/components/default/NavUser';
+import { ThemeSelector } from './ThemeSelector';
 
 interface SidebarProps {
   onScrollToToday?: () => void;
 }
 
 const useLogoSrc = () => {
-  const { theme, systemTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -42,26 +37,53 @@ const useLogoSrc = () => {
 
   if (!mounted) return '/logodark.svg';
 
-  const effectiveTheme = theme === 'system' ? systemTheme : theme;
-  return effectiveTheme === 'dark' ? '/logo.svg' : '/logodark.svg';
+  return resolvedTheme === 'dark' ? '/logo.svg' : '/logodark.svg';
 };
 
 export function Sidebar({ onScrollToToday }: SidebarProps) {
   const router = useRouter();
   const path = router.pathname;
-  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const showTodayButton = path.includes('/plano/');
   const logoSrc = useLogoSrc();
+  const sidebarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const handleNavItemClick = (item: NavItem) => {
+  // Fechar submenus quando clicar fora
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
+        setOpenSubmenu(null);
+        setIsInfoOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Fechar submenus na mudança de rota
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setOpenSubmenu(null);
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router]);
+
+  const handleNavItemClick = (item: NavItem, e: React.MouseEvent) => {
     if (item.submenu) {
+      e.preventDefault();
       setOpenSubmenu(openSubmenu === item.title ? null : item.title);
     }
   };
@@ -72,7 +94,7 @@ export function Sidebar({ onScrollToToday }: SidebarProps) {
   };
 
   return (
-    <aside className="h-[100dvh] border-r border-border/30 bg-gradient-to-b from-background to-muted/20 dark:from-background dark:to-muted/10 flex flex-col shadow-sm">
+    <aside ref={sidebarRef} className="h-full border-r border-border/30 bg-gradient-to-b from-background to-muted/20 dark:from-background dark:to-muted/10 flex flex-col shadow-sm">
       {/* Logo Section */}
       <div className="h-16 flex items-center px-4 border-b border-border/20">
         <Link
@@ -115,7 +137,7 @@ export function Sidebar({ onScrollToToday }: SidebarProps) {
                           ? "bg-secondary shadow-sm" 
                           : "hover:bg-muted/50 group-hover:shadow-sm"
                       )}
-                      onClick={() => handleNavItemClick(item)}
+                      onClick={(e) => handleNavItemClick(item, e)}
                     >
                       <span className="flex items-center gap-3">
                         <span className={cn(
@@ -198,37 +220,7 @@ export function Sidebar({ onScrollToToday }: SidebarProps) {
           {/* Theme Selector */}
           {mounted && (
             <div className="border-t border-border/20 bg-muted/10 rounded-lg mt-2">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button 
-                    variant="ghost" 
-                    className="w-full justify-start gap-3 px-3 text-sm h-10 text-muted-foreground hover:text-foreground rounded-lg mt-2"
-                  >
-                    {theme === 'dark' ? (
-                      <Moon className="h-4 w-4" />
-                    ) : theme === 'light' ? (
-                      <Sun className="h-4 w-4" />
-                    ) : (
-                      <Laptop className="h-4 w-4" />
-                    )}
-                    <span>Tema</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-40 rounded-lg">
-                  <DropdownMenuItem onClick={() => setTheme("light")} className="gap-2">
-                    <Sun className="h-4 w-4" />
-                    <span>Light</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setTheme("dark")} className="gap-2">
-                    <Moon className="h-4 w-4" />
-                    <span>Dark</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setTheme("system")} className="gap-2">
-                    <Laptop className="h-4 w-4" />
-                    <span>Sistema</span>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <ThemeSelector />
             </div>
           )}
 

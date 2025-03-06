@@ -2,7 +2,7 @@ import React from 'react';
 import { Sidebar } from '@/components/default/Sidebar';
 import { MobileHeader } from '@/components/default/MobileHeader';
 import { useSession } from 'next-auth/react';
-import { Toaster } from 'sonner'; // Importando o Toaster para notificações
+import { Toaster } from 'sonner';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -26,9 +26,9 @@ export function Layout({ children, showMobileHeader = true }: LayoutProps) {
       )}
 
       {/* Main Layout Container - ajustado para considerar o header móvel */}
-      <div className="flex md:h-screen h-[calc(100vh-3.5rem)] mt-0">
+      <div className="flex min-h-[calc(100vh-3.5rem)] md:min-h-screen md:h-screen mt-0">
         {/* Sidebar - Hidden on mobile */}
-        <div className="hidden md:block w-60 shrink-0">
+        <div className="hidden md:block w-60 shrink-0 h-screen">
           <Sidebar />
         </div>
 
