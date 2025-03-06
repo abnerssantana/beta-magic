@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef, useCallback, useMemo } from "react"
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { format, parseISO, addDays, subDays } from "date-fns";
-import { ptBR } from "date-fns/locale/pt-BR";
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { calculateActivityPace } from '@/lib/activity-pace.utils';
