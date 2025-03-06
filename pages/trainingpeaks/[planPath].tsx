@@ -1,5 +1,5 @@
 // pages/plano-trainingpeaks/[planPath].tsx
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { Layout } from "@/components/layout";
@@ -8,8 +8,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { 
   Calendar, 
@@ -18,17 +16,10 @@ import {
   Info, 
   Tag, 
   ArrowRight,
-  HelpCircle
 } from "lucide-react";
-import { 
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+
 import { getPlanByPath, getAllPlanPaths } from "@/lib/db-utils";
 import { PlanModel } from "@/models";
-import { TrainingPeaksConverter } from "@/components/trainingpeaks/Converter";
 
 interface TPPlanPageProps {
   plan: PlanModel;
@@ -36,8 +27,8 @@ interface TPPlanPageProps {
 
 // Mapeamento dos tipos de atividade para zonas do TrainingPeaks
 const activityToZoneMap = {
-    'easy': { zone: 'Z2', name: 'Fácil', percent: '60-76%' },
-    'recovery': { zone: 'Z1', name: 'Recuperação', percent: '76-85%' },
+    'recovery': { zone: 'Z1', name: 'Recuperação', percent: '60-76%' },
+    'easy': { zone: 'Z2', name: 'Fácil', percent: '76-85%' },
     'threshold': { zone: 'Z4', name: 'Limiar', percent: '85-95%' },
     'interval': { zone: 'Z5a', name: 'VO2max', percent: '95-105%' },
     'repetition': { zone: 'Z5b', name: 'Anaeróbico', percent: '85-89%' },
@@ -111,7 +102,7 @@ const TrainingPeaksPlanPage: React.FC<TPPlanPageProps> = ({ plan }) => {
         title={`${plan.name} - Formato TrainingPeaks`}
         description="Visualize e adapte seu plano para o formato de zonas do TrainingPeaks baseado em porcentagens do limiar"
         info={
-          <Card className="bg-primary/5 border-primary/20">
+          <Card className="bg-primary/5 border-primary/20 p-0">
             <CardContent className="p-4">
               <div className="flex items-center gap-2">
                 <Info className="h-4 w-4 text-primary" />
@@ -180,71 +171,6 @@ const TrainingPeaksPlanPage: React.FC<TPPlanPageProps> = ({ plan }) => {
                 </Button>
               </div>
             </div>
-          </CardContent>
-        </Card>
-
-        {/* Conversor de Ritmo do Limiar */}
-        <Card className="mb-6">
-          <CardHeader>
-            <CardTitle className="flex items-center justify-between">
-              <span>Configuração de Limiar</span>
-              <div className="flex items-center">
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        className="h-8 w-8 p-0" 
-                        onClick={() => setShowInstructions(!showInstructions)}
-                      >
-                        <HelpCircle className="h-4 w-4" />
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent side="left">
-                      Mostrar/esconder instruções
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </div>
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {showInstructions && (
-              <div className="bg-muted/30 p-4 rounded-lg mb-4 space-y-2">
-                <p className="text-sm font-medium">Como usar este conversor:</p>
-                <ol className="list-decimal pl-5 text-sm text-muted-foreground space-y-1">
-                  <li>Insira seu ritmo de limiar atual no formato min:seg por km</li>
-                  <li>As zonas de treino serão calculadas automaticamente</li>
-                  <li>Use estas zonas ao criar o plano no TrainingPeaks</li>
-                </ol>
-                <p className="text-xs text-muted-foreground mt-2">
-                  O ritmo de limiar (threshold) é o ritmo que você consegue manter em um esforço máximo de aproximadamente 1 hora.
-                  Para muitos corredores, está próximo do ritmo de 10K ou um pouco mais lento.
-                </p>
-              </div>
-            )}
-            
-            <div className="space-y-2">
-              <Label htmlFor="threshold">Seu Ritmo de Limiar</Label>
-              <div className="flex gap-2">
-                <div className="relative flex-1">
-                  <Input
-                    id="threshold"
-                    type="text"
-                    value={thresholdPace}
-                    onChange={(e) => setThresholdPace(e.target.value)}
-                    placeholder="4:00"
-                    className="pl-3 pr-12"
-                  />
-                  <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-                    <span className="text-sm text-muted-foreground">/km</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <TrainingPeaksConverter thresholdPace={thresholdPace} />
           </CardContent>
         </Card>
 

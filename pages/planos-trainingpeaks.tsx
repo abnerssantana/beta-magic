@@ -49,7 +49,7 @@ export default function PlanosTrainingPeaks({ plans }: PlanosTrainingPeaksProps)
           description="Visualize seus planos de treinamento com as zonas de ritmo do TrainingPeaks para facilitar a criação de workouts na plataforma"
           
           info={
-            <Card className="bg-primary/5 border-primary/20">
+            <Card className="bg-primary/5 border-primary/20 p-0">
               <CardContent className="p-4">
                 <div className="flex items-center gap-2">
                   <Info className="h-4 w-4 text-primary" />
@@ -96,7 +96,7 @@ export default function PlanosTrainingPeaks({ plans }: PlanosTrainingPeaksProps)
               {filteredPlans.map(plan => (
                 <Link 
                   key={plan.path} 
-                  href={`/plano-trainingpeaks/${plan.path}`}
+                  href={`/trainingpeaks/${plan.path}`}
                   className="block h-full"
                 >
                   <Card className="hover:shadow-md transition-all duration-200 h-full border-border/40 hover:border-border/90">
