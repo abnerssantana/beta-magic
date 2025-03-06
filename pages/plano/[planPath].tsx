@@ -127,7 +127,7 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
   }, [params]);
 
   const getActivityPace = useCallback((activity: Activity): string => {
-    return calculateActivityPace(activity, selectedPaces, getPredictedRaceTime);
+    return calculateActivityPace(activity, selectedPaces || {}, getPredictedRaceTime);
   }, [selectedPaces, getPredictedRaceTime]);
 
   // Event Handlers

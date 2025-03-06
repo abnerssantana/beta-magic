@@ -16,12 +16,13 @@ import Head from "next/head";
 import Link from "next/link";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
-import { Settings, FileText, BarChart2, Calendar as CalendarIcon } from "lucide-react";
+import { Settings, FileText, BarChart2, CalendarDays } from "lucide-react";
 
 import { Layout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlanSummary, PlanModel } from "@/models";
 
 // Componentes modularizados
@@ -89,14 +90,12 @@ const Dashboard: React.FC<DashboardProps> = ({
           </div>
 
           <div className="flex items-center gap-2 mt-2 sm:mt-0">
-            {activePlan && (
-              <Button variant="outline" size="sm" asChild className="h-8 text-xs">
-                <Link href={`/dashboard/plans/${activePlan.path}/settings`}>
-                  <Settings className="mr-1.5 h-3.5 w-3.5" />
-                  Config. Plano
-                </Link>
-              </Button>
-            )}
+            <Button variant="outline" size="sm" asChild className="h-8 text-xs">
+              <Link href="/dashboard/log">
+                <BarChart2 className="mr-1.5 h-3.5 w-3.5" />
+                Registrar Treino
+              </Link>
+            </Button>
 
             <Button variant="default" size="sm" asChild className="h-8 text-xs">
               <Link href="/dashboard/plans">
@@ -118,28 +117,83 @@ const Dashboard: React.FC<DashboardProps> = ({
         />
 
         <Tabs defaultValue="overview" className="space-y-3">
-          <TabsList className="grid w-full grid-cols-3 h-9">
+          <TabsList className="grid w-full grid-cols-2 h-9">
             <TabsTrigger value="overview" className="text-xs">Visão Geral</TabsTrigger>
-            <TabsTrigger value="calendar" className="text-xs">Calendário</TabsTrigger>
-            <TabsTrigger value="progress" className="text-xs">Progresso</TabsTrigger>
+            <TabsTrigger value="progress" className="text-xs">Meu Progresso</TabsTrigger>
           </TabsList>
 
           {/* Visão Geral - com componentes modularizados */}
           <TabsContent value="overview" className="space-y-4 pt-2">
-            {/* Plano Ativo */}
-            <ActivePlanCard activePlan={activePlan} weekProgress={weekProgress} />
+            {/* Plano Ativo com Calendário Integrado */}
+            {activePlan ? (
+              <Card className="overflow-hidden">
+                <CardHeader className="bg-muted/50 pb-2">
+                  <div className="flex justify-between items-center">
+                    <CardTitle className="text-lg">Plano de Treino Ativo</CardTitle>
+                    {activePlan && (
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        asChild 
+                        className="h-8 text-xs"
+                      >
+                        <Link href={`/dashboard/plans/${activePlan.path}/settings`}>
+                          <Settings className="mr-1.5 h-3.5 w-3.5" />
+                          Configurar Ritmos
+                        </Link>
+                      </Button>
+                    )}
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2 text-sm">
+                    <Badge variant="outline">{activePlan.nivel}</Badge>
+                    <span className="text-muted-foreground">{activePlan.coach}</span>
+                    <span className="text-muted-foreground">•</span>
+                    <span className="text-muted-foreground">{activePlan.duration}</span>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-3">
+                  {/* Mini calendário da semana atual */}
+                  <div className="mb-3">
+                    <h3 className="text-sm font-medium flex items-center gap-2 mb-2">
+                      <CalendarDays className="h-4 w-4 text-primary" />
+                      Calendário da Semana
+                    </h3>
+                    <div className="bg-muted/20 p-2 rounded-lg">
+                      <TrainingCalendar
+                        activePlan={activePlan}
+                        planWorkouts={fullPlan?.dailyWorkouts || null}
+                        completedWorkouts={completedWorkouts}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Progresso semanal */}
+                  <div className="flex justify-between text-sm mb-1">
+                    <span className="text-muted-foreground">Progresso Semanal</span>
+                    <span className="font-medium">{weekProgress}%</span>
+                  </div>
+                  <div className="w-full h-2 bg-muted/50 rounded-full">
+                    <div 
+                      className="h-full bg-primary rounded-full" 
+                      style={{ width: `${weekProgress}%` }}
+                    ></div>
+                  </div>
+
+                  <div className="mt-3 flex justify-end">
+                    <Button size="sm" asChild>
+                      <Link href={`/plano/${activePlan.path}`}>
+                        Ver Plano Completo
+                      </Link>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ) : (
+              <ActivePlanCard activePlan={activePlan} weekProgress={weekProgress} />
+            )}
 
             {/* Registro de Atividades Recentes */}
             <RecentActivities completedWorkouts={completedWorkouts} />
-          </TabsContent>
-
-          {/* Calendário - Layout compacto */}
-          <TabsContent value="calendar" className="space-y-4 pt-2">
-            <TrainingCalendar
-              activePlan={activePlan}
-              planWorkouts={fullPlan?.dailyWorkouts || null}
-              completedWorkouts={completedWorkouts}
-            />
           </TabsContent>
 
           {/* Meu Progresso */}
