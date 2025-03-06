@@ -12,6 +12,8 @@ import TimeInput from '@/components/TimeInput';
 import VO2maxIndicator from '@/components/default/VO2maxConfig';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
+
+// Import pace management utilities
 import { 
   defaultTimes, 
   essentialPaces, 
@@ -20,17 +22,9 @@ import {
   findClosestRaceParams, 
   findPaceValues,
   isValidPace,
-  adjustPace
+  adjustPace,
+  PaceSetting
 } from '@/lib/pace-manager';
-
-// Interface para representar uma configuração de ritmo
-interface PaceSetting {
-  name: string;       // Nome do ritmo (ex: "Easy Km")
-  value: string;      // Valor atual (pode ser personalizado)
-  default: string;    // Valor padrão calculado
-  isCustom: boolean;  // Se foi personalizado pelo usuário
-  description?: string; // Descrição opcional
-}
 
 interface ConfigurePacesProps {
   plan: PlanSummary;
@@ -39,7 +33,7 @@ interface ConfigurePacesProps {
 }
 
 export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: ConfigurePacesProps) {
-  // Estados principais
+  // Main states
   const [baseTime, setBaseTime] = useState(customPaces["baseTime"] || "00:19:57");
   const [baseDistance, setBaseDistance] = useState(customPaces["baseDistance"] || "5km");
   const [params, setParams] = useState<number | null>(null);
@@ -57,34 +51,34 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
 
-  // Calcular percentual para VO2max indicator
+  // Calculate percentage for VO2max indicator
   const percentage = params ? (params / 85) * 100 : 0;
 
-  // Extrair valor de tempo de um ritmo
+  // Extract time value from a pace
   const extractPaceTimeValue = (pace: PaceSetting): string => {
     if (!isValidPace(pace.value)) {
       return "00:00";
     }
     
-    // A função normalizePace já está incluída na biblioteca pace-manager
+    // Remove any "/km" suffix and trim
     return pace.value.replace(/\/km$/, '').trim();
   };
 
-  // Atualizar parâmetros quando o tempo base mudar
+  // Update parameters when base time changes
   useEffect(() => {
     const newParams = findClosestRaceParams(baseTime, baseDistance);
     setParams(newParams);
   }, [baseTime, baseDistance]);
 
-  // Calcular ritmos quando os parâmetros mudarem
+  // Calculate paces when parameters change
   useEffect(() => {
     if (params !== null) {
       const calculatedPaces = findPaceValues(params);
       setAllPaces(calculatedPaces);
 
-      // Transformar em configurações de ritmo
+      // Transform into pace settings
       if (calculatedPaces) {
-        // Mapear apenas os ritmos essenciais
+        // Map only essential paces
         const settings: PaceSetting[] = essentialPaces
           .map(key => {
             const isCustomKey = `custom_${key}`;
@@ -99,18 +93,18 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
               description: paceDescriptions[key] || ""
             };
           })
-          .filter(setting => isValidPace(setting.default)); // Filtrar apenas ritmos válidos
+          .filter(setting => isValidPace(setting.default)); // Filter only valid paces
         
         setPaceSettings(settings);
       }
     }
   }, [params, customPaces]);
 
-  // Aplicar o fator de ajuste a todos os ritmos
+  // Apply adjustment factor to all paces
   const applyAdjustmentFactor = () => {
     if (!allPaces) return;
     
-    // Aplicar o ajuste a todos os ritmos usando a função adjustPace
+    // Apply adjustment to all paces
     const adjustedSettings = paceSettings.map(setting => {
       return {
         ...setting,
@@ -123,11 +117,10 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
     toast.success("Ajuste global aplicado a todos os ritmos");
   };
 
-  // Função para atualizar um ritmo específico
+  // Update a specific pace
   const updatePaceSetting = (index: number, newValue: string) => {
     const newSettings = [...paceSettings];
     
-    // Não precisa formatar o valor, pois TimeInput já retorna o formato correto
     newSettings[index] = {
       ...newSettings[index],
       value: newValue,
@@ -137,7 +130,7 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
     setPaceSettings(newSettings);
   };
 
-  // Função para resetar um ritmo para o valor padrão
+  // Reset a pace to default value
   const resetPaceSetting = (index: number) => {
     const newSettings = [...paceSettings];
     newSettings[index] = {
@@ -150,7 +143,7 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
     toast.info(`Ritmo resetado para o valor padrão`);
   };
 
-  // Resetar todos os ritmos para valores padrão
+  // Reset all paces to default values
   const resetAllPaces = () => {
     const defaultSettings = paceSettings.map(setting => ({
       ...setting,
@@ -163,13 +156,13 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
     toast.info("Todos os ritmos foram resetados para valores padrão");
   };
 
-  // Salvar todas as configurações
+  // Save all settings
   const handleSaveSettings = async () => {
     setIsSaving(true);
     setSaveSuccess(false);
     
     try {
-      // Preparar dados para salvar
+      // Prepare data to save
       const settingsToSave: Record<string, string> = {
         baseTime,
         baseDistance,
@@ -177,19 +170,19 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
         startDate
       };
       
-      // Adicionar data da prova se existir
+      // Add race date if it exists
       if (raceDate) {
         settingsToSave.raceDate = raceDate;
       }
       
-      // Adicionar ritmos personalizados
+      // Add custom paces
       paceSettings.forEach(setting => {
         if (setting.isCustom) {
           settingsToSave[`custom_${setting.name}`] = setting.value;
         }
       });
       
-      // Chamar função de salvamento
+      // Call save function
       await onSaveSettings(settingsToSave);
       
       setSaveSuccess(true);
@@ -213,7 +206,7 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          {/* Configuração de datas */}
+          {/* Date configuration */}
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <Label htmlFor="startDate">Data Inicial do Plano</Label>
@@ -253,7 +246,7 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
           <Separator />
           
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Configuração de ritmo base */}
+            {/* Base pace configuration */}
             <div className="space-y-4">
               <h3 className="text-sm font-semibold">Ritmo Base</h3>
               
@@ -298,7 +291,7 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
               </div>
             </div>
 
-            {/* Ajuste global */}
+            {/* Global adjustment */}
             <div className="space-y-4">
               <h3 className="text-sm font-semibold">Ajuste Global</h3>
               
@@ -344,7 +337,7 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
 
           <Separator />
 
-          {/* Ritmos Calculados */}
+          {/* Calculated paces */}
           <div>
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-sm font-semibold flex items-center gap-2">

@@ -3,7 +3,6 @@ import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { Layout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { ConfigurePaces } from "@/components/ConfigurePaces";
@@ -41,7 +40,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       };
     }
 
-    // Obter os ritmos personalizados do usuário
+    // Get user's custom paces
     const customPaces = await getUserCustomPaces(userId, planPath);
 
     return {
@@ -51,7 +50,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       },
     };
   } catch (error) {
-    console.error(`Erro ao buscar configurações do plano ${planPath}:`, error);
+    console.error(`Error fetching plan settings for ${planPath}:`, error);
     return {
       notFound: true,
     };
@@ -59,9 +58,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces }) => {
-  const router = useRouter();
-  
-  // Handler para salvar as configurações
+  // Handler to save settings
   const handleSaveSettings = async (settings: Record<string, string>) => {
     try {
       const response = await fetch(`/api/user/plans/${plan.path}/paces`, {
@@ -74,10 +71,10 @@ const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces }) =>
       
       if (!response.ok) {
         const data = await response.json();
-        throw new Error(data.error || 'Erro ao salvar configurações');
+        throw new Error(data.error || 'Error saving settings');
       }
       
-      // Atualizar também no localStorage para compatibilidade com o planPage
+      // Also update in localStorage for compatibility with planPage
       if (typeof window !== "undefined") {
         const storagePrefix = `${plan.path}_`;
         if (settings.startDate) {
@@ -93,7 +90,7 @@ const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces }) =>
       
       return true;
     } catch (error) {
-      console.error("Erro ao salvar configurações:", error);
+      console.error("Error saving settings:", error);
       throw error;
     }
   };

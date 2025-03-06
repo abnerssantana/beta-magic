@@ -4,7 +4,7 @@ import { PredictedRaceTime } from '@/types';
 import { races, paces } from "@/lib/PacesRaces";
 import { Activity } from '@/types/training';
 
-// Tempos padrão para diferentes distâncias
+// Default times for different distances
 export const defaultTimes: Record<string, string> = {
   "1500m": "00:05:24",
   "1600m": "00:05:50",
@@ -17,7 +17,7 @@ export const defaultTimes: Record<string, string> = {
   "42km": "03:10:49"
 };
 
-// Mapeamento de tipos de atividade para tipos de ritmo
+// Mapping activity types to pace types
 export const activityTypeToPace: Record<string, string> = {
   'easy': 'Easy Km',
   'recovery': 'Recovery Km',
@@ -29,7 +29,7 @@ export const activityTypeToPace: Record<string, string> = {
   'race': 'Race Pace'
 };
 
-// Ritmos essenciais que devem ser salvos e disponibilizados
+// Essential paces that should be saved and made available
 export const essentialPaces = [
   'Easy Km',
   'Recovery Km',
@@ -39,7 +39,7 @@ export const essentialPaces = [
   'M Km'
 ];
 
-// Descrições dos ritmos para melhorar a compreensão
+// Pace descriptions for better understanding
 export const paceDescriptions: Record<string, string> = {
   "Recovery Km": "Ritmo muito leve para recuperação ativa após treinos intensos",
   "Easy Km": "Ritmo fácil - use para a maioria dos treinos, deve permitir conversar",
@@ -52,7 +52,7 @@ export const paceDescriptions: Record<string, string> = {
   "Race Pace": "Ritmo de prova - específico para a competição alvo"
 };
 
-// Nomes formatados para exibição na interface
+// Formatted names for display in the interface
 export const paceDisplayNames: Record<string, string> = {
   "Recovery Km": "Recuperação",
   "Easy Km": "Fácil",
@@ -65,28 +65,28 @@ export const paceDisplayNames: Record<string, string> = {
   "R 400m": "Repetição 400m"
 };
 
-// Categorização de ritmos para diferentes tabs
+// Categorization of paces for different tabs
 export const runningPaceTypes = ["Recovery Km", "Easy Km", "M Km", "T Km", "Race Pace"];
 export const intervalPaceTypes = ["I Km", "R 1000m", "I 800m", "R 400m"];
 
 /**
- * Normaliza um valor de ritmo para o formato padrão MM:SS
- * Retorna string vazia para valores inválidos
+ * Normalize a pace value to the standard MM:SS format
+ * Returns empty string for invalid values
  */
 export function normalizePace(pace: string): string {
   if (!pace || pace === "0:00" || pace === "00:00") return "";
 
-  // Remove qualquer sufixo ou texto adicional
+  // Remove any suffix or additional text
   const cleanValue = pace.replace(/\/km$|\/mi$|min\/km$|min\/mi$/, '').trim();
   
-  // Verifica formato MM:SS
+  // Check MM:SS format
   if (/^\d{1,2}:\d{2}$/.test(cleanValue)) {
-    // Garantir que segundos estão com dois dígitos
+    // Ensure seconds have two digits
     const [minutes, seconds] = cleanValue.split(':');
     return `${minutes}:${seconds.padStart(2, '0')}`;
   }
   
-  // Tenta converter strings numéricas para minutos
+  // Try to convert numeric strings to minutes
   if (/^\d+(\.\d+)?$/.test(cleanValue)) {
     const numericValue = parseFloat(cleanValue);
     const minutes = Math.floor(numericValue);
@@ -94,11 +94,11 @@ export function normalizePace(pace: string): string {
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   }
   
-  return ""; // Valor vazio para formatos inválidos
+  return ""; // Empty value for invalid formats
 }
 
 /**
- * Verifica se um valor de ritmo é válido
+ * Check if a pace value is valid
  */
 export function isValidPace(pace: string): boolean {
   if (!pace || pace === "0:00" || pace === "00:00") return false;
@@ -108,7 +108,7 @@ export function isValidPace(pace: string): boolean {
 }
 
 /**
- * Converte um valor de ritmo para segundos
+ * Convert a pace value to seconds
  */
 export function paceToSeconds(pace: string): number {
   if (!isValidPace(pace)) return 0;
@@ -119,7 +119,7 @@ export function paceToSeconds(pace: string): number {
 }
 
 /**
- * Converte segundos para o formato de ritmo MM:SS
+ * Convert seconds to pace format MM:SS
  */
 export function secondsToPace(seconds: number): string {
   if (seconds <= 0) return "";
@@ -130,26 +130,26 @@ export function secondsToPace(seconds: number): string {
 }
 
 /**
- * Função para aplicar um fator de ajuste a um ritmo
- * Fator menor que 100 = ritmo mais rápido
- * Fator maior que 100 = ritmo mais lento
+ * Apply an adjustment factor to a pace
+ * Factor less than 100 = faster pace
+ * Factor greater than 100 = slower pace
  */
 export function adjustPace(pace: string, factor: number): string {
   if (!isValidPace(pace)) return "";
   
-  // Converte o ritmo para segundos
+  // Convert pace to seconds
   const paceSeconds = paceToSeconds(pace);
   if (paceSeconds <= 0) return "";
   
-  // Aplica o fator de ajuste
+  // Apply adjustment factor
   const adjustedSeconds = paceSeconds * (100 / factor);
   
-  // Converte de volta para o formato mm:ss
+  // Convert back to MM:SS format
   return secondsToPace(adjustedSeconds);
 }
 
 /**
- * Converter tempo no formato HH:MM:SS para segundos
+ * Convert time in HH:MM:SS format to seconds
  */
 export function timeToSeconds(time: string): number {
   const [h = 0, m = 0, s = 0] = time.split(":").map(parseFloat);
@@ -157,8 +157,8 @@ export function timeToSeconds(time: string): number {
 }
 
 /**
- * Encontra o parâmetro de corrida mais próximo para um tempo e distância
- * Este parâmetro é essencialmente o VDOT de Daniels
+ * Find the closest race parameter for a time and distance
+ * This parameter is essentially Daniels' VDOT
  */
 export function findClosestRaceParams(selectedTime: string, selectedDistance: string): number | null {
   if (!selectedTime || !selectedDistance) return null;
@@ -193,7 +193,7 @@ export function findClosestRaceParams(selectedTime: string, selectedDistance: st
 }
 
 /**
- * Encontra os valores de ritmo para um determinado parâmetro
+ * Find pace values for a given parameter
  */
 export function findPaceValues(params: number | null): Record<string, string> | null {
   if (!params) return null;
@@ -210,28 +210,28 @@ export function findPaceValues(params: number | null): Record<string, string> | 
 }
 
 /**
- * Calcula o ritmo apropriado para uma atividade específica
- * considerando possíveis personalizações do usuário
+ * Calculate the appropriate pace for a specific activity
+ * considering possible user customizations
  */
 export function calculateActivityPace(
   activity: Activity, 
   customPaces: Record<string, string>, 
   getPredictedRaceTime?: (distance: number) => PredictedRaceTime | null
 ): string {
-  // Se é uma atividade sem distância ou não é do tipo km, retornar N/A
+  // If it's an activity without distance or not in km units, return N/A
   if (!activity.distance || activity.units !== 'km') return "N/A";
 
-  // Determinar o tipo de ritmo com base no tipo de atividade
+  // Determine pace type based on activity type
   const paceType = activityTypeToPace[activity.type];
   if (!paceType) return "N/A";
 
-  // Verificar se há um ritmo personalizado para este tipo
+  // Check if there's a custom pace for this type
   const customPaceKey = `custom_${paceType}`;
   if (customPaceKey in customPaces && isValidPace(customPaces[customPaceKey])) {
     return normalizePace(customPaces[customPaceKey]);
   }
 
-  // Para 'race', tentar encontrar o ritmo para a distância específica
+  // For 'race', try to find pace for the specific distance
   if (activity.type === 'race' && typeof activity.distance === 'number' && getPredictedRaceTime) {
     const prediction = getPredictedRaceTime(activity.distance);
     if (prediction && prediction.pace) {
@@ -239,17 +239,17 @@ export function calculateActivityPace(
     }
   }
 
-  // Se não achou personalizado ou não é 'race', retornar N/A
+  // If no custom pace found or not a 'race', return N/A
   return "N/A";
 }
 
 /**
- * Interface para representar uma configuração de ritmo
+ * Interface to represent a pace setting
  */
 export interface PaceSetting {
-  name: string;       // Nome do ritmo (ex: "Easy Km")
-  value: string;      // Valor atual (pode ser personalizado)
-  default: string;    // Valor padrão calculado
-  isCustom: boolean;  // Se foi personalizado pelo usuário
-  description?: string; // Descrição opcional
+  name: string;       // Pace name (e.g., "Easy Km")
+  value: string;      // Current value (can be customized)
+  default: string;    // Default calculated value
+  isCustom: boolean;  // If it was customized by the user
+  description?: string; // Optional description
 }
