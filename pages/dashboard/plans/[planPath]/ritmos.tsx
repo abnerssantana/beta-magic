@@ -63,7 +63,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces, isAuthenticated }) => {
   // Handler to save settings
-  const handleSaveSettings = async (settings: Record<string, string>) => {
+  const handleSaveSettings = async (settings: Record<string, string>): Promise<void> => {
     try {
       // Para usuários autenticados, salvar no banco de dados via API
       if (isAuthenticated) {
@@ -99,10 +99,10 @@ const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces, isAu
         }
       }
       
-      return true;
+      // Não retornamos nada (void)
     } catch (error) {
       console.error("Error saving settings:", error);
-      throw error;
+      throw error; // Re-lançamos o erro para ser tratado pelo componente chamador
     }
   };
 
