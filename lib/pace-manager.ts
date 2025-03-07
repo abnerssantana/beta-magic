@@ -39,6 +39,9 @@ export const essentialPaces = [
   'M Km'
 ];
 
+// Paces that should be displayed as ranges
+export const rangePaces = ['Recovery Km', 'Easy Km'];
+
 // Pace descriptions for better understanding
 export const paceDescriptions: Record<string, string> = {
   "Recovery Km": "Ritmo muito leve para recuperação ativa após treinos intensos",
@@ -98,24 +101,123 @@ export function normalizePace(pace: string): string {
 }
 
 /**
+ * Normalize a range pace to "MM:SS-MM:SS" format
+ */
+export function normalizeRangePace(pace: string): string {
+  if (!pace) return "";
+  
+  // If it's already a range (contains hyphen)
+  if (pace.includes('-')) {
+    const [min, max] = pace.split('-').map(p => p.trim());
+    const normalizedMin = normalizePace(min);
+    const normalizedMax = normalizePace(max);
+    
+    // Check if both sides are valid
+    if (normalizedMin && normalizedMax) {
+      return `${normalizedMin}-${normalizedMax}`;
+    }
+  }
+  
+  // If it's a single pace, try to normalize it
+  const normalizedSingle = normalizePace(pace);
+  if (normalizedSingle) {
+    return normalizedSingle;
+  }
+  
+  return ""; // Empty value for invalid formats
+}
+
+/**
  * Check if a pace value is valid
  */
 export function isValidPace(pace: string): boolean {
   if (!pace || pace === "0:00" || pace === "00:00") return false;
+  
+  // Check if it's a range pace
+  if (pace.includes('-')) {
+    const [min, max] = pace.split('-').map(p => p.trim());
+    return isValidPace(min) && isValidPace(max);
+  }
   
   const normalized = normalizePace(pace);
   return normalized !== "" && normalized !== "0:00" && normalized !== "00:00";
 }
 
 /**
+ * Check if a pace is in range format
+ */
+export function isRangePace(pace: string): boolean {
+  // Remove any suffix and check if it contains a hyphen
+  return pace.replace(/\/km|\/mi$/, '').trim().includes('-');
+}
+
+/**
+ * Convert a single pace value to a range pace
+ * @param pace Single pace value (MM:SS format)
+ * @param rangePercentage Percentage slower for the upper range (default 12%)
+ * @returns Range pace in MM:SS-MM:SS format
+ */
+export function createRangePace(pace: string, rangePercentage: number = 12): string {
+  if (!isValidPace(pace) || isRangePace(pace)) {
+    return pace; // Return without changes if already a range or invalid
+  }
+  
+  try {
+    // Parse time to seconds
+    const paceSeconds = paceToSeconds(pace);
+    
+    // Calculate slower pace (default 12% slower)
+    const slowerPaceSeconds = paceSeconds * (1 + rangePercentage / 100);
+    
+    // Format both paces
+    const fasterPace = secondsToPace(paceSeconds);
+    const slowerPace = secondsToPace(slowerPaceSeconds);
+    
+    return `${fasterPace}-${slowerPace}`;
+  } catch (e) {
+    console.error("Error creating range pace:", e);
+    return pace; // Return original if something goes wrong
+  }
+}
+
+/**
  * Convert a pace value to seconds
+ * For range paces, returns the average
  */
 export function paceToSeconds(pace: string): number {
   if (!isValidPace(pace)) return 0;
   
+  // Handle range paces (return average)
+  if (isRangePace(pace)) {
+    const [min, max] = pace.split('-').map(p => p.trim());
+    const minSeconds = paceToSeconds(min);
+    const maxSeconds = paceToSeconds(max);
+    return (minSeconds + maxSeconds) / 2;
+  }
+  
   const normalized = normalizePace(pace);
   const [minutes, seconds] = normalized.split(':').map(Number);
   return minutes * 60 + seconds;
+}
+
+/**
+ * Extract the minimum pace from a range
+ */
+export function getMinPace(pace: string): string {
+  if (!isRangePace(pace)) return pace;
+  
+  const [min] = pace.split('-').map(p => p.trim());
+  return min;
+}
+
+/**
+ * Extract the maximum pace from a range
+ */
+export function getMaxPace(pace: string): string {
+  if (!isRangePace(pace)) return pace;
+  
+  const [_, max] = pace.split('-').map(p => p.trim());
+  return max;
 }
 
 /**
@@ -133,16 +235,25 @@ export function secondsToPace(seconds: number): string {
  * Apply an adjustment factor to a pace
  * Factor less than 100 = faster pace
  * Factor greater than 100 = slower pace
+ * Works with both single and range paces
  */
 export function adjustPace(pace: string, factor: number): string {
   if (!isValidPace(pace)) return "";
+  
+  // Handle range paces
+  if (isRangePace(pace)) {
+    const [min, max] = pace.split('-').map(p => p.trim());
+    const adjustedMin = adjustPace(min, factor);
+    const adjustedMax = adjustPace(max, factor);
+    return `${adjustedMin}-${adjustedMax}`;
+  }
   
   // Convert pace to seconds
   const paceSeconds = paceToSeconds(pace);
   if (paceSeconds <= 0) return "";
   
-  // Apply adjustment factor
-  const adjustedSeconds = paceSeconds * (100 / factor);
+  // Apply adjustment factor (factor < 100 = faster pace)
+  const adjustedSeconds = paceSeconds * (factor / 100);
   
   // Convert back to MM:SS format
   return secondsToPace(adjustedSeconds);
@@ -152,8 +263,17 @@ export function adjustPace(pace: string, factor: number): string {
  * Convert time in HH:MM:SS format to seconds
  */
 export function timeToSeconds(time: string): number {
-  const [h = 0, m = 0, s = 0] = time.split(":").map(parseFloat);
-  return h * 3600 + m * 60 + s;
+  const parts = time.split(":").map(parseFloat);
+  
+  if (parts.length === 3) {
+    const [h, m, s] = parts;
+    return h * 3600 + m * 60 + s;
+  } else if (parts.length === 2) {
+    const [m, s] = parts;
+    return m * 60 + s;
+  }
+  
+  return 0;
 }
 
 /**
@@ -194,6 +314,7 @@ export function findClosestRaceParams(selectedTime: string, selectedDistance: st
 
 /**
  * Find pace values for a given parameter
+ * Converts range paces to range format automatically
  */
 export function findPaceValues(params: number | null): Record<string, string> | null {
   if (!params) return null;
@@ -202,11 +323,24 @@ export function findPaceValues(params: number | null): Record<string, string> | 
   if (!foundPaces) return null;
   
   const { Params, ...pacesWithoutParams } = foundPaces;
-  return Object.fromEntries(
-    Object.entries(pacesWithoutParams)
-      .filter(([_, value]) => value !== undefined)
-      .map(([key, value]) => [key, value as string])
-  );
+  
+  // Convert single values to record and apply range formatting to recovery and easy paces
+  const result: Record<string, string> = {};
+  
+  Object.entries(pacesWithoutParams)
+    .filter(([_, value]) => value !== undefined)
+    .forEach(([key, value]) => {
+      const stringValue = value as string;
+      
+      // Check if this pace should be a range
+      if (rangePaces.includes(key)) {
+        result[key] = createRangePace(stringValue);
+      } else {
+        result[key] = stringValue;
+      }
+    });
+  
+  return result;
 }
 
 /**
@@ -228,6 +362,17 @@ export function calculateActivityPace(
   // Check if there's a custom pace for this type
   const customPaceKey = `custom_${paceType}`;
   if (customPaceKey in customPaces && isValidPace(customPaces[customPaceKey])) {
+    // If it's a range pace type but not stored as a range, convert it
+    if (rangePaces.includes(paceType) && !isRangePace(customPaces[customPaceKey])) {
+      return createRangePace(normalizePace(customPaces[customPaceKey]));
+    }
+    
+    // For range paces, ensure proper format
+    if (rangePaces.includes(paceType) && isRangePace(customPaces[customPaceKey])) {
+      return normalizeRangePace(customPaces[customPaceKey]);
+    }
+    
+    // For regular paces
     return normalizePace(customPaces[customPaceKey]);
   }
 
@@ -235,12 +380,29 @@ export function calculateActivityPace(
   if (activity.type === 'race' && typeof activity.distance === 'number' && getPredictedRaceTime) {
     const prediction = getPredictedRaceTime(activity.distance);
     if (prediction && prediction.pace) {
-      return prediction.pace;
+      return rangePaces.includes(paceType) 
+        ? createRangePace(prediction.pace) 
+        : prediction.pace;
     }
   }
 
   // If no custom pace found or not a 'race', return N/A
   return "N/A";
+}
+
+/**
+ * Get a midpoint pace for display when using a range
+ */
+export function getMidpointPace(pace: string): string {
+  if (!isRangePace(pace)) return pace;
+  
+  const [min, max] = pace.split('-').map(p => p.trim());
+  const minSeconds = paceToSeconds(min);
+  const maxSeconds = paceToSeconds(max);
+  
+  // Calculate average
+  const avgSeconds = (minSeconds + maxSeconds) / 2;
+  return secondsToPace(avgSeconds);
 }
 
 /**

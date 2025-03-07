@@ -9,6 +9,7 @@ import { Calendar, Clock, BarChart2, Save, AlertTriangle, Check } from 'lucide-r
 import { Separator } from "@/components/ui/separator";
 import { PlanSummary } from '@/models';
 import TimeInput from '@/components/TimeInput';
+import RangeTimeInput from '@/components/RangeTimeInput';
 import VO2maxIndicator from '@/components/default/VO2maxConfig';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
@@ -26,6 +27,9 @@ import {
   PaceSetting
 } from '@/lib/pace-manager';
 
+// Define ritmos que devem ter range
+const RANGE_PACES = ['Recovery Km', 'Easy Km'];
+
 interface ConfigurePacesProps {
   plan: PlanSummary;
   onSaveSettings: (settings: Record<string, string>) => Promise<void>;
@@ -33,8 +37,7 @@ interface ConfigurePacesProps {
 }
 
 export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: ConfigurePacesProps) {
-  // Main states
-  // Use default time based on selected distance
+  // Always start with 5km as default distance if not defined in customPaces
   const initialDistance = customPaces["baseDistance"] || "5km";
   const initialTime = customPaces["baseTime"] || defaultTimes[initialDistance] || "00:19:57";
   
@@ -54,6 +57,7 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
   );
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
+  const [isBaseTimeUpdated, setIsBaseTimeUpdated] = useState(false);
 
   // Calculate percentage for VO2max indicator
   const percentage = params ? (params / 85) * 100 : 0;
@@ -68,22 +72,88 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
     return pace.value.replace(/\/km$/, '').trim();
   };
 
+  // Create a range pace from a single value
+  const createRangePace = (baseValue: string): string => {
+    if (!isValidPace(baseValue)) {
+      return "00:00-00:00";
+    }
+    
+    try {
+      // Parse time (assuming MM:SS format)
+      const cleanValue = baseValue.replace(/\/km|\/mi$/, '').trim();
+      const [minStr, secStr] = cleanValue.split(':');
+      const totalSeconds = parseInt(minStr) * 60 + parseInt(secStr);
+      
+      // Base pace (fastest)
+      const minSeconds = totalSeconds;
+      
+      // Max pace (12% slower)
+      const maxSeconds = Math.floor(totalSeconds * 1.12);
+      
+      const minMin = Math.floor(minSeconds / 60);
+      const minSec = minSeconds % 60;
+      
+      const maxMin = Math.floor(maxSeconds / 60);
+      const maxSec = maxSeconds % 60;
+      
+      const minTime = `${minMin.toString().padStart(2, '0')}:${minSec.toString().padStart(2, '0')}`;
+      const maxTime = `${maxMin.toString().padStart(2, '0')}:${maxSec.toString().padStart(2, '0')}`;
+      
+      return `${minTime}-${maxTime}`;
+    } catch (e) {
+      console.error("Error creating range pace:", e);
+      return "00:00-00:00";
+    }
+  };
+
+  // Apply adjustment to a range pace
+  const adjustRangePace = (rangePace: string, factor: number): string => {
+    if (!rangePace.includes('-')) {
+      // If it's not a range format, convert it to a range first
+      rangePace = createRangePace(rangePace);
+    }
+    
+    const [min, max] = rangePace.split('-').map(t => t.trim());
+    
+    // Adjust both min and max values
+    const adjustedMin = adjustPace(min, factor);
+    const adjustedMax = adjustPace(max, factor);
+    
+    return `${adjustedMin}-${adjustedMax}`;
+  };
+
   // Handle distance change and update default time accordingly
   const handleDistanceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newDistance = e.target.value;
     setBaseDistance(newDistance);
     
-    // If the time wasn't customized or is invalid, set the default time for this distance
-    if (!customPaces["baseTime"] || !isValidPace(baseTime)) {
-      setBaseTime(defaultTimes[newDistance] || "00:00:00");
-    }
+    // Always set the default time for this distance to ensure consistency
+    setBaseTime(defaultTimes[newDistance] || "00:00:00");
+    setIsBaseTimeUpdated(true);
+    
+    // Reset adjustment factor to 100% when changing the base distance
+    setAdjustmentFactor(100);
+  };
+
+  // Handle manual time change
+  const handleTimeChange = (newTime: string) => {
+    setBaseTime(newTime);
+    setIsBaseTimeUpdated(true);
+    
+    // Reset adjustment factor to 100% when manually changing the base time
+    setAdjustmentFactor(100);
   };
 
   // Update parameters when base time changes
   useEffect(() => {
     const newParams = findClosestRaceParams(baseTime, baseDistance);
     setParams(newParams);
-  }, [baseTime, baseDistance]);
+    
+    // Mark that we've processed the base time update
+    if (isBaseTimeUpdated) {
+      setIsBaseTimeUpdated(false);
+    }
+  }, [baseTime, baseDistance, isBaseTimeUpdated]);
 
   // Calculate paces when parameters change
   useEffect(() => {
@@ -96,64 +166,70 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
         // Create settings array with all essential paces
         const settings: PaceSetting[] = [];
         
-        // Process all essential paces
-        essentialPaces.forEach(key => {
-          const isCustomKey = `custom_${key}`;
-          const customValue = customPaces[isCustomKey];
-          const defaultValue = calculatedPaces[key] || "";
-          
-          // Use the pace from pace-manager, or fall back to a default
-          settings.push({
-            name: key,
-            value: customValue && isValidPace(customValue) ? customValue : defaultValue,
-            default: defaultValue,
-            isCustom: !!(customValue && isValidPace(customValue)),
-            description: paceDescriptions[key] || ""
-          });
+        // First, ensure Recovery and Easy paces are included with good defaults,
+        // even if they're not part of the calculated paces
+        const recoveryDefault = calculatedPaces["Recovery Km"] || "6:00";
+        const easyDefault = calculatedPaces["Easy Km"] || "5:30";
+        
+        // For range paces, we need to convert single values to ranges
+        const recoveryDefaultRange = createRangePace(recoveryDefault);
+        const easyDefaultRange = createRangePace(easyDefault);
+        
+        // Always include Recovery and Easy paces first
+        settings.push({
+          name: "Recovery Km",
+          value: customPaces["custom_Recovery Km"] || 
+                 (adjustmentFactor !== 100 ? adjustRangePace(recoveryDefaultRange, adjustmentFactor) : recoveryDefaultRange),
+          default: recoveryDefaultRange,
+          isCustom: !!customPaces["custom_Recovery Km"] || adjustmentFactor !== 100,
+          description: paceDescriptions["Recovery Km"] || "Ritmo muito leve para recuperação ativa"
         });
         
-        // Filter out invalid paces
-        const validSettings = settings.filter(setting => isValidPace(setting.default) || isValidPace(setting.value));
-        
-        // If the filtered list doesn't include Recovery Km or Easy Km, add them with defaults
-        const hasRecovery = validSettings.some(p => p.name === "Recovery Km");
-        const hasEasy = validSettings.some(p => p.name === "Easy Km");
-        
-        if (!hasRecovery) {
-          validSettings.unshift({
-            name: "Recovery Km",
-            value: customPaces["custom_Recovery Km"] || "6:00",
-            default: "6:00",
-            isCustom: !!customPaces["custom_Recovery Km"],
-            description: paceDescriptions["Recovery Km"] || "Ritmo muito leve para recuperação ativa"
-          });
-        }
-        
-        if (!hasEasy) {
-          // Insert after Recovery Km
-          const insertIndex = validSettings.findIndex(p => p.name === "Recovery Km") + 1;
-          validSettings.splice(insertIndex, 0, {
-            name: "Easy Km",
-            value: customPaces["custom_Easy Km"] || "5:30",
-            default: "5:30",
-            isCustom: !!customPaces["custom_Easy Km"],
-            description: paceDescriptions["Easy Km"] || "Ritmo fácil - use para a maioria dos treinos"
-          });
-        }
-        
-        // Sort to ensure Recovery and Easy are first
-        validSettings.sort((a, b) => {
-          if (a.name === "Recovery Km") return -1;
-          if (b.name === "Recovery Km") return 1;
-          if (a.name === "Easy Km") return -1;
-          if (b.name === "Easy Km") return 1;
-          return 0;
+        settings.push({
+          name: "Easy Km",
+          value: customPaces["custom_Easy Km"] || 
+                 (adjustmentFactor !== 100 ? adjustRangePace(easyDefaultRange, adjustmentFactor) : easyDefaultRange),
+          default: easyDefaultRange,
+          isCustom: !!customPaces["custom_Easy Km"] || adjustmentFactor !== 100,
+          description: paceDescriptions["Easy Km"] || "Ritmo fácil - use para a maioria dos treinos"
         });
+        
+        // Process all other essential paces (skipping Recovery and Easy which we've already added)
+        essentialPaces
+          .filter(key => key !== "Recovery Km" && key !== "Easy Km")
+          .forEach(key => {
+            const isCustomKey = `custom_${key}`;
+            const customValue = customPaces[isCustomKey];
+            const defaultValue = calculatedPaces[key] || "";
+            
+            // For newly calculated paces, apply the adjustment factor if needed
+            let effectiveValue = defaultValue;
+            if (adjustmentFactor !== 100) {
+              effectiveValue = adjustPace(defaultValue, adjustmentFactor);
+            }
+            
+            // Use custom value if available and valid, otherwise use the calculated value
+            settings.push({
+              name: key,
+              value: customValue && isValidPace(customValue) ? customValue : effectiveValue,
+              default: defaultValue,
+              isCustom: !!(customValue && isValidPace(customValue)) || adjustmentFactor !== 100,
+              description: paceDescriptions[key] || ""
+            });
+          });
+        
+        // Filter out invalid paces except for Recovery Km and Easy Km which should always be included
+        const validSettings = settings.filter(setting => 
+          setting.name === "Recovery Km" || 
+          setting.name === "Easy Km" || 
+          isValidPace(setting.default) || 
+          isValidPace(setting.value)
+        );
         
         setPaceSettings(validSettings);
       }
     }
-  }, [params, customPaces]);
+  }, [params, customPaces, adjustmentFactor]);
 
   // Apply adjustment factor to all paces
   const applyAdjustmentFactor = () => {
@@ -161,11 +237,20 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
     
     // Apply adjustment to all paces
     const adjustedSettings = paceSettings.map(setting => {
-      return {
-        ...setting,
-        value: adjustPace(setting.default, adjustmentFactor),
-        isCustom: true
-      };
+      // Check if this is a range pace
+      if (RANGE_PACES.includes(setting.name)) {
+        return {
+          ...setting,
+          value: adjustRangePace(setting.default, adjustmentFactor),
+          isCustom: true
+        };
+      } else {
+        return {
+          ...setting,
+          value: adjustPace(setting.default, adjustmentFactor),
+          isCustom: true
+        };
+      }
     });
     
     setPaceSettings(adjustedSettings);
@@ -188,27 +273,54 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
   // Reset a pace to default value
   const resetPaceSetting = (index: number) => {
     const newSettings = [...paceSettings];
+    
+    // Apply the current adjustment factor to the default value
+    let adjustedDefaultValue;
+    
+    if (RANGE_PACES.includes(newSettings[index].name)) {
+      adjustedDefaultValue = adjustmentFactor !== 100 
+        ? adjustRangePace(newSettings[index].default, adjustmentFactor)
+        : newSettings[index].default;
+    } else {
+      adjustedDefaultValue = adjustmentFactor !== 100 
+        ? adjustPace(newSettings[index].default, adjustmentFactor)
+        : newSettings[index].default;
+    }
+      
     newSettings[index] = {
       ...newSettings[index],
-      value: newSettings[index].default,
-      isCustom: false
+      value: adjustedDefaultValue,
+      isCustom: adjustmentFactor !== 100
     };
     
     setPaceSettings(newSettings);
-    toast.info(`Ritmo resetado para o valor padrão`);
+    toast.info(`Ritmo resetado para o valor ${adjustmentFactor !== 100 ? 'ajustado' : 'padrão'}`);
   };
 
-  // Reset all paces to default values
+  // Reset all paces to default values with current adjustment factor
   const resetAllPaces = () => {
-    const defaultSettings = paceSettings.map(setting => ({
-      ...setting,
-      value: setting.default,
-      isCustom: false
-    }));
+    const defaultSettings = paceSettings.map(setting => {
+      let adjustedDefaultValue;
+      
+      if (RANGE_PACES.includes(setting.name)) {
+        adjustedDefaultValue = adjustmentFactor !== 100 
+          ? adjustRangePace(setting.default, adjustmentFactor)
+          : setting.default;
+      } else {
+        adjustedDefaultValue = adjustmentFactor !== 100 
+          ? adjustPace(setting.default, adjustmentFactor)
+          : setting.default;
+      }
+      
+      return {
+        ...setting,
+        value: adjustedDefaultValue,
+        isCustom: adjustmentFactor !== 100
+      };
+    });
     
     setPaceSettings(defaultSettings);
-    setAdjustmentFactor(100);
-    toast.info("Todos os ritmos foram resetados para valores padrão");
+    toast.info(`Todos os ritmos foram resetados para valores ${adjustmentFactor !== 100 ? 'ajustados' : 'padrão'}`);
   };
 
   // Save all settings
@@ -319,6 +431,9 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
                     <option value="21km">Meia Maratona (21km)</option>
                     <option value="42km">Maratona (42km)</option>
                   </select>
+                  <p className="text-xs text-muted-foreground">
+                    Ao mudar a distância, os valores são recalculados e o ajuste global é resetado para 100%
+                  </p>
                 </div>
                 
                 <div className="space-y-2">
@@ -326,14 +441,14 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
                   <div className="relative">
                     <TimeInput
                       value={baseTime}
-                      onChange={setBaseTime}
+                      onChange={handleTimeChange}
                       showHours={true}
                       icon={<Clock className="h-4 w-4 text-muted-foreground" />}
                       className="pl-10"
                     />
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    Insira o tempo que você consegue correr na distância selecionada
+                    Ao mudar seu tempo, os ritmos são recalculados e o ajuste global é resetado para 100%
                   </p>
                 </div>
 
@@ -386,6 +501,13 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
                     Resetar Todos
                   </Button>
                 </div>
+                
+                <div className="bg-muted/30 p-3 rounded-md">
+                  <p className="text-xs text-muted-foreground">
+                    <AlertTriangle className="inline-block h-3 w-3 mr-1" />
+                    Mudar a distância ou o tempo de referência redefine o ajuste global para 100%
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -423,13 +545,25 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
                       Resetar
                     </button>
                   </div>
-                  <TimeInput
-                    value={extractPaceTimeValue(pace)}
-                    onChange={(value) => updatePaceSetting(index, value)}
-                    showHours={false}
-                    suffix="/km"
-                    className="flex-1"
-                  />
+                  
+                  {RANGE_PACES.includes(pace.name) ? (
+                    <RangeTimeInput
+                      value={extractPaceTimeValue(pace)}
+                      onChange={(value) => updatePaceSetting(index, value)}
+                      showHours={false}
+                      suffix="/km"
+                      className="flex-1"
+                    />
+                  ) : (
+                    <TimeInput
+                      value={extractPaceTimeValue(pace)}
+                      onChange={(value) => updatePaceSetting(index, value)}
+                      showHours={false}
+                      suffix="/km"
+                      className="flex-1"
+                    />
+                  )}
+                  
                   {pace.description && (
                     <p className="text-xs text-muted-foreground italic">
                       {pace.description}

@@ -1,9 +1,9 @@
-// pages/api/user/plans/[planPath]/paces.ts
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import clientPromise from '@/lib/mongodb';
 import { getPlanByPath } from '@/lib/db-utils';
+import { isValidPace, isRangePace } from '@/lib/pace-manager';
 
 export default async function handler(
   req: NextApiRequest,
@@ -106,7 +106,24 @@ async function updateUserPaces(
 
     // Validar formatos dos ritmos personalizados
     for (const [key, value] of Object.entries(paceSettings)) {
-      if (key.startsWith('custom_') && typeof value === 'string' && !/^\d{1,2}:\d{2}$/.test(value)) {
+      // Pular campos que não são ritmos
+      if (!key.startsWith('custom_') || typeof value !== 'string') {
+        continue;
+      }
+      
+      // Verificar se é um ritmo em formato de range
+      if (isRangePace(value)) {
+        const [min, max] = value.split('-').map(p => p.trim());
+        
+        // Verificar se ambas as partes são válidas
+        if (!isValidPace(min) || !isValidPace(max)) {
+          return res.status(400).json({
+            error: `Formato de ritmo inválido para ${key.replace('custom_', '')}. Use MM:SS-MM:SS para ranges.`
+          });
+        }
+      } 
+      // Verificar ritmos únicos
+      else if (!/^\d{1,2}:\d{2}$/.test(value)) {
         return res.status(400).json({ 
           error: `Formato de ritmo inválido para ${key.replace('custom_', '')}. Use MM:SS.` 
         });

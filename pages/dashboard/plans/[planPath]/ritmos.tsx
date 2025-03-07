@@ -88,7 +88,7 @@ const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces }) =>
         }
       }
       
-      return true;
+      // Remova o return true aqui
     } catch (error) {
       console.error("Error saving settings:", error);
       throw error;
