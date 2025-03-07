@@ -5,8 +5,8 @@ import { format, parseISO, addDays, subDays } from "date-fns";
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { calculateActivityPace } from '@/lib/activity-pace.utils';
-import { 
-  limitDescription, 
+import {
+  limitDescription,
   defaultTimes,
   convertMinutesToHours,
   getPredictedRaceTimeFactory,
@@ -22,12 +22,13 @@ import { PlanHeader } from '@/components/plan/PlanHeader';
 import { WeeklyBlock, Activity, PredictedRaceTime } from '@/types';
 import { getPlanByPath, getAllPlanPaths } from '@/lib/db-utils';
 import { PlanModel } from '@/models';
-import WeekSkeleton from '@/components/plan/WeekSkeleton';
-import { getCombinedPaceSettings, getPaceSetting } from '@/lib/pace-storage-utils';
+import { getCombinedPaceSettings, getLocalPaceSettings, saveLocalPaceSettings } from '@/lib/pace-storage-utils';
 
 // Carregamento dinâmico do componente WeeklyView
 const WeeklyView = dynamic(() => import('@/components/plan/WeeklyView'), {
-  loading: () => <WeekSkeleton />,
+  loading: () => (
+    <div className="h-24 bg-gray-100 dark:bg-gray-800 rounded-md my-4 animate-pulse" />
+  ),
   ssr: false // Não renderiza no servidor para economizar recursos
 });
 
@@ -46,13 +47,14 @@ interface LazyWeeklyBlockProps {
 }
 
 // Componente para renderização preguiçosa de blocos semanais
-const LazyWeeklyBlock: React.FC<LazyWeeklyBlockProps> = ({ 
-  week, 
-  windex, 
-  todayRef, 
-  getActivityPace, 
-  convertMinutesToHours, 
-  getPredictedRaceTime 
+// Componente para renderização preguiçosa de blocos semanais
+const LazyWeeklyBlock: React.FC<LazyWeeklyBlockProps> = ({
+  week,
+  windex,
+  todayRef,
+  getActivityPace,
+  convertMinutesToHours,
+  getPredictedRaceTime
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const blockRef = useRef<HTMLDivElement>(null);
@@ -81,12 +83,10 @@ const LazyWeeklyBlock: React.FC<LazyWeeklyBlockProps> = ({
     }
   }, [week, isVisible]);
 
-  // Placeholder com Skeleton enquanto não carrega
+  // Placeholder simples enquanto não carrega
   if (!isVisible) {
     return (
-      <div ref={blockRef}>
-        <WeekSkeleton />
-      </div>
+      <div ref={blockRef} className="h-24 bg-gray-100 dark:bg-gray-800 rounded-md my-4 animate-pulse" />
     );
   }
 
@@ -106,79 +106,116 @@ const LazyWeeklyBlock: React.FC<LazyWeeklyBlockProps> = ({
 const Plan: React.FC<PlanProps> = ({ plan }) => {
   // Auth session para verificar se usuário está logado
   const { data: session, status } = useSession();
-  
+  const isAuthenticated = status === 'authenticated';
+
   // State
-  const [startDate, setStartDate] = useState<string>(storageHelper.getStartDate(plan.path));
-  const [endDate, setEndDate] = useState<string>(storageHelper.getEndDate(plan.path, plan.dailyWorkouts.length));
-  const [selectedTime, setSelectedTime] = useState<string>(storageHelper.getSelectedTime(plan.path));
-  const [selectedDistance, setSelectedDistance] = useState<string>(storageHelper.getSelectedDistance(plan.path));
+  const [startDate, setStartDate] = useState<string>("");
+  const [endDate, setEndDate] = useState<string>("");
+  const [selectedTime, setSelectedTime] = useState<string>("");
+  const [selectedDistance, setSelectedDistance] = useState<string>("");
   const [weeklyBlocks, setWeeklyBlocks] = useState<WeeklyBlock[]>([]);
   const [params, setParams] = useState<number | null>(null);
-  const [selectedPaces, setSelectedPaces] = useState<Record<string, string> | null>(null);
+  const [calculatedPaces, setCalculatedPaces] = useState<Record<string, string> | null>(null);
   const [userCustomPaces, setUserCustomPaces] = useState<Record<string, string>>({});
   const [isLoading, setIsLoading] = useState(true);
   const [loadingPaces, setLoadingPaces] = useState(false);
 
   // Refs
   const todayRef = useRef<HTMLDivElement>(null);
+  const initialLoadComplete = useRef<boolean>(false);
+
+  // Inicialização de estados a partir do localStorage
+  useEffect(() => {
+    // Carrega as configurações iniciais
+    const localPaces = getLocalPaceSettings(plan.path);
+
+    // Define valores padrão caso não existam no localStorage
+    const initialStartDate = localPaces.startDate || format(new Date(), "yyyy-MM-dd");
+    const initialEndDate = format(addDays(parseISO(initialStartDate), plan.dailyWorkouts.length - 1), "yyyy-MM-dd");
+    const initialTime = localPaces.baseTime || defaultTimes["5km"];
+    const initialDistance = localPaces.baseDistance || "5km";
+
+    // Atualiza os estados
+    setStartDate(initialStartDate);
+    setEndDate(initialEndDate);
+    setSelectedTime(initialTime);
+    setSelectedDistance(initialDistance);
+
+    // Também armazena no userCustomPaces
+    setUserCustomPaces(localPaces);
+
+    // Salva no storageHelper para compatibilidade
+    storageHelper.saveSettings(plan.path, {
+      startDate: initialStartDate,
+      endDate: initialEndDate,
+      selectedTime: initialTime,
+      selectedDistance: initialDistance
+    });
+
+  }, [plan.path, plan.dailyWorkouts.length]);
 
   // Buscar configurações de ritmos personalizados do usuário
-  useEffect(() => {
-    // Função para buscar ritmos personalizados
-    const fetchUserPaces = async () => {
-      setLoadingPaces(true);
-      
-      try {
+  const fetchUserPaces = useCallback(async () => {
+    if (initialLoadComplete.current) return;
+    setLoadingPaces(true);
+
+    try {
+      if (isAuthenticated && session?.user?.id) {
         // Para usuários autenticados, buscar do servidor
-        if (status === 'authenticated' && session?.user?.id) {
-          const response = await fetch(`/api/user/plans/${plan.path}/paces`);
-          
-          if (response.ok) {
-            const serverPaces = await response.json();
-            // Combinar com ritmos locais (prioriza servidor)
-            const combinedPaces = getCombinedPaceSettings(serverPaces, plan.path);
-            setUserCustomPaces(combinedPaces);
-            
-            // Atualizar estados com as configurações
-            updateSettingsFromPaces(combinedPaces);
+        const response = await fetch(`/api/user/plans/${plan.path}/paces`);
+
+        if (response.ok) {
+          const serverPaces = await response.json();
+
+          // Mesclar com dados locais (prioriza servidor)
+          const localPaces = getLocalPaceSettings(plan.path);
+          const combinedPaces = { ...localPaces, ...serverPaces };
+
+          // Atualiza estados
+          setUserCustomPaces(combinedPaces);
+
+          // Atualiza dados no localStorage
+          saveLocalPaceSettings(plan.path, combinedPaces);
+
+          // Se temos data ou tempo personalizados, atualizar estados
+          if (combinedPaces.startDate) setStartDate(combinedPaces.startDate);
+          if (combinedPaces.baseTime) setSelectedTime(combinedPaces.baseTime);
+          if (combinedPaces.baseDistance) setSelectedDistance(combinedPaces.baseDistance);
+
+          // Calcular data de término
+          if (combinedPaces.startDate) {
+            const newEndDate = format(
+              addDays(parseISO(combinedPaces.startDate), plan.dailyWorkouts.length - 1),
+              "yyyy-MM-dd"
+            );
+            setEndDate(newEndDate);
           }
-        } 
-        // Para visitantes, usar apenas dados locais
-        else {
-          const localPaces = getCombinedPaceSettings({}, plan.path);
+        } else {
+          // Em caso de falha na API, usa apenas dados locais
+          const localPaces = getLocalPaceSettings(plan.path);
           setUserCustomPaces(localPaces);
-          
-          // Atualizar estados com as configurações locais
-          updateSettingsFromPaces(localPaces);
         }
-      } catch (error) {
-        console.error('Erro ao buscar ritmos personalizados:', error);
-      } finally {
-        setLoadingPaces(false);
+      } else {
+        // Para usuários não autenticados, usa apenas dados locais
+        const localPaces = getLocalPaceSettings(plan.path);
+        setUserCustomPaces(localPaces);
       }
-    };
-    
-    // Função auxiliar para atualizar estados a partir de configurações
-    const updateSettingsFromPaces = (paces: Record<string, string>) => {
-      // Se houver data de início personalizada, atualizar
-      if (paces.startDate) {
-        setStartDate(paces.startDate);
-        storageHelper.saveSettings(plan.path, { startDate: paces.startDate });
-      }
-      
-      // Se houver configurações de tempo/distância personalizadas, atualizar
-      if (paces.baseTime && paces.baseDistance) {
-        setSelectedTime(paces.baseTime);
-        setSelectedDistance(paces.baseDistance);
-        storageHelper.saveSettings(plan.path, { 
-          selectedTime: paces.baseTime,
-          selectedDistance: paces.baseDistance
-        });
-      }
-    };
-    
+    } catch (error) {
+      console.error('Erro ao buscar ritmos personalizados:', error);
+
+      // Em caso de erro, usa dados locais
+      const localPaces = getLocalPaceSettings(plan.path);
+      setUserCustomPaces(localPaces);
+    } finally {
+      setLoadingPaces(false);
+      initialLoadComplete.current = true;
+    }
+  }, [plan.path, plan.dailyWorkouts.length, isAuthenticated, session]);
+
+  // Buscar dados ao montar o componente
+  useEffect(() => {
     fetchUserPaces();
-  }, [session, status, plan.path]);
+  }, [fetchUserPaces]);
 
   // Callbacks
   const scrollToToday = useCallback((): void => {
@@ -191,8 +228,19 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
     return getPredictedRaceTimeFactory(params);
   }, [params]);
 
-  // Função melhorada para obter ritmos, priorizando os personalizados do usuário
+  // Debug - remover depois
+  useEffect(() => {
+    // Apenas para depuração em desenvolvimento
+    if (process.env.NODE_ENV === 'development') {
+      console.log('[DEBUG] userCustomPaces:', userCustomPaces);
+    }
+  }, [userCustomPaces]);
+
+  // FUNÇÃO-CHAVE: Obter ritmos para atividades, agora priorizando corretamente os ritmos customizados
   const getActivityPace = useCallback((activity: Activity): string => {
+    if (!activity || !activity.type) return "N/A";
+
+    // Função aprimorada para garantir a aplicação dos ritmos customizados
     return calculateActivityPace(activity, userCustomPaces, getPredictedRaceTime);
   }, [userCustomPaces, getPredictedRaceTime]);
 
@@ -202,6 +250,14 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
     const newEndDate = format(addDays(parseISO(newStartDate), plan.dailyWorkouts.length - 1), "yyyy-MM-dd");
     setStartDate(newStartDate);
     setEndDate(newEndDate);
+
+    // Atualizar no userCustomPaces
+    const updatedPaces = { ...userCustomPaces, startDate: newStartDate };
+    setUserCustomPaces(updatedPaces);
+
+    // Salvar no localStorage e sessionStorage
+    saveLocalPaceSettings(plan.path, updatedPaces);
+    storageHelper.saveSettings(plan.path, { startDate: newStartDate, endDate: newEndDate });
   };
 
   const handleEndDateChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -209,54 +265,91 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
     const newStartDate = format(subDays(parseISO(newEndDate), plan.dailyWorkouts.length - 1), "yyyy-MM-dd");
     setEndDate(newEndDate);
     setStartDate(newStartDate);
+
+    // Atualizar no userCustomPaces
+    const updatedPaces = { ...userCustomPaces, startDate: newStartDate };
+    setUserCustomPaces(updatedPaces);
+
+    // Salvar no localStorage e sessionStorage
+    saveLocalPaceSettings(plan.path, updatedPaces);
+    storageHelper.saveSettings(plan.path, { startDate: newStartDate, endDate: newEndDate });
   };
 
   const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setSelectedTime(formatTimeInput(event.target.value));
+    const formattedTime = formatTimeInput(event.target.value);
+    setSelectedTime(formattedTime);
+
+    // Atualizar no userCustomPaces
+    const updatedPaces = { ...userCustomPaces, baseTime: formattedTime };
+    setUserCustomPaces(updatedPaces);
+
+    // Salvar no localStorage e sessionStorage
+    saveLocalPaceSettings(plan.path, updatedPaces);
+    storageHelper.saveSettings(plan.path, { selectedTime: formattedTime });
   };
 
   const handleDistanceChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     const newDistance = event.target.value as keyof typeof defaultTimes;
+    const newTime = defaultTimes[newDistance];
     setSelectedDistance(newDistance);
-    setSelectedTime(defaultTimes[newDistance]);
-    setParams(null);
+    setSelectedTime(newTime);
+
+    // Atualizar no userCustomPaces
+    const updatedPaces = {
+      ...userCustomPaces,
+      baseDistance: newDistance,
+      baseTime: newTime
+    };
+    setUserCustomPaces(updatedPaces);
+
+    // Salvar no localStorage e sessionStorage
+    saveLocalPaceSettings(plan.path, updatedPaces);
+    storageHelper.saveSettings(plan.path, {
+      selectedDistance: newDistance,
+      selectedTime: newTime
+    });
   };
 
-  // Effects
+  // Atualizar parâmetros quando tempo/distância mudar
   useEffect(() => {
-    // Persist state to sessionStorage
-    storageHelper.saveSettings(plan.path, {
-      startDate,
-      endDate,
-      selectedTime,
-      selectedDistance
-    });
-  }, [startDate, endDate, selectedTime, selectedDistance, plan.path]);
-
-  useEffect(() => {
-    // Calculate closest race params
-    const foundParams = findClosestRaceParams(selectedTime, selectedDistance);
-    setParams(foundParams);
+    if (selectedTime && selectedDistance) {
+      const foundParams = findClosestRaceParams(selectedTime, selectedDistance);
+      setParams(foundParams);
+    }
   }, [selectedTime, selectedDistance]);
 
+  // Atualizar ritmos calculados quando parâmetros mudarem
   useEffect(() => {
-    // Update paces based on params
     const paceValues = findPaceValues(params);
-    
-    // Se houver ritmos padrão, incorporar com os personalizados
-    if (paceValues) {
-      // Criar um objeto combinado com os ritmos padrão
-      const combinedPaces = { ...paceValues };
-      
-      // Substituir com os ritmos personalizados onde disponíveis
-      setSelectedPaces(combinedPaces);
-    } else {
-      setSelectedPaces(null);
-    }
-  }, [params, userCustomPaces]);
+    setCalculatedPaces(paceValues || {});
+  }, [params]);
 
-  // Organizar dados em semanas - usando memoização
+  // Mesclar ritmos calculados com ritmos personalizados
+  useEffect(() => {
+    if (calculatedPaces && Object.keys(calculatedPaces).length > 0) {
+      // Apenas para ritmos não personalizados
+      const nonCustomPaceKeys = Object.keys(calculatedPaces).filter(key =>
+        !userCustomPaces[`custom_${key}`]
+      );
+
+      // Criar objeto temporário com os ritmos calculados que não têm versão personalizada
+      const tempPaces: Record<string, string> = {};
+      nonCustomPaceKeys.forEach(key => {
+        tempPaces[key] = calculatedPaces[key];
+      });
+
+      // Mesclar com o userCustomPaces atual (sem sobrescrever personalizados)
+      setUserCustomPaces(currentPaces => ({
+        ...tempPaces,
+        ...currentPaces
+      }));
+    }
+  }, [calculatedPaces]);
+
+  // Organizar dados em semanas
   const organizedWeeklyBlocks = useMemo(() => {
+    if (!startDate) return [];
+
     setIsLoading(true);
     const blocks = organizePlanIntoWeeklyBlocks(plan.dailyWorkouts, startDate);
     setIsLoading(false);
@@ -283,6 +376,25 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
 
   // Derived values
   const percentage = useMemo(() => params ? (params / 85) * 100 : 0, [params]);
+
+  // Se ainda estamos carregando dados iniciais e não temos valores-chave, mostrar loading
+  if (loadingPaces && (!startDate || !selectedTime)) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="space-y-4">
+          <p className="text-center text-lg">Carregando configurações do plano...</p>
+          <div className="space-y-4">
+            {[...Array(3)].map((_, index) => (
+              <div
+                key={index}
+                className="h-24 bg-gray-100 dark:bg-gray-800 rounded-md animate-pulse"
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex h-screen bg-background">
@@ -322,14 +434,17 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
                 handleTimeChange={handleTimeChange}
                 params={params}
                 percentage={percentage}
-                isAuthenticated={status === 'authenticated'}
+                isAuthenticated={isAuthenticated}
               />
 
-              {isLoading || loadingPaces ? (
-                // Mostrar múltiplos esqueletos durante o carregamento inicial
-                <div className="space-y-1">
+              {isLoading || (!weeklyBlocks.length && startDate) ? (
+                // Mostrar múltiplos esqueletos durante o carregamento
+                <div className="space-y-4">
                   {[...Array(3)].map((_, index) => (
-                    <WeekSkeleton key={index} />
+                    <div
+                      key={index}
+                      className="h-24 bg-gray-100 dark:bg-gray-800 rounded-md animate-pulse"
+                    />
                   ))}
                 </div>
               ) : (
@@ -360,12 +475,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   try {
     // Buscar os planos com dados resumidos para gerar os paths
     const planPaths = await getAllPlanPaths();
-    
+
     const paths = planPaths.map((path) => ({
       params: { planPath: path },
     }));
-    
-    return { 
+
+    return {
       paths,
       fallback: 'blocking' // Permite gerar páginas sob demanda se não existirem no build
     };
@@ -379,7 +494,7 @@ export const getStaticProps: GetStaticProps<PlanProps> = async ({ params }) => {
   try {
     // Aqui precisamos do plano completo com dailyWorkouts
     const plan = await getPlanByPath(params?.planPath as string, { fields: 'full' });
-    
+
     if (!plan || !plan.nivel || !["iniciante", "intermediário", "avançado", "elite"].includes(plan.nivel)) {
       return { notFound: true };
     }
