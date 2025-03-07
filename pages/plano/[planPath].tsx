@@ -46,6 +46,37 @@ interface LazyWeeklyBlockProps {
   getPredictedRaceTime: (distance: number) => PredictedRaceTime | null;
 }
 
+const processCustomPaces = (rawPaces: Record<string, string>) => {
+  // Certifique-se de que temos um objeto válido
+  if (!rawPaces || typeof rawPaces !== 'object') return {};
+  
+  const processedPaces: Record<string, string> = {};
+  
+  // Processa cada entrada, garantindo que formatos estejam corretos
+  Object.entries(rawPaces).forEach(([key, value]) => {
+    // Ignora valores vazios ou inválidos
+    if (!value || value === 'undefined' || value === 'null') return;
+    
+    // Para ritmos personalizados (ex: custom_Easy Km)
+    if (key.startsWith('custom_')) {
+      // Certifique-se de que o formato está correto para ritmos
+      if (key.includes('Km') || key.includes('m')) {
+        // Normaliza o formato do ritmo (remove sufixos como /km e normaliza o formato)
+        const normalizedValue = value.replace(/\/km$/, '').trim();
+        processedPaces[key] = normalizedValue;
+      } else {
+        // Outros valores customizados
+        processedPaces[key] = value;
+      }
+    } else {
+      // Valores não personalizados (baseTime, adjustmentFactor, etc.)
+      processedPaces[key] = value;
+    }
+  });
+  
+  return processedPaces;
+};
+
 // Componente para renderização preguiçosa de blocos semanais
 const LazyWeeklyBlock: React.FC<LazyWeeklyBlockProps> = ({
   week,
@@ -118,6 +149,8 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
   const [customPaces, setCustomPaces] = useState<Record<string, string>>({});
   const [isLoading, setIsLoading] = useState(true);
   const [loadingPaces, setLoadingPaces] = useState(false);
+  // Flag para evitar loops infinitos
+  const skipNextCalculatedPacesUpdate = useRef(false);
 
   // Refs
   const todayRef = useRef<HTMLDivElement>(null);
@@ -125,6 +158,8 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
 
   // Inicialização de estados a partir do localStorage
   useEffect(() => {
+    if (initialLoadComplete.current) return;
+    
     // Carrega as configurações iniciais
     const localPaces = getLocalPaceSettings(plan.path);
 
@@ -237,18 +272,22 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
 
   // Atualizar ritmos calculados quando parâmetros mudarem
   useEffect(() => {
-    const paceValues = findPaceValues(params);
-    setCalculatedPaces(paceValues || {});
+    if (params !== null) {
+      const paceValues = findPaceValues(params);
+      setCalculatedPaces(paceValues || {});
+    }
   }, [params]);
 
-  // Mesclar ritmos calculados com ritmos personalizados
+  // Mesclar ritmos calculados com ritmos personalizados - CORRIGIDO PARA EVITAR LOOPS
   useEffect(() => {
-    if (calculatedPaces) {
+    if (calculatedPaces && !skipNextCalculatedPacesUpdate.current) {
+      // Ativar flag para evitar loop na próxima execução
+      skipNextCalculatedPacesUpdate.current = true;
+      
       // Criamos um objeto temporário que combinará ambos
       const combinedPaces = { ...customPaces };
 
       // Adicionamos os ritmos calculados que não estão personalizados
-      // Este é o passo crucial para garantir que todos os ritmos estejam disponíveis
       Object.entries(calculatedPaces).forEach(([key, value]) => {
         const customKey = `custom_${key}`;
         // Se não tiver um ritmo personalizado para esta chave, use o calculado
@@ -257,8 +296,13 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
         }
       });
 
-      // Atualizamos o estado
-      setCustomPaces(combinedPaces);
+      // Atualizar apenas se houver mudanças necessárias
+      if (JSON.stringify(combinedPaces) !== JSON.stringify(customPaces)) {
+        setCustomPaces(combinedPaces);
+      }
+    } else {
+      // Resetar a flag para a próxima execução
+      skipNextCalculatedPacesUpdate.current = false;
     }
   }, [calculatedPaces, customPaces]);
 

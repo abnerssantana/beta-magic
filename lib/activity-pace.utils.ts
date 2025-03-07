@@ -2,7 +2,7 @@
 
 import { Activity } from '@/types/training';
 import { PredictedRaceTime } from '@/types';
-import { activityTypeToPace, normalizePace, isRangePace, createRangePace } from './pace-manager';
+import { activityTypeToPace, normalizePace, isRangePace, createRangePace, normalizeRangePace } from './pace-manager';
 
 /**
  * Verifica se um valor é uma string representando um tipo de ritmo
@@ -47,11 +47,19 @@ export function calculateActivityPace(
   getPredictedRaceTime?: (distance: number) => PredictedRaceTime | null
 ): string {
   // Se a atividade não tem tipo, retorna N/A
-  if (!activity.type) return "N/A";
+  if (!activity || !activity.type) return "N/A";
   
-  // MELHORIA: Verificar se distance é uma string representando um tipo de ritmo
+  // Debug auxiliar durante o desenvolvimento (pode ser ativado para depuração)
+  const debug = false;
+  if (debug) {
+    console.log('Activity:', activity.type, 'Distance:', activity.distance);
+    console.log('CustomPaces:', customPaces);
+  }
+  
+  // Determinar o nome do ritmo a ser usado
   let paceName: string | undefined;
   
+  // MELHORIA: Verificar se distance é uma string representando um tipo de ritmo
   if (activity.distance && isPaceTypeString(activity.distance)) {
     // Se distance é uma string de tipo de ritmo, usar ela para determinar o ritmo
     paceName = mapPaceTypeStringToPaceName(activity.distance as string);
@@ -63,17 +71,25 @@ export function calculateActivityPace(
   }
   
   // Se não tiver correspondência depois de tentar ambos, retorna N/A
-  if (!paceName) return "N/A";
+  if (!paceName) {
+    if (debug) console.log('No paceName found for', activity.type);
+    return "N/A";
+  }
+  
+  if (debug) console.log('PaceName found:', paceName);
   
   // Prioridade 1: Verificar se existe um ritmo personalizado específico
   const customPaceKey = `custom_${paceName}`;
+  
   if (customPaces[customPaceKey] && customPaces[customPaceKey].trim() !== '') {
     // Garantir que o formato está correto
     const customPaceValue = customPaces[customPaceKey];
-
+    
+    if (debug) console.log('Found custom pace:', customPaceKey, customPaceValue);
+    
     // Verificar se é um intervalo de ritmo (range)
     if (isRangePace(customPaceValue)) {
-      return customPaceValue;
+      return normalizeRangePace(customPaceValue);
     } else {
       // Ritmo simples
       return normalizePace(customPaceValue);
@@ -84,22 +100,14 @@ export function calculateActivityPace(
   if (customPaces[paceName] && customPaces[paceName].trim() !== '') {
     const basePace = customPaces[paceName];
     
-    // Verificar se há fator de ajuste
-    if (customPaces.adjustmentFactor) {
-      const adjustmentFactor = parseFloat(customPaces.adjustmentFactor);
-      
-      // Se o fator de ajuste é 100%, usar o ritmo base sem modificação
-      if (adjustmentFactor === 100) {
-        return basePace;
-      }
-      
-      // Se houver uma função de ajuste, aplicá-la (não implementado aqui)
-      // Retorna o ritmo base se não houver implementação de ajuste
-      return basePace;
+    if (debug) console.log('Found base pace:', paceName, basePace);
+    
+    // Verificar se é um intervalo de ritmo (range)
+    if (isRangePace(basePace)) {
+      return normalizeRangePace(basePace);
     }
     
-    // Se não houver fator de ajuste, usar o ritmo base diretamente
-    return basePace;
+    return normalizePace(basePace);
   }
   
   // Prioridade 3: Casos especiais para ritmos de prova
@@ -108,17 +116,13 @@ export function calculateActivityPace(
     if (getPredictedRaceTime) {
       const prediction = getPredictedRaceTime(activity.distance);
       if (prediction && prediction.pace) {
+        if (debug) console.log('Found race prediction:', prediction.pace);
         return prediction.pace;
       }
     }
   }
   
-  // Debug para desenvolvimento
-  if (process.env.NODE_ENV === 'development') {
-    console.log(`[DEBUG] Ritmo não encontrado para: tipo=${activity.type}, distance=${activity.distance}, paceName=${paceName}`);
-  }
-  
-  // Se nenhum ritmo for encontrado
+  if (debug) console.log('No valid pace found for', activity.type);
   return "N/A";
 }
 

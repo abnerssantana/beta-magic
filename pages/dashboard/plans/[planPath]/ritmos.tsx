@@ -9,12 +9,45 @@ import { Info } from "lucide-react";
 import { PlanModel } from "@/models";
 import { getPlanByPath } from "@/lib/db-utils";
 import { getUserCustomPaces } from "@/lib/user-utils";
+import { getLocalPaceSettings } from "@/lib/pace-storage-utils";
 
 interface PaceConfigPageProps {
   plan: PlanModel;
   customPaces: Record<string, string>;
   isAuthenticated: boolean;
 }
+
+// Função para processar os ritmos personalizados e garantir consistência
+const processCustomPaces = (rawPaces: Record<string, string>) => {
+  // Certifique-se de que temos um objeto válido
+  if (!rawPaces || typeof rawPaces !== 'object') return {};
+  
+  const processedPaces: Record<string, string> = {};
+  
+  // Processa cada entrada, garantindo que formatos estejam corretos
+  Object.entries(rawPaces).forEach(([key, value]) => {
+    // Ignora valores vazios ou inválidos
+    if (!value || value === 'undefined' || value === 'null') return;
+    
+    // Para ritmos personalizados (ex: custom_Easy Km)
+    if (key.startsWith('custom_')) {
+      // Certifique-se de que o formato está correto para ritmos
+      if (key.includes('Km') || key.includes('m')) {
+        // Normaliza o formato do ritmo (remove sufixos como /km e normaliza o formato)
+        const normalizedValue = value.replace(/\/km$/, '').trim();
+        processedPaces[key] = normalizedValue;
+      } else {
+        // Outros valores customizados
+        processedPaces[key] = value;
+      }
+    } else {
+      // Valores não personalizados (baseTime, adjustmentFactor, etc.)
+      processedPaces[key] = value;
+    }
+  });
+  
+  return processedPaces;
+};
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context);
@@ -39,15 +72,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       const userId = session.user.id;
       customPaces = await getUserCustomPaces(userId, planPath) || {};
     } 
-    // Se não autenticado, verificamos se há configurações no cookie
-    else {
-      // Será tratado no lado do cliente através do localStorage
-    }
+    // Para debug - só no servidor
+    // console.log("Server-side custom paces:", customPaces);
 
     return {
       props: {
         plan: JSON.parse(JSON.stringify(plan)),
-        customPaces: customPaces,
+        customPaces: processCustomPaces(customPaces),
         isAuthenticated
       },
     };
@@ -60,6 +91,23 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces, isAuthenticated }) => {
+  // État pour suivre les rythmes personnalisés côté client
+  const [clientCustomPaces, setClientCustomPaces] = React.useState<Record<string, string>>(customPaces);
+
+  // Charge les rythmes personnalisés locaux si nécessaire (pour les utilisateurs non connectés)
+  React.useEffect(() => {
+    if (!isAuthenticated) {
+      // Récupérer les paramètres locaux
+      const localPaces = getLocalPaceSettings(plan.path);
+      const processedLocalPaces = processCustomPaces(localPaces);
+      
+      // Mettre à jour l'état uniquement si des paramètres locaux ont été trouvés
+      if (Object.keys(processedLocalPaces).length > 0) {
+        setClientCustomPaces(prev => ({...prev, ...processedLocalPaces}));
+      }
+    }
+  }, [isAuthenticated, plan.path]);
+
   // Handler to save settings
   const handleSaveSettings = async (settings: Record<string, string>): Promise<void> => {
     try {
@@ -79,10 +127,13 @@ const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces, isAu
         }
       }
       
+      // Atualizar o estado local com as novas configurações
+      setClientCustomPaces(settings);
+      
       // Para todos os usuários (incluindo não-autenticados), salvar no localStorage
       if (typeof window !== "undefined") {
         // Salvar configurações completas
-        localStorage.setItem(`pace_settings_${plan.path}`, JSON.stringify(settings));
+        localStorage.setItem(`magic_training_pace_settings_${plan.path}`, JSON.stringify(settings));
         
         // Também atualizar valores individuais para compatibilidade
         const storagePrefix = `${plan.path}_`;
@@ -95,6 +146,13 @@ const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces, isAu
         if (settings.baseDistance) {
           sessionStorage.setItem(`${storagePrefix}selectedDistance`, settings.baseDistance);
         }
+        
+        // Salvar ritmos personalizados individualmente também
+        Object.entries(settings).forEach(([key, value]) => {
+          if (key.startsWith('custom_')) {
+            localStorage.setItem(`${storagePrefix}${key}`, value);
+          }
+        });
       }
       
       // Não retornamos nada (void)
@@ -137,7 +195,7 @@ const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces, isAu
 
         <ConfigurePaces 
           plan={plan} 
-          customPaces={customPaces} 
+          customPaces={clientCustomPaces} 
           onSaveSettings={handleSaveSettings} 
           isAuthenticated={isAuthenticated}
         />

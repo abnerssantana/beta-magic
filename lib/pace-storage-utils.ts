@@ -23,12 +23,25 @@ export function getLocalPaceSettings(planPath: string): Record<string, string> {
       try {
         const parsedSettings = JSON.parse(fullSettings);
         
-        // Verificação e log para depuração em desenvolvimento
-        if (process.env.NODE_ENV === 'development') {
-          console.log(`[DEBUG] Local pace settings loaded for ${planPath}:`, parsedSettings);
+        // Validar e limpar os dados para evitar problemas
+        const cleanedSettings: Record<string, string> = {};
+        Object.entries(parsedSettings).forEach(([key, value]) => {
+          // Apenas incluir entradas com valores válidos
+          if (value && typeof value === 'string') {
+            cleanedSettings[key] = value;
+          }
+        });
+        
+        // Debug para desenvolvimento se necessário
+        const debug = false;
+        if (debug) {
+          console.log('Loaded pace settings from localStorage:', cleanedSettings);
         }
         
-        return parsedSettings;
+        // Se temos pelo menos uma configuração válida, retornar
+        if (Object.keys(cleanedSettings).length > 0) {
+          return cleanedSettings;
+        }
       } catch (e) {
         console.error('Erro ao parsear JSON de configurações de ritmo:', e);
         // Se houver erro de parsing, tenta usar método alternativo
@@ -49,17 +62,28 @@ export function getLocalPaceSettings(planPath: string): Record<string, string> {
     if (selectedDistance) baseSettings.baseDistance = selectedDistance;
     
     // Buscar também ritmos personalizados salvos em chaves individuais (compatibilidade)
+    // Primeiro, coletamos todas as chaves relacionadas ao plano
+    const planRelatedKeys: string[] = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      if (key && key.startsWith(`${planPath}_custom_`)) {
-        const paceKey = key.replace(`${planPath}_`, '');
-        baseSettings[paceKey] = localStorage.getItem(key) || '';
+      if (key && key.startsWith(`${planPath}_`)) {
+        planRelatedKeys.push(key);
       }
     }
     
-    // Log para depuração em desenvolvimento
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`[DEBUG] Compiled local pace settings for ${planPath}:`, baseSettings);
+    // Processar cada chave relacionada ao plano
+    planRelatedKeys.forEach(key => {
+      if (key.includes('custom_')) {
+        const paceKey = key.replace(`${planPath}_`, '');
+        const value = localStorage.getItem(key);
+        if (value) baseSettings[paceKey] = value;
+      }
+    });
+    
+    // Debug se necessário
+    const debug = false;
+    if (debug && Object.keys(baseSettings).length > 0) {
+      console.log('Compiled pace settings from individual keys:', baseSettings);
     }
     
     return baseSettings;
@@ -78,9 +102,10 @@ export function saveLocalPaceSettings(planPath: string, settings: Record<string,
   if (typeof window === 'undefined') return;
   
   try {
-    // Log para depuração em desenvolvimento
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`[DEBUG] Saving local pace settings for ${planPath}:`, settings);
+    // Debug se necessário
+    const debug = false;
+    if (debug) {
+      console.log('Saving pace settings to localStorage:', settings);
     }
     
     // Salvar configurações completas
@@ -126,11 +151,6 @@ export function getCombinedPaceSettings(
   // Para clientes, combinar dados
   const localPaces = getLocalPaceSettings(planPath);
   
-  // Log para depuração em desenvolvimento
-  if (process.env.NODE_ENV === 'development' && Object.keys(serverPaces).length > 0) {
-    console.log(`[DEBUG] Combined paces for ${planPath}:`, { ...localPaces, ...serverPaces });
-  }
-  
   // Preferir dados do servidor se disponíveis
   return { ...localPaces, ...serverPaces };
 }
@@ -154,8 +174,12 @@ export function getPaceSetting(
     const fullSettings = localStorage.getItem(`${STORAGE_PREFIX}pace_settings_${planPath}`);
     
     if (fullSettings) {
-      const parsedSettings = JSON.parse(fullSettings);
-      if (parsedSettings[key]) return parsedSettings[key];
+      try {
+        const parsedSettings = JSON.parse(fullSettings);
+        if (parsedSettings[key]) return parsedSettings[key];
+      } catch (e) {
+        console.error('Erro ao parsear JSON para obter configuração:', e);
+      }
     }
     
     // Verificar chaves individuais para ritmos personalizados
