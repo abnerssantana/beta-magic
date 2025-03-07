@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, BarChart2, Save, AlertTriangle, Check } from 'lucide-react';
+import { Calendar, Clock, BarChart2, Save, AlertTriangle, Check, ChevronLeft } from 'lucide-react';
 import { Separator } from "@/components/ui/separator";
 import { PlanSummary } from '@/models';
 import TimeInput from '@/components/TimeInput';
@@ -615,27 +616,34 @@ export function ConfigurePaces({
         </CardContent>
       </Card>
 
-      <div className="flex justify-end">
-        <Button 
-          onClick={handleSaveSettings}
-          disabled={isSaving}
-          className="gap-2"
-        >
-          {isSaving ? (
-            <>Salvando...</>
-          ) : saveSuccess ? (
-            <>
-              <Check className="h-4 w-4" />
-              Configurações Salvas!
-            </>
-          ) : (
-            <>
-              <Save className="h-4 w-4" />
-              Salvar Configurações
-            </>
-          )}
-        </Button>
-      </div>
+      <div className="flex justify-between items-center">
+  <Button variant="outline" size="sm" asChild>
+    <Link href={`/plano/${plan.path}`}>
+      <ChevronLeft className="mr-2 h-4 w-4" />
+      Voltar para o Plano
+    </Link>
+  </Button>
+
+  <Button 
+    onClick={handleSaveSettings}
+    disabled={isSaving}
+    className="gap-2"
+  >
+    {isSaving ? (
+      <>Salvando...</>
+    ) : saveSuccess ? (
+      <>
+        <Check className="h-4 w-4" />
+        Configurações Salvas!
+      </>
+    ) : (
+      <>
+        <Save className="h-4 w-4" />
+        Salvar
+      </>
+    )}
+  </Button>
+</div>
     </div>
   );
 }

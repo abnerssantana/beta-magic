@@ -2,12 +2,10 @@ import React from "react";
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-import Link from "next/link";
 import { Layout } from "@/components/layout";
-import { Button } from "@/components/ui/button";
 import { ConfigurePaces } from "@/components/ConfigurePaces";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { ChevronLeft, Info } from "lucide-react";
+import { Info } from "lucide-react";
 import { PlanModel } from "@/models";
 import { getPlanByPath } from "@/lib/db-utils";
 import { getUserCustomPaces } from "@/lib/user-utils";
@@ -117,20 +115,11 @@ const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces, isAu
       </Head>
 
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <div className="space-y-1">
-            <h1 className="text-2xl font-bold tracking-tight">Configurar Ritmos</h1>
-            <p className="text-muted-foreground">
-              Personalize os ritmos do plano {plan.name}
-            </p>
-          </div>
-          
-          <Button variant="outline" size="sm" asChild>
-            <Link href="/dashboard/plans">
-              <ChevronLeft className="mr-2 h-4 w-4" />
-              Voltar aos Planos
-            </Link>
-          </Button>
+        <div className="space-y-1">
+          <h1 className="text-2xl font-bold tracking-tight">Configurar Ritmos</h1>
+          <p className="text-muted-foreground">
+            Personalize os ritmos do plano {plan.name}
+          </p>
         </div>
 
         <Alert variant="default" className="bg-muted">
@@ -152,6 +141,7 @@ const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces, isAu
           onSaveSettings={handleSaveSettings} 
           isAuthenticated={isAuthenticated}
         />
+        
       </div>
     </Layout>
   );

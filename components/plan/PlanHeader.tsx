@@ -1,11 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { 
-  Calendar, 
   User2, 
-  Activity, 
   Settings,
-  FileText
+  FileText,
+  BarChart2,
+  CalendarDays,
+  TrendingUp
 } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -28,62 +29,69 @@ interface PlanHeaderProps {
   percentage?: number;
 }
 
+// Função para converter o nome do treinador em um slug URL-friendly
+const createTrainerSlug = (coachName: string): string => {
+  return coachName
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // Remove acentos
+    .replace(/[^a-z0-9]/g, '-')      // Substitui caracteres especiais por hífens
+    .replace(/-+/g, '-')             // Remove hifens consecutivos
+    .replace(/^-|-$/g, '');          // Remove hifens no início e fim
+};
+
 export function PlanHeader({
   plan,
   isAuthenticated = false,
   ...otherProps // Outros props não utilizados neste arquivo
 }: PlanHeaderProps) {
+  // Criar o slug do treinador a partir do nome
+  const trainerSlug = createTrainerSlug(plan.coach);
+
   return (
-    <div className="space-y-4 mb-6">
-      <Card className="overflow-hidden border-border/60 hover:border-border/90 transition-all duration-300">
+    <div className="space-y-4 mt-2 mb-6">
+      <Card className="overflow-hidden border-none shadow-none pb-0 transition-all duration-300">
         <CardContent className="p-6">
           <div className="space-y-4">
             {/* Header com nome e badges */}
             <div className="flex items-center justify-between">
-              <h1 className="text-2xl font-bold">{plan.name}</h1>
+            <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground/90">{plan.name}</h1>
               {plan.isNew && (
                 <Badge variant="destructive" className="text-xs">Novo</Badge>
               )}
             </div>
             
             {/* Badges */}
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="outline" className="capitalize">{plan.nivel}</Badge>
-              {plan.distances?.map((distance, index) => (
-                <Badge key={index} variant="secondary">{distance}</Badge>
-              ))}
-              
-              {plan.duration && (
-                <div className="inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80">
-                  <Calendar className="h-3 w-3" />
-                  {plan.duration}
-                </div>
-              )}
+            <div className="flex flex-wrap gap-3 text-sm">
+              <Link
+                href={`/treinadores/${trainerSlug}`}
+                className="flex items-center text-primary/80 hover:text-primary transition-colors"
+              >
+                <User2 className="mr-1.5 h-4 w-4" />
+                {plan.coach}
+              </Link>
+              <div className="flex items-center text-muted-foreground/90">
+                <TrendingUp className="mr-1.5 h-4 w-4" />
+                {plan.nivel}
+              </div>
+              <div className="flex items-center text-muted-foreground/90">
+                <CalendarDays className="mr-1.5 h-4 w-4" />
+                {plan.duration}
+              </div>
+              <div className="flex items-center text-muted-foreground/90">
+                <BarChart2 className="mr-1.5 h-4 w-4" />
+                {plan.volume} km/sem
+              </div>
             </div>
             
             {/* Descrição */}
-            <p className="text-muted-foreground">{limitDescription(plan.info, 250)}</p>
-            
-            {/* Informações adicionais */}
-            <div className="flex flex-wrap items-center gap-4 text-sm">
-              <div className="flex items-center gap-1.5 text-muted-foreground">
-                <User2 className="h-4 w-4" />
-                <span>Treinador: {plan.coach}</span>
-              </div>
-              
-              {plan.volume && (
-                <div className="flex items-center gap-1.5 text-muted-foreground">
-                  <Activity className="h-4 w-4" />
-                  <span>{plan.volume} km/sem</span>
-                </div>
-              )}
-            </div>
+            <p className="text-muted-foreground">{limitDescription(plan.info, 400)}</p>
 
             {/* Botão de configurar ritmos - agora visível para todos */}
             <div className="pt-2">
-              <Button 
-                variant="outline" 
+              <Button  
                 size="sm"
+                className="sm:w-fit w-full"
                 asChild
               >
                 <Link href={`/dashboard/plans/${plan.path}/ritmos`}>
