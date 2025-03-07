@@ -23,6 +23,7 @@ import { WeeklyBlock, Activity, PredictedRaceTime } from '@/types';
 import { getPlanByPath, getAllPlanPaths } from '@/lib/db-utils';
 import { PlanModel } from '@/models';
 import WeekSkeleton from '@/components/plan/WeekSkeleton';
+import { getCombinedPaceSettings, getPaceSetting } from '@/lib/pace-storage-utils';
 
 // Carregamento dinâmico do componente WeeklyView
 const WeeklyView = dynamic(() => import('@/components/plan/WeeklyView'), {
@@ -123,46 +124,60 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
 
   // Buscar configurações de ritmos personalizados do usuário
   useEffect(() => {
-    // Apenas buscar se o usuário estiver autenticado
-    if (status === 'authenticated' && session?.user?.id) {
+    // Função para buscar ritmos personalizados
+    const fetchUserPaces = async () => {
       setLoadingPaces(true);
       
-      // Função para buscar ritmos personalizados via API
-      const fetchUserPaces = async () => {
-        try {
+      try {
+        // Para usuários autenticados, buscar do servidor
+        if (status === 'authenticated' && session?.user?.id) {
           const response = await fetch(`/api/user/plans/${plan.path}/paces`);
           
           if (response.ok) {
-            const paces = await response.json();
+            const serverPaces = await response.json();
+            // Combinar com ritmos locais (prioriza servidor)
+            const combinedPaces = getCombinedPaceSettings(serverPaces, plan.path);
+            setUserCustomPaces(combinedPaces);
             
-            // Atualizar estados com as configurações do usuário
-            setUserCustomPaces(paces);
-            
-            // Se houver data de início personalizada, atualizar
-            if (paces.startDate) {
-              setStartDate(paces.startDate);
-              storageHelper.saveSettings(plan.path, { startDate: paces.startDate });
-            }
-            
-            // Se houver configurações de tempo/distância personalizadas, atualizar
-            if (paces.baseTime && paces.baseDistance) {
-              setSelectedTime(paces.baseTime);
-              setSelectedDistance(paces.baseDistance);
-              storageHelper.saveSettings(plan.path, { 
-                selectedTime: paces.baseTime,
-                selectedDistance: paces.baseDistance
-              });
-            }
+            // Atualizar estados com as configurações
+            updateSettingsFromPaces(combinedPaces);
           }
-        } catch (error) {
-          console.error('Erro ao buscar ritmos personalizados:', error);
-        } finally {
-          setLoadingPaces(false);
+        } 
+        // Para visitantes, usar apenas dados locais
+        else {
+          const localPaces = getCombinedPaceSettings({}, plan.path);
+          setUserCustomPaces(localPaces);
+          
+          // Atualizar estados com as configurações locais
+          updateSettingsFromPaces(localPaces);
         }
-      };
+      } catch (error) {
+        console.error('Erro ao buscar ritmos personalizados:', error);
+      } finally {
+        setLoadingPaces(false);
+      }
+    };
+    
+    // Função auxiliar para atualizar estados a partir de configurações
+    const updateSettingsFromPaces = (paces: Record<string, string>) => {
+      // Se houver data de início personalizada, atualizar
+      if (paces.startDate) {
+        setStartDate(paces.startDate);
+        storageHelper.saveSettings(plan.path, { startDate: paces.startDate });
+      }
       
-      fetchUserPaces();
-    }
+      // Se houver configurações de tempo/distância personalizadas, atualizar
+      if (paces.baseTime && paces.baseDistance) {
+        setSelectedTime(paces.baseTime);
+        setSelectedDistance(paces.baseDistance);
+        storageHelper.saveSettings(plan.path, { 
+          selectedTime: paces.baseTime,
+          selectedDistance: paces.baseDistance
+        });
+      }
+    };
+    
+    fetchUserPaces();
   }, [session, status, plan.path]);
 
   // Callbacks

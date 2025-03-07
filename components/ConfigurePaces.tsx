@@ -34,9 +34,15 @@ interface ConfigurePacesProps {
   plan: PlanSummary;
   onSaveSettings: (settings: Record<string, string>) => Promise<void>;
   customPaces?: Record<string, string>;
+  isAuthenticated?: boolean;
 }
 
-export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: ConfigurePacesProps) {
+export function ConfigurePaces({ 
+  plan, 
+  onSaveSettings, 
+  customPaces = {}, 
+  isAuthenticated = false 
+}: ConfigurePacesProps) {
   // Always start with 5km as default distance if not defined in customPaces
   const initialDistance = customPaces["baseDistance"] || "5km";
   const initialTime = customPaces["baseTime"] || defaultTimes[initialDistance] || "00:19:57";
@@ -143,6 +149,39 @@ export function ConfigurePaces({ plan, onSaveSettings, customPaces = {} }: Confi
     // Reset adjustment factor to 100% when manually changing the base time
     setAdjustmentFactor(100);
   };
+
+   // Carregar configurações do localStorage para usuários não autenticados
+   useEffect(() => {
+    if (!isAuthenticated && typeof window !== 'undefined') {
+      const localPaceSettings = localStorage.getItem(`pace_settings_${plan.path}`);
+      
+      if (localPaceSettings) {
+        try {
+          const parsedSettings = JSON.parse(localPaceSettings);
+          
+          // Atualizar estados com as configurações locais
+          if (parsedSettings.startDate) {
+            setStartDate(parsedSettings.startDate);
+          }
+          
+          if (parsedSettings.baseTime && parsedSettings.baseDistance) {
+            setBaseTime(parsedSettings.baseTime);
+            setBaseDistance(parsedSettings.baseDistance);
+          }
+          
+          if (parsedSettings.adjustmentFactor) {
+            setAdjustmentFactor(parseFloat(parsedSettings.adjustmentFactor));
+          }
+          
+          if (parsedSettings.raceDate) {
+            setRaceDate(parsedSettings.raceDate);
+          }
+        } catch (error) {
+          console.error('Erro ao carregar configurações locais:', error);
+        }
+      }
+    }
+  }, [isAuthenticated, plan.path]);
 
   // Update parameters when base time changes
   useEffect(() => {

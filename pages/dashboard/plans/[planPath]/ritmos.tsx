@@ -15,23 +15,16 @@ import { getUserCustomPaces } from "@/lib/user-utils";
 interface PaceConfigPageProps {
   plan: PlanModel;
   customPaces: Record<string, string>;
+  isAuthenticated: boolean;
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context);
   const { planPath } = context.params as { planPath: string };
-
-  if (!session) {
-    return {
-      redirect: {
-        destination: `/auth/signin?callbackUrl=/dashboard/plans/${planPath}/ritmos`,
-        permanent: false,
-      },
-    };
-  }
+  const isAuthenticated = !!session;
 
   try {
-    const userId = session.user.id;
+    // Buscar o plano independentemente do status de autenticação
     const plan = await getPlanByPath(planPath);
     
     if (!plan) {
@@ -40,13 +33,24 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       };
     }
 
-    // Get user's custom paces
-    const customPaces = await getUserCustomPaces(userId, planPath);
+    // Configurações padrão para usuários não autenticados
+    let customPaces = {};
+
+    // Se autenticado, buscar ritmos personalizados do banco de dados
+    if (isAuthenticated && session?.user?.id) {
+      const userId = session.user.id;
+      customPaces = await getUserCustomPaces(userId, planPath) || {};
+    } 
+    // Se não autenticado, verificamos se há configurações no cookie
+    else {
+      // Será tratado no lado do cliente através do localStorage
+    }
 
     return {
       props: {
         plan: JSON.parse(JSON.stringify(plan)),
-        customPaces: customPaces || {}
+        customPaces: customPaces,
+        isAuthenticated
       },
     };
   } catch (error) {
@@ -57,25 +61,32 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 };
 
-const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces }) => {
+const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces, isAuthenticated }) => {
   // Handler to save settings
   const handleSaveSettings = async (settings: Record<string, string>) => {
     try {
-      const response = await fetch(`/api/user/plans/${plan.path}/paces`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(settings),
-      });
-      
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || 'Error saving settings');
+      // Para usuários autenticados, salvar no banco de dados via API
+      if (isAuthenticated) {
+        const response = await fetch(`/api/user/plans/${plan.path}/paces`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(settings),
+        });
+        
+        if (!response.ok) {
+          const data = await response.json();
+          throw new Error(data.error || 'Error saving settings');
+        }
       }
       
-      // Also update in localStorage for compatibility with planPage
+      // Para todos os usuários (incluindo não-autenticados), salvar no localStorage
       if (typeof window !== "undefined") {
+        // Salvar configurações completas
+        localStorage.setItem(`pace_settings_${plan.path}`, JSON.stringify(settings));
+        
+        // Também atualizar valores individuais para compatibilidade
         const storagePrefix = `${plan.path}_`;
         if (settings.startDate) {
           sessionStorage.setItem(`${storagePrefix}startDate`, settings.startDate);
@@ -88,7 +99,7 @@ const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces }) =>
         }
       }
       
-      // Remova o return true aqui
+      return true;
     } catch (error) {
       console.error("Error saving settings:", error);
       throw error;
@@ -127,6 +138,11 @@ const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces }) =>
           <AlertDescription>
             Personalize os ritmos de acordo com seu nível atual. Você pode inserir seu tempo em uma distância de referência
             ou ajustar manualmente os ritmos individuais.
+            {!isAuthenticated && (
+              <span className="font-semibold ml-1">
+                Suas configurações serão salvas localmente neste navegador.
+              </span>
+            )}
           </AlertDescription>
         </Alert>
 
@@ -134,6 +150,7 @@ const PaceConfigPage: React.FC<PaceConfigPageProps> = ({ plan, customPaces }) =>
           plan={plan} 
           customPaces={customPaces} 
           onSaveSettings={handleSaveSettings} 
+          isAuthenticated={isAuthenticated}
         />
       </div>
     </Layout>
