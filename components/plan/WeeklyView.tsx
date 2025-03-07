@@ -52,7 +52,7 @@ const ActivityCard: React.FC<{
   getPredictedRaceTime: (distance: number) => PredictedRaceTime | null;
 }> = ({ activity, getActivityPace, convertMinutesToHours, getPredictedRaceTime }) => {
   const hasWorkoutSeries = activity.workouts?.some(workout => workout.series);
-  
+
   return (
     <div className={cn(
       "p-4 rounded-lg transition-all duration-200",
@@ -90,9 +90,9 @@ const ActivityCard: React.FC<{
       {activity.workouts?.map((workout, widx) => (
         <div key={widx} className="my-2">
           {workout.link ? (
-            <Button 
-              variant="secondary" 
-              asChild 
+            <Button
+              variant="secondary"
+              asChild
               className={cn("h-7 text-xs", innerElementStyles.videoButton)}
             >
               <Link href={workout.link} target="_blank" rel="noopener noreferrer">
@@ -116,7 +116,10 @@ const ActivityCard: React.FC<{
                     <span className="font-bold">{serie.work}</span>
                     {serie.distance && (
                       <span className="text-xs opacity-90">
-                        @ {getActivityPace({ ...activity, distance: serie.distance })} /km
+                        @ {getActivityPace({
+                          ...activity,
+                          distance: serie.distance,
+                        })} /km
                       </span>
                     )}
                   </div>
@@ -173,7 +176,7 @@ export const WeeklyView: React.FC<WeeklyViewProps> = ({
 }) => {
   // Usa o calculador otimizado para obter estatísticas semanais
   const { weeklyVolume, totalWorkouts } = calculateWeeklyStats(
-    week.days, 
+    week.days,
     getActivityPace
   );
 

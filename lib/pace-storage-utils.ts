@@ -19,10 +19,24 @@ export function getLocalPaceSettings(planPath: string): Record<string, string> {
     const fullSettings = localStorage.getItem(`${STORAGE_PREFIX}pace_settings_${planPath}`);
     
     if (fullSettings) {
-      return JSON.parse(fullSettings);
+      // Verificar se o JSON é válido
+      try {
+        const parsedSettings = JSON.parse(fullSettings);
+        
+        // Verificação e log para depuração em desenvolvimento
+        if (process.env.NODE_ENV === 'development') {
+          console.log(`[DEBUG] Local pace settings loaded for ${planPath}:`, parsedSettings);
+        }
+        
+        return parsedSettings;
+      } catch (e) {
+        console.error('Erro ao parsear JSON de configurações de ritmo:', e);
+        // Se houver erro de parsing, tenta usar método alternativo
+      }
     }
     
-    // Se não encontrar, construir a partir de configurações individuais
+    // Se não encontrar configurações ou houver erro de parsing,
+    // construir a partir de configurações individuais
     const baseSettings: Record<string, string> = {};
     
     // Tentar buscar configurações individuais para compatibilidade com versões antigas
@@ -33,6 +47,20 @@ export function getLocalPaceSettings(planPath: string): Record<string, string> {
     if (startDate) baseSettings.startDate = startDate;
     if (selectedTime) baseSettings.baseTime = selectedTime;
     if (selectedDistance) baseSettings.baseDistance = selectedDistance;
+    
+    // Buscar também ritmos personalizados salvos em chaves individuais (compatibilidade)
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith(`${planPath}_custom_`)) {
+        const paceKey = key.replace(`${planPath}_`, '');
+        baseSettings[paceKey] = localStorage.getItem(key) || '';
+      }
+    }
+    
+    // Log para depuração em desenvolvimento
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`[DEBUG] Compiled local pace settings for ${planPath}:`, baseSettings);
+    }
     
     return baseSettings;
   } catch (error) {
@@ -50,6 +78,11 @@ export function saveLocalPaceSettings(planPath: string, settings: Record<string,
   if (typeof window === 'undefined') return;
   
   try {
+    // Log para depuração em desenvolvimento
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`[DEBUG] Saving local pace settings for ${planPath}:`, settings);
+    }
+    
     // Salvar configurações completas
     localStorage.setItem(`${STORAGE_PREFIX}pace_settings_${planPath}`, JSON.stringify(settings));
     
@@ -65,6 +98,13 @@ export function saveLocalPaceSettings(planPath: string, settings: Record<string,
     if (settings.baseDistance) {
       sessionStorage.setItem(`${planPath}_selectedDistance`, settings.baseDistance);
     }
+    
+    // Salvar ritmos personalizados em chaves individuais para compatibilidade
+    Object.entries(settings).forEach(([key, value]) => {
+      if (key.startsWith('custom_')) {
+        localStorage.setItem(`${planPath}_${key}`, value);
+      }
+    });
   } catch (error) {
     console.error('Erro ao salvar configurações de ritmo locais:', error);
   }
@@ -85,6 +125,11 @@ export function getCombinedPaceSettings(
   
   // Para clientes, combinar dados
   const localPaces = getLocalPaceSettings(planPath);
+  
+  // Log para depuração em desenvolvimento
+  if (process.env.NODE_ENV === 'development' && Object.keys(serverPaces).length > 0) {
+    console.log(`[DEBUG] Combined paces for ${planPath}:`, { ...localPaces, ...serverPaces });
+  }
   
   // Preferir dados do servidor se disponíveis
   return { ...localPaces, ...serverPaces };
@@ -111,6 +156,12 @@ export function getPaceSetting(
     if (fullSettings) {
       const parsedSettings = JSON.parse(fullSettings);
       if (parsedSettings[key]) return parsedSettings[key];
+    }
+    
+    // Verificar chaves individuais para ritmos personalizados
+    if (key.startsWith('custom_')) {
+      const individualValue = localStorage.getItem(`${planPath}_${key}`);
+      if (individualValue) return individualValue;
     }
     
     // Verificar chaves individuais de compatibilidade

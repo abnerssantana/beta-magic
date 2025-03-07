@@ -47,7 +47,6 @@ interface LazyWeeklyBlockProps {
 }
 
 // Componente para renderização preguiçosa de blocos semanais
-// Componente para renderização preguiçosa de blocos semanais
 const LazyWeeklyBlock: React.FC<LazyWeeklyBlockProps> = ({
   week,
   windex,
@@ -116,7 +115,7 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
   const [weeklyBlocks, setWeeklyBlocks] = useState<WeeklyBlock[]>([]);
   const [params, setParams] = useState<number | null>(null);
   const [calculatedPaces, setCalculatedPaces] = useState<Record<string, string> | null>(null);
-  const [userCustomPaces, setUserCustomPaces] = useState<Record<string, string>>({});
+  const [customPaces, setCustomPaces] = useState<Record<string, string>>({});
   const [isLoading, setIsLoading] = useState(true);
   const [loadingPaces, setLoadingPaces] = useState(false);
 
@@ -141,8 +140,8 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
     setSelectedTime(initialTime);
     setSelectedDistance(initialDistance);
 
-    // Também armazena no userCustomPaces
-    setUserCustomPaces(localPaces);
+    // Também armazena no customPaces
+    setCustomPaces(localPaces);
 
     // Salva no storageHelper para compatibilidade
     storageHelper.saveSettings(plan.path, {
@@ -172,7 +171,7 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
           const combinedPaces = { ...localPaces, ...serverPaces };
 
           // Atualiza estados
-          setUserCustomPaces(combinedPaces);
+          setCustomPaces(combinedPaces);
 
           // Atualiza dados no localStorage
           saveLocalPaceSettings(plan.path, combinedPaces);
@@ -193,19 +192,19 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
         } else {
           // Em caso de falha na API, usa apenas dados locais
           const localPaces = getLocalPaceSettings(plan.path);
-          setUserCustomPaces(localPaces);
+          setCustomPaces(localPaces);
         }
       } else {
         // Para usuários não autenticados, usa apenas dados locais
         const localPaces = getLocalPaceSettings(plan.path);
-        setUserCustomPaces(localPaces);
+        setCustomPaces(localPaces);
       }
     } catch (error) {
       console.error('Erro ao buscar ritmos personalizados:', error);
 
       // Em caso de erro, usa dados locais
       const localPaces = getLocalPaceSettings(plan.path);
-      setUserCustomPaces(localPaces);
+      setCustomPaces(localPaces);
     } finally {
       setLoadingPaces(false);
       initialLoadComplete.current = true;
@@ -228,88 +227,6 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
     return getPredictedRaceTimeFactory(params);
   }, [params]);
 
-  // Debug - remover depois
-  useEffect(() => {
-    // Apenas para depuração em desenvolvimento
-    if (process.env.NODE_ENV === 'development') {
-      console.log('[DEBUG] userCustomPaces:', userCustomPaces);
-    }
-  }, [userCustomPaces]);
-
-  // FUNÇÃO-CHAVE: Obter ritmos para atividades, agora priorizando corretamente os ritmos customizados
-  const getActivityPace = useCallback((activity: Activity): string => {
-    if (!activity || !activity.type) return "N/A";
-
-    // Função aprimorada para garantir a aplicação dos ritmos customizados
-    return calculateActivityPace(activity, userCustomPaces, getPredictedRaceTime);
-  }, [userCustomPaces, getPredictedRaceTime]);
-
-  // Event Handlers
-  const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const newStartDate = format(parseISO(event.target.value), "yyyy-MM-dd");
-    const newEndDate = format(addDays(parseISO(newStartDate), plan.dailyWorkouts.length - 1), "yyyy-MM-dd");
-    setStartDate(newStartDate);
-    setEndDate(newEndDate);
-
-    // Atualizar no userCustomPaces
-    const updatedPaces = { ...userCustomPaces, startDate: newStartDate };
-    setUserCustomPaces(updatedPaces);
-
-    // Salvar no localStorage e sessionStorage
-    saveLocalPaceSettings(plan.path, updatedPaces);
-    storageHelper.saveSettings(plan.path, { startDate: newStartDate, endDate: newEndDate });
-  };
-
-  const handleEndDateChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const newEndDate = format(parseISO(event.target.value), "yyyy-MM-dd");
-    const newStartDate = format(subDays(parseISO(newEndDate), plan.dailyWorkouts.length - 1), "yyyy-MM-dd");
-    setEndDate(newEndDate);
-    setStartDate(newStartDate);
-
-    // Atualizar no userCustomPaces
-    const updatedPaces = { ...userCustomPaces, startDate: newStartDate };
-    setUserCustomPaces(updatedPaces);
-
-    // Salvar no localStorage e sessionStorage
-    saveLocalPaceSettings(plan.path, updatedPaces);
-    storageHelper.saveSettings(plan.path, { startDate: newStartDate, endDate: newEndDate });
-  };
-
-  const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const formattedTime = formatTimeInput(event.target.value);
-    setSelectedTime(formattedTime);
-
-    // Atualizar no userCustomPaces
-    const updatedPaces = { ...userCustomPaces, baseTime: formattedTime };
-    setUserCustomPaces(updatedPaces);
-
-    // Salvar no localStorage e sessionStorage
-    saveLocalPaceSettings(plan.path, updatedPaces);
-    storageHelper.saveSettings(plan.path, { selectedTime: formattedTime });
-  };
-
-  const handleDistanceChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
-    const newDistance = event.target.value as keyof typeof defaultTimes;
-    const newTime = defaultTimes[newDistance];
-    setSelectedDistance(newDistance);
-    setSelectedTime(newTime);
-
-    // Atualizar no userCustomPaces
-    const updatedPaces = {
-      ...userCustomPaces,
-      baseDistance: newDistance,
-      baseTime: newTime
-    };
-    setUserCustomPaces(updatedPaces);
-
-    // Salvar no localStorage e sessionStorage
-    saveLocalPaceSettings(plan.path, updatedPaces);
-    storageHelper.saveSettings(plan.path, {
-      selectedDistance: newDistance,
-      selectedTime: newTime
-    });
-  };
-
   // Atualizar parâmetros quando tempo/distância mudar
   useEffect(() => {
     if (selectedTime && selectedDistance) {
@@ -326,25 +243,98 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
 
   // Mesclar ritmos calculados com ritmos personalizados
   useEffect(() => {
-    if (calculatedPaces && Object.keys(calculatedPaces).length > 0) {
-      // Apenas para ritmos não personalizados
-      const nonCustomPaceKeys = Object.keys(calculatedPaces).filter(key =>
-        !userCustomPaces[`custom_${key}`]
-      );
+    if (calculatedPaces) {
+      // Criamos um objeto temporário que combinará ambos
+      const combinedPaces = { ...customPaces };
 
-      // Criar objeto temporário com os ritmos calculados que não têm versão personalizada
-      const tempPaces: Record<string, string> = {};
-      nonCustomPaceKeys.forEach(key => {
-        tempPaces[key] = calculatedPaces[key];
+      // Adicionamos os ritmos calculados que não estão personalizados
+      // Este é o passo crucial para garantir que todos os ritmos estejam disponíveis
+      Object.entries(calculatedPaces).forEach(([key, value]) => {
+        const customKey = `custom_${key}`;
+        // Se não tiver um ritmo personalizado para esta chave, use o calculado
+        if (!combinedPaces[customKey]) {
+          combinedPaces[key] = value;
+        }
       });
 
-      // Mesclar com o userCustomPaces atual (sem sobrescrever personalizados)
-      setUserCustomPaces(currentPaces => ({
-        ...tempPaces,
-        ...currentPaces
-      }));
+      // Atualizamos o estado
+      setCustomPaces(combinedPaces);
     }
-  }, [calculatedPaces]);
+  }, [calculatedPaces, customPaces]);
+
+  // FUNÇÃO-CHAVE: Obter ritmos para atividades
+  const getActivityPace = useCallback((activity: Activity): string => {
+    if (!activity || !activity.type) return "N/A";
+    
+    // Utilize a função corretamente, passando o objeto de customPaces com todos os ritmos
+    return calculateActivityPace(activity, customPaces, getPredictedRaceTime);
+  }, [customPaces, getPredictedRaceTime]);
+
+  // Event Handlers
+  const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const newStartDate = format(parseISO(event.target.value), "yyyy-MM-dd");
+    const newEndDate = format(addDays(parseISO(newStartDate), plan.dailyWorkouts.length - 1), "yyyy-MM-dd");
+    setStartDate(newStartDate);
+    setEndDate(newEndDate);
+
+    // Atualizar no customPaces
+    const updatedPaces = { ...customPaces, startDate: newStartDate };
+    setCustomPaces(updatedPaces);
+
+    // Salvar no localStorage e sessionStorage
+    saveLocalPaceSettings(plan.path, updatedPaces);
+    storageHelper.saveSettings(plan.path, { startDate: newStartDate, endDate: newEndDate });
+  };
+
+  const handleEndDateChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const newEndDate = format(parseISO(event.target.value), "yyyy-MM-dd");
+    const newStartDate = format(subDays(parseISO(newEndDate), plan.dailyWorkouts.length - 1), "yyyy-MM-dd");
+    setEndDate(newEndDate);
+    setStartDate(newStartDate);
+
+    // Atualizar no customPaces
+    const updatedPaces = { ...customPaces, startDate: newStartDate };
+    setCustomPaces(updatedPaces);
+
+    // Salvar no localStorage e sessionStorage
+    saveLocalPaceSettings(plan.path, updatedPaces);
+    storageHelper.saveSettings(plan.path, { startDate: newStartDate, endDate: newEndDate });
+  };
+
+  const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const formattedTime = formatTimeInput(event.target.value);
+    setSelectedTime(formattedTime);
+
+    // Atualizar no customPaces
+    const updatedPaces = { ...customPaces, baseTime: formattedTime };
+    setCustomPaces(updatedPaces);
+
+    // Salvar no localStorage e sessionStorage
+    saveLocalPaceSettings(plan.path, updatedPaces);
+    storageHelper.saveSettings(plan.path, { selectedTime: formattedTime });
+  };
+
+  const handleDistanceChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
+    const newDistance = event.target.value as keyof typeof defaultTimes;
+    const newTime = defaultTimes[newDistance];
+    setSelectedDistance(newDistance);
+    setSelectedTime(newTime);
+
+    // Atualizar no customPaces
+    const updatedPaces = {
+      ...customPaces,
+      baseDistance: newDistance,
+      baseTime: newTime
+    };
+    setCustomPaces(updatedPaces);
+
+    // Salvar no localStorage e sessionStorage
+    saveLocalPaceSettings(plan.path, updatedPaces);
+    storageHelper.saveSettings(plan.path, {
+      selectedDistance: newDistance,
+      selectedTime: newTime
+    });
+  };
 
   // Organizar dados em semanas
   const organizedWeeklyBlocks = useMemo(() => {
