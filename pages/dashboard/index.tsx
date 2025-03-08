@@ -10,28 +10,24 @@ import {
 } from '@/lib/plan-utils';
 import { Activity } from '@/types';
 import { WorkoutLog } from '@/models/userProfile';
-
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
-import { Settings, FileText, BarChart2, CalendarDays, Calendar } from "lucide-react";
-
+import { Calendar, NotebookTabs, Star } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlanSummary, PlanModel } from "@/models";
 
 // Componentes modularizados
 import StatsSummary from "@/components/dashboard/StatsSummary";
-import ActivePlanCard from "@/components/dashboard/ActivePlanCard";
+import EnhancedActivePlanCard from "@/components/dashboard/ActivePlanCard";
 import TodayWorkout from "@/components/dashboard/TodayWorkout";
 import RecentActivities from "@/components/dashboard/RecentActivities";
 import ProgressTab from "@/components/dashboard/ProgressTab";
-import { TrainingCalendar } from "@/components/dashboard/TrainingCalendar";
+import TrainingCalendar from "@/components/dashboard/TrainingCalendar";
 
 interface DashboardProps {
   activePlan: PlanSummary | null;
@@ -64,6 +60,9 @@ const Dashboard: React.FC<DashboardProps> = ({
     );
   }, []);
 
+  // Extrair os workouts diários para o calendário
+  const planWorkouts = fullPlan?.dailyWorkouts || null;
+
   return (
     <Layout>
       <Head>
@@ -75,43 +74,36 @@ const Dashboard: React.FC<DashboardProps> = ({
       </Head>
 
       <div className="space-y-4">
-  {/* Header - Redesenhado */}
-  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-    <div className="space-y-1">
-      <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
-        Olá, {session?.user?.name?.split(" ")[0]}!
-      </h1>
-      <p className="text-sm text-muted-foreground flex items-center">
-        <Calendar className="mr-1.5 h-3.5 w-3.5" />
-        {format(new Date(), "EEEE, d 'de' MMMM", { locale: ptBR })} • Vamos treinar hoje?
-      </p>
-    </div>
-    
-    <div className="flex items-center gap-2 mt-2 sm:mt-0">
-      <Button variant="outline" size="sm" asChild className="h-9">
-        <Link href="/dashboard/log">
-          <BarChart2 className="mr-2 h-4 w-4" />
-          Registrar Treino
-        </Link>
-      </Button>
-      <Button variant="default" size="sm" asChild className="h-9">
-        <Link href="/dashboard/plans">
-          <FileText className="mr-2 h-4 w-4" />
-          Meus Planos
-        </Link>
-      </Button>
-    </div>
-  </div>
+        {/* Header - Redesenhado */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div className="space-y-1">
+            <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
+              Olá, {session?.user?.name?.split(" ")[0]}!
+            </h1>
+            <p className="text-sm text-muted-foreground flex items-center">
+              <Calendar className="mr-1.5 h-3.5 w-3.5" />
+              {currentDate} • Vamos treinar hoje?
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2 mt-2 sm:mt-0">
+            <Button variant="outline" size="sm" asChild className="h-9">
+              <Link href="/planos">
+                <NotebookTabs className="mr-2 h-4 w-4" />
+                Todos Planos
+              </Link>
+            </Button>
+            <Button variant="default" size="sm" asChild className="h-9">
+              <Link href="/dashboard/plans">
+                <Star className="mr-2 h-4 w-4" />
+                Meus Planos
+              </Link>
+            </Button>
+          </div>
+        </div>
 
         {/* Reordenação: StatsSummary primeiro */}
         <StatsSummary userSummary={userSummary} />
-
-        {/* Treino de Hoje em Destaque - agora o segundo elemento */}
-        <TodayWorkout
-          activePlan={activePlan}
-          todayWorkout={todayWorkout}
-          currentDate={currentDate}
-        />
 
         <Tabs defaultValue="overview" className="space-y-3">
           <TabsList className="grid w-full grid-cols-2 h-9">
@@ -121,72 +113,35 @@ const Dashboard: React.FC<DashboardProps> = ({
 
           {/* Visão Geral - com componentes modularizados */}
           <TabsContent value="overview" className="space-y-4 pt-2">
-            {/* Plano Ativo com Calendário Integrado */}
-            {activePlan ? (
-              <Card className="overflow-hidden">
-                <CardHeader className="bg-muted/50 pb-2">
-                  <div className="flex justify-between items-center">
-                    <CardTitle className="text-lg">Plano de Treino Ativo</CardTitle>
-                    {activePlan && (
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        asChild 
-                        className="h-8 text-xs"
-                      >
-                        <Link href={`/dashboard/plans/${activePlan.path}/settings`}>
-                          <Settings className="mr-1.5 h-3.5 w-3.5" />
-                          Configurar Ritmos
-                        </Link>
-                      </Button>
-                    )}
-                  </div>
-                  <div className="flex flex-wrap items-center gap-2 text-sm">
-                    <Badge variant="outline">{activePlan.nivel}</Badge>
-                    <span className="text-muted-foreground">{activePlan.coach}</span>
-                    <span className="text-muted-foreground">•</span>
-                    <span className="text-muted-foreground">{activePlan.duration}</span>
-                  </div>
-                </CardHeader>
-                <CardContent className="p-3">
-                  {/* Mini calendário da semana atual */}
-                  <div className="mb-3">
-                    <h3 className="text-sm font-medium flex items-center gap-2 mb-2">
-                      <CalendarDays className="h-4 w-4 text-primary" />
-                      Calendário da Semana
-                    </h3>
-                    <div className="bg-muted/20 p-2 rounded-lg">
-                      <TrainingCalendar
-                        activePlan={activePlan}
-                        planWorkouts={fullPlan?.dailyWorkouts || null}
-                        completedWorkouts={completedWorkouts}
-                      />
-                    </div>
-                  </div>
 
-                  {/* Progresso semanal */}
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="text-muted-foreground">Progresso Semanal</span>
-                    <span className="font-medium">{weekProgress}%</span>
-                  </div>
-                  <div className="w-full h-2 bg-muted/50 rounded-full">
-                    <div 
-                      className="h-full bg-primary rounded-full" 
-                      style={{ width: `${weekProgress}%` }}
-                    ></div>
-                  </div>
-
-                  <div className="mt-3 flex justify-end">
-                    <Button size="sm" asChild>
-                      <Link href={`/plano/${activePlan.path}`}>
-                        Ver Plano Completo
-                      </Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+            <TodayWorkout
+              activePlan={activePlan}
+              todayWorkout={todayWorkout}
+              currentDate={currentDate}
+            />
+            {!activePlan ? (
+              <EnhancedActivePlanCard
+                activePlan={activePlan}
+                weekProgress={weekProgress}
+                isAuthenticated={!!session}
+              />
             ) : (
-              <ActivePlanCard activePlan={activePlan} weekProgress={weekProgress} />
+              <div className="space-y-4">
+                <EnhancedActivePlanCard
+                  activePlan={activePlan}
+                  weekProgress={weekProgress}
+                  startDate={fullPlan?.customPaces?.startDate}
+                  isAuthenticated={!!session}
+                />
+
+                {/* Novo componente de calendário integrado */}
+                <TrainingCalendar
+                  activePlan={activePlan}
+                  planWorkouts={planWorkouts}
+                  completedWorkouts={completedWorkouts}
+                  weekProgress={weekProgress}
+                />
+              </div>
             )}
 
             {/* Registro de Atividades Recentes */}
@@ -220,7 +175,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const userId = session.user.id;
     const activePlan = await getUserActivePlan(userId);
     const userSummary = await getUserSummary(userId);
-    
+
     // Buscar treinos completados pelo usuário
     const completedWorkouts = await getUserWorkouts(userId);
 
@@ -296,14 +251,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const today = new Date();
     const startOfWeek = new Date(today);
     startOfWeek.setDate(today.getDate() - today.getDay() + (today.getDay() === 0 ? -6 : 1)); // Ajuste para começar na segunda-feira
-    
+
     const workoutsThisWeek = completedWorkouts.filter(workout => {
       const workoutDate = new Date(workout.date);
       return workoutDate >= startOfWeek && workoutDate <= today;
     });
-    
+
     // Assumindo que deveria haver um treino por dia, 7 treinos na semana
-    const targetWorkouts = 7; 
+    const targetWorkouts = 7;
     const weekProgress = Math.min(Math.round((workoutsThisWeek.length / targetWorkouts) * 100), 100);
 
     return {
