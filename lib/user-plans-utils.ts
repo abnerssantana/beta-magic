@@ -1,8 +1,19 @@
-// lib/user-plans-utils.ts
 import clientPromise from './mongodb';
 import { PlanSummary } from './field-projection';
 import { getPlanByPath, getPlanSummaries } from './db-utils';
 import { getUserActivePlan, getUserSavedPlans } from './user-utils';
+
+/**
+ * Verifica se um objeto é uma instância válida de PlanSummary
+ * @param plan Objeto a ser verificado
+ * @returns true se for um PlanSummary válido
+ */
+function isPlanSummary(plan: any): plan is PlanSummary {
+  return plan && 
+    typeof plan.name === 'string' && 
+    typeof plan.path === 'string' && 
+    typeof plan.nivel === 'string';
+}
 
 /**
  * Obtém recomendações de planos baseadas no questionário do usuário
@@ -53,7 +64,7 @@ export async function getRecommendedPlansFromQuestionnaire(userId: string): Prom
           (userLevel === 'iniciante' && plan.nivel === 'intermediário') ||
           (userLevel === 'intermediário' && plan.nivel === 'avançado') ||
           (userLevel === 'avançado' && plan.nivel === 'elite') ||
-          (userLevel === 'elite' && ['elite', 'avançado'].includes(plan.nivel));
+          (userLevel === 'elite' && ['elite', 'avançado'].includes(plan.nivel || ''));
           
         // Match de distância se tiver
         const distanceMatch = 
@@ -62,7 +73,7 @@ export async function getRecommendedPlansFromQuestionnaire(userId: string): Prom
           plan.distances.includes(questionnaire.targetDistance);
           
         return levelMatch && distanceMatch;
-      });
+      }).filter(isPlanSummary);
     }
     
     // Se não tem nenhuma informação, retornar array vazio
@@ -72,14 +83,6 @@ export async function getRecommendedPlansFromQuestionnaire(userId: string): Prom
     console.error('Erro ao buscar recomendações de planos:', error);
     return [];
   }
-}
-
-// Type guard para verificar se um objeto é PlanSummary
-function isPlanSummary(plan: any): plan is PlanSummary {
-  return plan && 
-    typeof plan.path === 'string' && 
-    typeof plan.name === 'string' && 
-    typeof plan.nivel === 'string';
 }
 
 /**
@@ -152,6 +155,7 @@ export async function updateUserRecommendations(userId: string): Promise<boolean
           
         return levelMatch && distanceMatch;
       })
+      .filter(isPlanSummary)
       .slice(0, 5) // Limitar a 5 recomendações
       .map(plan => plan.path);
     
@@ -217,9 +221,10 @@ export async function getUserPlans(userId: string) {
         .map(plan => plan.path)
         .filter((path): path is string => typeof path === 'string');
 
-      recommendedPlans = allPlans.filter(plan => 
-        plan.path && !savedPlanPaths.includes(plan.path)
-      ).slice(0, 6);
+      recommendedPlans = allPlans
+        .filter(plan => plan.path && !savedPlanPaths.includes(plan.path))
+        .filter(isPlanSummary)
+        .slice(0, 6);
     }
 
     return {
