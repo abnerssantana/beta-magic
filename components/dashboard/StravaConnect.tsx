@@ -3,13 +3,15 @@ import { useSession } from 'next-auth/react';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import {
   Loader2,
   ExternalLink,
   RefreshCw,
   CheckCircle,
   XCircle,
-  Download
+  Download,
+  AlertTriangle
 } from "lucide-react";
 import { toast } from 'sonner';
 
@@ -27,6 +29,7 @@ export const StravaConnect: React.FC<StravaConnectProps> = ({ onActivitiesImport
   const [isLoading, setIsLoading] = useState(true);
   const [isImporting, setIsImporting] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   // Verifica o status da conexão com o Strava
   const checkStravaStatus = async () => {
@@ -34,16 +37,19 @@ export const StravaConnect: React.FC<StravaConnectProps> = ({ onActivitiesImport
 
     try {
       setIsLoading(true);
+      setError(null);
       const response = await fetch('/api/strava/status');
       
       if (!response.ok) {
-        throw new Error('Failed to check Strava status');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to check Strava status');
       }
       
       const data = await response.json();
       setStravaStatus(data);
     } catch (error) {
       console.error('Error checking Strava status:', error);
+      setError('Não foi possível verificar o status da conexão com o Strava');
       toast.error('Erro ao verificar conexão com o Strava');
     } finally {
       setIsLoading(false);
@@ -56,13 +62,24 @@ export const StravaConnect: React.FC<StravaConnectProps> = ({ onActivitiesImport
 
     setIsConnecting(true);
     
-    // URL de autorização do Strava
-    const clientId = process.env.NEXT_PUBLIC_STRAVA_CLIENT_ID;
-    const redirectUri = `${window.location.origin}/dashboard/strava-callback`;
-    const scope = 'read,activity:read_all';
-    
-    // Redirecionar para a página de autorização do Strava
-    window.location.href = `https://www.strava.com/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${scope}`;
+    try {
+      // URL de autorização do Strava
+      const clientId = process.env.NEXT_PUBLIC_STRAVA_CLIENT_ID;
+      const redirectUri = `${window.location.origin}/dashboard/strava-callback`;
+      const scope = 'read,activity:read_all';
+      
+      if (!clientId) {
+        throw new Error('Strava Client ID não configurado');
+      }
+      
+      // Redirecionar para a página de autorização do Strava
+      window.location.href = `https://www.strava.com/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${scope}`;
+    } catch (error) {
+      console.error('Error connecting to Strava:', error);
+      setIsConnecting(false);
+      setError('Erro ao conectar com o Strava. Tente novamente mais tarde.');
+      toast.error('Erro ao iniciar conexão com o Strava');
+    }
   };
 
   // Importa atividades do Strava
@@ -71,6 +88,7 @@ export const StravaConnect: React.FC<StravaConnectProps> = ({ onActivitiesImport
 
     try {
       setIsImporting(true);
+      setError(null);
       const response = await fetch('/api/strava/import', {
         method: 'POST',
         headers: {
@@ -80,7 +98,8 @@ export const StravaConnect: React.FC<StravaConnectProps> = ({ onActivitiesImport
       });
       
       if (!response.ok) {
-        throw new Error('Failed to import activities');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to import activities');
       }
       
       const data = await response.json();
@@ -93,10 +112,17 @@ export const StravaConnect: React.FC<StravaConnectProps> = ({ onActivitiesImport
       }
     } catch (error) {
       console.error('Error importing activities:', error);
+      setError('Erro ao importar atividades do Strava');
       toast.error('Erro ao importar atividades do Strava');
     } finally {
       setIsImporting(false);
     }
+  };
+
+  // Tenta novamente verificar o status após um erro
+  const retryConnection = () => {
+    setError(null);
+    checkStravaStatus();
   };
 
   // Verifica o status ao carregar o componente
@@ -106,12 +132,33 @@ export const StravaConnect: React.FC<StravaConnectProps> = ({ onActivitiesImport
     }
   }, [session?.user?.id]);
 
+  // Se houver um erro, mostrar mensagem
+  if (error) {
+    return (
+      <Card className="border-red-500/20">
+        <CardContent className="p-4 flex flex-col items-center">
+          <AlertTriangle className="h-8 w-8 text-red-500 mb-2 mt-4" />
+          <p className="text-sm text-center mb-3">{error}</p>
+          <Button 
+            variant="outline" 
+            size="sm" 
+            onClick={retryConnection}
+            className="w-full"
+          >
+            <RefreshCw className="mr-2 h-4 w-4" />
+            Tentar novamente
+          </Button>
+        </CardContent>
+      </Card>
+    );
+  }
+
   // Se estiver carregando, mostrar indicador
   if (isLoading) {
     return (
       <Card className="border-orange-500/20">
-        <CardContent className="p-4 flex items-center justify-center">
-          <Loader2 className="h-5 w-5 text-orange-500 animate-spin mr-2" />
+        <CardContent className="p-6 flex flex-col items-center justify-center gap-2">
+          <Loader2 className="h-8 w-8 text-orange-500 animate-spin mb-2" />
           <p className="text-sm text-muted-foreground">Verificando conexão com o Strava...</p>
         </CardContent>
       </Card>
@@ -125,7 +172,7 @@ export const StravaConnect: React.FC<StravaConnectProps> = ({ onActivitiesImport
         <CardHeader className="pb-2">
           <CardTitle className="text-base flex items-center gap-2">
             <img 
-              src="/strava-logo.svg"
+              src="/strava-logo.png"
               alt="Strava"
               className="h-5"
             />
@@ -134,7 +181,7 @@ export const StravaConnect: React.FC<StravaConnectProps> = ({ onActivitiesImport
         </CardHeader>
         <CardContent className="p-4">
           <div className="text-sm text-muted-foreground mb-4">
-            Conecte sua conta do Strava para importar suas atividades automaticamente.
+            Conecte sua conta do Strava para importar suas atividades automaticamente e visualizar seus treinos no Magic Training.
           </div>
           <Button 
             variant="default" 
@@ -150,7 +197,7 @@ export const StravaConnect: React.FC<StravaConnectProps> = ({ onActivitiesImport
             ) : (
               <>
                 <img 
-                  src="/strava-logo-white.svg"
+                  src="/strava-logo-white.png"
                   alt="Strava"
                   className="h-4 mr-2"
                 />
@@ -170,7 +217,7 @@ export const StravaConnect: React.FC<StravaConnectProps> = ({ onActivitiesImport
         <div className="flex justify-between items-center">
           <CardTitle className="text-base flex items-center gap-2">
             <img 
-              src="/strava-logo.svg"
+              src="/strava-logo.png"
               alt="Strava"
               className="h-5"
             />
@@ -199,9 +246,12 @@ export const StravaConnect: React.FC<StravaConnectProps> = ({ onActivitiesImport
       <CardContent className="p-4 space-y-4">
         <div className="text-sm text-muted-foreground">
           {stravaStatus.validToken 
-            ? 'Importe suas atividades do Strava para vincular ao seu plano de treino.'
-            : 'Sua conexão com o Strava expirou. Reconecte sua conta.'}
+            ? 'Importe suas atividades do Strava para vincular ao seu plano de treino atual.'
+            : 'Sua conexão com o Strava expirou. Reconecte sua conta para continuar importando atividades.'}
         </div>
+        
+        <Separator />
+        
         <div className="flex flex-col space-y-2">
           <Button
             variant="default"

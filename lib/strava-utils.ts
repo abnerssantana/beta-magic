@@ -37,7 +37,18 @@ interface StravaActivity {
  * Refresh Strava access token if expired
  */
 export async function refreshStravaToken(userId: string, refreshToken: string): Promise<StravaTokens | null> {
+  if (!refreshToken) {
+    console.error('Refresh token is required');
+    return null;
+  }
+
   try {
+    // Verificar se temos as credenciais do Strava
+    if (!process.env.STRAVA_CLIENT_ID || !process.env.STRAVA_CLIENT_SECRET) {
+      console.error('Strava client credentials are not configured');
+      return null;
+    }
+    
     const response = await fetch('https://www.strava.com/oauth/token', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -49,38 +60,69 @@ export async function refreshStravaToken(userId: string, refreshToken: string): 
       })
     });
 
-    if (!response.ok) throw new Error(`Failed to refresh token: ${response.status}`);
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error(`Failed to refresh token: ${response.status}`, errorData);
+      return null;
+    }
 
     const data = await response.json();
+    
+    // Validar os dados retornados
+    if (!data.access_token || !data.refresh_token || !data.expires_at) {
+      console.error('Invalid response from Strava token refresh:', data);
+      return null;
+    }
     
     // Atualizar tokens no banco de dados
     const client = await clientPromise;
     const db = client.db('magic-training');
     
-    await db.collection('users').updateOne(
-      { _id: new ObjectId(userId) },
-      { 
-        $set: { 
-          stravaAccessToken: data.access_token,
-          stravaRefreshToken: data.refresh_token,
-          stravaTokenExpires: data.expires_at,
-          updatedAt: new Date()
-        } 
-      }
-    );
-    
-    // Atualizar também na coleção de accounts se existir
-    await db.collection('accounts').updateOne(
-      { userId: new ObjectId(userId), provider: 'strava' },
-      { 
-        $set: { 
-          access_token: data.access_token,
-          refresh_token: data.refresh_token,
-          expires_at: data.expires_at,
-          updated_at: new Date()
-        } 
-      }
-    );
+    try {
+      // Atualizar na coleção de users
+      await db.collection('users').updateOne(
+        { _id: new ObjectId(userId) },
+        { 
+          $set: { 
+            stravaAccessToken: data.access_token,
+            stravaRefreshToken: data.refresh_token,
+            stravaTokenExpires: data.expires_at,
+            updatedAt: new Date()
+          } 
+        }
+      );
+      
+      // Atualizar na coleção de accounts
+      await db.collection('accounts').updateOne(
+        { userId: new ObjectId(userId), provider: 'strava' },
+        { 
+          $set: { 
+            access_token: data.access_token,
+            refresh_token: data.refresh_token,
+            expires_at: data.expires_at,
+            updated_at: new Date()
+          } 
+        }
+      );
+      
+      // Atualizar na coleção de userProfiles
+      await db.collection('userProfiles').updateOne(
+        { userId: userId },
+        { 
+          $set: { 
+            stravaAccessToken: data.access_token,
+            stravaRefreshToken: data.refresh_token,
+            stravaTokenExpires: data.expires_at,
+            lastStravaSync: new Date(),
+            updatedAt: new Date()
+          } 
+        }
+      );
+    } catch (dbError) {
+      console.error('Error updating Strava tokens in database:', dbError);
+      // Continuar mesmo com erro no banco de dados, 
+      // pois ainda precisamos retornar o token para uso imediato
+    }
 
     return {
       accessToken: data.access_token,
@@ -99,19 +141,74 @@ export async function refreshStravaToken(userId: string, refreshToken: string): 
 export async function getValidStravaToken(session: Session | null): Promise<string | null> {
   if (!session?.user) return null;
   
-  const { stravaAccessToken, stravaRefreshToken, stravaTokenExpires, id } = session.user;
-  
-  if (!stravaAccessToken || !stravaRefreshToken) return null;
-  
-  // Se o token ainda é válido (buffer de 60 segundos)
-  const now = Math.floor(Date.now() / 1000);
-  if (stravaTokenExpires && stravaTokenExpires > (now + 60)) {
-    return stravaAccessToken;
+  // Verificar se temos tokens no session
+  if (session.user.stravaAccessToken && session.user.stravaRefreshToken) {
+    // Se o token ainda é válido (buffer de 60 segundos)
+    const now = Math.floor(Date.now() / 1000);
+    if (session.user.stravaTokenExpires && session.user.stravaTokenExpires > (now + 60)) {
+      return session.user.stravaAccessToken;
+    }
+    
+    // Token expirado, precisa atualizar
+    const refreshedTokens = await refreshStravaToken(session.user.id, session.user.stravaRefreshToken);
+    if (refreshedTokens?.accessToken) {
+      return refreshedTokens.accessToken;
+    }
   }
   
-  // Token expirado, precisa atualizar
-  const refreshedTokens = await refreshStravaToken(id, stravaRefreshToken);
-  return refreshedTokens?.accessToken || null;
+  // Se não temos tokens na sessão, verificar no banco de dados
+  try {
+    const client = await clientPromise;
+    const db = client.db('magic-training');
+    
+    // Verificar na coleção de accounts
+    const stravaAccount = await db.collection('accounts').findOne({
+      userId: new ObjectId(session.user.id),
+      provider: 'strava'
+    });
+    
+    if (stravaAccount?.access_token && stravaAccount?.refresh_token) {
+      const now = Math.floor(Date.now() / 1000);
+      
+      // Se o token ainda é válido
+      if (stravaAccount.expires_at && stravaAccount.expires_at > (now + 60)) {
+        return stravaAccount.access_token;
+      }
+      
+      // Token expirado, precisa atualizar
+      const refreshedTokens = await refreshStravaToken(session.user.id, stravaAccount.refresh_token);
+      if (refreshedTokens?.accessToken) {
+        return refreshedTokens.accessToken;
+      }
+    }
+    
+    // Tentar verificar na coleção de usuários
+    const user = await db.collection('users').findOne({
+      _id: new ObjectId(session.user.id),
+      stravaAccessToken: { $exists: true }
+    });
+    
+    if (user?.stravaAccessToken && user?.stravaRefreshToken) {
+      const now = Math.floor(Date.now() / 1000);
+      
+      // Se o token ainda é válido
+      if (user.stravaTokenExpires && user.stravaTokenExpires > (now + 60)) {
+        return user.stravaAccessToken;
+      }
+      
+      // Token expirado, precisa atualizar
+      const refreshedTokens = await refreshStravaToken(session.user.id, user.stravaRefreshToken);
+      if (refreshedTokens?.accessToken) {
+        return refreshedTokens.accessToken;
+      }
+    }
+    
+    // Nenhum token válido encontrado
+    return null;
+  } catch (error) {
+    console.error('Erro ao buscar token do Strava:', error);
+    return null;
+  }
 }
 
 /**
@@ -136,7 +233,11 @@ export async function fetchStravaActivities(
       }
     });
 
-    if (!response.ok) throw new Error(`Failed to fetch activities: ${response.status}`);
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error(`Failed to fetch activities: ${response.status}`, errorData);
+      throw new Error(`Failed to fetch activities: ${response.status}`);
+    }
     
     return await response.json();
   } catch (error) {
@@ -156,7 +257,11 @@ export async function fetchStravaActivityDetails(accessToken: string, activityId
       }
     });
 
-    if (!response.ok) throw new Error(`Failed to fetch activity details: ${response.status}`);
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error(`Failed to fetch activity details: ${response.status}`, errorData);
+      throw new Error(`Failed to fetch activity details: ${response.status}`);
+    }
     
     return await response.json();
   } catch (error) {
@@ -230,7 +335,13 @@ export async function linkStravaAccount(userId: string, stravaData: any): Promis
     const client = await clientPromise;
     const db = client.db('magic-training');
     
-    // Verificar se já existe uma conexão
+    // Validar os dados necessários
+    if (!stravaData.accessToken || !stravaData.refreshToken || !stravaData.athleteId) {
+      console.error('Invalid Strava data for linking:', stravaData);
+      return false;
+    }
+    
+    // Verificar se já existe uma conexão na coleção accounts
     const existingAccount = await db.collection('accounts').findOne({
       userId: new ObjectId(userId),
       provider: 'strava'
@@ -265,6 +376,27 @@ export async function linkStravaAccount(userId: string, stravaData: any): Promis
       });
     }
     
+    // Verificar também se existe em userProfiles e atualizar lá se necessário
+    const existingProfile = await db.collection('userProfiles').findOne({
+      userId: userId
+    });
+
+    if (existingProfile) {
+      await db.collection('userProfiles').updateOne(
+        { userId: userId },
+        {
+          $set: {
+            stravaAccountId: stravaData.athleteId.toString(),
+            stravaAccessToken: stravaData.accessToken,
+            stravaRefreshToken: stravaData.refreshToken,
+            stravaTokenExpires: stravaData.expiresAt,
+            lastStravaSync: new Date(),
+            updatedAt: new Date()
+          }
+        }
+      );
+    }
+    
     // Atualizar informações no usuário também
     await db.collection('users').updateOne(
       { _id: new ObjectId(userId) },
@@ -295,7 +427,7 @@ export async function hasStravaLinked(userId: string): Promise<boolean> {
     const db = client.db('magic-training');
     
     const account = await db.collection('accounts').findOne({
-      userId: new ObjectId(userId),
+      userId: userId,
       provider: 'strava'
     });
     

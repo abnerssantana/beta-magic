@@ -24,6 +24,11 @@ export default async function handler(
   }
 
   try {
+    // Validar ambiente
+    if (!process.env.STRAVA_CLIENT_ID || !process.env.STRAVA_CLIENT_SECRET) {
+      throw new Error('Strava credentials not configured');
+    }
+
     // Exchange code for access token
     const tokenResponse = await fetch('https://www.strava.com/oauth/token', {
       method: 'POST',
@@ -39,10 +44,18 @@ export default async function handler(
     });
 
     if (!tokenResponse.ok) {
+      const errorData = await tokenResponse.json().catch(() => ({}));
+      console.error('Strava token exchange error:', errorData);
       throw new Error(`Failed to exchange code: ${tokenResponse.status}`);
     }
 
     const tokenData = await tokenResponse.json();
+    
+    // Verificar se temos todos os dados necessários
+    if (!tokenData.access_token || !tokenData.refresh_token || !tokenData.athlete?.id) {
+      console.error('Incomplete token data:', tokenData);
+      throw new Error('Incomplete response from Strava');
+    }
     
     // Link Strava account to user
     const success = await linkStravaAccount(session.user.id, {

@@ -4,6 +4,7 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getValidStravaToken, fetchStravaActivities, stravaActivityToWorkout } from '@/lib/strava-utils';
 import { getUserActivePlan } from '@/lib/user-utils';
 import clientPromise from '@/lib/mongodb';
+import { ObjectId } from 'mongodb';
 
 export default async function handler(
   req: NextApiRequest,
@@ -24,7 +25,35 @@ export default async function handler(
     const accessToken = await getValidStravaToken(session);
     
     if (!accessToken) {
-      return res.status(401).json({ error: 'Strava not connected or token expired' });
+      // Verificar diretamente no banco de dados para ter certeza
+      const client = await clientPromise;
+      const db = client.db('magic-training');
+      
+      // Verificar se o usuário tem uma conta Strava vinculada
+      const stravaAccount = await db.collection('accounts').findOne({
+        userId: new ObjectId(session.user.id),
+        provider: 'strava'
+      });
+      
+      // Verificar na coleção de usuários também
+      const user = await db.collection('users').findOne({
+        _id: new ObjectId(session.user.id),
+        stravaAccessToken: { $exists: true }
+      });
+      
+      if (!stravaAccount && !user?.stravaAccessToken) {
+        return res.status(401).json({ 
+          error: 'Strava not connected', 
+          code: 'STRAVA_NOT_CONNECTED',
+          message: 'Você precisa conectar sua conta do Strava antes de importar atividades.'
+        });
+      } else {
+        return res.status(401).json({ 
+          error: 'Strava token expired', 
+          code: 'STRAVA_TOKEN_EXPIRED',
+          message: 'Seu token do Strava expirou. Por favor, reconecte sua conta do Strava.'
+        });
+      }
     }
 
     // Get current active plan
@@ -45,7 +74,7 @@ export default async function handler(
       afterTimestamp
     );
 
-    if (!activities.length) {
+    if (!activities || activities.length === 0) {
       return res.status(200).json({ 
         success: true,
         message: 'No activities found in the specified time range',
@@ -84,6 +113,10 @@ export default async function handler(
     // Insert workouts into database
     const result = await db.collection('workouts').insertMany(workouts);
     
+    if (!result.acknowledged || !result.insertedIds) {
+      throw new Error('Failed to insert workouts into database');
+    }
+    
     // Update user profile statistics
     const totalDistance = workouts.reduce((sum, w) => sum + w.distance, 0);
     
@@ -108,7 +141,7 @@ export default async function handler(
         }))
       ];
       
-      // Update profile
+      // Update profile with new data and last sync time
       await db.collection('userProfiles').updateOne(
         { userId: session.user.id },
         {
@@ -116,6 +149,7 @@ export default async function handler(
             totalDistance: newTotalDistance,
             completedWorkouts: newCompletedWorkouts,
             lastActive: new Date(),
+            lastStravaSync: new Date(),
             updatedAt: new Date()
           }
         }
@@ -132,6 +166,7 @@ export default async function handler(
           distance: workout.distance
         })),
         lastActive: new Date(),
+        lastStravaSync: new Date(),
         createdAt: new Date(),
         updatedAt: new Date(),
         savedPlans: planPath ? [planPath] : [],
@@ -147,8 +182,21 @@ export default async function handler(
     });
   } catch (error) {
     console.error('Error importing Strava activities:', error);
+    
+    // Mensagens de erro específicas para problemas comuns
+    if (error instanceof Error) {
+      if (error.message.includes('Failed to fetch activities')) {
+        return res.status(503).json({ 
+          error: 'Failed to fetch activities from Strava',
+          code: 'STRAVA_API_ERROR',
+          message: 'Não foi possível acessar a API do Strava. Tente novamente mais tarde.'
+        });
+      }
+    }
+    
     return res.status(500).json({ 
       error: 'Failed to import activities',
+      code: 'IMPORT_ERROR',
       details: error instanceof Error ? error.message : 'Unknown error'
     });
   }
