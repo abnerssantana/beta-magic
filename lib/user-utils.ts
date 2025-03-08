@@ -1,7 +1,8 @@
 import clientPromise from './mongodb';
 import { PlanSummary } from './field-projection';
-import { getPlanByPath, getPlanSummaries } from './db-utils';
+import { getPlanByPath } from './db-utils';
 import { WorkoutLog } from '@/models/userProfile';
+import { getUserPlans, getRecommendedPlansFromQuestionnaire } from './user-plans-utils';
 
 /**
  * Obtém o plano ativo do usuário
@@ -169,48 +170,6 @@ export async function getUserSummary(userId: string) {
 }
 
 /**
- * Obtém os planos do usuário (ativo, salvos e recomendados)
- * @param userId ID do usuário
- * @returns Objeto com planos do usuário
- */
-export async function getUserPlans(userId: string) {
-  try {
-    // Buscar perfil do usuário, plano ativo e planos salvos
-    const activePlan = await getUserActivePlan(userId);
-    const savedPlans = await getUserSavedPlans(userId);
-
-    // Buscar todos os planos para recomendar
-    const allPlans = (await getPlanSummaries()) || [];
-
-    // Filtrar os planos já salvos
-    const savedPlanPaths = savedPlans
-      .map(plan => plan.path)
-      .filter((path): path is string => typeof path === 'string'); // Garante que path é string
-
-    let recommendedPlans = allPlans.filter(plan => 
-      plan.path && !savedPlanPaths.includes(plan.path) // Verifica se plan.path existe
-    );
-
-    // Limitar a 6 recomendações
-    recommendedPlans = recommendedPlans.slice(0, 6);
-
-    return {
-      activePlan,
-      savedPlans,
-      recommendedPlans
-    };
-
-  } catch (error) {
-    console.error('Erro ao buscar planos do usuário:', error);
-    return {
-      activePlan: null,
-      savedPlans: [],
-      recommendedPlans: []
-    };
-  }
-}
-
-/**
  * Obtém os treinos registrados do usuário
  * @param userId ID do usuário
  * @returns Array de treinos registrados
@@ -234,3 +193,6 @@ export async function getUserWorkouts(userId: string): Promise<WorkoutLog[]> {
     return [];
   }
 }
+
+// Exportando as funções de gerenciamento de planos para manter compatibilidade
+export { getUserPlans, getRecommendedPlansFromQuestionnaire };

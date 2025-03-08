@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
+import { useSession } from 'next-auth/react';
 import { Layout } from '@/components/layout';
 import { HeroLayout } from '@/components/default/HeroLayout';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -22,11 +23,14 @@ import {
   RotateCcw,
   CheckCircle2,
   Medal,
-  HelpCircle
+  HelpCircle,
+  Loader2,
+  Lock
 } from 'lucide-react';
 import { TrainingCard } from "@/components/PlansCard";
 import { PlanSummary } from '@/lib/field-projection';
 import { getPlanSummaries } from '@/lib/db-utils';
+import { toast } from 'sonner';
 
 // Types for better type safety
 interface TrainingTime {
@@ -88,6 +92,7 @@ export const getStaticProps: GetStaticProps<FindPlanPageProps> = async () => {
 };
 
 const FindPlanPage: React.FC<FindPlanPageProps> = ({ plans }) => {
+  const { data: session, status } = useSession();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
     trainingTime: { months: 0, years: 0 },
@@ -99,6 +104,8 @@ const FindPlanPage: React.FC<FindPlanPageProps> = ({ plans }) => {
   });
   const [recommendedPlans, setRecommendedPlans] = useState<PlanSummary[]>([]);
   const [error, setError] = useState('');
+  const [isSaving, setIsSaving] = useState(false);
+  const [userLevel, setUserLevel] = useState('');
 
   // Tips for each step
   const stepTips: Record<number, string> = {
@@ -145,6 +152,44 @@ const FindPlanPage: React.FC<FindPlanPageProps> = ({ plans }) => {
     }
   };
 
+  // Função para salvar os dados do questionário no perfil do usuário
+  const saveQuestionnaireData = async () => {
+    if (!session) return;
+    
+    setIsSaving(true);
+    
+    try {
+      const response = await fetch('/api/user/questionnaire', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          trainingTime: formData.trainingTime,
+          weeklyVolume: formData.weeklyVolume,
+          longestRace: formData.longestRace,
+          targetDistance: formData.targetDistance,
+          usedPlan: formData.usedPlan,
+          planDuration: formData.planDuration,
+          calculatedLevel: userLevel,
+          recommendedPlans: recommendedPlans.map(plan => plan.path)
+        }),
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Erro ao salvar dados');
+      }
+      
+      toast.success('Suas preferências foram salvas com sucesso!');
+    } catch (error) {
+      console.error('Erro ao salvar dados do questionário:', error);
+      toast.error('Não foi possível salvar suas preferências');
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateStep()) {
@@ -154,46 +199,49 @@ const FindPlanPage: React.FC<FindPlanPageProps> = ({ plans }) => {
 
     const totalMonths = formData.trainingTime.years * 12 + formData.trainingTime.months;
     const weeklyVolume = parseInt(formData.weeklyVolume);
-    let userLevel = '';
+    let calculatedLevel = '';
 
     // More nuanced level determination
     if (totalMonths < 6 || weeklyVolume < 20) {
-      userLevel = 'iniciante';
+      calculatedLevel = 'iniciante';
     } else if (totalMonths < 24 || weeklyVolume < 50) {
-      userLevel = 'intermediário';
+      calculatedLevel = 'intermediário';
     } else if (totalMonths < 60 || weeklyVolume < 80) {
-      userLevel = 'avançado';
+      calculatedLevel = 'avançado';
     } else {
-      userLevel = 'elite';
+      calculatedLevel = 'elite';
     }
 
     // Adjust level based on longest race and plan usage
-    if (formData.longestRace === '10km' && userLevel === 'iniciante') {
-      userLevel = 'intermediário';
+    if (formData.longestRace === '10km' && calculatedLevel === 'iniciante') {
+      calculatedLevel = 'intermediário';
     } else if (formData.longestRace === '21km') {
-      if (userLevel === 'iniciante') userLevel = 'intermediário';
-      if (userLevel === 'intermediário' && totalMonths >= 18) userLevel = 'avançado';
+      if (calculatedLevel === 'iniciante') calculatedLevel = 'intermediário';
+      if (calculatedLevel === 'intermediário' && totalMonths >= 18) calculatedLevel = 'avançado';
     } else if (formData.longestRace === '42km') {
-      if (userLevel === 'iniciante') userLevel = 'intermediário';
-      if (userLevel === 'intermediário') userLevel = 'avançado';
-      if (userLevel === 'avançado' && totalMonths >= 48) userLevel = 'elite';
+      if (calculatedLevel === 'iniciante') calculatedLevel = 'intermediário';
+      if (calculatedLevel === 'intermediário') calculatedLevel = 'avançado';
+      if (calculatedLevel === 'avançado' && totalMonths >= 48) calculatedLevel = 'elite';
     }
 
     // Additional consideration for plan usage
     if (formData.usedPlan === 'sim') {
-      if (userLevel === 'iniciante') userLevel = 'intermediário';
-      if (userLevel === 'intermediário' && totalMonths >= 18) userLevel = 'avançado';
+      if (calculatedLevel === 'iniciante') calculatedLevel = 'intermediário';
+      if (calculatedLevel === 'intermediário' && totalMonths >= 18) calculatedLevel = 'avançado';
     }
+
+    // Salvar o nível calculado para uso posterior
+    setUserLevel(calculatedLevel);
 
     // Recommendation logic
     const recommended = plans.filter(plan => {
       // Level matching with more flexible progression
       const levelMatch = 
-        plan.nivel === userLevel ||
-        (userLevel === 'iniciante' && plan.nivel === 'intermediário') ||
-        (userLevel === 'intermediário' && plan.nivel === 'avançado') ||
-        (userLevel === 'avançado' && plan.nivel === 'elite') ||
-        (userLevel === 'elite' && ['elite', 'avançado'].includes(plan.nivel || ''));
+        plan.nivel === calculatedLevel ||
+        (calculatedLevel === 'iniciante' && plan.nivel === 'intermediário') ||
+        (calculatedLevel === 'intermediário' && plan.nivel === 'avançado') ||
+        (calculatedLevel === 'avançado' && plan.nivel === 'elite') ||
+        (calculatedLevel === 'elite' && ['elite', 'avançado'].includes(plan.nivel || ''));
 
       // Distance matching
       const distanceMatch = 
@@ -218,6 +266,11 @@ const FindPlanPage: React.FC<FindPlanPageProps> = ({ plans }) => {
 
     setRecommendedPlans(recommended);
     setStep(7);
+    
+    // Salvar dados no perfil do usuário se estiver autenticado
+    if (session) {
+      saveQuestionnaireData();
+    }
   };
 
   const renderStepContent = () => {
@@ -460,180 +513,209 @@ const FindPlanPage: React.FC<FindPlanPageProps> = ({ plans }) => {
           </Card>
         );
 
-      default:
-        return null;
-    }
-  };
-
-  return (
-    <Layout>
-      <Head>
-        <title>Encontre seu Plano Ideal - Magic Training</title>
-        <meta 
-          name="description" 
-          content="Descubra o plano de treinamento perfeito para seu nível e objetivos com o Magic Training." 
-        />
-      </Head>
-
-      <HeroLayout
-        title="Encontre seu Plano Ideal"
-        description="Responda algumas perguntas simples para descobrirmos o melhor plano de treinamento para você."
-        
-        info={
-          <Card className="bg-primary/5 border-primary/20">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-2">
-                <Info className="h-4 w-4 text-primary" />
-                <p className="text-sm text-primary/90">
-                  Ajudaremos você a encontrar o plano mais adequado ao seu nível atual
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        }
-      >
-        <div className="space-y-6">
-          <AnimatePresence mode="sync">
-            {step < 7 ? (
-              <motion.div
-                key="form"
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                variants={containerVariants}
-                className="space-y-6"
-              >
-                {/* Progress Bar */}
-                <div className="w-full bg-secondary/30 h-2 rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full bg-primary"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${(step / 6) * 100}%` }}
-                    transition={{ duration: 0.3 }}
-                  />
+        default:
+          return null;
+      }
+    };
+  
+    return (
+      <Layout>
+        <Head>
+          <title>Encontre seu Plano Ideal - Magic Training</title>
+          <meta 
+            name="description" 
+            content="Descubra o plano de treinamento perfeito para seu nível e objetivos com o Magic Training." 
+          />
+        </Head>
+  
+        <HeroLayout
+          title="Encontre seu Plano Ideal"
+          description="Responda algumas perguntas simples para descobrirmos o melhor plano de treinamento para você."
+          
+          info={
+            <Card className="bg-primary/5 border-primary/20">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-2">
+                  <Info className="h-4 w-4 text-primary" />
+                  <p className="text-sm text-primary/90">
+                    Ajudaremos você a encontrar o plano mais adequado ao seu nível atual
+                  </p>
                 </div>
-
-                {renderStepContent()}
-
-                {error && (
-                  <div className="text-center">
-                    <p className="text-sm text-destructive">{error}</p>
+                
+                {/* Indicador de login - novo */}
+                {status === 'authenticated' ? (
+                  <div className="mt-2 pt-2 border-t border-primary/10 flex items-center gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-green-500" />
+                    <p className="text-xs text-green-700 dark:text-green-300">
+                      Suas respostas serão salvas no seu perfil
+                    </p>
+                  </div>
+                ) : (
+                  <div className="mt-2 pt-2 border-t border-primary/10 flex items-center gap-2">
+                    <Lock className="h-3.5 w-3.5 text-amber-500" />
+                    <p className="text-xs text-amber-700 dark:text-amber-300">
+                      Faça login para salvar suas preferências
+                    </p>
                   </div>
                 )}
-
-                {/* Navigation Buttons */}
-                <div className="flex justify-between mt-6">
-                  {step > 1 && (
-                    <Button
-                      variant="outline"
-                      onClick={() => setStep(step - 1)}
-                      className="gap-2"
-                    >
-                      <ChevronLeft className="h-4 w-4" />
-                      Anterior
-                    </Button>
+              </CardContent>
+            </Card>
+          }
+        >
+          <div className="space-y-6">
+            <AnimatePresence mode="sync">
+              {step < 7 ? (
+                <motion.div
+                  key="form"
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={containerVariants}
+                  className="space-y-6"
+                >
+                  {/* Progress Bar */}
+                  <div className="w-full bg-secondary/30 h-2 rounded-full overflow-hidden">
+                    <motion.div
+                      className="h-full bg-primary"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${(step / 6) * 100}%` }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </div>
+  
+                  {renderStepContent()}
+  
+                  {error && (
+                    <div className="text-center">
+                      <p className="text-sm text-destructive">{error}</p>
+                    </div>
                   )}
-                  
-                  {step < 6 ? (
-                    <Button 
-                      className="ml-auto gap-2"
-                      onClick={() => validateStep() && setStep(step + 1)}
-                    >
-                      Próximo
-                      <ChevronRight className="h-4 w-4" />
-                    </Button>
-                  ) : (
-                    <Button
-                      onClick={handleSubmit}
-                      className="ml-auto gap-2"
-                    >
-                      Encontrar Planos
-                      <Medal className="h-4 w-4" />
-                    </Button>
-                  )}
-                </div>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="results"
-                initial="hidden"
-                animate="visible"
-                variants={containerVariants}
-                className="space-y-6"
-              >
-                {recommendedPlans.length > 0 ? (
-                  <>
-                    <Card className="bg-primary/5">
-                      <CardContent className="p-6">
-                        <div className="flex items-center gap-4">
-                          <CheckCircle2 className="h-8 w-8 text-primary" />
-                          <div>
-                            <h3 className="text-lg font-semibold">Planos Encontrados!</h3>
-                            <p className="text-sm text-muted-foreground">
-                              Encontramos {recommendedPlans.length} planos que combinam com seu perfil
-                            </p>
-                          </div>
-                        </div>
+  
+                  {/* Navigation Buttons */}
+                  <div className="flex justify-between mt-6">
+                    {step > 1 && (
+                      <Button
+                        variant="outline"
+                        onClick={() => setStep(step - 1)}
+                        className="gap-2"
+                      >
+                        <ChevronLeft className="h-4 w-4" />
+                        Anterior
+                      </Button>
+                    )}
+                    
+                    {step < 6 ? (
+                      <Button 
+                        className="ml-auto gap-2"
+                        onClick={() => validateStep() && setStep(step + 1)}
+                      >
+                        Próximo
+                        <ChevronRight className="h-4 w-4" />
+                      </Button>
+                    ) : (
+                      <Button
+                        onClick={handleSubmit}
+                        className="ml-auto gap-2"
+                      >
+                        Encontrar Planos
+                        <Medal className="h-4 w-4" />
+                      </Button>
+                    )}
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="results"
+                  initial="hidden"
+                  animate="visible"
+                  variants={containerVariants}
+                  className="space-y-6"
+                >
+                  {/* Status de salvamento - novo */}
+                  {isSaving && (
+                    <Card className="bg-blue-500/5 border-blue-500/20">
+                      <CardContent className="p-4 flex items-center gap-3">
+                        <Loader2 className="h-5 w-5 text-blue-500 animate-spin" />
+                        <p className="text-sm text-blue-700 dark:text-blue-300">
+                          Salvando suas preferências...
+                        </p>
                       </CardContent>
                     </Card>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {recommendedPlans.map((plan, index) => (
-                        <TrainingCard key={`${plan.path}-${index}`} plan={plan} />
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  <Card className="bg-secondary/30">
-                    <CardContent className="p-6 text-center">
-                      <div className="mb-4">
-                        <Info className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                        <p className="text-lg font-semibold mb-2">Nenhum plano encontrado</p>
-                        <p className="text-muted-foreground">
-                          Não encontramos planos que correspondam exatamente aos seus critérios.
-                        </p>
+                  )}
+                  
+                  {recommendedPlans.length > 0 ? (
+                    <>
+                      <Card className="bg-primary/5">
+                        <CardContent className="p-6">
+                          <div className="flex items-center gap-4">
+                            <CheckCircle2 className="h-8 w-8 text-primary" />
+                            <div>
+                              <h3 className="text-lg font-semibold">Planos Encontrados!</h3>
+                              <p className="text-sm text-muted-foreground">
+                                Encontramos {recommendedPlans.length} planos que combinam com seu perfil
+                              </p>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+  
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {recommendedPlans.map((plan, index) => (
+                          <TrainingCard key={`${plan.path}-${index}`} plan={plan} />
+                        ))}
                       </div>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        Sugestões:
-                      </p>
-                      <ul className="list-disc list-inside mt-2 text-sm text-muted-foreground">
-                        <li>Tente ajustar alguns critérios</li>
-                        <li>Considere planos próximos ao seu nível</li>
-                        <li>Entre em contato para orientação personalizada</li>
-                      </ul>
-                    </CardContent>
-                  </Card>
-                )}
-
-                <div className="text-center">
-                  <Button
-                    variant="outline"
-                    onClick={() => {
-                      setFormData({
-                        trainingTime: { months: 0, years: 0 },
-                        weeklyVolume: '',
-                        longestRace: '',
-                        targetDistance: '',
-                        usedPlan: '',
-                        planDuration: ''
-                      });
-                      setStep(1);
-                      setRecommendedPlans([]);
-                      setError('');
-                    }}
-                    className="gap-2"
-                  >
-                    <RotateCcw className="h-4 w-4" />
-                    Recomeçar
-                  </Button>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </HeroLayout>
-    </Layout>
-  );
-};
-
-export default FindPlanPage;
+                    </>
+                  ) : (
+                    <Card className="bg-secondary/30">
+                      <CardContent className="p-6 text-center">
+                        <div className="mb-4">
+                          <Info className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
+                          <p className="text-lg font-semibold mb-2">Nenhum plano encontrado</p>
+                          <p className="text-muted-foreground">
+                            Não encontramos planos que correspondam exatamente aos seus critérios.
+                          </p>
+                        </div>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          Sugestões:
+                        </p>
+                        <ul className="list-disc list-inside mt-2 text-sm text-muted-foreground">
+                          <li>Tente ajustar alguns critérios</li>
+                          <li>Considere planos próximos ao seu nível</li>
+                          <li>Entre em contato para orientação personalizada</li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  )}
+  
+                  <div className="text-center">
+                    <Button
+                      variant="outline"
+                      onClick={() => {
+                        setFormData({
+                          trainingTime: { months: 0, years: 0 },
+                          weeklyVolume: '',
+                          longestRace: '',
+                          targetDistance: '',
+                          usedPlan: '',
+                          planDuration: ''
+                        });
+                        setStep(1);
+                        setRecommendedPlans([]);
+                        setError('');
+                      }}
+                      className="gap-2"
+                    >
+                      <RotateCcw className="h-4 w-4" />
+                      Recomeçar
+                    </Button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </HeroLayout>
+      </Layout>
+    );
+  };
+  
+  export default FindPlanPage;

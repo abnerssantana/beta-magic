@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -10,12 +11,30 @@ import { Layout } from "@/components/layout";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { PlanSummary } from "@/models";
 import { getUserPlans } from "@/lib/user-utils";
-import { BookmarkPlus, Bookmark, Play, Settings, ChevronRight, Filter } from "lucide-react";
+import {
+  getRecommendedPlansFromQuestionnaire,
+  updateUserRecommendations
+} from "@/lib/user-plans-utils";
+import {
+  BookmarkPlus,
+  Bookmark,
+  Play,
+  Target,
+  Settings,
+  ChevronRight,
+  Filter,
+  CheckCircle2,
+  Star
+} from "lucide-react";
+import RecommendedPlans from "@/components/dashboard/RecommendedPlans";
+import SavedPlans from "@/components/dashboard/SavedPlans";
+import { toast } from "sonner";
 
 interface PlansPageProps {
   activePlan: PlanSummary | null;
   savedPlans: PlanSummary[];
   recommendedPlans: PlanSummary[];
+  userLevel?: string;
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -32,13 +51,38 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   try {
     const userId = session.user.id;
-    const { activePlan, savedPlans, recommendedPlans } = await getUserPlans(userId);
+
+    // Obter planos do usuário (ativo e salvos)
+    const { activePlan, savedPlans } = await getUserPlans(userId);
+
+    // Buscar planos recomendados baseados no questionário
+    const recommendedPlans = await getRecommendedPlansFromQuestionnaire(userId);
+
+    // Se não tiver recomendações, atualizar baseado nos treinos
+    if (recommendedPlans.length === 0) {
+      await updateUserRecommendations(userId);
+    }
+
+    // Determinar nível do usuário (para UI)
+    let userLevel;
+    try {
+      const client = await import('@/lib/mongodb').then(mod => mod.default);
+      const db = (await client).db('magic-training');
+      const userProfile = await db.collection('userProfiles').findOne({ userId });
+
+      if (userProfile?.questionnaire?.calculatedLevel) {
+        userLevel = userProfile.questionnaire.calculatedLevel;
+      }
+    } catch (error) {
+      console.error("Erro ao buscar nível do usuário:", error);
+    }
 
     return {
       props: {
         activePlan: activePlan ? JSON.parse(JSON.stringify(activePlan)) : null,
         savedPlans: JSON.parse(JSON.stringify(savedPlans)),
-        recommendedPlans: JSON.parse(JSON.stringify(recommendedPlans))
+        recommendedPlans: JSON.parse(JSON.stringify(recommendedPlans)),
+        userLevel: userLevel || undefined
       },
     };
   } catch (error) {
@@ -47,19 +91,31 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       props: {
         activePlan: null,
         savedPlans: [],
-        recommendedPlans: []
+        recommendedPlans: [],
+        userLevel: undefined
       },
     };
   }
+};
+
+// Mapeamento de níveis para cores
+const levelColors = {
+  'iniciante': 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30',
+  'intermediário': 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/30',
+  'avançado': 'bg-purple-500/10 text-purple-700 dark:text-purple-300 border-purple-500/30',
+  'elite': 'bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/30'
 };
 
 const UserPlansPage: React.FC<PlansPageProps> = ({
   activePlan,
   savedPlans,
   recommendedPlans,
+  userLevel
 }) => {
   const [isActivating, setIsActivating] = useState(false);
   const [activatingPlanId, setActivatingPlanId] = useState<string | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
+  const [removingPlanId, setRemovingPlanId] = useState<string | null>(null);
 
   const handleActivatePlan = async (planPath: string) => {
     setIsActivating(true);
@@ -78,11 +134,13 @@ const UserPlansPage: React.FC<PlansPageProps> = ({
         throw new Error("Falha ao ativar o plano");
       }
 
+      toast.success("Plano ativado com sucesso!");
+
       // Recarregar a página para mostrar as mudanças
       window.location.reload();
     } catch (error) {
       console.error("Erro ao ativar plano:", error);
-      alert("Não foi possível ativar o plano. Tente novamente.");
+      toast.error("Não foi possível ativar o plano. Tente novamente.");
     } finally {
       setIsActivating(false);
       setActivatingPlanId(null);
@@ -90,6 +148,11 @@ const UserPlansPage: React.FC<PlansPageProps> = ({
   };
 
   const handleSavePlan = async (planPath: string, save: boolean) => {
+    setIsSaving(true);
+    if (!save) {
+      setRemovingPlanId(planPath);
+    }
+
     try {
       const response = await fetch("/api/user/plans/save", {
         method: "POST",
@@ -100,24 +163,19 @@ const UserPlansPage: React.FC<PlansPageProps> = ({
       });
 
       if (!response.ok) {
-        throw new Error("Falha ao salvar o plano");
+        throw new Error("Falha ao gerenciar o plano");
       }
+
+      toast.success(save ? "Plano salvo com sucesso!" : "Plano removido com sucesso!");
 
       // Recarregar a página para mostrar as mudanças
       window.location.reload();
     } catch (error) {
-      console.error("Erro ao salvar plano:", error);
-      alert("Não foi possível salvar o plano. Tente novamente.");
-    }
-  };
-
-  const getLevelBadgeVariant = (level: string) => {
-    switch (level?.toLowerCase()) {
-      case 'iniciante': return "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800";
-      case 'intermediário': return "bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800";
-      case 'avançado': return "bg-purple-500/10 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800";
-      case 'elite': return "bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-800";
-      default: return "";
+      console.error("Erro ao gerenciar plano:", error);
+      toast.error(save ? "Não foi possível salvar o plano." : "Não foi possível remover o plano.");
+    } finally {
+      setIsSaving(false);
+      setRemovingPlanId(null);
     }
   };
 
@@ -173,7 +231,7 @@ const UserPlansPage: React.FC<PlansPageProps> = ({
                 <CardContent>
                   <div className="space-y-4">
                     <div className="flex flex-wrap gap-2">
-                      <Badge variant="outline" className={getLevelBadgeVariant(activePlan.nivel)}>
+                      <Badge variant="outline" className={levelColors[activePlan.nivel as keyof typeof levelColors] || ''}>
                         {activePlan.nivel}
                       </Badge>
                       {activePlan.distances?.map((distance, idx) => (
@@ -199,7 +257,7 @@ const UserPlansPage: React.FC<PlansPageProps> = ({
                         </Link>
                       </Button>
                       <Button variant="outline" asChild>
-                        <Link href={`/dashboard/plans/${activePlan.path}/settings`}>
+                        <Link href={`/dashboard/plans/${activePlan.path}/ritmos`}>
                           <Settings className="mr-2 h-4 w-4" />
                           Configurar Ritmos
                         </Link>
@@ -231,52 +289,18 @@ const UserPlansPage: React.FC<PlansPageProps> = ({
             )}
           </TabsContent>
 
-          {/* Planos Salvos */}
+          {/* Planos Salvos - Novo design */}
           <TabsContent value="saved" className="space-y-4">
             {savedPlans.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {savedPlans.map((plan) => (
-                  <Card key={plan.path} className="flex flex-col">
-                    <CardHeader>
-                      <CardTitle className="text-lg">{plan.name}</CardTitle>
-                      <CardDescription>{plan.coach}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                      <div className="space-y-2">
-                        <div className="flex flex-wrap gap-1">
-                          <Badge variant="outline" className={getLevelBadgeVariant(plan.nivel)}>
-                            {plan.nivel}
-                          </Badge>
-                          {plan.distances && plan.distances[0] && (
-                            <Badge variant="secondary">{plan.distances[0]}</Badge>
-                          )}
-                        </div>
-                        <p className="text-sm text-muted-foreground line-clamp-2">
-                          {plan.info}
-                        </p>
-                      </div>
-                    </CardContent>
-                    <CardFooter className="flex justify-between pt-0">
-                      <Button
-                        variant="default"
-                        size="sm"
-                        disabled={isActivating}
-                        onClick={() => handleActivatePlan(plan.path)}
-                        className="w-full"
-                      >
-                        {isActivating && activatingPlanId === plan.path ? (
-                          "Ativando..."
-                        ) : (
-                          <>
-                            <Play className="mr-2 h-4 w-4" />
-                            Ativar Plano
-                          </>
-                        )}
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                ))}
-              </div>
+              <SavedPlans
+                plans={savedPlans}
+                onActivatePlan={handleActivatePlan}
+                onRemovePlan={handleSavePlan}
+                isActivating={isActivating}
+                activatingPlanId={activatingPlanId}
+                isRemoving={isSaving}
+                removingPlanId={removingPlanId}
+              />
             ) : (
               <Card>
                 <CardContent className="pt-6 flex flex-col items-center text-center">
@@ -287,76 +311,46 @@ const UserPlansPage: React.FC<PlansPageProps> = ({
                   <p className="text-muted-foreground max-w-md mb-4">
                     Você ainda não salvou nenhum plano. Navegue pelos planos recomendados ou encontre novos planos.
                   </p>
-                </CardContent>
-              </Card>
-            )}
-          </TabsContent>
-
-          {/* Planos Recomendados */}
-          <TabsContent value="recommended" className="space-y-4">
-            {recommendedPlans.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {recommendedPlans.map((plan) => (
-                  <Card key={plan.path} className="flex flex-col">
-                    <CardHeader>
-                      <CardTitle className="text-lg">{plan.name}</CardTitle>
-                      <CardDescription>{plan.coach}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                      <div className="space-y-2">
-                        <div className="flex flex-wrap gap-1">
-                          <Badge variant="outline" className={getLevelBadgeVariant(plan.nivel)}>
-                            {plan.nivel}
-                          </Badge>
-                          {plan.distances && plan.distances[0] && (
-                            <Badge variant="secondary">{plan.distances[0]}</Badge>
-                          )}
-                        </div>
-                        <p className="text-sm text-muted-foreground line-clamp-2">
-                          {plan.info}
-                        </p>
-                      </div>
-                    </CardContent>
-                    <CardFooter className="flex justify-between pt-0">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleSavePlan(plan.path, true)}
-                      >
-                        <BookmarkPlus className="mr-2 h-4 w-4" />
-                        Salvar
-                      </Button>
-                      <Button
-                        variant="default"
-                        size="sm"
-                        onClick={() => handleActivatePlan(plan.path)}
-                      >
-                        <Play className="mr-2 h-4 w-4" />
-                        Ativar
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                ))}
-              </div>
-            ) : (
-              <Card>
-                <CardContent className="pt-6 flex flex-col items-center text-center">
-                  <div className="rounded-full bg-muted p-3 mb-4">
-                    <Filter className="h-6 w-6 text-muted-foreground" />
-                  </div>
-                  <h3 className="text-lg font-medium mb-2">Recomendações em breve</h3>
-                  <p className="text-muted-foreground max-w-md mb-4">
-                    Estamos trabalhando para trazer recomendações personalizadas para você.
-                  </p>
                   <Button asChild>
                     <Link href="/encontrar-plano">
-                      Encontrar Planos
+                      Descobrir Planos
                       <ChevronRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                 </CardContent>
               </Card>
             )}
+          </TabsContent>
+
+          {/* Planos Recomendados - Usando o componente RecommendedPlans */}
+          <TabsContent value="recommended">
+            <div className="space-y-4">
+              <Card className="bg-primary/5 border-primary/20">
+                <CardContent>
+                  <div className="flex items-center gap-2 text-sm text-primary/90">
+                    <Star className="h-4 w-4 text-primary" />
+                    {userLevel ? (
+                      <p>Recomendações baseadas no seu nível <strong>{userLevel}</strong></p>
+                    ) : (
+                      <p>Encontre seu plano ideal com nosso questionário</p>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+
+              <RecommendedPlans
+                plans={recommendedPlans}
+                userLevel={userLevel}
+                onSavePlan={handleSavePlan}
+                onActivatePlan={handleActivatePlan}
+                isSaving={isSaving}
+                isActivating={isActivating}
+                activatingPlanId={activatingPlanId}
+                savedPlanPaths={savedPlans.map(plan => plan.path)}
+              />
+
+
+            </div>
           </TabsContent>
         </Tabs>
       </div>
