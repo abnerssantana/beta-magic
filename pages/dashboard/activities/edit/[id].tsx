@@ -4,62 +4,103 @@ import { getSession } from 'next-auth/react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
+import { ptBR } from 'date-fns/locale/pt-BR';
 import { Layout } from '@/components/layout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { 
+import {
   Form,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage, 
+  FormMessage,
 } from '@/components/ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ArrowLeft, Clock, Calendar, BarChart2, Save, FileText, Activity, AlertCircle } from 'lucide-react';
+import {
+  ArrowLeft,
+  Calendar,
+  Clock,
+  BarChart2,
+  Save,
+  FileText,
+  Activity,
+  AlertCircle,
+  InfoIcon
+} from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import TimeInput from '@/components/TimeInput';
-import { PlanSummary } from '@/models';
-import { getUserActivePlan } from '@/lib/user-utils';
+import { WorkoutLog } from '@/models/userProfile';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from 'sonner';
 
-interface LogWorkoutPageProps {
-  activePlan: PlanSummary | null;
+interface EditWorkoutPageProps {
+  workout: WorkoutLog;
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context);
+  const { id } = context.params || {};
 
   if (!session) {
     return {
       redirect: {
-        destination: '/auth/signin?callbackUrl=/dashboard/log',
+        destination: '/auth/signin?callbackUrl=/dashboard/activities',
         permanent: false,
       },
     };
   }
 
+  if (!id) {
+    return {
+      notFound: true,
+    };
+  }
+
   try {
     const userId = session.user.id;
-    const activePlan = await getUserActivePlan(userId);
+    
+    // Buscar o treino específico
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/user/workouts/${id}`, {
+      headers: {
+        cookie: context.req.headers.cookie || '',
+      },
+    });
+    
+    if (!res.ok) {
+      return {
+        notFound: true,
+      };
+    }
+    
+    const workout = await res.json();
+
+    // Verificar se o treino pertence ao usuário atual
+    if (workout.userId !== userId) {
+      return {
+        redirect: {
+          destination: '/dashboard/activities',
+          permanent: false,
+        },
+      };
+    }
 
     return {
       props: {
-        activePlan: activePlan ? JSON.parse(JSON.stringify(activePlan)) : null,
+        workout: JSON.parse(JSON.stringify(workout)),
       },
     };
   } catch (error) {
-    console.error('Erro ao buscar plano ativo:', error);
+    console.error('Erro ao buscar treino para edição:', error);
     return {
-      props: {
-        activePlan: null,
-      },
+      notFound: true,
     };
   }
 };
@@ -76,22 +117,31 @@ const workoutFormSchema = z.object({
 
 type WorkoutFormValues = z.infer<typeof workoutFormSchema>;
 
-const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
+const EditWorkoutPage: React.FC<EditWorkoutPageProps> = ({ workout }) => {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
-  const [calculatedPace, setCalculatedPace] = useState('');
+  const [calculatedPace, setCalculatedPace] = useState(workout.pace || '');
 
-  // Inicializa o formulário com valores padrão
+  // Converter a duração de minutos para formato HH:MM:SS para o formulário
+  const formatDurationForInput = (minutes: number): string => {
+    const hours = Math.floor(minutes / 60);
+    const mins = Math.floor(minutes % 60);
+    const secs = Math.round((minutes % 1) * 60);
+    
+    return `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  };
+
+  // Inicializa o formulário com valores do treino
   const form = useForm<WorkoutFormValues>({
     resolver: zodResolver(workoutFormSchema),
     defaultValues: {
-      date: format(new Date(), 'yyyy-MM-dd'),
-      title: '',
-      activityType: 'easy',
-      distance: undefined,
-      duration: '00:00:00',
-      notes: '',
+      date: workout.date,
+      title: workout.title,
+      activityType: workout.activityType,
+      distance: workout.distance,
+      duration: formatDurationForInput(workout.duration),
+      notes: workout.notes || '',
     },
   });
 
@@ -149,13 +199,11 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
         duration: durationInMinutes,
         pace: calculatedPace,
         notes: data.notes,
-        planPath: activePlan?.path,
-        source: 'manual',
       };
       
       // Envia para a API
-      const response = await fetch('/api/user/workouts/log', {
-        method: 'POST',
+      const response = await fetch(`/api/user/workouts/${workout._id}`, {
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -164,15 +212,18 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
       
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || 'Erro ao registrar treino');
+        throw new Error(errorData.error || 'Erro ao atualizar treino');
       }
       
-      // Redireciona para o dashboard após sucesso
-      router.push('/dashboard?success=workout-logged');
+      toast.success("Treino atualizado com sucesso");
+      
+      // Redirecionar para a página de detalhes do treino
+      router.push(`/dashboard/activities/${workout._id}`);
       
     } catch (error) {
-      console.error('Erro ao registrar treino:', error);
-      setSubmitError(error instanceof Error ? error.message : 'Erro ao registrar treino');
+      console.error('Erro ao atualizar treino:', error);
+      setSubmitError(error instanceof Error ? error.message : 'Erro ao atualizar treino');
+      toast.error("Falha ao atualizar treino");
     } finally {
       setIsSubmitting(false);
     }
@@ -181,35 +232,35 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
   return (
     <Layout>
       <Head>
-        <title>Registrar Treino - Magic Training</title>
+        <title>Editar Treino - Magic Training</title>
         <meta
           name="description"
-          content="Registre manualmente seus treinos realizados."
+          content="Edite os detalhes de um treino registrado."
         />
       </Head>
 
       <div className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight">Registrar Treino</h1>
+            <h1 className="text-2xl font-bold tracking-tight">Editar Treino</h1>
             <p className="text-muted-foreground">
-              Registre seus treinos realizados manualmente
+              Modifique as informações do treino registrado
             </p>
           </div>
           
           <Button variant="outline" size="sm" asChild>
-            <Link href="/dashboard">
+            <Link href={`/dashboard/activities/${workout._id}`}>
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Voltar ao Dashboard
+              Voltar aos Detalhes
             </Link>
           </Button>
         </div>
 
         <Card>
           <CardHeader>
-            <CardTitle>Novo Treino</CardTitle>
+            <CardTitle>Editar Treino</CardTitle>
             <CardDescription>
-              Preencha os dados do seu treino realizado
+              Atualize as informações do treino registrado em {format(parseISO(workout.date), "d 'de' MMMM 'de' yyyy", { locale: ptBR })}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -341,6 +392,7 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
                                 field.onChange(value);
                                 calculatePace(form.getValues('distance'), value);
                               }}
+                              showHours={true}
                               className="pl-10"
                             />
                             <Clock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -395,12 +447,12 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
                   </Alert>
                 )}
 
-                {/* Plano ativo */}
-                {activePlan && (
-                  <Alert className="bg-green-500/10 border-green-500/20 text-green-700 dark:text-green-300">
-                    <Activity className="h-4 w-4" />
+                {/* Nota sobre plano */}
+                {workout.planPath && (
+                  <Alert className="bg-primary/10 border-primary/20 text-primary">
+                    <InfoIcon className="h-4 w-4" />
                     <AlertDescription>
-                      Este treino será vinculado ao plano "{activePlan.name}".
+                      Este treino está associado ao plano "{workout.planPath}". A associação será mantida.
                     </AlertDescription>
                   </Alert>
                 )}
@@ -410,7 +462,7 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
                   <Button 
                     type="button" 
                     variant="outline"
-                    onClick={() => router.push('/dashboard')}
+                    onClick={() => router.push(`/dashboard/activities/${workout._id}`)}
                   >
                     Cancelar
                   </Button>
@@ -424,7 +476,7 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
                     ) : (
                       <>
                         <Save className="mr-2 h-4 w-4" />
-                        Salvar Treino
+                        Salvar Alterações
                       </>
                     )}
                   </Button>
@@ -438,4 +490,4 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
   );
 };
 
-export default LogWorkoutPage;
+export default EditWorkoutPage;
