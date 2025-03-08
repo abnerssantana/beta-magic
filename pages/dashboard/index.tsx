@@ -41,6 +41,7 @@ interface DashboardProps {
     nextMilestone: string;
   };
   completedWorkouts: WorkoutLog[];
+  startDate?: string; // Adicionando startDate como uma prop separada
 }
 
 const Dashboard: React.FC<DashboardProps> = ({
@@ -49,7 +50,8 @@ const Dashboard: React.FC<DashboardProps> = ({
   todayWorkout,
   weekProgress,
   userSummary,
-  completedWorkouts
+  completedWorkouts,
+  startDate
 }) => {
   const { data: session } = useSession();
   const [currentDate, setCurrentDate] = useState("");
@@ -127,10 +129,11 @@ const Dashboard: React.FC<DashboardProps> = ({
               />
             ) : (
               <div className="space-y-4">
+                {/* Passando startDate como prop separada */}
                 <EnhancedActivePlanCard
                   activePlan={activePlan}
                   weekProgress={weekProgress}
-                  startDate={fullPlan?.customPaces?.startDate}
+                  startDate={startDate}
                   isAuthenticated={!!session}
                 />
 
@@ -182,6 +185,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     // Buscar o plano completo com workouts se existir um plano ativo
     let fullPlan = null;
     let todayWorkout = null;
+    let startDate = null; // Variável separada para startDate
 
     if (activePlan) {
       fullPlan = await getPlanByPath(activePlan.path);
@@ -190,8 +194,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         // Obter as configurações do usuário para o plano
         const userPaces = await getUserCustomPaces(userId, activePlan.path);
 
-        // Obter a data de início do plano (do customPaces ou usar o padrão do localStorage)
-        const startDate = userPaces.startDate || format(new Date(), "yyyy-MM-dd");
+        // Obter a data de início do plano (do userPaces ou usar o padrão)
+        startDate = userPaces.startDate || format(new Date(), "yyyy-MM-dd");
 
         // Organizar o plano em blocos semanais a partir da data de início
         const weeklyBlocks = organizePlanIntoWeeklyBlocks(
@@ -223,13 +227,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             userPaces.baseDistance || "5km"
           );
 
-          // Extrair os ritmos personalizados do formato correto
-          const formattedUserPaces = { ...userPaces };
-
           // Calcular o ritmo com a função melhorada
           const pace = calculateActivityPace(
             mainActivity,
-            formattedUserPaces,
+            userPaces,
             getPredictedRaceTimeFactory(baseParams)
           );
 
@@ -268,7 +269,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         todayWorkout: todayWorkout ? JSON.parse(JSON.stringify(todayWorkout)) : null,
         weekProgress,
         userSummary,
-        completedWorkouts: JSON.parse(JSON.stringify(completedWorkouts))
+        completedWorkouts: JSON.parse(JSON.stringify(completedWorkouts)),
+        startDate // Passando startDate como prop separada
       },
     };
   } catch (error) {
