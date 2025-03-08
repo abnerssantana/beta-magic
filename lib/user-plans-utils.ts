@@ -1,8 +1,8 @@
 // lib/user-plans-utils.ts
-
 import clientPromise from './mongodb';
 import { PlanSummary } from './field-projection';
 import { getPlanByPath, getPlanSummaries } from './db-utils';
+import { getUserActivePlan, getUserSavedPlans } from './user-utils';
 
 /**
  * Obtém recomendações de planos baseadas no questionário do usuário
@@ -31,8 +31,8 @@ export async function getRecommendedPlansFromQuestionnaire(userId: string): Prom
       // Buscar cada plano pelo path
       for (const planPath of questionnaire.recommendedPlans) {
         const plan = await getPlanByPath(planPath, { fields: 'summary' });
-        if (plan) {
-          recommendedPlans.push(plan as PlanSummary);
+        if (plan && isPlanSummary(plan)) {
+          recommendedPlans.push(plan);
         }
       }
       
@@ -53,7 +53,7 @@ export async function getRecommendedPlansFromQuestionnaire(userId: string): Prom
           (userLevel === 'iniciante' && plan.nivel === 'intermediário') ||
           (userLevel === 'intermediário' && plan.nivel === 'avançado') ||
           (userLevel === 'avançado' && plan.nivel === 'elite') ||
-          (userLevel === 'elite' && ['elite', 'avançado'].includes(plan.nivel || ''));
+          (userLevel === 'elite' && ['elite', 'avançado'].includes(plan.nivel));
           
         // Match de distância se tiver
         const distanceMatch = 
@@ -72,6 +72,14 @@ export async function getRecommendedPlansFromQuestionnaire(userId: string): Prom
     console.error('Erro ao buscar recomendações de planos:', error);
     return [];
   }
+}
+
+// Type guard para verificar se um objeto é PlanSummary
+function isPlanSummary(plan: any): plan is PlanSummary {
+  return plan && 
+    typeof plan.path === 'string' && 
+    typeof plan.name === 'string' && 
+    typeof plan.nivel === 'string';
 }
 
 /**
@@ -108,25 +116,21 @@ export async function updateUserRecommendations(userId: string): Promise<boolean
       : 0;
     
     // Determinar nível baseado nos treinos recentes
-    let calculatedLevel = '';
+    let calculatedLevel: 'iniciante' | 'intermediário' | 'avançado' | 'elite' = 'iniciante';
     if (maxDistance > 30) {
       calculatedLevel = 'avançado';
     } else if (maxDistance > 15) {
       calculatedLevel = 'intermediário';
-    } else {
-      calculatedLevel = 'iniciante';
     }
     
     // Determinar distância alvo
-    let targetDistance = '';
+    let targetDistance: string = '5km';
     if (maxDistance > 30) {
       targetDistance = '42km';
     } else if (maxDistance > 15) {
       targetDistance = '21km';
     } else if (maxDistance > 8) {
       targetDistance = '10km';
-    } else {
-      targetDistance = '5km';
     }
     
     // Buscar todos os planos para filtrar
@@ -206,7 +210,7 @@ export async function getUserPlans(userId: string) {
 
     // Se não houver recomendações do questionário, buscar todos os planos para recomendar
     if (recommendedPlans.length === 0) {
-      const allPlans = (await getPlanSummaries()) || [];
+      const allPlans = await getPlanSummaries();
 
       // Filtrar os planos já salvos
       const savedPlanPaths = savedPlans
@@ -215,10 +219,7 @@ export async function getUserPlans(userId: string) {
 
       recommendedPlans = allPlans.filter(plan => 
         plan.path && !savedPlanPaths.includes(plan.path)
-      );
-
-      // Limitar a 6 recomendações
-      recommendedPlans = recommendedPlans.slice(0, 6);
+      ).slice(0, 6);
     }
 
     return {

@@ -325,7 +325,7 @@ const UserPlansPage: React.FC<PlansPageProps> = ({
           {/* Planos Recomendados - Usando o componente RecommendedPlans */}
           <TabsContent value="recommended">
             <div className="space-y-4">
-              <Card className="bg-primary/5 border-primary/20">
+              <Card className="bg-primary/5 border-primary/20 py-4 px-0">
                 <CardContent>
                   <div className="flex items-center gap-2 text-sm text-primary/90">
                     <Star className="h-4 w-4 text-primary" />
