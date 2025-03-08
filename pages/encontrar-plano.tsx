@@ -152,28 +152,48 @@ const FindPlanPage: React.FC<FindPlanPageProps> = ({ plans }) => {
     }
   };
 
-  // Função para salvar os dados do questionário no perfil do usuário
-  const saveQuestionnaireData = async () => {
+  // Função atualizada para salvar os dados do questionário no perfil do usuário
+  const saveQuestionnaireData = async (calculatedLevelValue: string) => {
     if (!session) return;
     
     setIsSaving(true);
     
+    // Verificar se todos os dados obrigatórios estão presentes
+    if (!formData.trainingTime || !formData.weeklyVolume || !formData.longestRace || 
+        !formData.targetDistance || !formData.usedPlan || !formData.planDuration || 
+        !calculatedLevelValue) {
+      console.error("Dados incompletos para salvar questionário:", {
+        trainingTime: formData.trainingTime,
+        weeklyVolume: formData.weeklyVolume,
+        longestRace: formData.longestRace,
+        targetDistance: formData.targetDistance,
+        usedPlan: formData.usedPlan,
+        planDuration: formData.planDuration,
+        calculatedLevel: calculatedLevelValue
+      });
+      toast.error('Dados incompletos para salvar preferências');
+      setIsSaving(false);
+      return;
+    }
+    
     try {
+      const postData = {
+        trainingTime: formData.trainingTime,
+        weeklyVolume: formData.weeklyVolume,
+        longestRace: formData.longestRace,
+        targetDistance: formData.targetDistance,
+        usedPlan: formData.usedPlan,
+        planDuration: formData.planDuration,
+        calculatedLevel: calculatedLevelValue,
+        recommendedPlans: recommendedPlans.map(plan => plan.path || '')
+      };
+      
       const response = await fetch('/api/user/questionnaire', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          trainingTime: formData.trainingTime,
-          weeklyVolume: formData.weeklyVolume,
-          longestRace: formData.longestRace,
-          targetDistance: formData.targetDistance,
-          usedPlan: formData.usedPlan,
-          planDuration: formData.planDuration,
-          calculatedLevel: userLevel,
-          recommendedPlans: recommendedPlans.map(plan => plan.path)
-        }),
+        body: JSON.stringify(postData),
       });
       
       if (!response.ok) {
@@ -268,8 +288,9 @@ const FindPlanPage: React.FC<FindPlanPageProps> = ({ plans }) => {
     setStep(7);
     
     // Salvar dados no perfil do usuário se estiver autenticado
+    // Passando o nível calculado diretamente, sem depender do estado userLevel
     if (session) {
-      saveQuestionnaireData();
+      saveQuestionnaireData(calculatedLevel);
     }
   };
 
