@@ -28,6 +28,7 @@ import TodayWorkout from "@/components/dashboard/TodayWorkout";
 import RecentActivities from "@/components/dashboard/RecentActivities";
 import ProgressTab from "@/components/dashboard/ProgressTab";
 import TrainingCalendar from "@/components/dashboard/TrainingCalendar";
+import StravaConnect from "@/components/dashboard/StravaConnect"; // Import do novo componente
 
 interface DashboardProps {
   activePlan: PlanSummary | null;
@@ -41,7 +42,7 @@ interface DashboardProps {
     nextMilestone: string;
   };
   completedWorkouts: WorkoutLog[];
-  startDate?: string; // Adicionando startDate como uma prop separada
+  startDate?: string;
 }
 
 const Dashboard: React.FC<DashboardProps> = ({
@@ -55,12 +56,26 @@ const Dashboard: React.FC<DashboardProps> = ({
 }) => {
   const { data: session } = useSession();
   const [currentDate, setCurrentDate] = useState("");
-
+  const [localCompletedWorkouts, setLocalCompletedWorkouts] = useState<WorkoutLog[]>(completedWorkouts);
+  
   useEffect(() => {
     setCurrentDate(
       format(new Date(), "EEEE, d 'de' MMMM", { locale: ptBR })
     );
   }, []);
+
+  // Handler para atualizar workouts após importação do Strava
+  const handleActivitiesImported = async () => {
+    try {
+      const response = await fetch('/api/user/workouts');
+      if (response.ok) {
+        const updatedWorkouts = await response.json();
+        setLocalCompletedWorkouts(updatedWorkouts);
+      }
+    } catch (error) {
+      console.error('Error updating workouts after Strava import:', error);
+    }
+  };
 
   // Extrair os workouts diários para o calendário
   const planWorkouts = fullPlan?.dailyWorkouts || null;
@@ -105,7 +120,7 @@ const Dashboard: React.FC<DashboardProps> = ({
         </div>
 
         {/* Reordenação: StatsSummary primeiro */}
-        <StatsOverview workouts={completedWorkouts} />
+        <StatsOverview workouts={localCompletedWorkouts} />
 
         <Tabs defaultValue="overview" className="space-y-3">
           <TabsList className="grid w-full grid-cols-2 h-9">
@@ -115,40 +130,37 @@ const Dashboard: React.FC<DashboardProps> = ({
 
           {/* Visão Geral - com componentes modularizados */}
           <TabsContent value="overview" className="space-y-4 pt-2">
-
             <TodayWorkout
               activePlan={activePlan}
               todayWorkout={todayWorkout}
               currentDate={currentDate}
             />
-            {!activePlan ? (
+
+            {/* Grid com 2 colunas no desktop para ActivePlanCard e StravaConnect */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <EnhancedActivePlanCard
                 activePlan={activePlan}
                 weekProgress={weekProgress}
+                startDate={startDate}
                 isAuthenticated={!!session}
               />
-            ) : (
-              <div className="space-y-4">
-                {/* Passando startDate como prop separada */}
-                <EnhancedActivePlanCard
-                  activePlan={activePlan}
-                  weekProgress={weekProgress}
-                  startDate={startDate}
-                  isAuthenticated={!!session}
-                />
+              
+              {/* Componente de Integração com Strava */}
+              <StravaConnect onActivitiesImported={handleActivitiesImported} />
+            </div>
 
-                {/* Novo componente de calendário integrado */}
-                <TrainingCalendar
-                  activePlan={activePlan}
-                  planWorkouts={planWorkouts}
-                  completedWorkouts={completedWorkouts}
-                  weekProgress={weekProgress}
-                />
-              </div>
+            {/* Nova posição para o TrainingCalendar no grid */}
+            {activePlan && (
+              <TrainingCalendar
+                activePlan={activePlan}
+                planWorkouts={planWorkouts}
+                completedWorkouts={localCompletedWorkouts}
+                weekProgress={weekProgress}
+              />
             )}
 
             {/* Registro de Atividades Recentes */}
-            <RecentActivities completedWorkouts={completedWorkouts} />
+            <RecentActivities completedWorkouts={localCompletedWorkouts} />
           </TabsContent>
 
           {/* Meu Progresso */}
