@@ -22,7 +22,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PlanSummary, PlanModel } from "@/models";
 
 // Componentes modularizados
-import StatsSummary from "@/components/dashboard/StatsSummary";
+import StatsOverview from "@/components/dashboard/StatsSummary";
 import EnhancedActivePlanCard from "@/components/dashboard/ActivePlanCard";
 import TodayWorkout from "@/components/dashboard/TodayWorkout";
 import RecentActivities from "@/components/dashboard/RecentActivities";
@@ -105,7 +105,7 @@ const Dashboard: React.FC<DashboardProps> = ({
         </div>
 
         {/* Reordenação: StatsSummary primeiro */}
-        <StatsSummary userSummary={userSummary} />
+        <StatsOverview workouts={completedWorkouts} />
 
         <Tabs defaultValue="overview" className="space-y-3">
           <TabsList className="grid w-full grid-cols-2 h-9">
