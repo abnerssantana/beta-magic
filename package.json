@@ -40,7 +40,7 @@
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
     "framer-motion": "^12.4.1",
-    "lucide-react": "^0.475.0",
+    "lucide-react": "^0.479.0",
     "mongodb": "^5.9.2",
     "next": "^15.1.6",
     "next-auth": "^4.24.7",
