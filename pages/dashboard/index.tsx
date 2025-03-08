@@ -28,7 +28,7 @@ import TodayWorkout from "@/components/dashboard/TodayWorkout";
 import RecentActivities from "@/components/dashboard/RecentActivities";
 import ProgressTab from "@/components/dashboard/ProgressTab";
 import TrainingCalendar from "@/components/dashboard/TrainingCalendar";
-import StravaConnect from "@/components/dashboard/StravaConnect"; // Import do novo componente
+import StravaConnect from "@/components/dashboard/StravaConnect";
 
 interface DashboardProps {
   activePlan: PlanSummary | null;
@@ -57,7 +57,7 @@ const Dashboard: React.FC<DashboardProps> = ({
   const { data: session } = useSession();
   const [currentDate, setCurrentDate] = useState("");
   const [localCompletedWorkouts, setLocalCompletedWorkouts] = useState<WorkoutLog[]>(completedWorkouts);
-  
+
   useEffect(() => {
     setCurrentDate(
       format(new Date(), "EEEE, d 'de' MMMM", { locale: ptBR })
@@ -137,17 +137,13 @@ const Dashboard: React.FC<DashboardProps> = ({
             />
 
             {/* Grid com 2 colunas no desktop para ActivePlanCard e StravaConnect */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <EnhancedActivePlanCard
-                activePlan={activePlan}
-                weekProgress={weekProgress}
-                startDate={startDate}
-                isAuthenticated={!!session}
-              />
-              
-              {/* Componente de Integração com Strava */}
-              <StravaConnect onActivitiesImported={handleActivitiesImported} />
-            </div>
+
+            <EnhancedActivePlanCard
+              activePlan={activePlan}
+              weekProgress={weekProgress}
+              startDate={startDate}
+              isAuthenticated={!!session}
+            />
 
             {/* Nova posição para o TrainingCalendar no grid */}
             {activePlan && (
@@ -161,6 +157,9 @@ const Dashboard: React.FC<DashboardProps> = ({
 
             {/* Registro de Atividades Recentes */}
             <RecentActivities completedWorkouts={localCompletedWorkouts} />
+
+             {/* Componente de Integração com Strava */}
+             <StravaConnect onActivitiesImported={handleActivitiesImported} />
           </TabsContent>
 
           {/* Meu Progresso */}

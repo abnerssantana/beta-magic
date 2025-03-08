@@ -5,15 +5,16 @@ import {
   BarChart2, 
   Clock, 
   Calendar, 
-  Flame,
+  Trophy,
   Award,
   Zap,
   TrendingUp,
   Timer,
-  Ruler
+  Ruler,
+  Repeat
 } from "lucide-react";
 import { WorkoutLog } from '@/models/userProfile';
-import { format, parseISO, differenceInDays, startOfMonth, endOfMonth, isWithinInterval } from 'date-fns';
+import { format, parseISO, differenceInDays, startOfMonth, endOfMonth, isWithinInterval, subMonths } from 'date-fns';
 import { ptBR } from 'date-fns/locale/pt-BR';
 
 interface StatsOverviewProps {
@@ -44,10 +45,11 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ workouts }) => {
         mostRecentWorkout: null,
         currentMonthDistance: 0,
         currentMonthActivities: 0,
+        prevMonthDistance: 0,
         longestDistance: 0,
         fastestPace: "N/A",
         activityTypes: {},
-        totalCalories: 0
+        consistencyStreak: 0
       };
     }
 
@@ -102,13 +104,62 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ workouts }) => {
       return isWithinInterval(workoutDate, { start: monthStart, end: monthEnd });
     });
     
+    // Previous month stats for comparison
+    const prevMonthStart = startOfMonth(subMonths(now, 1));
+    const prevMonthEnd = endOfMonth(subMonths(now, 1));
+    
+    const prevMonthWorkouts = workouts.filter(workout => {
+      const workoutDate = parseISO(workout.date);
+      return isWithinInterval(workoutDate, { start: prevMonthStart, end: prevMonthEnd });
+    });
+    
     const currentMonthDistance = currentMonthWorkouts.reduce(
       (sum, workout) => sum + workout.distance, 
       0
     );
     
-    // Estimate calories (very rough estimate: ~100 kcal per km for average runner)
-    const totalCalories = Math.round(totalDistance * 100);
+    const prevMonthDistance = prevMonthWorkouts.reduce(
+      (sum, workout) => sum + workout.distance, 
+      0
+    );
+    
+    // Calculate consistency streak (consecutive days with workouts)
+    // For simplicity, we'll just count recent consecutive days
+    let consistencyStreak = 0;
+    
+    if (sortedWorkouts.length > 0) {
+      // Sort by date (oldest first) for streak calculation
+      const chronologicalWorkouts = [...workouts].sort(
+        (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+      );
+      
+      // Get unique workout dates
+      const uniqueDates = new Set(chronologicalWorkouts.map(w => w.date));
+      const uniqueDateArray = Array.from(uniqueDates).map(date => new Date(date));
+      uniqueDateArray.sort((a, b) => a.getTime() - b.getTime());
+      
+      // Calculate longest streak
+      let currentStreak = 1;
+      let maxStreak = 1;
+      
+      for (let i = 1; i < uniqueDateArray.length; i++) {
+        const prevDate = uniqueDateArray[i-1];
+        const currDate = uniqueDateArray[i];
+        
+        const dayDiff = differenceInDays(currDate, prevDate);
+        
+        if (dayDiff === 1) {
+          // Consecutive day
+          currentStreak++;
+          maxStreak = Math.max(maxStreak, currentStreak);
+        } else if (dayDiff > 1) {
+          // Streak broken
+          currentStreak = 1;
+        }
+      }
+      
+      consistencyStreak = maxStreak;
+    }
 
     return {
       avgPace: calculateAveragePace(totalDistance, totalDuration),
@@ -117,10 +168,11 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ workouts }) => {
       mostRecentWorkout: mostRecentWorkout,
       currentMonthDistance: currentMonthDistance,
       currentMonthActivities: currentMonthWorkouts.length,
+      prevMonthDistance: prevMonthDistance,
       longestDistance: longestWorkout.distance,
       fastestPace: fastestPace,
       activityTypes: activityTypes,
-      totalCalories
+      consistencyStreak
     };
   }, [workouts, totalDistance, totalDuration]);
 
@@ -168,6 +220,24 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ workouts }) => {
     return typeMap[type] || type;
   };
 
+  // Calculate month-over-month progress percentage
+  const calculateMonthProgress = (): { percentage: number, isPositive: boolean } => {
+    if (stats.prevMonthDistance === 0) {
+      // Se não houver distância no mês anterior, consideramos 100% de progresso
+      return { percentage: 100, isPositive: true };
+    }
+    
+    const change = stats.currentMonthDistance - stats.prevMonthDistance;
+    const percentage = Math.round((change / stats.prevMonthDistance) * 100);
+    
+    return {
+      percentage: Math.abs(percentage), // Valor absoluto para exibição
+      isPositive: percentage >= 0 // Flag para saber se é positivo ou negativo
+    };
+  };
+
+  const monthProgress = calculateMonthProgress();
+
   return (
     <div className="space-y-6">
       <div>
@@ -205,12 +275,12 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ workouts }) => {
             </CardContent>
           </Card>
           
-          <Card className="bg-rose-500/5 border-rose-500/20">
+          <Card className="bg-green-500/5 border-green-500/20">
             <CardContent className="p-4 flex items-center gap-3">
-              <Flame className="h-8 w-8 text-rose-500" />
+              <Repeat className="h-8 w-8 text-green-500" />
               <div>
-                <p className="text-sm text-muted-foreground">Calorias Queimadas</p>
-                <p className="text-2xl font-bold">{stats.totalCalories.toLocaleString()} kcal</p>
+                <p className="text-sm text-muted-foreground">Sequência</p>
+                <p className="text-2xl font-bold">{stats.consistencyStreak} dias</p>
               </div>
             </CardContent>
           </Card>
@@ -277,8 +347,20 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ workouts }) => {
                   </div>
                   
                   <div className="bg-muted/30 p-3 rounded-lg">
-                    <p className="text-xs text-muted-foreground">Atividades do Mês</p>
-                    <p className="text-lg font-semibold">{stats.currentMonthActivities}</p>
+                    <div className="flex items-center justify-between mb-1">
+                      <p className="text-xs text-muted-foreground">Mês Anterior</p>
+                      {stats.prevMonthDistance > 0 && (
+                        <span className={`text-xs font-medium flex items-center ${monthProgress.isPositive ? 'text-green-500' : 'text-red-500'}`}>
+                          {monthProgress.isPositive ? (
+                            <TrendingUp className="h-3 w-3 mr-1" />
+                          ) : (
+                            <TrendingUp className="h-3 w-3 mr-1 rotate-180" />
+                          )}
+                          {monthProgress.isPositive ? '+' : '-'}{monthProgress.percentage}%
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-lg font-semibold">{stats.prevMonthDistance.toFixed(1)} km</p>
                   </div>
                 </div>
                 
