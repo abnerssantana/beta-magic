@@ -1,4 +1,3 @@
-// pages/api/auth/[...nextauth].ts
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
@@ -14,7 +13,21 @@ declare module 'next-auth' {
       email?: string | null;
       image?: string | null;
       role?: string | null;
+      stravaAccessToken?: string | null;
+      stravaRefreshToken?: string | null;
+      stravaTokenExpires?: number | null;
     };
+  }
+  
+  interface User {
+    id: string;
+    name?: string | null;
+    email?: string | null;
+    image?: string | null;
+    role?: string | null;
+    stravaAccessToken?: string | null;
+    stravaRefreshToken?: string | null; 
+    stravaTokenExpires?: number | null;
   }
 }
 
@@ -47,6 +60,36 @@ export const authOptions: NextAuthOptions = {
         };
       }
     }),
+    {
+      id: 'strava',
+      name: 'Strava',
+      type: 'oauth',
+      version: '2.0',
+      scope: 'read,activity:read_all',
+      params: { grant_type: 'authorization_code' },
+      accessTokenUrl: 'https://www.strava.com/oauth/token',
+      authorizationUrl: 'https://www.strava.com/oauth/authorize?response_type=code',
+      profileUrl: 'https://www.strava.com/api/v3/athlete',
+      clientId: process.env.STRAVA_CLIENT_ID,
+      clientSecret: process.env.STRAVA_CLIENT_SECRET,
+      profile(profile) {
+        return {
+          id: profile.id.toString(),
+          name: `${profile.firstname} ${profile.lastname}`,
+          email: profile.email,
+          image: profile.profile
+        };
+      },
+      async token(params) {
+        // Adiciona campos extras ao token para acessar o Strava depois
+        return {
+          ...params.token,
+          stravaAccessToken: params.account.access_token,
+          stravaRefreshToken: params.account.refresh_token,
+          stravaTokenExpires: params.account.expires_at
+        };
+      }
+    },
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
@@ -127,6 +170,13 @@ export const authOptions: NextAuthOptions = {
         // Define role baseado apenas no email, permitindo qualquer domínio
         token.role = isAdminEmail(user.email as string) ? 'admin' : 'user';
       }
+      
+      // Adiciona tokens do Strava quando disponíveis
+      if (account?.provider === 'strava') {
+        token.stravaAccessToken = account.access_token;
+        token.stravaRefreshToken = account.refresh_token;
+        token.stravaTokenExpires = account.expires_at;
+      }
 
       return token;
     },
@@ -139,6 +189,11 @@ export const authOptions: NextAuthOptions = {
         session.user.name = token.name as string;
         session.user.image = token.picture as string;
         session.user.role = token.role as string;
+        
+        // Adiciona tokens do Strava à sessão
+        session.user.stravaAccessToken = token.stravaAccessToken as string;
+        session.user.stravaRefreshToken = token.stravaRefreshToken as string;
+        session.user.stravaTokenExpires = token.stravaTokenExpires as number;
       }
 
       return session;

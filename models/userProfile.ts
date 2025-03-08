@@ -40,6 +40,12 @@ export interface UserProfile {
   lastActive: Date;
   createdAt: Date;
   updatedAt: Date;
+  // Strava-related fields
+  stravaAccountId?: string;
+  stravaAccessToken?: string;
+  stravaRefreshToken?: string;
+  stravaTokenExpires?: number;
+  lastStravaSync?: Date;
 }
 
 // Interface para um registro de treino
@@ -58,4 +64,10 @@ export interface WorkoutLog {
   source: 'manual' | 'strava' | 'garmin' | 'system';
   createdAt: Date;
   updatedAt: Date;
+  // Campos adicionais para atividades do Strava
+  stravaActivityId?: string;
+  elevationGain?: number;
+  averageHeartrate?: number;
+  maxHeartrate?: number;
+  averageCadence?: number;
 }
