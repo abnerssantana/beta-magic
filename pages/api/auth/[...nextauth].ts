@@ -64,12 +64,15 @@ export const authOptions: NextAuthOptions = {
       id: 'strava',
       name: 'Strava',
       type: 'oauth',
-      version: '2.0',
-      scope: 'read,activity:read_all',
-      params: { grant_type: 'authorization_code' },
-      accessTokenUrl: 'https://www.strava.com/oauth/token',
-      authorizationUrl: 'https://www.strava.com/oauth/authorize?response_type=code',
-      profileUrl: 'https://www.strava.com/api/v3/athlete',
+      authorization: {
+        url: 'https://www.strava.com/oauth/authorize',
+        params: {
+          scope: 'read,activity:read_all',
+          response_type: 'code'
+        }
+      },
+      token: 'https://www.strava.com/oauth/token',
+      userinfo: 'https://www.strava.com/api/v3/athlete',
       clientId: process.env.STRAVA_CLIENT_ID,
       clientSecret: process.env.STRAVA_CLIENT_SECRET,
       profile(profile) {
@@ -78,15 +81,6 @@ export const authOptions: NextAuthOptions = {
           name: `${profile.firstname} ${profile.lastname}`,
           email: profile.email,
           image: profile.profile
-        };
-      },
-      async token(params) {
-        // Adiciona campos extras ao token para acessar o Strava depois
-        return {
-          ...params.token,
-          stravaAccessToken: params.account.access_token,
-          stravaRefreshToken: params.account.refresh_token,
-          stravaTokenExpires: params.account.expires_at
         };
       }
     },

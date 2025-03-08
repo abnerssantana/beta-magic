@@ -5,10 +5,10 @@ import {
   BarChart2, 
   Clock, 
   Calendar, 
-  Trophy,
-  Award,
+  ChevronUp,
+  ChevronDown,
+  Minus,
   Zap,
-  TrendingUp,
   Timer,
   Ruler,
   Repeat
@@ -169,6 +169,7 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ workouts }) => {
       currentMonthDistance: currentMonthDistance,
       currentMonthActivities: currentMonthWorkouts.length,
       prevMonthDistance: prevMonthDistance,
+      prevMonthActivities: prevMonthWorkouts.length,
       longestDistance: longestWorkout.distance,
       fastestPace: fastestPace,
       activityTypes: activityTypes,
@@ -221,22 +222,15 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ workouts }) => {
   };
 
   // Calculate month-over-month progress percentage
-  const calculateMonthProgress = (): { percentage: number, isPositive: boolean } => {
-    if (stats.prevMonthDistance === 0) {
-      // Se não houver distância no mês anterior, consideramos 100% de progresso
-      return { percentage: 100, isPositive: true };
-    }
-    
+  const monthProgress = useMemo(() => {
+    if (stats.prevMonthDistance === 0) return 100;
     const change = stats.currentMonthDistance - stats.prevMonthDistance;
-    const percentage = Math.round((change / stats.prevMonthDistance) * 100);
-    
-    return {
-      percentage: Math.abs(percentage), // Valor absoluto para exibição
-      isPositive: percentage >= 0 // Flag para saber se é positivo ou negativo
-    };
-  };
+    return Math.round((change / stats.prevMonthDistance) * 100);
+  }, [stats.currentMonthDistance, stats.prevMonthDistance]);
 
-  const monthProgress = calculateMonthProgress();
+  // Determine the month names
+  const currentMonthName = format(new Date(), 'MMMM', { locale: ptBR });
+  const prevMonthName = format(subMonths(new Date(), 1), 'MMMM', { locale: ptBR });
 
   return (
     <div className="space-y-6">
@@ -335,32 +329,44 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ workouts }) => {
             <CardHeader className="pb-2">
               <CardTitle className="text-lg flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-emerald-500" />
-                Mês Atual
+                Comparação Mensal
               </CardTitle>
             </CardHeader>
             <CardContent className="p-4 pt-0">
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-muted/30 p-3 rounded-lg">
-                    <p className="text-xs text-muted-foreground">Distância do Mês</p>
+                    <div className="flex items-center justify-between mb-1">
+                      <p className="text-xs font-medium text-muted-foreground capitalize">{currentMonthName}</p>
+                      <div className="flex items-center">
+                        {monthProgress > 0 ? (
+                          <ChevronUp className="h-4 w-4 text-green-500" />
+                        ) : monthProgress < 0 ? (
+                          <ChevronDown className="h-4 w-4 text-red-500" />
+                        ) : (
+                          <Minus className="h-4 w-4 text-muted-foreground" />
+                        )}
+                        <span className={`text-xs ml-1 ${
+                          monthProgress > 0 ? 'text-green-500' : 
+                          monthProgress < 0 ? 'text-red-500' : 
+                          'text-muted-foreground'
+                        }`}>
+                          {monthProgress > 0 ? '+' : ''}{monthProgress}%
+                        </span>
+                      </div>
+                    </div>
                     <p className="text-lg font-semibold">{stats.currentMonthDistance.toFixed(1)} km</p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {stats.currentMonthActivities} atividades
+                    </p>
                   </div>
                   
                   <div className="bg-muted/30 p-3 rounded-lg">
-                    <div className="flex items-center justify-between mb-1">
-                      <p className="text-xs text-muted-foreground">Mês Anterior</p>
-                      {stats.prevMonthDistance > 0 && (
-                        <span className={`text-xs font-medium flex items-center ${monthProgress.isPositive ? 'text-green-500' : 'text-red-500'}`}>
-                          {monthProgress.isPositive ? (
-                            <TrendingUp className="h-3 w-3 mr-1" />
-                          ) : (
-                            <TrendingUp className="h-3 w-3 mr-1 rotate-180" />
-                          )}
-                          {monthProgress.isPositive ? '+' : '-'}{monthProgress.percentage}%
-                        </span>
-                      )}
-                    </div>
+                    <p className="text-xs font-medium text-muted-foreground mb-1 capitalize">{prevMonthName}</p>
                     <p className="text-lg font-semibold">{stats.prevMonthDistance.toFixed(1)} km</p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {stats.prevMonthActivities} atividades
+                    </p>
                   </div>
                 </div>
                 
