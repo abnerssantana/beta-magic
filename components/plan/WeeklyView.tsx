@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { format, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale/pt-BR';
@@ -51,42 +51,61 @@ const innerElementStyles = {
   completedActivityBox: "bg-green-500/10 dark:bg-green-500/10 ring-1 ring-green-500/20 dark:ring-green-500/20"
 };
 
-const getCompletedWorkoutsForDay = (date: string, activities: Activity[], completedWorkouts: WorkoutLog[], planPath: string, dayIndex: number): WorkoutLog[] => {
-  if (!completedWorkouts || !completedWorkouts.length) return [];
+/**
+ * Obter treinos concluídos para um determinado dia e conjunto de atividades
+ * @param date Data do dia no formato ISO (YYYY-MM-DD) ou formatada
+ * @param activities Lista de atividades do dia
+ * @param completedWorkouts Lista de todos os treinos concluídos
+ * @param planPath Caminho/identificador do plano
+ * @param dayIndex Índice do dia no plano
+ * @returns Lista de treinos concluídos que correspondem ao dia
+ */
+const getCompletedWorkoutsForDay = (
+  date: string, 
+  activities: ActivityType[], 
+  completedWorkouts: WorkoutLog[] = [], 
+  planPath?: string, 
+  dayIndex?: number
+): WorkoutLog[] => {
+  // Handle empty input cases
+  if (!completedWorkouts?.length || !activities?.length || !date) return [];
+
+  // Normalize date format for comparison (remove time part if present)
+  const dayDateStr = date.split('T')[0];
 
   return completedWorkouts.filter(workout => {
     try {
-      // 1. Verificar correspondência por índice do dia do plano
-      if (workout.planPath === planPath && workout.planDayIndex === dayIndex) {
-        return true; // Correspondência exata pelo índice do dia no plano
+      // 1. First priority: Check for exact plan day index match
+      if (planPath && dayIndex !== undefined && 
+          workout.planPath === planPath && 
+          workout.planDayIndex === dayIndex) {
+        return true;
       }
       
-      // 2. Senão, verificar correspondência por data
-      const workoutDateStr = workout.date.split('T')[0];
-      const dayDateStr = date.split('T')[0];
-      
-      if (workoutDateStr !== dayDateStr) {
-        return false; // Datas diferentes
+      // 2. Second priority: Check for date match
+      const workoutDateStr = workout.date?.split('T')[0];
+      if (!workoutDateStr || workoutDateStr !== dayDateStr) {
+        return false; // Dates don't match, skip this workout
       }
       
-      // 3. Se datas forem iguais, verificar se há atividades com tipos compatíveis
+      // 3. If dates match, check for activity type or distance compatibility
       return activities.some(activity => {
-        // Correspondência por tipo de atividade
+        // Match by activity type
         if (workout.activityType === activity.type) {
           return true;
         }
         
-        // Correspondência por distância aproximada (margem de 10%)
+        // Match by approximate distance (with 10% tolerance)
         const activityDistance = typeof activity.distance === 'number' ? activity.distance : 0;
-        if (activityDistance > 0) {
+        if (activityDistance > 0 && workout.distance) {
           const distanceRatio = Math.abs(workout.distance - activityDistance) / activityDistance;
-          return distanceRatio < 0.1; // 10% de tolerância
+          return distanceRatio < 0.1; // 10% tolerance
         }
         
         return false;
       });
     } catch (error) {
-      console.error("Erro ao comparar workouts:", error);
+      console.error("Error comparing workouts:", error, workout);
       return false;
     }
   });
@@ -97,6 +116,7 @@ const ActivityCard: React.FC<{
   activity: ActivityType;
   date: string;
   dayIndex: number;
+  planPath?: string;
   getActivityPace: (activity: ActivityType) => string;
   convertMinutesToHours: (minutes: number) => string;
   getPredictedRaceTime: (distance: number) => PredictedRaceTime | null;
@@ -107,6 +127,7 @@ const ActivityCard: React.FC<{
   activity, 
   date, 
   dayIndex,
+  planPath,
   getActivityPace, 
   convertMinutesToHours, 
   getPredictedRaceTime,
@@ -116,26 +137,23 @@ const ActivityCard: React.FC<{
 }) => {
   const hasWorkoutSeries = activity.workouts?.some(workout => workout.series);
   
-  // Encontrar o treino concluído correspondente a esta data e atividade
-  const completedWorkout = completedWorkouts.find(workout => {
-    // Verificar correspondência pela data, distância aproximada e tipo de atividade
-    const workoutDate = workout.date.split('T')[0];
-    const dateMatch = workoutDate === date.split('T')[0];
-    const distanceMatch = typeof activity.distance === 'number' ? 
-      Math.abs(parseFloat(workout.distance.toFixed(1)) - activity.distance) < 1 : false;
-    const typeMatch = workout.activityType === activity.type;
-    
-    return dateMatch && (distanceMatch || typeMatch);
-  });
+  // Encontrar o treino concluído correspondente a esta data e atividade usando a função melhorada
+  const matchingWorkouts = getCompletedWorkoutsForDay(
+    date, 
+    [activity], 
+    completedWorkouts, 
+    planPath, 
+    dayIndex
+  );
+  
+  const completedWorkout = matchingWorkouts.length > 0 ? matchingWorkouts[0] : undefined;
+  const isCompleted = !!completedWorkout;
 
   const handleLogClick = () => {
     if (onLogWorkout) {
       onLogWorkout(date, activity, dayIndex);
     }
   };
-
-  // Se a atividade já foi concluída, adicionar classe de concluído
-  const isCompleted = !!completedWorkout;
 
   // Formatar a duração para exibição
   const formatDuration = (minutes: number): string => {
@@ -181,7 +199,7 @@ const ActivityCard: React.FC<{
       </div>
 
       {/* Mostrar detalhes do treino concluído quando aplicável */}
-      {isCompleted && (
+      {isCompleted && completedWorkout && (
         <div className={cn("mt-3 p-3 rounded-md", innerElementStyles.completedActivityBox)}>
           <h4 className="text-sm font-medium mb-2 flex items-center">
             <CheckCircle2 className="mr-1.5 h-4 w-4 text-green-600 dark:text-green-400" />
@@ -325,7 +343,7 @@ const DayHeader: React.FC<{
 );
 
 // Componente principal WeeklyView
-export const WeeklyView: React.FC<WeeklyViewProps> = ({
+const WeeklyView: React.FC<WeeklyViewProps> = ({
   week,
   windex,
   todayRef,
@@ -336,6 +354,14 @@ export const WeeklyView: React.FC<WeeklyViewProps> = ({
   isAuthenticated,
   onLogWorkout,
 }) => {
+  // Extrair planPath dos workouts, se disponível
+  const planPath = useMemo(() => {
+    if (completedWorkouts && completedWorkouts.length > 0) {
+      return completedWorkouts.find(w => w.planPath)?.planPath;
+    }
+    return undefined;
+  }, [completedWorkouts]);
+
   // Usa o calculador otimizado para obter estatísticas semanais
   const { weeklyVolume, totalWorkouts } = calculateWeeklyStats(
     week.days,
@@ -396,6 +422,7 @@ export const WeeklyView: React.FC<WeeklyViewProps> = ({
                       activity={activity}
                       date={day.date}
                       dayIndex={dindex}
+                      planPath={planPath}
                       getActivityPace={getActivityPace}
                       convertMinutesToHours={convertMinutesToHours}
                       getPredictedRaceTime={getPredictedRaceTime}
