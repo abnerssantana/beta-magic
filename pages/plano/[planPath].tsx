@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { format, parseISO, addDays, subDays } from "date-fns";
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { useSession } from 'next-auth/react';
+import { format, parseISO, addDays, subDays, formatDistanceToNow } from "date-fns";
+import { ptBR } from "date-fns/locale/pt-BR";
+import { GetServerSideProps } from 'next';
+import { useSession, getSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import { calculateActivityPace } from '@/lib/activity-pace.utils';
 import {
   limitDescription,
@@ -22,7 +24,19 @@ import { PlanHeader } from '@/components/plan/PlanHeader';
 import { WeeklyBlock, Activity, PredictedRaceTime } from '@/types';
 import { getPlanByPath, getAllPlanPaths } from '@/lib/db-utils';
 import { PlanModel } from '@/models';
+import { getUserWorkouts } from '@/lib/user-utils';
+import { WorkoutLog } from '@/models/userProfile';
 import { getCombinedPaceSettings, getLocalPaceSettings, saveLocalPaceSettings } from '@/lib/pace-storage-utils';
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { 
+  BarChart2, 
+  Calendar, 
+  CheckCircle, 
+  Clock,
+  TrendingUp
+} from "lucide-react";
+import { toast } from 'sonner';
 
 // Carregamento dinâmico do componente WeeklyView
 const WeeklyView = dynamic(() => import('@/components/plan/WeeklyView'), {
@@ -35,6 +49,7 @@ const WeeklyView = dynamic(() => import('@/components/plan/WeeklyView'), {
 // Types
 interface PlanProps {
   plan: PlanModel;
+  completedWorkouts: WorkoutLog[];
 }
 
 interface LazyWeeklyBlockProps {
@@ -44,7 +59,189 @@ interface LazyWeeklyBlockProps {
   getActivityPace: (activity: Activity) => string;
   convertMinutesToHours: (minutes: number) => string;
   getPredictedRaceTime: (distance: number) => PredictedRaceTime | null;
+  completedWorkouts: WorkoutLog[];
+  isAuthenticated: boolean;
+  onLogWorkout: (date: string, activity: Activity, dayIndex: number) => void;
 }
+
+// Componente de Progresso do Plano
+const PlanProgress: React.FC<{
+  completedWorkouts: WorkoutLog[];
+  totalDays: number;
+  planPath: string;
+  startDate: string;
+}> = ({ 
+  completedWorkouts,
+  totalDays,
+  planPath,
+  startDate
+}) => {
+  // Calcular estatísticas do plano
+  const stats = useMemo(() => {
+    // Filtrar treinos deste plano
+    const planWorkouts = completedWorkouts.filter(w => w.planPath === planPath);
+    
+    // Total de treinos completados
+    const totalCompleted = planWorkouts.length;
+    
+    // Porcentagem de conclusão
+    const percentComplete = Math.min(Math.round((totalCompleted / totalDays) * 100), 100);
+    
+    // Distância total percorrida
+    const totalDistance = planWorkouts.reduce((sum, w) => sum + w.distance, 0);
+    
+    // Tempo total de treino
+    const totalDuration = planWorkouts.reduce((sum, w) => sum + w.duration, 0);
+    
+    // Formatar tempo total
+    let formattedDuration = '';
+    const hours = Math.floor(totalDuration / 60);
+    const minutes = Math.floor(totalDuration % 60);
+    
+    if (hours > 0) {
+      formattedDuration = `${hours}h${minutes > 0 ? ` ${minutes}min` : ''}`;
+    } else {
+      formattedDuration = `${minutes}min`;
+    }
+    
+    return {
+      totalCompleted,
+      percentComplete,
+      totalDistance: totalDistance.toFixed(1),
+      formattedDuration
+    };
+  }, [completedWorkouts, planPath, totalDays]);
+
+  // Se não houver treinos completados, não renderizar nada
+  if (stats.totalCompleted === 0) return null;
+
+  return (
+    <Card className="border-primary/10 mb-6">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-lg flex items-center gap-2">
+          <TrendingUp className="h-5 w-5 text-primary" />
+          Progresso do Plano
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="p-4">
+        <div className="space-y-4">
+          {/* Barra de progresso */}
+          <div className="space-y-2">
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">Treinos completados</span>
+              <span className="font-medium">{stats.totalCompleted} de {totalDays} ({stats.percentComplete}%)</span>
+            </div>
+            <Progress value={stats.percentComplete} className="h-2" />
+          </div>
+          
+          {/* Estatísticas */}
+          <div className="grid grid-cols-3 gap-4 pt-2">
+            <div className="space-y-1 text-center">
+              <div className="flex justify-center">
+                <CheckCircle className="h-5 w-5 text-green-500" />
+              </div>
+              <p className="text-xs text-muted-foreground">Treinos</p>
+              <p className="text-base font-medium">{stats.totalCompleted}</p>
+            </div>
+            
+            <div className="space-y-1 text-center">
+              <div className="flex justify-center">
+                <BarChart2 className="h-5 w-5 text-blue-500" />
+              </div>
+              <p className="text-xs text-muted-foreground">Distância</p>
+              <p className="text-base font-medium">{stats.totalDistance} km</p>
+            </div>
+            
+            <div className="space-y-1 text-center">
+              <div className="flex justify-center">
+                <Clock className="h-5 w-5 text-orange-500" />
+              </div>
+              <p className="text-xs text-muted-foreground">Tempo Total</p>
+              <p className="text-base font-medium">{stats.formattedDuration}</p>
+            </div>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+// Componente para indicador de treino concluído
+const CompletedWorkoutIndicator: React.FC<{
+  date: string;
+  activity: Activity;
+  completedWorkout?: WorkoutLog;
+  isAuthorized: boolean;
+}> = ({
+  date,
+  activity,
+  completedWorkout,
+  isAuthorized
+}) => {
+  if (!isAuthorized) return null;
+  
+  // Verifica se há um treino correspondente concluído
+  const isCompleted = !!completedWorkout;
+  
+  // Formata a distância para exibição
+  const formatDistance = (distance: number): string => {
+    return `${distance.toFixed(1)} km`;
+  };
+  
+  // Formata a duração para exibição
+  const formatDuration = (minutes: number): string => {
+    const hours = Math.floor(minutes / 60);
+    const mins = Math.floor(minutes % 60);
+    
+    return hours > 0 
+      ? `${hours}h${mins.toString().padStart(2, '0')}`
+      : `${mins} min`;
+  };
+
+  return (
+    <div className="flex items-center ml-auto">
+      {isCompleted ? (
+        <div className="tooltip-container group">
+          <CheckCircle className="h-5 w-5 text-green-500 cursor-help" />
+          <div className="absolute hidden group-hover:block bg-black/90 dark:bg-white/90 text-white dark:text-black p-2 rounded-md shadow-lg right-0 mt-1 w-48 z-10">
+            <div className="text-sm">
+              <p className="font-medium">{completedWorkout.title}</p>
+              <div className="flex gap-2 text-xs mt-1">
+                <span>{formatDistance(completedWorkout.distance)}</span>
+                <span>•</span>
+                <span>{formatDuration(completedWorkout.duration)}</span>
+                {completedWorkout.pace && (
+                  <>
+                    <span>•</span>
+                    <span>{completedWorkout.pace}</span>
+                  </>
+                )}
+              </div>
+              <p className="text-xs opacity-75 mt-1">
+                {formatDistanceToNow(new Date(completedWorkout.date), { 
+                  addSuffix: true,
+                  locale: ptBR 
+                })}
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="tooltip-container group">
+          <Clock className="h-5 w-5 text-gray-300 dark:text-gray-600 cursor-help" />
+          <div className="absolute hidden group-hover:block bg-black/90 dark:bg-white/90 text-white dark:text-black p-2 rounded-md shadow-lg right-0 mt-1 w-48 z-10">
+            <div className="text-sm">
+              <p>Treino não realizado</p>
+              <p className="text-xs opacity-75 mt-1">
+                Registre este treino após concluí-lo
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const processCustomPaces = (rawPaces: Record<string, string>) => {
   // Certifique-se de que temos um objeto válido
@@ -84,7 +281,10 @@ const LazyWeeklyBlock: React.FC<LazyWeeklyBlockProps> = ({
   todayRef,
   getActivityPace,
   convertMinutesToHours,
-  getPredictedRaceTime
+  getPredictedRaceTime,
+  completedWorkouts,
+  isAuthenticated,
+  onLogWorkout
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const blockRef = useRef<HTMLDivElement>(null);
@@ -128,15 +328,19 @@ const LazyWeeklyBlock: React.FC<LazyWeeklyBlockProps> = ({
       getActivityPace={getActivityPace}
       convertMinutesToHours={convertMinutesToHours}
       getPredictedRaceTime={getPredictedRaceTime}
+      completedWorkouts={completedWorkouts}
+      isAuthenticated={isAuthenticated}
+      onLogWorkout={onLogWorkout}
     />
   );
 };
 
 // Main Component
-const Plan: React.FC<PlanProps> = ({ plan }) => {
+const Plan: React.FC<PlanProps> = ({ plan, completedWorkouts = [] }) => {
   // Auth session para verificar se usuário está logado
   const { data: session, status } = useSession();
   const isAuthenticated = status === 'authenticated';
+  const router = useRouter();
 
   // State
   const [startDate, setStartDate] = useState<string>("");
@@ -261,6 +465,23 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
   const getPredictedRaceTime = useMemo(() => {
     return getPredictedRaceTimeFactory(params);
   }, [params]);
+
+  // Função para lidar com registro de treino
+  const handleLogWorkout = useCallback((date: string, activity: Activity, dayIndex: number) => {
+    // Redirecionar para a página de log com parâmetros pré-preenchidos
+    router.push({
+      pathname: '/dashboard/log',
+      query: {
+        date: date.split('T')[0],
+        planPath: plan.path,
+        planDayIndex: dayIndex,
+        activityType: activity.type,
+        distance: activity.distance,
+        units: activity.units, // Adicionando a unidade do treino
+        title: activity.note || getTitleFromActivityType(activity.type)
+      }
+    });
+  }, [router, plan.path]);
 
   // Atualizar parâmetros quando tempo/distância mudar
   useEffect(() => {
@@ -471,6 +692,16 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
                 isAuthenticated={isAuthenticated}
               />
 
+              {/* Componente de progresso do plano */}
+              {isAuthenticated && completedWorkouts.length > 0 && (
+                <PlanProgress
+                  completedWorkouts={completedWorkouts}
+                  totalDays={plan.dailyWorkouts.length}
+                  planPath={plan.path}
+                  startDate={startDate}
+                />
+              )}
+
               {isLoading || (!weeklyBlocks.length && startDate) ? (
                 // Mostrar múltiplos esqueletos durante o carregamento
                 <div className="space-y-4">
@@ -492,6 +723,9 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
                       getActivityPace={getActivityPace}
                       convertMinutesToHours={convertMinutesToHours}
                       getPredictedRaceTime={getPredictedRaceTime}
+                      completedWorkouts={completedWorkouts}
+                      isAuthenticated={isAuthenticated}
+                      onLogWorkout={handleLogWorkout}
                     />
                   ))}
                 </div>
@@ -504,44 +738,51 @@ const Plan: React.FC<PlanProps> = ({ plan }) => {
   );
 };
 
-// Static Site Generation
-export const getStaticPaths: GetStaticPaths = async () => {
-  try {
-    // Buscar os planos com dados resumidos para gerar os paths
-    const planPaths = await getAllPlanPaths();
+// Helper function para obter título baseado no tipo de atividade
+function getTitleFromActivityType(type: string): string {
+  const titles: Record<string, string> = {
+    'easy': 'Corrida Fácil',
+    'recovery': 'Corrida de Recuperação',
+    'threshold': 'Treino de Limiar',
+    'interval': 'Treino Intervalado',
+    'repetition': 'Treino de Repetições',
+    'long': 'Corrida Longa',
+    'marathon': 'Ritmo de Maratona',
+    'race': 'Simulação de Corrida',
+    'offday': 'Dia de Descanso',
+    'walk': 'Caminhada'
+  };
 
-    const paths = planPaths.map((path) => ({
-      params: { planPath: path },
-    }));
+  return titles[type] || 'Treino';
+}
 
-    return {
-      paths,
-      fallback: 'blocking' // Permite gerar páginas sob demanda se não existirem no build
-    };
-  } catch (error) {
-    console.error('Erro ao gerar paths para planos:', error);
-    return { paths: [], fallback: 'blocking' };
-  }
-};
-
-export const getStaticProps: GetStaticProps<PlanProps> = async ({ params }) => {
+// Changed from getStaticPaths/getStaticProps to getServerSideProps
+export const getServerSideProps: GetServerSideProps<PlanProps> = async (context) => {
+  const session = await getSession(context);
+  const { planPath } = context.params as { planPath: string };
+  
   try {
     // Aqui precisamos do plano completo com dailyWorkouts
-    const plan = await getPlanByPath(params?.planPath as string, { fields: 'full' });
+    const plan = await getPlanByPath(planPath, { fields: 'full' });
 
     if (!plan || !plan.nivel || !["iniciante", "intermediário", "avançado", "elite"].includes(plan.nivel)) {
       return { notFound: true };
     }
 
+    // Se o usuário estiver autenticado, buscar treinos completados
+    let completedWorkouts: WorkoutLog[] = [];
+    if (session?.user?.id) {
+      completedWorkouts = await getUserWorkouts(session.user.id);
+    }
+
     return {
       props: {
-        plan: JSON.parse(JSON.stringify(plan))
-      },
-      // Uma semana em segundos - tempo razoável para revalidação
-      revalidate: 604800
+        plan: JSON.parse(JSON.stringify(plan)),
+        completedWorkouts: JSON.parse(JSON.stringify(completedWorkouts || []))
+      }
     };
   } catch (error) {
-    console.error(`Erro ao buscar plano ${params?.planPath}:`, error);
+    console.error(`Erro ao buscar plano ${planPath}:`, error);
     return { notFound: true };
   }
 };

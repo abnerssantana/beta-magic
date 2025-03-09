@@ -27,7 +27,6 @@ import EnhancedActivePlanCard from "@/components/dashboard/ActivePlanCard";
 import TodayWorkout from "@/components/dashboard/TodayWorkout";
 import RecentActivities from "@/components/dashboard/RecentActivities";
 import ProgressTab from "@/components/dashboard/ProgressTab";
-import TrainingCalendar from "@/components/dashboard/TrainingCalendar";
 import StravaConnect from "@/components/dashboard/StravaConnect";
 
 interface DashboardProps {
@@ -47,10 +46,8 @@ interface DashboardProps {
 
 const Dashboard: React.FC<DashboardProps> = ({
   activePlan,
-  fullPlan,
   todayWorkout,
   weekProgress,
-  userSummary,
   completedWorkouts,
   startDate
 }) => {
@@ -76,9 +73,6 @@ const Dashboard: React.FC<DashboardProps> = ({
       console.error('Error updating workouts after Strava import:', error);
     }
   };
-
-  // Extrair os workouts diários para o calendário
-  const planWorkouts = fullPlan?.dailyWorkouts || null;
 
   return (
     <Layout>
@@ -135,26 +129,12 @@ const Dashboard: React.FC<DashboardProps> = ({
               todayWorkout={todayWorkout}
               currentDate={currentDate}
             />
-
-            {/* Grid com 2 colunas no desktop para ActivePlanCard e StravaConnect */}
-
             <EnhancedActivePlanCard
               activePlan={activePlan}
               weekProgress={weekProgress}
               startDate={startDate}
               isAuthenticated={!!session}
             />
-
-            {/* Nova posição para o TrainingCalendar no grid */}
-            {activePlan && (
-              <TrainingCalendar
-                activePlan={activePlan}
-                planWorkouts={planWorkouts}
-                completedWorkouts={localCompletedWorkouts}
-                weekProgress={weekProgress}
-              />
-            )}
-
             {/* Registro de Atividades Recentes */}
             <RecentActivities completedWorkouts={localCompletedWorkouts} />
 
@@ -196,7 +176,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     // Buscar o plano completo com workouts se existir um plano ativo
     let fullPlan = null;
     let todayWorkout = null;
-    let startDate = null; // Variável separada para startDate
+    let startDate = null;
 
     if (activePlan) {
       fullPlan = await getPlanByPath(activePlan.path);

@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import { Calendar, Clock, Youtube, CheckCircle2, CalendarClock } from 'lucide-react';
+import { format, parseISO } from 'date-fns';
+import { ptBR } from 'date-fns/locale/pt-BR';
+import { Calendar, Clock, Youtube, CheckCircle2, CalendarClock, Play } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -8,6 +10,7 @@ import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { Activity, WeeklyBlock, PredictedRaceTime } from '@/types/training';
 import { calculateWeeklyStats } from '@/lib/volume-calculator';
+import { WorkoutLog } from '@/models/userProfile';
 
 interface WeeklyViewProps {
   week: WeeklyBlock;
@@ -16,6 +19,9 @@ interface WeeklyViewProps {
   getActivityPace: (activity: Activity) => string;
   convertMinutesToHours: (minutes: number) => string;
   getPredictedRaceTime: (distance: number) => PredictedRaceTime | null;
+  completedWorkouts?: WorkoutLog[];
+  isAuthenticated: boolean;
+  onLogWorkout?: (date: string, activity: Activity, dayIndex: number) => void;
 }
 
 // Estilos para diferentes tipos de atividades
@@ -44,25 +50,104 @@ const innerElementStyles = {
   videoButton: "bg-red-500/80 hover:bg-red-500/60 text-white ring-1 ring-red-400/10 dark:ring-red-400/20"
 };
 
-// Componente de cartão de atividade
+// Componente de cartão de atividade com indicador de conclusão
 const ActivityCard: React.FC<{
   activity: Activity;
+  date: string;
+  dayIndex: number;
   getActivityPace: (activity: Activity) => string;
   convertMinutesToHours: (minutes: number) => string;
   getPredictedRaceTime: (distance: number) => PredictedRaceTime | null;
-}> = ({ activity, getActivityPace, convertMinutesToHours, getPredictedRaceTime }) => {
+  completedWorkouts?: WorkoutLog[];
+  isAuthenticated: boolean;
+  onLogWorkout?: (date: string, activity: Activity, dayIndex: number) => void;
+}> = ({ 
+  activity, 
+  date, 
+  dayIndex,
+  getActivityPace, 
+  convertMinutesToHours, 
+  getPredictedRaceTime,
+  completedWorkouts = [],
+  isAuthenticated,
+  onLogWorkout
+}) => {
   const hasWorkoutSeries = activity.workouts?.some(workout => workout.series);
+  
+  // Encontrar o treino concluído correspondente a esta data e atividade
+  const completedWorkout = completedWorkouts.find(workout => {
+    // Verificar correspondência pela data, distância aproximada e tipo de atividade
+    const workoutDate = workout.date.split('T')[0];
+    const dateMatch = workoutDate === date.split('T')[0];
+    const distanceMatch = typeof activity.distance === 'number' ? 
+      Math.abs(parseFloat(workout.distance.toFixed(1)) - activity.distance) < 1 : false;
+    const typeMatch = workout.activityType === activity.type;
+    
+    return dateMatch && (distanceMatch || typeMatch);
+  });
+
+  const handleLogClick = () => {
+    if (onLogWorkout) {
+      onLogWorkout(date, activity, dayIndex);
+    }
+  };
+
+  // Se a atividade já foi concluída, adicionar classe de concluído
+  const isCompleted = !!completedWorkout;
 
   return (
     <div className={cn(
-      "p-4 rounded-lg transition-all duration-200",
-      activityStyles[activity.type] || activityStyles.regular
+      "p-4 rounded-lg transition-all duration-200 relative",
+      activityStyles[activity.type] || activityStyles.regular,
+      isCompleted ? "ring-2 ring-green-500 dark:ring-green-400" : ""
     )}>
-      {/* Header */}
+      {/* Header com indicador de conclusão */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="text-sm font-semibold">{activity.note}</span>
         </div>
+        
+        {/* Indicador de treino concluído */}
+        {isAuthenticated && (
+          <div className="flex items-center ml-auto">
+            {isCompleted ? (
+              <div className="tooltip-container group">
+                <CheckCircle2 className="h-5 w-5 text-green-500 cursor-help" />
+                <div className="absolute hidden group-hover:block bg-black/90 dark:bg-white/90 text-white dark:text-black p-2 rounded-md shadow-lg right-0 mt-1 w-48 z-10">
+                  <div className="text-sm">
+                    <p className="font-medium">{completedWorkout.title}</p>
+                    <div className="flex gap-2 text-xs mt-1">
+                      <span>{completedWorkout.distance.toFixed(1)} km</span>
+                      <span>•</span>
+                      <span>{formatDuration(completedWorkout.duration)}</span>
+                      {completedWorkout.pace && (
+                        <>
+                          <span>•</span>
+                          <span>{completedWorkout.pace}</span>
+                        </>
+                      )}
+                    </div>
+                    <p className="text-xs opacity-75 mt-1">
+                      {format(parseISO(completedWorkout.date), "dd/MM/yyyy", { locale: ptBR })}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="tooltip-container group">
+                <Clock className="h-5 w-5 text-gray-300 dark:text-gray-600 cursor-help" />
+                <div className="absolute hidden group-hover:block bg-black/90 dark:bg-white/90 text-white dark:text-black p-2 rounded-md shadow-lg right-0 mt-1 w-48 z-10">
+                  <div className="text-sm">
+                    <p>Treino não realizado</p>
+                    <p className="text-xs opacity-75 mt-1">
+                      Registre este treino após concluí-lo
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Main info */}
@@ -134,9 +219,34 @@ const ActivityCard: React.FC<{
           )}
         </div>
       ))}
+
+      {/* Botão de registrar treino (mostrado apenas para usuários autenticados e treinos não realizados) */}
+      {isAuthenticated && !isCompleted && (
+        <div className="mt-3">
+          <Button 
+            size="sm" 
+            variant="outline" 
+            className="w-full bg-white/30 dark:bg-black/20 hover:bg-white/50 dark:hover:bg-black/30"
+            onClick={handleLogClick}
+          >
+            <Play className="mr-1.5 h-3.5 w-3.5" />
+            Registrar Treino
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
+
+// Função auxiliar para formatar duração
+function formatDuration(minutes: number): string {
+  const hours = Math.floor(minutes / 60);
+  const mins = Math.floor(minutes % 60);
+  
+  return hours > 0 
+    ? `${hours}h${mins.toString().padStart(2, '0')}`
+    : `${mins}min`;
+}
 
 // Cabeçalho do dia
 const DayHeader: React.FC<{
@@ -173,6 +283,9 @@ export const WeeklyView: React.FC<WeeklyViewProps> = ({
   getActivityPace,
   convertMinutesToHours,
   getPredictedRaceTime,
+  completedWorkouts = [],
+  isAuthenticated,
+  onLogWorkout,
 }) => {
   // Usa o calculador otimizado para obter estatísticas semanais
   const { weeklyVolume, totalWorkouts } = calculateWeeklyStats(
@@ -232,9 +345,14 @@ export const WeeklyView: React.FC<WeeklyViewProps> = ({
                     <ActivityCard
                       key={aindex}
                       activity={activity}
+                      date={day.date}
+                      dayIndex={dindex}
                       getActivityPace={getActivityPace}
                       convertMinutesToHours={convertMinutesToHours}
                       getPredictedRaceTime={getPredictedRaceTime}
+                      completedWorkouts={completedWorkouts}
+                      isAuthenticated={isAuthenticated}
+                      onLogWorkout={onLogWorkout}
                     />
                   ))}
                 </div>
