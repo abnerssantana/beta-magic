@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Layout } from "@/components/layout";
@@ -23,7 +22,6 @@ import {
   Settings,
   ChevronRight,
   Filter,
-  CheckCircle2,
   Star
 } from "lucide-react";
 import RecommendedPlans from "@/components/dashboard/RecommendedPlans";
@@ -34,7 +32,7 @@ interface PlansPageProps {
   activePlan: PlanSummary | null;
   savedPlans: PlanSummary[];
   recommendedPlans: PlanSummary[];
-  userLevel?: string;
+  userLevel: string | null; // Alterado para aceitar null explicitamente
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -64,7 +62,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
 
     // Determinar nível do usuário (para UI)
-    let userLevel;
+    let userLevel = null;
     try {
       const client = await import('@/lib/mongodb').then(mod => mod.default);
       const db = (await client).db('magic-training');
@@ -75,6 +73,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       }
     } catch (error) {
       console.error("Erro ao buscar nível do usuário:", error);
+      // userLevel continua como null
     }
 
     return {
@@ -82,7 +81,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         activePlan: activePlan ? JSON.parse(JSON.stringify(activePlan)) : null,
         savedPlans: JSON.parse(JSON.stringify(savedPlans)),
         recommendedPlans: JSON.parse(JSON.stringify(recommendedPlans)),
-        userLevel: userLevel || undefined
+        userLevel // Agora é null se não for definido, permitindo serialização
       },
     };
   } catch (error) {
@@ -92,7 +91,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         activePlan: null,
         savedPlans: [],
         recommendedPlans: [],
-        userLevel: undefined
+        userLevel: null // Explicitamente null em vez de undefined
       },
     };
   }
@@ -348,8 +347,6 @@ const UserPlansPage: React.FC<PlansPageProps> = ({
                 activatingPlanId={activatingPlanId}
                 savedPlanPaths={savedPlans.map(plan => plan.path)}
               />
-
-
             </div>
           </TabsContent>
         </Tabs>

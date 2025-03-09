@@ -1,7 +1,5 @@
-// components/dashboard/RecommendedPlans.tsx
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -11,7 +9,7 @@ import { Compass, Target, User2, Calendar, Activity, ChevronRight, Play, Bookmar
 
 interface RecommendedPlansProps {
   plans: PlanSummary[];
-  userLevel?: string;
+  userLevel?: string | null; // Atualizado para aceitar string | null
   onSavePlan?: (planPath: string, save: boolean) => Promise<void>;
   onActivatePlan?: (planPath: string) => Promise<void>;
   isSaving?: boolean;
@@ -34,12 +32,6 @@ const RecommendedPlans: React.FC<RecommendedPlansProps> = ({
   if (!plans || plans.length === 0) {
     return (
       <Card>
-        <CardHeader className="pb-2">
-          <CardTitle className="text-sm flex items-center gap-2">
-            <Target className="h-4 w-4 text-primary" />
-            Planos Recomendados
-          </CardTitle>
-        </CardHeader>
         <CardContent className="p-4 text-center">
           <Compass className="h-12 w-12 text-muted-foreground mx-auto mb-3" />
           <p className="text-sm font-medium mb-2">Encontre seu plano ideal</p>

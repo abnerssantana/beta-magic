@@ -12,11 +12,12 @@ import {
   Calendar,
   Flag
 } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
 import { PlanSummary } from '@/models';
 
 interface EnhancedActivePlanCardProps {
@@ -46,22 +47,22 @@ export const EnhancedActivePlanCard: React.FC<EnhancedActivePlanCardProps> = ({
   if (!activePlan) {
     return (
       <Card className="overflow-hidden border-border/50">
-        <CardHeader>
+        <CardHeader className="bg-muted/20 p-2">
           <CardTitle className="text-sm">Plano de Treino Ativo</CardTitle>
         </CardHeader>
-        <CardContent className="p-4">
-          <div className="flex flex-col items-center justify-center py-4 text-center">
-            <div className="rounded-full bg-muted p-2 mb-3">
-              <Calendar className="h-5 w-5 text-muted-foreground" />
+        <CardContent className="p-3">
+          <div className="flex flex-col items-center justify-center py-2 text-center">
+            <div className="rounded-full bg-muted p-2 mb-2">
+              <Calendar className="h-4 w-4 text-muted-foreground" />
             </div>
-            <h3 className="text-base font-medium mb-2">Nenhum plano ativo</h3>
-            <p className="text-xs text-muted-foreground max-w-md mb-3">
+            <h3 className="text-sm font-medium mb-1">Nenhum plano ativo</h3>
+            <p className="text-xs text-muted-foreground max-w-md mb-2">
               Selecione um plano para começar a acompanhar seu progresso.
             </p>
-            <Button asChild size="sm" className="h-8 text-xs">
+            <Button asChild size="sm" className="h-7 text-xs">
               <Link href="/dashboard/plans">
-                Escolher um Plano
-                <ChevronRight className="ml-1.5 h-3.5 w-3.5" />
+                Escolher Plano
+                <ChevronRight className="ml-1 h-3 w-3" />
               </Link>
             </Button>
           </div>
@@ -97,129 +98,103 @@ export const EnhancedActivePlanCard: React.FC<EnhancedActivePlanCardProps> = ({
   const planProgress = Math.min(Math.round((daysCompleted / durationInDays) * 100), 100);
   
   // Formatar datas para exibição
-  const formattedStartDate = format(planStartDate, "dd 'de' MMMM", { locale: ptBR });
-  const formattedEndDate = format(endDate, "dd 'de' MMMM", { locale: ptBR });
+  const formattedStartDate = format(planStartDate, "dd 'de' MMM", { locale: ptBR });
+  const formattedEndDate = format(endDate, "dd 'de' MMM", { locale: ptBR });
 
   return (
     <Card className="overflow-hidden border-primary/10">
-      <CardHeader className="pb-3">
-        <div className="flex items-center justify-between">
-          <CardTitle className="text-xl font-bold text-foreground/90">{activePlan.name}</CardTitle>
+      <CardContent className="p-3 space-y-3">
+        {/* Título e Informações básicas */}
+        <div className="flex justify-between items-start">
+          <Link href={`/plano/${activePlan.path}`} className="hover:text-primary transition-colors">
+            <h3 className="text-sm font-medium line-clamp-1">{activePlan.name}</h3>
+          </Link>
           {activePlan.isNew && (
-            <Badge variant="destructive" className="text-xs">Novo</Badge>
+            <Badge variant="destructive" className="text-xs h-5 py-0">Novo</Badge>
           )}
         </div>
-      </CardHeader>
-      
-      <CardContent className="p-4 space-y-4">
-        {/* Informações do plano e progresso */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Coluna de informações */}
-          <div className="space-y-3">
-            <div className="flex flex-wrap gap-3 text-sm">
-              <Link
-                href={`/treinadores/${trainerSlug}`}
-                className="flex items-center text-primary/80 hover:text-primary transition-colors"
-              >
-                <User2 className="mr-1.5 h-4 w-4" />
-                {activePlan.coach}
-              </Link>
-              <div className="flex items-center text-muted-foreground/90">
-                <TrendingUp className="mr-1.5 h-4 w-4" />
-                {activePlan.nivel}
-              </div>
-              <div className="flex items-center text-muted-foreground/90">
-                <Calendar className="mr-1.5 h-4 w-4" />
-                {activePlan.duration}
-              </div>
-              <div className="flex items-center text-muted-foreground/90">
-                <BarChart2 className="mr-1.5 h-4 w-4" />
-                {activePlan.volume} km/sem
-              </div>
-            </div>
-            
-            <Separator className="my-2" />
-            
-            {/* Período do plano */}
-            <div className="grid grid-cols-2 gap-4 pt-1">
-              <div className="space-y-1">
-                <div className="flex items-center text-xs text-muted-foreground">
-                  <Calendar className="mr-1 h-3 w-3" />
-                  <span>Início</span>
-                </div>
-                <p className="text-sm font-medium">{formattedStartDate}</p>
-              </div>
-              
-              <div className="space-y-1">
-                <div className="flex items-center text-xs text-muted-foreground">
-                  <Flag className="mr-1 h-3 w-3" />
-                  <span>Término</span>
-                </div>
-                <p className="text-sm font-medium">{formattedEndDate}</p>
-              </div>
-            </div>
+
+        {/* Informações do plano */}
+        <div className="grid grid-cols-2 gap-2">
+          <div className="flex items-start gap-1 text-xs text-muted-foreground">
+            <User2 className="h-3.5 w-3.5 mt-0.5" />
+            <span className="line-clamp-1">{activePlan.coach}</span>
           </div>
-          
-          {/* Coluna de progresso */}
-          <div className="space-y-4 flex flex-col justify-between">
-            {/* Progresso no plano */}
-            <div className="space-y-2">
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium">Progresso do plano</span>
-                <Badge variant="outline" className="font-mono text-xs">
-                  {daysCompleted} / {durationInDays} dias
-                </Badge>
-              </div>
-              <Progress value={planProgress} className="h-2" />
-              <p className="text-xs text-muted-foreground text-right">
-                {daysRemaining} dias restantes
-              </p>
+          <div className="flex items-start gap-1 text-xs text-muted-foreground">
+            <TrendingUp className="h-3.5 w-3.5 mt-0.5" />
+            <span className="line-clamp-1">{activePlan.nivel}</span>
+          </div>
+          <div className="flex items-start gap-1 text-xs text-muted-foreground">
+            <Calendar className="h-3.5 w-3.5 mt-0.5" />
+            <span className="line-clamp-1">{activePlan.duration}</span>
+          </div>
+          <div className="flex items-start gap-1 text-xs text-muted-foreground">
+            <BarChart2 className="h-3.5 w-3.5 mt-0.5" />
+            <span className="line-clamp-1">{activePlan.volume} km/sem</span>
+          </div>
+        </div>
+        
+        <Separator className="my-1" />
+        
+        {/* Progresso do plano */}
+        <div className="space-y-2">
+          <div className="flex justify-between items-center text-xs">
+            <span className="text-muted-foreground">Progresso do plano</span>
+            <Badge variant="outline" className="font-mono text-xs h-4 py-0 px-1">
+              {daysCompleted} / {durationInDays} dias
+            </Badge>
+          </div>
+          <Progress value={planProgress} className="h-1.5" />
+          <div className="flex justify-between text-xs">
+            <div className="flex items-center gap-1 text-muted-foreground">
+              <Calendar className="h-3 w-3" />
+              <span>Início: {formattedStartDate}</span>
+            </div>
+            <div className="flex items-center gap-1 text-muted-foreground">
+              <Flag className="h-3 w-3" />
+              <span>Término: {formattedEndDate}</span>
             </div>
           </div>
         </div>
-      </CardContent>
-      
-      <CardFooter className="p-4 pt-0 flex flex-wrap gap-2 justify-between">
-        <Button 
-          variant="outline" 
-          size="sm" 
-          asChild 
-          className="h-9 border-primary/20 hover:bg-primary/5"
-        >
-          <Link href={`/dashboard/plans/${activePlan.path}/ritmos`}>
-            <Settings className="mr-1.5 h-4 w-4" />
-            Configurar Ritmos
-            {!isAuthenticated && (
-              <span className="ml-1 text-xs text-muted-foreground">(local)</span>
-            )}
-          </Link>
-        </Button>
         
-        <div className="flex gap-2">
+        {/* Progresso semanal */}
+        <div className="space-y-1">
+          <div className="flex justify-between text-xs">
+            <span className="text-muted-foreground">Progresso semanal</span>
+            <span className="font-medium">{weekProgress}%</span>
+          </div>
+          <Progress value={weekProgress} className="h-1.5" />
+        </div>
+        
+        {/* Botões de ação */}
+        <div className="flex items-center gap-2">
           <Button 
             variant="outline" 
             size="sm" 
             asChild 
-            className="h-9"
+            className="h-7 text-xs border-primary/20 hover:bg-primary/5"
           >
-            <Link href="/dashboard/log">
-              <PlayCircle className="mr-1.5 h-4 w-4" />
-              Registrar Treino
+            <Link href={`/dashboard/plans/${activePlan.path}/ritmos`}>
+              <Settings className="mr-1 h-3 w-3" />
+              Ritmos
+              {!isAuthenticated && (
+                <span className="ml-1 text-xxs text-muted-foreground">(local)</span>
+              )}
             </Link>
           </Button>
           
           <Button 
             size="sm" 
             asChild 
-            className="h-9"
+            className="h-7 text-xs"
           >
             <Link href={`/plano/${activePlan.path}`}>
               Ver Plano
-              <ChevronRight className="ml-1.5 h-4 w-4" />
+              <ChevronRight className="ml-1 h-3 w-3" />
             </Link>
           </Button>
         </div>
-      </CardFooter>
+      </CardContent>
     </Card>
   );
 };
