@@ -2,13 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import { format, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale/pt-BR';
-import { Calendar, Clock, Youtube, CheckCircle2, CalendarClock, Play } from 'lucide-react';
+import { Calendar, Clock, Youtube, CheckCircle2, CalendarClock, Play, Activity, ExternalLink, Ruler, BarChart2 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { Activity, WeeklyBlock, PredictedRaceTime } from '@/types/training';
+import { Activity as ActivityType, WeeklyBlock, PredictedRaceTime } from '@/types/training';
 import { calculateWeeklyStats } from '@/lib/volume-calculator';
 import { WorkoutLog } from '@/models/userProfile';
 
@@ -16,12 +16,12 @@ interface WeeklyViewProps {
   week: WeeklyBlock;
   windex: number;
   todayRef: React.RefObject<HTMLDivElement>;
-  getActivityPace: (activity: Activity) => string;
+  getActivityPace: (activity: ActivityType) => string;
   convertMinutesToHours: (minutes: number) => string;
   getPredictedRaceTime: (distance: number) => PredictedRaceTime | null;
   completedWorkouts?: WorkoutLog[];
   isAuthenticated: boolean;
-  onLogWorkout?: (date: string, activity: Activity, dayIndex: number) => void;
+  onLogWorkout?: (date: string, activity: ActivityType, dayIndex: number) => void;
 }
 
 // Estilos para diferentes tipos de atividades
@@ -47,20 +47,21 @@ const activityStyles: Record<string, string> = {
 const innerElementStyles = {
   seriesBox: "bg-black/5 dark:bg-white/5 ring-1 ring-black/10 dark:ring-white/10",
   predictionBox: "bg-black/5 dark:bg-white/5 ring-1 ring-black/10 dark:ring-white/10",
-  videoButton: "bg-red-500/80 hover:bg-red-500/60 text-white ring-1 ring-red-400/10 dark:ring-red-400/20"
+  videoButton: "bg-red-500/80 hover:bg-red-500/60 text-white ring-1 ring-red-400/10 dark:ring-red-400/20",
+  completedActivityBox: "bg-green-500/10 dark:bg-green-500/10 ring-1 ring-green-500/20 dark:ring-green-500/20"
 };
 
 // Componente de cartão de atividade com indicador de conclusão
 const ActivityCard: React.FC<{
-  activity: Activity;
+  activity: ActivityType;
   date: string;
   dayIndex: number;
-  getActivityPace: (activity: Activity) => string;
+  getActivityPace: (activity: ActivityType) => string;
   convertMinutesToHours: (minutes: number) => string;
   getPredictedRaceTime: (distance: number) => PredictedRaceTime | null;
   completedWorkouts?: WorkoutLog[];
   isAuthenticated: boolean;
-  onLogWorkout?: (date: string, activity: Activity, dayIndex: number) => void;
+  onLogWorkout?: (date: string, activity: ActivityType, dayIndex: number) => void;
 }> = ({ 
   activity, 
   date, 
@@ -95,6 +96,16 @@ const ActivityCard: React.FC<{
   // Se a atividade já foi concluída, adicionar classe de concluído
   const isCompleted = !!completedWorkout;
 
+  // Formatar a duração para exibição
+  const formatDuration = (minutes: number): string => {
+    const hours = Math.floor(minutes / 60);
+    const mins = Math.floor(minutes % 60);
+    
+    return hours > 0 
+      ? `${hours}h${mins.toString().padStart(2, '0')}`
+      : `${mins}min`;
+  };
+
   return (
     <div className={cn(
       "p-4 rounded-lg transition-all duration-200 relative",
@@ -108,45 +119,11 @@ const ActivityCard: React.FC<{
         </div>
         
         {/* Indicador de treino concluído */}
-        {isAuthenticated && (
-          <div className="flex items-center ml-auto">
-            {isCompleted ? (
-              <div className="tooltip-container group">
-                <CheckCircle2 className="h-5 w-5 text-green-500 cursor-help" />
-                <div className="absolute hidden group-hover:block bg-black/90 dark:bg-white/90 text-white dark:text-black p-2 rounded-md shadow-lg right-0 mt-1 w-48 z-10">
-                  <div className="text-sm">
-                    <p className="font-medium">{completedWorkout.title}</p>
-                    <div className="flex gap-2 text-xs mt-1">
-                      <span>{completedWorkout.distance.toFixed(1)} km</span>
-                      <span>•</span>
-                      <span>{formatDuration(completedWorkout.duration)}</span>
-                      {completedWorkout.pace && (
-                        <>
-                          <span>•</span>
-                          <span>{completedWorkout.pace}</span>
-                        </>
-                      )}
-                    </div>
-                    <p className="text-xs opacity-75 mt-1">
-                      {format(parseISO(completedWorkout.date), "dd/MM/yyyy", { locale: ptBR })}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="tooltip-container group">
-                <Clock className="h-5 w-5 text-gray-300 dark:text-gray-600 cursor-help" />
-                <div className="absolute hidden group-hover:block bg-black/90 dark:bg-white/90 text-white dark:text-black p-2 rounded-md shadow-lg right-0 mt-1 w-48 z-10">
-                  <div className="text-sm">
-                    <p>Treino não realizado</p>
-                    <p className="text-xs opacity-75 mt-1">
-                      Registre este treino após concluí-lo
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
+        {isAuthenticated && isCompleted && (
+          <Badge variant="outline" className="bg-green-500/10 text-green-700 dark:text-green-300 border-green-500/30">
+            <CheckCircle2 className="mr-1.5 h-3 w-3" />
+            Concluído
+          </Badge>
         )}
       </div>
 
@@ -161,6 +138,47 @@ const ActivityCard: React.FC<{
           </span>
         )}
       </div>
+
+      {/* Mostrar detalhes do treino concluído quando aplicável */}
+      {isCompleted && (
+        <div className={cn("mt-3 p-3 rounded-md", innerElementStyles.completedActivityBox)}>
+          <h4 className="text-sm font-medium mb-2 flex items-center">
+            <CheckCircle2 className="mr-1.5 h-4 w-4 text-green-600 dark:text-green-400" />
+            {completedWorkout.title}
+          </h4>
+          
+          <div className="grid grid-cols-3 gap-2 text-xs mt-2">
+            <div className="flex items-center gap-1">
+              <Ruler className="h-3 w-3" />
+              <span>{completedWorkout.distance.toFixed(1)} km</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Clock className="h-3 w-3" />
+              <span>{formatDuration(completedWorkout.duration)}</span>
+            </div>
+            {completedWorkout.pace && (
+              <div className="flex items-center gap-1">
+                <BarChart2 className="h-3 w-3" />
+                <span>{completedWorkout.pace}</span>
+              </div>
+            )}
+          </div>
+          
+          {completedWorkout._id && (
+            <Button 
+              variant="outline" 
+              size="sm" 
+              asChild
+              className="mt-2 h-6 text-xs w-full bg-white/50 dark:bg-black/20"
+            >
+              <Link href={`/dashboard/activities/${completedWorkout._id}`}>
+                <ExternalLink className="mr-1.5 h-3 w-3" />
+                Ver Detalhes
+              </Link>
+            </Button>
+          )}
+        </div>
+      )}
 
       {/* Race prediction */}
       {activity.type === "race" && typeof activity.distance === 'number' && getPredictedRaceTime(activity.distance) && (
@@ -237,16 +255,6 @@ const ActivityCard: React.FC<{
     </div>
   );
 };
-
-// Função auxiliar para formatar duração
-function formatDuration(minutes: number): string {
-  const hours = Math.floor(minutes / 60);
-  const mins = Math.floor(minutes % 60);
-  
-  return hours > 0 
-    ? `${hours}h${mins.toString().padStart(2, '0')}`
-    : `${mins}min`;
-}
 
 // Cabeçalho do dia
 const DayHeader: React.FC<{

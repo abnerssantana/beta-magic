@@ -22,7 +22,12 @@ interface RecentActivitiesProps {
 export const RecentActivities: React.FC<RecentActivitiesProps> = ({ completedWorkouts = [] }) => {
   // Ordenar workouts por data, do mais recente para o mais antigo
   const sortedWorkouts = [...completedWorkouts]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .sort((a, b) => {
+      // Handling possible invalid or missing dates
+      const dateA = a.date ? new Date(a.date).getTime() : 0;
+      const dateB = b.date ? new Date(b.date).getTime() : 0;
+      return dateB - dateA;
+    })
     .slice(0, 3); // Pegar apenas os 3 mais recentes para uma exibição mais compacta
 
   // Formatar a duração (minutos) para hh:mm:ss
@@ -33,6 +38,20 @@ export const RecentActivities: React.FC<RecentActivitiesProps> = ({ completedWor
     return hours > 0 
       ? `${hours}h${mins.toString().padStart(2, '0')}`
       : `${mins}min`;
+  };
+
+  // Safe format date function to handle potential invalid dates
+  const safeFormatDate = (dateString: string): string => {
+    try {
+      if (!dateString) return "Data desconhecida";
+      const date = parseISO(dateString);
+      // Check if date is valid
+      if (isNaN(date.getTime())) return "Data inválida";
+      return format(date, "d MMM", { locale: ptBR });
+    } catch (error) {
+      console.error("Error formatting date:", error, dateString);
+      return "Data inválida";
+    }
   };
 
   // Função para obter a cor baseada no tipo de atividade
@@ -60,7 +79,7 @@ export const RecentActivities: React.FC<RecentActivitiesProps> = ({ completedWor
             <>
               {sortedWorkouts.map((workout, index) => (
                 <div 
-                  key={index} 
+                  key={workout._id?.toString() || `workout-${index}`} 
                   className="flex items-start gap-1.5 p-1.5 rounded-md hover:bg-muted/30 transition-colors"
                 >
                   <div className={`w-1 self-stretch rounded-full ${getActivityColor(workout.activityType)}`} />
@@ -82,7 +101,7 @@ export const RecentActivities: React.FC<RecentActivitiesProps> = ({ completedWor
                     <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px] text-muted-foreground mt-0.5">
                       <div className="flex items-center gap-0.5">
                         <Calendar className="h-2.5 w-2.5" />
-                        <span>{format(parseISO(workout.date), "d MMM", { locale: ptBR })}</span>
+                        <span>{safeFormatDate(workout.date)}</span>
                       </div>
                       <div className="flex items-center gap-0.5">
                         <Activity className="h-2.5 w-2.5" />
