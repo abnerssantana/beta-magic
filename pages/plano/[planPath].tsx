@@ -466,23 +466,6 @@ const Plan: React.FC<PlanProps> = ({ plan, completedWorkouts = [] }) => {
     return getPredictedRaceTimeFactory(params);
   }, [params]);
 
-  // Função para lidar com registro de treino
-  const handleLogWorkout = useCallback((date: string, activity: Activity, dayIndex: number) => {
-    // Redirecionar para a página de log com parâmetros pré-preenchidos
-    router.push({
-      pathname: '/dashboard/log',
-      query: {
-        date: date.split('T')[0],
-        planPath: plan.path,
-        planDayIndex: dayIndex,
-        activityType: activity.type,
-        distance: activity.distance,
-        units: activity.units, // Adicionando a unidade do treino
-        title: activity.note || getTitleFromActivityType(activity.type)
-      }
-    });
-  }, [router, plan.path]);
-
   // Atualizar parâmetros quando tempo/distância mudar
   useEffect(() => {
     if (selectedTime && selectedDistance) {
@@ -600,6 +583,28 @@ const Plan: React.FC<PlanProps> = ({ plan, completedWorkouts = [] }) => {
       selectedTime: newTime
     });
   };
+
+    // Função para lidar com registro de treino
+
+const handleLogWorkout = useCallback((date: string, activity: Activity, dayIndex: number) => {
+  // Calcular o ritmo da atividade
+  const pace = getActivityPace(activity);
+  
+  // Redirecionar para a página de log com parâmetros pré-preenchidos, incluindo o ritmo
+  router.push({
+    pathname: '/dashboard/log',
+    query: {
+      date: date.split('T')[0],
+      planPath: plan.path,
+      planDayIndex: dayIndex,
+      activityType: activity.type,
+      distance: activity.distance,
+      units: activity.units,
+      pace: pace !== "N/A" ? pace : "",  // Incluindo o ritmo calculado
+      title: activity.note || getTitleFromActivityType(activity.type)
+    }
+  });
+}, [router, plan.path, getActivityPace]);
 
   // Organizar dados em semanas
   const organizedWeeklyBlocks = useMemo(() => {

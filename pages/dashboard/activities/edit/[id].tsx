@@ -123,6 +123,37 @@ const EditWorkoutPage: React.FC<EditWorkoutPageProps> = ({ workout }) => {
   const [submitError, setSubmitError] = useState('');
   const [calculatedPace, setCalculatedPace] = useState(workout.pace || '');
 
+  // Função para extrair e exibir o ritmo médio de um range
+  const getAveragePaceFromRange = (paceStr: string): string => {
+    if (!paceStr) return '';
+    
+    // Remover sufixo "/km" se existir
+    const cleanPaceStr = paceStr.replace(/\/km$/, '').trim();
+    
+    // Verificar se o ritmo está em formato de range
+    if (cleanPaceStr.includes('-')) {
+      const [minPace, maxPace] = cleanPaceStr.split('-').map(p => p.trim());
+      
+      // Converter para segundos
+      const minParts = minPace.split(':').map(Number);
+      const maxParts = maxPace.split(':').map(Number);
+      
+      const minSeconds = minParts[0] * 60 + (minParts[1] || 0);
+      const maxSeconds = maxParts[0] * 60 + (maxParts[1] || 0);
+      
+      // Calcular média
+      const avgSeconds = (minSeconds + maxSeconds) / 2;
+      const avgMinutes = Math.floor(avgSeconds / 60);
+      const avgSecondsRemainder = Math.round(avgSeconds % 60);
+      
+      // Retornar no formato MM:SS
+      return `${avgMinutes}:${avgSecondsRemainder.toString().padStart(2, '0')}`;
+    }
+    
+    // Se não for range, retorna o original
+    return cleanPaceStr;
+  };
+
   // Converter a duração de minutos para formato HH:MM:SS para o formulário
   const formatDurationForInput = (minutes: number): string => {
     const hours = Math.floor(minutes / 60);
@@ -406,14 +437,19 @@ const EditWorkoutPage: React.FC<EditWorkoutPageProps> = ({ workout }) => {
 
                 {/* Mostrar o ritmo calculado */}
                 {calculatedPace && (
-                  <div className="flex items-center gap-2 px-4 py-3 bg-muted rounded-md">
-                    <BarChart2 className="h-5 w-5 text-primary" />
-                    <div>
-                      <p className="font-medium">Ritmo Calculado</p>
-                      <p className="text-lg font-bold">{calculatedPace}</p>
-                    </div>
-                  </div>
-                )}
+    <div className="flex items-center gap-2 px-4 py-3 bg-muted rounded-md">
+      <BarChart2 className="h-5 w-5 text-primary" />
+      <div>
+        <p className="font-medium">Ritmo Calculado</p>
+        <p className="text-lg font-bold">{calculatedPace}</p>
+        {calculatedPace.includes('-') && (
+          <p className="text-sm text-muted-foreground">
+            Média: {getAveragePaceFromRange(calculatedPace)}/km
+          </p>
+        )}
+      </div>
+    </div>
+  )}
 
                 {/* Notas */}
                 <FormField

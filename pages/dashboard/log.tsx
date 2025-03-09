@@ -134,7 +134,7 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
     if (!distance || !durationStr || distance <= 0) {
       return '';
     }
-
+  
     try {
       // Converte a duração (hh:mm:ss) para minutos
       const [hours = 0, minutes = 0, seconds = 0] = durationStr.split(':').map(Number);
@@ -147,6 +147,7 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
       const paceMinutesInt = Math.floor(paceMinutes);
       const paceSeconds = Math.round((paceMinutes - paceMinutesInt) * 60);
       
+      // Formata o ritmo como MM:SS
       return `${paceMinutesInt}:${paceSeconds.toString().padStart(2, '0')}`;
     } catch (error) {
       console.error('Erro ao calcular ritmo:', error);
@@ -160,22 +161,45 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
       setCalculatedDistance(null);
       return;
     }
-
+  
     try {
       // Converter duração para minutos
       const [durationHours = 0, durationMinutes = 0, durationSeconds = 0] = durationStr.split(':').map(Number);
       const totalDurationMinutes = durationHours * 60 + durationMinutes + durationSeconds / 60;
-
-      // Converter ritmo para minutos por km
-      const cleanPaceStr = paceStr.replace(/\/km$/, '');
-      const [paceMinutes = 0, paceSeconds = 0] = cleanPaceStr.split(':').map(Number);
-      const totalPaceMinutes = paceMinutes + paceSeconds / 60;
-
+  
+      // Remover sufixo "/km" se existir
+      const cleanPaceStr = paceStr.replace(/\/km$/, '').trim();
+      
+      // Verificar se o ritmo está em formato de range (contém hífen)
+      const isRangeFormat = cleanPaceStr.includes('-');
+      
+      let totalPaceMinutes: number;
+      
+      if (isRangeFormat) {
+        // Se for um range, calcular a média dos dois valores
+        const [minPace, maxPace] = cleanPaceStr.split('-').map(p => p.trim());
+        
+        // Converter o ritmo mínimo para minutos
+        const [minMinutes = 0, minSeconds = 0] = minPace.split(':').map(Number);
+        const minPaceMinutes = minMinutes + minSeconds / 60;
+        
+        // Converter o ritmo máximo para minutos
+        const [maxMinutes = 0, maxSeconds = 0] = maxPace.split(':').map(Number);
+        const maxPaceMinutes = maxMinutes + maxSeconds / 60;
+        
+        // Usar a média dos dois valores
+        totalPaceMinutes = (minPaceMinutes + maxPaceMinutes) / 2;
+      } else {
+        // Ritmo simples (não é um range)
+        const [paceMinutes = 0, paceSeconds = 0] = cleanPaceStr.split(':').map(Number);
+        totalPaceMinutes = paceMinutes + paceSeconds / 60;
+      }
+  
       if (totalPaceMinutes <= 0) {
         setCalculatedDistance(null);
         return;
       }
-
+  
       // Calcular distância em km
       const distanceInKm = totalDurationMinutes / totalPaceMinutes;
       setCalculatedDistance(Math.round(distanceInKm * 100) / 100); // Arredondar para 2 casas decimais
@@ -184,6 +208,37 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
       setCalculatedDistance(null);
     }
   };
+
+// Função para extrair e exibir o ritmo médio de um range
+const getAveragePaceFromRange = (paceStr: string): string => {
+  if (!paceStr) return '';
+  
+  // Remover sufixo "/km" se existir
+  const cleanPaceStr = paceStr.replace(/\/km$/, '').trim();
+  
+  // Verificar se o ritmo está em formato de range
+  if (cleanPaceStr.includes('-')) {
+    const [minPace, maxPace] = cleanPaceStr.split('-').map(p => p.trim());
+    
+    // Converter para segundos
+    const minParts = minPace.split(':').map(Number);
+    const maxParts = maxPace.split(':').map(Number);
+    
+    const minSeconds = minParts[0] * 60 + (minParts[1] || 0);
+    const maxSeconds = maxParts[0] * 60 + (maxParts[1] || 0);
+    
+    // Calcular média
+    const avgSeconds = (minSeconds + maxSeconds) / 2;
+    const avgMinutes = Math.floor(avgSeconds / 60);
+    const avgSecondsRemainder = Math.round(avgSeconds % 60);
+    
+    // Retornar no formato MM:SS
+    return `${avgMinutes}:${avgSecondsRemainder.toString().padStart(2, '0')}`;
+  }
+  
+  // Se não for range, retorna o original
+  return cleanPaceStr;
+};
 
   // Atualizar ritmo quando distância ou duração mudam (para treinos baseados em distância)
   useEffect(() => {
