@@ -21,6 +21,7 @@ import {
   FormMessage, 
 } from '@/components/ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { validatePlanDayIndex } from '@/lib/activity-linking';
 import { ArrowLeft, Clock, Calendar, BarChart2, Save, FileText, Activity, AlertCircle, Timer, Ruler } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import TimeInput from '@/components/TimeInput';
@@ -332,6 +333,11 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
       const [hours = 0, minutes = 0, seconds = 0] = data.duration.split(':').map(Number);
       const durationInMinutes = hours * 60 + minutes + seconds / 60;
       
+      // Validar o índice do dia do plano
+      const validatedPlanDayIndex = validatePlanDayIndex(
+        queryPlanDayIndex ? parseInt(queryPlanDayIndex as string, 10) : undefined
+      );
+      
       // Prepara os dados para envio
       const workoutData: any = {
         date: data.date,
@@ -340,10 +346,10 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
         duration: durationInMinutes,
         notes: data.notes,
         planPath: (queryPlanPath as string) || activePlan?.path,
-        planDayIndex: queryPlanDayIndex ? parseInt(queryPlanDayIndex as string) : undefined,
+        planDayIndex: validatedPlanDayIndex, // Usar o valor validado
         source: 'manual',
       };
-
+  
       // Adicionar distância e ritmo com base no tipo de treino
       if (data.workoutType === 'distance') {
         // Para treinos baseados em distância, usamos a distância inserida

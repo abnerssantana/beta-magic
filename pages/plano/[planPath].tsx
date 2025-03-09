@@ -586,25 +586,33 @@ const Plan: React.FC<PlanProps> = ({ plan, completedWorkouts = [] }) => {
 
     // Função para lidar com registro de treino
 
-const handleLogWorkout = useCallback((date: string, activity: Activity, dayIndex: number) => {
-  // Calcular o ritmo da atividade
-  const pace = getActivityPace(activity);
-  
-  // Redirecionar para a página de log com parâmetros pré-preenchidos, incluindo o ritmo
-  router.push({
-    pathname: '/dashboard/log',
-    query: {
-      date: date.split('T')[0],
-      planPath: plan.path,
-      planDayIndex: dayIndex,
-      activityType: activity.type,
-      distance: activity.distance,
-      units: activity.units,
-      pace: pace !== "N/A" ? pace : "",  // Incluindo o ritmo calculado
-      title: activity.note || getTitleFromActivityType(activity.type)
-    }
-  });
-}, [router, plan.path, getActivityPace]);
+    const handleLogWorkout = useCallback((date: string, activity: Activity, dayIndex: number) => {
+      // Calcular o ritmo da atividade
+      const pace = getActivityPace(activity);
+      
+      // Garantir que temos uma data formatada adequadamente
+      // É importante normalizar a data para o formato YYYY-MM-DD
+      const formattedDate = date.includes('T') 
+        ? date.split('T')[0]  // Se a data já tiver o formato ISO, extraímos apenas a parte da data
+        : date;
+      
+      console.log(`Registrando treino para dia ${dayIndex} do plano ${plan.path}`);
+      
+      // Redirecionar para a página de log com parâmetros pré-preenchidos
+      router.push({
+        pathname: '/dashboard/log',
+        query: {
+          date: formattedDate,
+          planPath: plan.path,                    // Garantir que o planPath é passado exatamente como está no plano
+          planDayIndex: dayIndex.toString(),      // IMPORTANTE: Converter para string para evitar problemas de tipo
+          activityType: activity.type,
+          distance: activity.distance,
+          units: activity.units,
+          pace: pace !== "N/A" ? pace : "",
+          title: activity.note || getTitleFromActivityType(activity.type)
+        }
+      });
+    }, [router, plan.path, getActivityPace]);
 
   // Organizar dados em semanas
   const organizedWeeklyBlocks = useMemo(() => {

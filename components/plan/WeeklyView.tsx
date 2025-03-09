@@ -51,6 +51,47 @@ const innerElementStyles = {
   completedActivityBox: "bg-green-500/10 dark:bg-green-500/10 ring-1 ring-green-500/20 dark:ring-green-500/20"
 };
 
+const getCompletedWorkoutsForDay = (date: string, activities: Activity[], completedWorkouts: WorkoutLog[], planPath: string, dayIndex: number): WorkoutLog[] => {
+  if (!completedWorkouts || !completedWorkouts.length) return [];
+
+  return completedWorkouts.filter(workout => {
+    try {
+      // 1. Verificar correspondência por índice do dia do plano
+      if (workout.planPath === planPath && workout.planDayIndex === dayIndex) {
+        return true; // Correspondência exata pelo índice do dia no plano
+      }
+      
+      // 2. Senão, verificar correspondência por data
+      const workoutDateStr = workout.date.split('T')[0];
+      const dayDateStr = date.split('T')[0];
+      
+      if (workoutDateStr !== dayDateStr) {
+        return false; // Datas diferentes
+      }
+      
+      // 3. Se datas forem iguais, verificar se há atividades com tipos compatíveis
+      return activities.some(activity => {
+        // Correspondência por tipo de atividade
+        if (workout.activityType === activity.type) {
+          return true;
+        }
+        
+        // Correspondência por distância aproximada (margem de 10%)
+        const activityDistance = typeof activity.distance === 'number' ? activity.distance : 0;
+        if (activityDistance > 0) {
+          const distanceRatio = Math.abs(workout.distance - activityDistance) / activityDistance;
+          return distanceRatio < 0.1; // 10% de tolerância
+        }
+        
+        return false;
+      });
+    } catch (error) {
+      console.error("Erro ao comparar workouts:", error);
+      return false;
+    }
+  });
+};
+
 // Componente de cartão de atividade com indicador de conclusão
 const ActivityCard: React.FC<{
   activity: ActivityType;

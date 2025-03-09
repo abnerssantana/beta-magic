@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import clientPromise from '@/lib/mongodb';
-import { ObjectId } from 'mongodb';
+import { validatePlanDayIndex } from '@/lib/activity-linking';
 
 interface WorkoutLog {
   date: string;
@@ -45,9 +45,13 @@ export default async function handler(
     const client = await clientPromise;
     const db = client.db('magic-training');
     
-    // Preparar o objeto de treino
+    // Validar planDayIndex
+    const validatedPlanDayIndex = validatePlanDayIndex(workoutData.planDayIndex);
+    
+    // Preparar o objeto de treino com o índice validado
     const workout = {
       ...workoutData,
+      planDayIndex: validatedPlanDayIndex, // Usar valor validado
       userId: session.user.id,
       createdAt: new Date(),
       updatedAt: new Date()
@@ -70,7 +74,7 @@ export default async function handler(
         date: workoutData.date,
         workoutId: result.insertedId,
         planPath: workoutData.planPath,
-        planDayIndex: workoutData.planDayIndex,
+        planDayIndex: validatedPlanDayIndex, // Usar valor validado
         distance: workoutData.distance
       });
       
