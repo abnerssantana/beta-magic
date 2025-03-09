@@ -46,7 +46,7 @@ export const EnhancedActivePlanCard: React.FC<EnhancedActivePlanCardProps> = ({
   if (!activePlan) {
     return (
       <Card className="overflow-hidden border-border/50">
-        <CardHeader className="bg-muted/20 p-3">
+        <CardHeader>
           <CardTitle className="text-sm">Plano de Treino Ativo</CardTitle>
         </CardHeader>
         <CardContent className="p-4">

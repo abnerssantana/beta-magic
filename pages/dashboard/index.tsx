@@ -84,46 +84,46 @@ const Dashboard: React.FC<DashboardProps> = ({
         />
       </Head>
 
-      <div className="space-y-4">
-        {/* Header - Redesenhado */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div className="space-y-1">
-            <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
+      <div className="space-y-3">
+        {/* Header Compacto */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-1">
+          <div className="space-y-0.5">
+            <h1 className="text-xl font-semibold tracking-tight flex items-center gap-1.5">
               Olá, {session?.user?.name?.split(" ")[0]}!
             </h1>
-            <p className="text-sm text-muted-foreground flex items-center">
-              <Calendar className="mr-1.5 h-3.5 w-3.5" />
+            <p className="text-xs text-muted-foreground flex items-center">
+              <Calendar className="mr-1 h-3 w-3" />
               {currentDate} • Vamos treinar hoje?
             </p>
           </div>
 
-          <div className="flex items-center gap-2 mt-2 sm:mt-0">
-            <Button variant="outline" size="sm" asChild className="h-9">
+          <div className="flex items-center gap-2 mt-1 sm:mt-0">
+            <Button variant="outline" size="sm" asChild className="h-7 text-xs px-2">
               <Link href="/planos">
-                <NotebookTabs className="mr-2 h-4 w-4" />
-                Todos Planos
+                <NotebookTabs className="mr-1 h-3 w-3" />
+                Planos
               </Link>
             </Button>
-            <Button variant="default" size="sm" asChild className="h-9">
+            <Button variant="default" size="sm" asChild className="h-7 text-xs px-2">
               <Link href="/dashboard/plans">
-                <Star className="mr-2 h-4 w-4" />
+                <Star className="mr-1 h-3 w-3" />
                 Meus Planos
               </Link>
             </Button>
           </div>
         </div>
 
-        {/* Reordenação: StatsSummary primeiro */}
+        {/* Estatísticas */}
         <StatsOverview workouts={localCompletedWorkouts} />
 
-        <Tabs defaultValue="overview" className="space-y-3">
-          <TabsList className="grid w-full grid-cols-2 h-9">
+        <Tabs defaultValue="overview" className="space-y-2">
+          <TabsList className="grid w-full grid-cols-2 h-8">
             <TabsTrigger value="overview" className="text-xs">Visão Geral</TabsTrigger>
             <TabsTrigger value="progress" className="text-xs">Meu Progresso</TabsTrigger>
           </TabsList>
 
           {/* Visão Geral - com componentes modularizados */}
-          <TabsContent value="overview" className="space-y-4 pt-2">
+          <TabsContent value="overview" className="space-y-3 pt-1">
             <TodayWorkout
               activePlan={activePlan}
               todayWorkout={todayWorkout}
@@ -143,7 +143,7 @@ const Dashboard: React.FC<DashboardProps> = ({
           </TabsContent>
 
           {/* Meu Progresso */}
-          <TabsContent value="progress" className="space-y-4 pt-2">
+          <TabsContent value="progress" className="space-y-3 pt-1">
             <ProgressTab />
           </TabsContent>
         </Tabs>
@@ -239,7 +239,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
 
     // Calcular progresso semanal com base nos treinos completados
-    // Esta é uma versão simplificada - idealmente seria baseada nos treinos previstos vs. realizados
     const today = new Date();
     const startOfWeek = new Date(today);
     startOfWeek.setDate(today.getDate() - today.getDay() + (today.getDay() === 0 ? -6 : 1)); // Ajuste para começar na segunda-feira
