@@ -4,7 +4,7 @@ import { getSession } from 'next-auth/react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { format, parseISO } from 'date-fns';
+import { format, parseISO, isValid } from 'date-fns';
 import { ptBR } from 'date-fns/locale/pt-BR';
 import { Layout } from '@/components/layout';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -122,6 +122,20 @@ const EditWorkoutPage: React.FC<EditWorkoutPageProps> = ({ workout }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [calculatedPace, setCalculatedPace] = useState(workout.pace || '');
+
+  // Função para formatar a data com segurança
+  const formatWorkoutDate = (dateString: string): string => {
+    try {
+      const date = parseISO(dateString);
+      if (!isValid(date)) {
+        return "Data inválida";
+      }
+      return format(date, "d 'de' MMMM 'de' yyyy", { locale: ptBR });
+    } catch (error) {
+      console.error("Erro ao formatar data:", error);
+      return "Data inválida";
+    }
+  };
 
   // Função para extrair e exibir o ritmo médio de um range
   const getAveragePaceFromRange = (paceStr: string): string => {
@@ -291,7 +305,7 @@ const EditWorkoutPage: React.FC<EditWorkoutPageProps> = ({ workout }) => {
           <CardHeader>
             <CardTitle>Editar Treino</CardTitle>
             <CardDescription>
-              Atualize as informações do treino registrado em {format(parseISO(workout.date), "d 'de' MMMM 'de' yyyy", { locale: ptBR })}
+              Atualize as informações do treino registrado em {formatWorkoutDate(workout.date)}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -437,19 +451,19 @@ const EditWorkoutPage: React.FC<EditWorkoutPageProps> = ({ workout }) => {
 
                 {/* Mostrar o ritmo calculado */}
                 {calculatedPace && (
-    <div className="flex items-center gap-2 px-4 py-3 bg-muted rounded-md">
-      <BarChart2 className="h-5 w-5 text-primary" />
-      <div>
-        <p className="font-medium">Ritmo Calculado</p>
-        <p className="text-lg font-bold">{calculatedPace}</p>
-        {calculatedPace.includes('-') && (
-          <p className="text-sm text-muted-foreground">
-            Média: {getAveragePaceFromRange(calculatedPace)}/km
-          </p>
-        )}
-      </div>
-    </div>
-  )}
+                  <div className="flex items-center gap-2 px-4 py-3 bg-muted rounded-md">
+                    <BarChart2 className="h-5 w-5 text-primary" />
+                    <div>
+                      <p className="font-medium">Ritmo Calculado</p>
+                      <p className="text-lg font-bold">{calculatedPace}</p>
+                      {calculatedPace.includes('-') && (
+                        <p className="text-sm text-muted-foreground">
+                          Média: {getAveragePaceFromRange(calculatedPace)}/km
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                )}
 
                 {/* Notas */}
                 <FormField

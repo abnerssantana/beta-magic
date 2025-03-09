@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { GetServerSideProps } from 'next';
 import { getSession } from 'next-auth/react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { format, parseISO } from 'date-fns';
+import { useRouter } from 'next/router';
+import { format, parseISO, isValid } from 'date-fns';
 import { ptBR } from 'date-fns/locale/pt-BR';
 import { Layout } from '@/components/layout';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -88,6 +89,21 @@ const ActivitiesPage: React.FC<ActivitiesPageProps> = ({ completedWorkouts, acti
   const [activityTypeFilter, setActivityTypeFilter] = useState('todos');
   const [sortOrder, setSortOrder] = useState('desc');
   const [monthFilter, setMonthFilter] = useState('todos');
+  const router = useRouter();
+
+  // Safe format date function to handle potentially invalid dates
+  const safeFormatDate = (dateString: string, formatString: string): string => {
+    try {
+      if (!dateString) return "Data desconhecida";
+      const date = parseISO(dateString);
+      // Check if date is valid
+      if (!isValid(date)) return "Data inválida";
+      return format(date, formatString, { locale: ptBR });
+    } catch (error) {
+      console.error("Error formatting date:", error, dateString);
+      return "Data inválida";
+    }
+  };
 
   // Estatísticas gerais
   const totalDistance = completedWorkouts.reduce((sum, workout) => sum + workout.distance, 0);
@@ -138,18 +154,32 @@ const ActivitiesPage: React.FC<ActivitiesPageProps> = ({ completedWorkouts, acti
   // Preparar opções de meses para filtro
   const getMonthOptions = () => {
     const months = completedWorkouts.map(workout => {
-      const date = parseISO(workout.date);
-      return `${date.getFullYear()}-${date.getMonth() + 1}`;
-    });
+      try {
+        if (!workout.date) return null;
+        const date = parseISO(workout.date);
+        if (!isValid(date)) return null;
+        return `${date.getFullYear()}-${date.getMonth() + 1}`;
+      } catch (error) {
+        console.error('Error processing date for month options:', error);
+        return null;
+      }
+    }).filter(Boolean) as string[];
     
     const uniqueMonths = Array.from(new Set(months));
     
     return uniqueMonths.sort().reverse().map(monthStr => {
       const [year, month] = monthStr.split('-').map(Number);
-      return {
-        value: monthStr,
-        label: format(new Date(year, month - 1, 1), 'MMMM yyyy', { locale: ptBR })
-      };
+      try {
+        return {
+          value: monthStr,
+          label: format(new Date(year, month - 1, 1), 'MMMM yyyy', { locale: ptBR })
+        };
+      } catch (error) {
+        return {
+          value: monthStr,
+          label: `${month}/${year}`
+        };
+      }
     });
   };
 
@@ -173,16 +203,26 @@ const ActivitiesPage: React.FC<ActivitiesPageProps> = ({ completedWorkouts, acti
     // Filtrar por mês
     if (monthFilter !== 'todos') {
       result = result.filter(workout => {
-        const date = parseISO(workout.date);
-        return `${date.getFullYear()}-${date.getMonth() + 1}` === monthFilter;
+        try {
+          if (!workout.date) return false;
+          const date = parseISO(workout.date);
+          if (!isValid(date)) return false;
+          return `${date.getFullYear()}-${date.getMonth() + 1}` === monthFilter;
+        } catch (error) {
+          return false;
+        }
       });
     }
     
     // Ordenar por data
     result.sort((a, b) => {
-      const dateA = new Date(a.date).getTime();
-      const dateB = new Date(b.date).getTime();
-      return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
+      try {
+        const dateA = a.date ? new Date(a.date).getTime() : 0;
+        const dateB = b.date ? new Date(b.date).getTime() : 0;
+        return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
+      } catch (error) {
+        return 0;
+      }
     });
     
     setFilteredWorkouts(result);
@@ -416,7 +456,7 @@ const ActivitiesPage: React.FC<ActivitiesPageProps> = ({ completedWorkouts, acti
                           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mt-2">
                             <div className="flex items-center gap-1">
                               <Calendar className="h-4 w-4" />
-                              <span>{format(parseISO(workout.date), "d 'de' MMMM 'de' yyyy", { locale: ptBR })}</span>
+                              <span>{safeFormatDate(workout.date, "d 'de' MMMM 'de' yyyy")}</span>
                             </div>
                             
                             <div className="flex items-center gap-1">

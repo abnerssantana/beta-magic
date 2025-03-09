@@ -4,7 +4,7 @@ import { getSession } from 'next-auth/react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { format, parseISO } from 'date-fns';
+import { format, parseISO, isValid } from 'date-fns';
 import { ptBR } from 'date-fns/locale/pt-BR';
 import { Layout } from '@/components/layout';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
@@ -114,6 +114,20 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
 
+  // Função para formatar a data com segurança
+  const formatWorkoutDate = (dateString: string): string => {
+    try {
+      const date = parseISO(dateString);
+      if (!isValid(date)) {
+        return "Data inválida";
+      }
+      return format(date, "d 'de' MMMM 'de' yyyy", { locale: ptBR });
+    } catch (error) {
+      console.error("Erro ao formatar data:", error);
+      return "Data inválida";
+    }
+  };
+
   // Formatar a duração (minutos) para hh:mm ou hh:mm:ss
   const formatDuration = (minutes: number): string => {
     const hours = Math.floor(minutes / 60);
@@ -188,6 +202,20 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
     }
   };
 
+  // Formatar a data de forma segura para outros locais onde parseISO é usado
+  const safeFormatDate = (dateString: string, formatStr: string, options = { locale: ptBR }): string => {
+    try {
+      const date = parseISO(dateString);
+      if (!isValid(date)) {
+        return "Data inválida";
+      }
+      return format(date, formatStr, options);
+    } catch (error) {
+      console.error("Erro ao formatar data:", error, dateString);
+      return "Data inválida";
+    }
+  };
+
   return (
     <Layout>
       <Head>
@@ -203,7 +231,7 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
           <div>
             <h1 className="text-2xl font-bold tracking-tight">{workout.title}</h1>
             <p className="text-muted-foreground">
-              Detalhes do treino registrado em {format(parseISO(workout.date), "d 'de' MMMM 'de' yyyy", { locale: ptBR })}
+              Detalhes do treino registrado em {formatWorkoutDate(workout.date)}
             </p>
           </div>
 
@@ -238,7 +266,7 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
                   <Calendar className="h-5 w-5 text-muted-foreground mb-1" />
                   <p className="text-xs text-muted-foreground">Data</p>
                   <p className="text-base font-medium text-center">
-                    {format(parseISO(workout.date), "dd/MM/yyyy", { locale: ptBR })}
+                    {safeFormatDate(workout.date, "dd/MM/yyyy")}
                   </p>
                 </CardContent>
               </Card>
@@ -376,7 +404,7 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
               Confirmar exclusão
             </AlertDialogTitle>
             <AlertDialogDescription>
-              Você está prestes a excluir o treino <span className="font-medium">{workout.title}</span> de {format(parseISO(workout.date), "dd/MM/yyyy", { locale: ptBR })}.
+              Você está prestes a excluir o treino <span className="font-medium">{workout.title}</span> de {safeFormatDate(workout.date, "dd/MM/yyyy")}.
               <br /><br />
               Esta ação não pode ser desfeita e os dados serão permanentemente removidos.
             </AlertDialogDescription>
