@@ -332,7 +332,7 @@ export function stravaActivityToWorkout(activity: StravaActivity, userId: string
 
 /**
  * Link a user's account with Strava
- */
+*/
 export async function linkStravaAccount(userId: string, stravaData: any): Promise<boolean> {
   try {
     const client = await clientPromise;
