@@ -5,7 +5,14 @@ import { ptBR } from 'date-fns/locale/pt-BR';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Activity, Calendar, Clock, BarChart2, PlusCircle } from "lucide-react";
+import { 
+  Activity, 
+  Calendar, 
+  Clock, 
+  BarChart2, 
+  PlusCircle, 
+  Link2,  
+} from "lucide-react";
 import { WorkoutLog } from '@/models/userProfile';
 
 interface RecentActivitiesProps {
@@ -37,7 +44,10 @@ export const RecentActivities: React.FC<RecentActivitiesProps> = ({ completedWor
       'threshold': 'bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/30',
       'interval': 'bg-purple-500/10 text-purple-700 dark:text-purple-300 border-purple-500/30',
       'repetition': 'bg-pink-500/10 text-pink-700 dark:text-pink-300 border-pink-500/30',
-      'race': 'bg-orange-500/10 text-orange-700 dark:text-orange-300 border-orange-500/30'
+      'race': 'bg-orange-500/10 text-orange-700 dark:text-orange-300 border-orange-500/30',
+      'long': 'bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/30',
+      'walk': 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/30',
+      'strength': 'bg-orange-500/10 text-orange-700 dark:text-orange-300 border-orange-500/30'
     };
     
     return types[type] || 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/30';
@@ -62,7 +72,16 @@ export const RecentActivities: React.FC<RecentActivitiesProps> = ({ completedWor
                   <div className="flex-1">
                     <div className="flex justify-between items-start">
                       <div>
-                        <h4 className="text-sm font-medium">{workout.title}</h4>
+                        <div className="flex items-center gap-1">
+                          <h4 className="text-sm font-medium">{workout.title}</h4>
+                          {/* Indicador de treino vinculado ao plano */}
+                          {workout.planPath && workout.planDayIndex !== undefined && (
+                            <Badge variant="outline" className="ml-1 h-5 text-[10px] bg-primary/5 border-primary/20 text-primary hover:bg-primary/10">
+                              <Link2 className="mr-1 h-3 w-3" />
+                              Plano
+                            </Badge>
+                          )}
+                        </div>
                         <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground mt-0.5">
                           <div className="flex items-center gap-1">
                             <Calendar className="h-3 w-3" />
@@ -70,7 +89,7 @@ export const RecentActivities: React.FC<RecentActivitiesProps> = ({ completedWor
                           </div>
                           <div className="flex items-center gap-1">
                             <Activity className="h-3 w-3" />
-                            <span>{workout.distance} km</span>
+                            <span>{workout.distance.toFixed(1)} km</span>
                           </div>
                           <div className="flex items-center gap-1">
                             <Clock className="h-3 w-3" />
@@ -88,6 +107,13 @@ export const RecentActivities: React.FC<RecentActivitiesProps> = ({ completedWor
                       <div className="mt-1 flex items-center gap-1 text-xs">
                         <BarChart2 className="h-3 w-3 text-primary" />
                         <span className="font-medium">{workout.pace}</span>
+                        
+                        {/* Fonte do treino (Strava) */}
+                        {workout.source === 'strava' && (
+                          <Badge variant="outline" className="ml-auto text-[10px] h-4 bg-orange-500/5 border-orange-500/20 text-orange-600 dark:text-orange-400">
+                            Strava
+                          </Badge>
+                        )}
                       </div>
                     )}
                   </div>

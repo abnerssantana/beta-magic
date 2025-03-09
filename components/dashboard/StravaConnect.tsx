@@ -11,7 +11,8 @@ import {
   CheckCircle,
   XCircle,
   Download,
-  AlertTriangle
+  AlertTriangle,
+  Link2
 } from "lucide-react";
 import { toast } from 'sonner';
 
@@ -30,6 +31,11 @@ export const StravaConnect: React.FC<StravaConnectProps> = ({ onActivitiesImport
   const [isImporting, setIsImporting] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [lastImportStats, setLastImportStats] = useState<{
+    imported: number;
+    matched: number;
+    timestamp: Date;
+  } | null>(null);
 
   // Verifica o status da conexão com o Strava
   const checkStravaStatus = async () => {
@@ -105,8 +111,25 @@ export const StravaConnect: React.FC<StravaConnectProps> = ({ onActivitiesImport
       const data = await response.json();
       
       if (data.success) {
-        toast.success(`${data.imported} atividades importadas com sucesso!`);
-        if (onActivitiesImported) onActivitiesImported();
+        // Salvar estatísticas da importação
+        setLastImportStats({
+          imported: data.imported,
+          matched: data.matched || 0,
+          timestamp: new Date()
+        });
+        
+        if (data.imported > 0) {
+          // Mostrar feedback específico sobre atividades vinculadas ao plano
+          if (data.matched > 0) {
+            toast.success(`${data.imported} atividades importadas! ${data.matched} foram vinculadas ao seu plano ativo.`);
+          } else {
+            toast.success(`${data.imported} atividades importadas com sucesso!`);
+          }
+          
+          if (onActivitiesImported) onActivitiesImported();
+        } else {
+          toast.info(data.message || 'Nenhuma atividade nova encontrada');
+        }
       } else {
         toast.info(data.message || 'Nenhuma atividade nova encontrada');
       }
@@ -249,6 +272,22 @@ export const StravaConnect: React.FC<StravaConnectProps> = ({ onActivitiesImport
             ? 'Importe suas atividades do Strava para vincular ao seu plano de treino atual.'
             : 'Sua conexão com o Strava expirou. Reconecte sua conta para continuar importando atividades.'}
         </div>
+        
+        {/* Mostrar estatísticas da última importação */}
+        {lastImportStats && (
+          <div className="bg-primary/5 border border-primary/20 p-3 rounded-lg">
+            <div className="flex items-center gap-2 text-sm">
+              <Link2 className="h-4 w-4 text-primary" />
+              <div>
+                <p className="font-medium">Última importação</p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {lastImportStats.imported} atividades importadas
+                  {lastImportStats.matched > 0 && <span className="font-medium text-primary"> ({lastImportStats.matched} vinculadas ao plano)</span>}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
         
         <Separator />
         

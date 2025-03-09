@@ -273,7 +273,7 @@ export async function fetchStravaActivityDetails(accessToken: string, activityId
 /**
  * Convert Strava activity to our workout format
  */
-export function stravaActivityToWorkout(activity: StravaActivity, userId: string, planPath?: string): any {
+export function stravaActivityToWorkout(activity: StravaActivity, userId: string, planPath?: string, planDayIndex?: number): any {
   // Converter metros para km
   const distanceInKm = activity.distance / 1000;
   
@@ -304,6 +304,8 @@ export function stravaActivityToWorkout(activity: StravaActivity, userId: string
     }
   } else if (activity.sport_type === 'Walk') {
     activityType = 'walk';
+  } else if (activity.sport_type === 'Workout' || activity.sport_type === 'WeightTraining') {
+    activityType = 'strength';
   }
 
   return {
@@ -320,6 +322,7 @@ export function stravaActivityToWorkout(activity: StravaActivity, userId: string
     maxHeartrate: activity.max_heartrate,
     averageCadence: activity.average_cadence,
     planPath,
+    planDayIndex, // Novo campo para vincular ao dia do plano
     source: 'strava',
     notes: `Importado do Strava (ID: ${activity.id})`,
     createdAt: new Date(),

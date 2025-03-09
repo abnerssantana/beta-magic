@@ -22,7 +22,8 @@ import {
   Trash2,
   Pencil,
   AlertTriangle,
-  ChevronLeft
+  ChevronLeft,
+  Link2
 } from "lucide-react";
 import { WorkoutLog } from '@/models/userProfile';
 import { PlanSummary } from '@/models';
@@ -65,23 +66,23 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   try {
     const userId = session.user.id;
-    
+
     // Buscar o plano ativo do usuário
     const activePlan = await getUserActivePlan(userId);
-    
+
     // Buscar o treino específico
     const res = await fetch(`${process.env.NEXTAUTH_URL}/api/user/workouts/${id}`, {
       headers: {
         cookie: context.req.headers.cookie || '',
       },
     });
-    
+
     if (!res.ok) {
       return {
         notFound: true,
       };
     }
-    
+
     const workout = await res.json();
 
     // Verificar se o treino pertence ao usuário atual
@@ -118,8 +119,8 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
     const hours = Math.floor(minutes / 60);
     const mins = Math.floor(minutes % 60);
     const secs = Math.round((minutes % 1) * 60);
-    
-    return hours > 0 
+
+    return hours > 0
       ? `${hours}h${mins.toString().padStart(2, '0')}`
       : `${mins}:${secs.toString().padStart(2, '0')}`;
   };
@@ -135,7 +136,7 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
       'race': 'bg-orange-500/10 text-orange-700 dark:text-orange-300 border-orange-500/30',
       'long': 'bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/30'
     };
-    
+
     return types[type] || 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/30';
   };
 
@@ -151,7 +152,7 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
       'long': 'Corrida Longa',
       'other': 'Outro'
     };
-    
+
     return types[type] || type;
   };
 
@@ -163,19 +164,19 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
     }
 
     setIsDeleting(true);
-    
+
     try {
       const response = await fetch(`/api/user/workouts/${workout._id}`, {
         method: 'DELETE',
       });
-      
+
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || 'Erro ao excluir treino');
       }
-      
+
       toast.success("Treino excluído com sucesso");
-      
+
       // Redirecionar para a página de atividades
       router.push('/dashboard/activities');
     } catch (error) {
@@ -205,7 +206,7 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
               Detalhes do treino registrado em {format(parseISO(workout.date), "d 'de' MMMM 'de' yyyy", { locale: ptBR })}
             </p>
           </div>
-          
+
           <Button variant="outline" size="sm" asChild>
             <Link href="/dashboard/activities">
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -228,7 +229,7 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
               </Badge>
             </div>
           </CardHeader>
-          
+
           <CardContent className="p-6 space-y-6">
             {/* Métricas principais em cartões */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -241,7 +242,7 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
                   </p>
                 </CardContent>
               </Card>
-              
+
               <Card className="bg-muted/30">
                 <CardContent className="p-4 flex flex-col items-center justify-center">
                   <Activity className="h-5 w-5 text-muted-foreground mb-1" />
@@ -249,7 +250,7 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
                   <p className="text-lg font-bold">{workout.distance.toFixed(2)} km</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="bg-muted/30">
                 <CardContent className="p-4 flex flex-col items-center justify-center">
                   <Clock className="h-5 w-5 text-muted-foreground mb-1" />
@@ -257,7 +258,7 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
                   <p className="text-lg font-bold">{formatDuration(workout.duration)}</p>
                 </CardContent>
               </Card>
-              
+
               <Card className="bg-muted/30">
                 <CardContent className="p-4 flex flex-col items-center justify-center">
                   <BarChart2 className="h-5 w-5 text-muted-foreground mb-1" />
@@ -266,7 +267,7 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
                 </CardContent>
               </Card>
             </div>
-            
+
             {/* Informações adicionais */}
             {(workout.notes || workout.planPath) && (
               <>
@@ -283,23 +284,38 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
                       </div>
                     </div>
                   )}
-                  
-                  {workout.planPath && activePlan && workout.planPath === activePlan.path && (
+                  {workout.planPath && (
                     <div>
                       <h3 className="text-sm font-medium flex items-center gap-2 mb-2">
                         <MapPin className="h-4 w-4 text-muted-foreground" />
                         Plano Relacionado
                       </h3>
                       <div className="bg-primary/5 p-4 rounded-lg border border-primary/20">
-                        <p className="flex justify-between items-center">
-                          <span className="font-medium">{activePlan.name}</span>
-                          <Button variant="outline" size="sm" asChild className="h-8 text-xs border-primary/20">
-                            <Link href={`/plano/${activePlan.path}`}>
-                              Ver Plano
-                              <ChevronLeft className="ml-1.5 h-3.5 w-3.5 rotate-180" />
-                            </Link>
-                          </Button>
-                        </p>
+                        <div className="flex justify-between items-center">
+                          <div>
+                            <p className="font-medium">
+                              {activePlan ? activePlan.name : workout.planPath}
+                            </p>
+                            {workout.planDayIndex !== undefined && (
+                              <p className="text-sm text-muted-foreground mt-1">
+                                <Link2 className="inline-block mr-1.5 h-3.5 w-3.5 text-primary" />
+                                Vinculado ao dia {workout.planDayIndex + 1} do plano
+                              </p>
+                            )}
+                          </div>
+                          {activePlan ? (
+                            <Button variant="outline" size="sm" asChild className="h-8 text-xs border-primary/20">
+                              <Link href={`/plano/${activePlan.path}`}>
+                                Ver Plano
+                                <ChevronLeft className="ml-1.5 h-3.5 w-3.5 rotate-180" />
+                              </Link>
+                            </Button>
+                          ) : (
+                            <Button variant="outline" size="sm" disabled className="h-8 text-xs">
+                              Plano não disponível
+                            </Button>
+                          )}
+                        </div>
                       </div>
                     </div>
                   )}
@@ -324,12 +340,12 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
               </div>
             </div>
           </CardContent>
-          
+
           <CardFooter className="p-6 pt-0 flex flex-wrap justify-between gap-3">
-            <Button 
-              variant="outline" 
-              size="sm" 
-              asChild 
+            <Button
+              variant="outline"
+              size="sm"
+              asChild
               className="border-primary/20 hover:bg-primary/5"
             >
               <Link href={`/dashboard/activities/edit/${workout._id}`}>
@@ -337,10 +353,10 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
                 Editar
               </Link>
             </Button>
-            
-            <Button 
-              variant="destructive" 
-              size="sm" 
+
+            <Button
+              variant="destructive"
+              size="sm"
               onClick={() => setIsDeleteDialogOpen(true)}
               className="bg-red-500/90 hover:bg-red-600"
             >
@@ -350,7 +366,7 @@ const WorkoutDetail: React.FC<WorkoutDetailProps> = ({ workout, activePlan }) =>
           </CardFooter>
         </Card>
       </div>
-      
+
       {/* Diálogo de confirmação de exclusão */}
       <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
         <AlertDialogContent>

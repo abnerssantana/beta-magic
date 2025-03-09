@@ -3,8 +3,12 @@ import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getValidStravaToken, fetchStravaActivities, stravaActivityToWorkout } from '@/lib/strava-utils';
 import { getUserActivePlan } from '@/lib/user-utils';
+import { getPlanByPath } from '@/lib/db-utils';
+import { organizePlanIntoWeeklyBlocks } from '@/lib/plan-utils';
 import clientPromise from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
+import { format, isEqual, parseISO, isSameDay } from 'date-fns';
+import { Activity } from '@/types/training';
 
 export default async function handler(
   req: NextApiRequest,
@@ -105,10 +109,85 @@ export default async function handler(
       });
     }
 
-    // Convert Strava activities to our workout format
-    const workouts = newActivities.map(activity => 
-      stravaActivityToWorkout(activity, session.user.id, planPath)
-    );
+    // NOVO: Se temos um plano ativo, busca o plano completo e organiza os treinos
+    let planDays: { date: string, index: number, activities: Activity[] }[] = [];
+    
+    if (planPath) {
+      try {
+        // Buscar plano completo
+        const fullPlan = await getPlanByPath(planPath);
+        
+        if (fullPlan && fullPlan.dailyWorkouts) {
+          // Buscar configurações personalizadas do usuário para determinar a data de início
+          const userProfile = await db.collection('userProfiles').findOne({ userId: session.user.id });
+          const userCustomPaces = userProfile?.customPaces?.[planPath] || {};
+          const startDate = userCustomPaces.startDate || format(new Date(), 'yyyy-MM-dd');
+          
+          // Organizar o plano em blocos semanais
+          const weeklyBlocks = organizePlanIntoWeeklyBlocks(fullPlan.dailyWorkouts, startDate);
+          
+          // Criar uma lista plana de dias com suas datas e índices
+          weeklyBlocks.forEach(week => {
+            week.days.forEach((day, dayIndex) => {
+              const currentIndex = planDays.length;
+              planDays.push({
+                date: day.date.split(',')[1].trim().split(' de ')[0].trim(),
+                index: currentIndex,
+                activities: day.activities
+              });
+            });
+          });
+        }
+      } catch (error) {
+        console.error('Error loading active plan for matching:', error);
+        // Continue mesmo com erro - apenas não vai vincular aos dias do plano
+      }
+    }
+
+    // Convert Strava activities to our workout format with plan day matching
+    const workouts = newActivities.map(activity => {
+      // Converter a atividade do Strava para o formato de treino
+      const workout = stravaActivityToWorkout(activity, session.user.id, planPath);
+      
+      // NOVO: Tentar encontrar correspondência com um dia do plano
+      if (planPath && planDays.length > 0) {
+        const activityDate = workout.date;
+        
+        // Encontrar o dia do plano que corresponde à data da atividade
+        const matchingDay = planDays.find(day => {
+          // Extrair o dia da data do plano (formato "d" de "d de mês de ano")
+          const planDayDate = day.date;
+          
+          // Extrair o dia da data da atividade (formato "yyyy-MM-dd")
+          const activityDay = activityDate.split('-')[2];
+          
+          // Comparar os dias
+          return planDayDate === activityDay;
+        });
+        
+        if (matchingDay) {
+          // Verifica se o tipo de atividade combina
+          const matchingActivity = matchingDay.activities.find(act => {
+            // Mapear tipos do Strava para tipos do plano
+            const activityTypeMap: Record<string, string[]> = {
+              'Run': ['easy', 'recovery', 'threshold', 'interval', 'repetition', 'long', 'marathon', 'race'],
+              'Walk': ['walk'],
+              'Workout': ['strength', 'força']
+            };
+            
+            const compatibleTypes = activityTypeMap[activity.sport_type] || [];
+            return compatibleTypes.includes(act.type);
+          });
+          
+          if (matchingActivity) {
+            // Vincular ao dia do plano
+            workout.planDayIndex = matchingDay.index;
+          }
+        }
+      }
+      
+      return workout;
+    });
 
     // Insert workouts into database
     const result = await db.collection('workouts').insertMany(workouts);
@@ -137,6 +216,7 @@ export default async function handler(
           date: workout.date,
           workoutId: result.insertedIds[index],
           planPath: workout.planPath,
+          planDayIndex: workout.planDayIndex, // Incluir índice do dia do plano se disponível
           distance: workout.distance
         }))
       ];
@@ -163,6 +243,7 @@ export default async function handler(
           date: workout.date,
           workoutId: result.insertedIds[index],
           planPath: workout.planPath,
+          planDayIndex: workout.planDayIndex, // Incluir índice do dia do plano se disponível
           distance: workout.distance
         })),
         lastActive: new Date(),
@@ -174,10 +255,14 @@ export default async function handler(
       });
     }
 
+    // Contar quantos treinos foram vinculados a dias do plano
+    const matchedCount = workouts.filter(w => w.planDayIndex !== undefined).length;
+
     return res.status(200).json({
       success: true,
-      message: `Successfully imported ${workouts.length} activities`,
+      message: `Successfully imported ${workouts.length} activities${matchedCount > 0 ? ` (${matchedCount} matched to plan days)` : ''}`,
       imported: workouts.length,
+      matched: matchedCount,
       totalDistance
     });
   } catch (error) {

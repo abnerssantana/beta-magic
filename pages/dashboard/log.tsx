@@ -100,6 +100,70 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
   // Determinar o tipo de treino baseado nas unidades
   const defaultWorkoutType = queryUnits === 'min' ? 'time' : 'distance';
 
+  // Função para calcular a duração com base na distância e no ritmo
+  const calculateDuration = (distance: number, paceStr: string): string => {
+    if (!paceStr || !distance) return '00:00:00';
+    
+    try {
+      // Remover sufixo "/km" se existir
+      const cleanPaceStr = paceStr.replace(/\/km$/, '').trim();
+      
+      // Verificar se o ritmo está em formato de range (contém hífen)
+      const isRangeFormat = cleanPaceStr.includes('-');
+      
+      let totalPaceMinutes: number;
+      
+      if (isRangeFormat) {
+        // Se for um range, calcular a média dos dois valores
+        const [minPace, maxPace] = cleanPaceStr.split('-').map(p => p.trim());
+        
+        // Converter o ritmo mínimo para minutos
+        const [minMinutes = 0, minSeconds = 0] = minPace.split(':').map(Number);
+        const minPaceMinutes = minMinutes + minSeconds / 60;
+        
+        // Converter o ritmo máximo para minutos
+        const [maxMinutes = 0, maxSeconds = 0] = maxPace.split(':').map(Number);
+        const maxPaceMinutes = maxMinutes + maxSeconds / 60;
+        
+        // Usar a média dos dois valores
+        totalPaceMinutes = (minPaceMinutes + maxPaceMinutes) / 2;
+      } else {
+        // Ritmo simples (não é um range)
+        const [paceMinutes = 0, paceSeconds = 0] = cleanPaceStr.split(':').map(Number);
+        totalPaceMinutes = paceMinutes + paceSeconds / 60;
+      }
+      
+      if (totalPaceMinutes <= 0) return '00:00:00';
+      
+      // Calcular duração total em minutos
+      const totalDurationMinutes = distance * totalPaceMinutes;
+      
+      // Converter para formato HH:MM:SS
+      const hours = Math.floor(totalDurationMinutes / 60);
+      const minutes = Math.floor(totalDurationMinutes % 60);
+      const seconds = Math.round((totalDurationMinutes - Math.floor(totalDurationMinutes)) * 60);
+      
+      return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    } catch (error) {
+      console.error('Erro ao calcular duração:', error);
+      return '00:00:00';
+    }
+  };
+
+  // Inicializa a duração padrão
+  let defaultDuration = '00:00:00';
+  
+  // Se temos distância e ritmo nos parâmetros, calcular a duração
+  if (typeof queryDistance === 'string' && queryUnits !== 'min' && typeof queryPace === 'string') {
+    const distanceValue = parseFloat(queryDistance);
+    if (!isNaN(distanceValue) && distanceValue > 0) {
+      defaultDuration = calculateDuration(distanceValue, queryPace);
+    }
+  } else if (typeof queryDistance === 'string' && queryUnits === 'min') {
+    // Se a unidade for minutos, formatar o tempo adequadamente
+    defaultDuration = formatMinutesToTime(parseFloat(queryDistance));
+  }
+
   // Inicializa o formulário com valores padrão ou valores da query
   const form = useForm<WorkoutFormValues>({
     resolver: zodResolver(workoutFormSchema),
@@ -109,9 +173,7 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
       activityType: typeof queryActivityType === 'string' ? queryActivityType : 'easy',
       workoutType: defaultWorkoutType,
       distance: typeof queryDistance === 'string' && queryUnits !== 'min' ? parseFloat(queryDistance) : undefined,
-      duration: typeof queryDistance === 'string' && queryUnits === 'min' 
-        ? formatMinutesToTime(parseFloat(queryDistance)) 
-        : '00:00:00',
+      duration: defaultDuration,
       pace: typeof queryPace === 'string' ? queryPace : '',
       notes: '',
     },
@@ -128,6 +190,7 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
   const workoutType = form.watch("workoutType");
   const duration = form.watch("duration");
   const pace = form.watch("pace");
+  const distance = form.watch("distance");
 
   // Função para calcular ritmo a partir de distância e duração
   const calculatePace = (distance?: number, durationStr?: string) => {
@@ -209,49 +272,46 @@ const LogWorkoutPage: React.FC<LogWorkoutPageProps> = ({ activePlan }) => {
     }
   };
 
-// Função para extrair e exibir o ritmo médio de um range
-const getAveragePaceFromRange = (paceStr: string): string => {
-  if (!paceStr) return '';
-  
-  // Remover sufixo "/km" se existir
-  const cleanPaceStr = paceStr.replace(/\/km$/, '').trim();
-  
-  // Verificar se o ritmo está em formato de range
-  if (cleanPaceStr.includes('-')) {
-    const [minPace, maxPace] = cleanPaceStr.split('-').map(p => p.trim());
+  // Função para extrair e exibir o ritmo médio de um range
+  const getAveragePaceFromRange = (paceStr: string): string => {
+    if (!paceStr) return '';
     
-    // Converter para segundos
-    const minParts = minPace.split(':').map(Number);
-    const maxParts = maxPace.split(':').map(Number);
+    // Remover sufixo "/km" se existir
+    const cleanPaceStr = paceStr.replace(/\/km$/, '').trim();
     
-    const minSeconds = minParts[0] * 60 + (minParts[1] || 0);
-    const maxSeconds = maxParts[0] * 60 + (maxParts[1] || 0);
+    // Verificar se o ritmo está em formato de range
+    if (cleanPaceStr.includes('-')) {
+      const [minPace, maxPace] = cleanPaceStr.split('-').map(p => p.trim());
+      
+      // Converter para segundos
+      const minParts = minPace.split(':').map(Number);
+      const maxParts = maxPace.split(':').map(Number);
+      
+      const minSeconds = minParts[0] * 60 + (minParts[1] || 0);
+      const maxSeconds = maxParts[0] * 60 + (maxParts[1] || 0);
+      
+      // Calcular média
+      const avgSeconds = (minSeconds + maxSeconds) / 2;
+      const avgMinutes = Math.floor(avgSeconds / 60);
+      const avgSecondsRemainder = Math.round(avgSeconds % 60);
+      
+      // Retornar no formato MM:SS
+      return `${avgMinutes}:${avgSecondsRemainder.toString().padStart(2, '0')}`;
+    }
     
-    // Calcular média
-    const avgSeconds = (minSeconds + maxSeconds) / 2;
-    const avgMinutes = Math.floor(avgSeconds / 60);
-    const avgSecondsRemainder = Math.round(avgSeconds % 60);
-    
-    // Retornar no formato MM:SS
-    return `${avgMinutes}:${avgSecondsRemainder.toString().padStart(2, '0')}`;
-  }
-  
-  // Se não for range, retorna o original
-  return cleanPaceStr;
-};
+    // Se não for range, retorna o original
+    return cleanPaceStr;
+  };
 
   // Atualizar ritmo quando distância ou duração mudam (para treinos baseados em distância)
   useEffect(() => {
-    if (workoutType === 'distance') {
-      const distance = form.getValues('distance');
-      if (distance) {
-        const newPace = calculatePace(distance, duration);
-        if (newPace) {
-          form.setValue('pace', newPace);
-        }
+    if (workoutType === 'distance' && distance) {
+      const newPace = calculatePace(distance, duration);
+      if (newPace) {
+        form.setValue('pace', newPace);
       }
     }
-  }, [form, workoutType, duration]);
+  }, [form, workoutType, duration, distance]);
 
   // Atualizar distância calculada quando ritmo ou duração mudam (para treinos baseados em tempo)
   useEffect(() => {
@@ -524,12 +584,21 @@ const getAveragePaceFromRange = (paceStr: string): string => {
                               placeholder="4:30" 
                               {...field}
                               className="pl-10" 
+                              onChange={(e) => {
+                                field.onChange(e);
+                                // Se for treino baseado em distância e temos um valor de distância,
+                                // recalcular o tempo quando o ritmo muda
+                                if (workoutType === 'distance' && distance) {
+                                  const newDuration = calculateDuration(distance, e.target.value);
+                                  form.setValue('duration', newDuration);
+                                }
+                              }}
                             />
                             <BarChart2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                           </div>
                         </FormControl>
                         <FormDescription>
-                          {workoutType === 'time' ? 'Usado para calcular a distância' : 'Calculado automaticamente da distância e duração'}
+                          {workoutType === 'time' ? 'Usado para calcular a distância' : 'Usado para calcular a duração ou ajustado com base na distância e duração'}
                         </FormDescription>
                         <FormMessage />
                       </FormItem>
@@ -552,7 +621,16 @@ const getAveragePaceFromRange = (paceStr: string): string => {
                               step="0.01" 
                               placeholder="10.0" 
                               {...field}
-                              className="pl-10" 
+                              className="pl-10"
+                              onChange={(e) => {
+                                field.onChange(e);
+                                const newDistance = parseFloat(e.target.value);
+                                // Se temos um ritmo válido, recalcular a duração quando a distância muda
+                                if (pace) {
+                                  const newDuration = calculateDuration(newDistance, pace);
+                                  form.setValue('duration', newDuration);
+                                }
+                              }}
                             />
                             <Activity className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                           </div>
